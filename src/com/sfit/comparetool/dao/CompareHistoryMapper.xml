@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>   
+    <!DOCTYPE mapper   
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">   
+    <mapper namespace="com.sfit.comparetool.dao.CompareHistoryDao">   
+    <!-- 这里namespace必须是CompareHistoryDao接口的路径，不然要运行的时候要报错 “is not known to the MapperRegistry”-->   
+        <!-- 这里的id必须和CompareHistoryDao接口中的接口方法名相同，不然运行的时候也要报错 -->   
+        <select id="queryHistory" resultType="CompareHistory" parameterType="java.lang.String">   
+            select * from compareHistory order by compareDate desc, version desc
+        </select>   
+        
+        <insert id="insertHistory" parameterType="CompareHistory">
+        	insert into compareHistory(version, compareDate, srcFile, targetFile, alterSQLFile, reportFile, status) values(#{version}, #{compareDate},#{srcFile}, #{targetFile}, #{alterSqlFile}, #{reportFile}, #{status})
+        </insert>
+    </mapper>  

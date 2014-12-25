@@ -1,0 +1,55 @@
+@CHARSET "UTF-8";
+#Content_Left{
+    height:440px;
+    width:300px;
+    float:left;/*设置浮动，实现多列效果，div+Css布局中很重要的*/
+    background:#FAF7FD;
+    padding:0;
+    margin:0;
+}
+
+#menus{
+	margin:0 0 0 20px;
+}
+
+.task-link{
+	text-decoration: none;
+}
+
+.task-icon-link{
+	text-decoration: none;
+}
+
+#menus{
+	margin-bottom: 20px;	
+}
+
+.menu{
+	margin-bottom: 3px;
+	white-space: nowrap;
+}
+
+.row {
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+.pane-header {
+	color:#3b3b3b;
+    font-weight: 700;
+    padding-right: 24px;
+    background:#E2D7E7;
+}
+
+.pane-content{
+	 border: medium none;
+}
+
+#compareHistory{
+	margin-left:20px;
+	margin-bottom:15px;
+	padding-right:15px;
+	padding-left:15px;
+	border:1px solid #f0f0f0;
+	border-radius: 4px;
+}

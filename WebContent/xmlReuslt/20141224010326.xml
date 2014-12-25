@@ -1,0 +1,1354 @@
+<Tables>
+	<Table name="H_CHECKCLIOTHERFUND" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+			<Drop type="index" indexName="INDEX_CHKOTHERFUND" ></Drop>
+		</Drops>
+		<Adds>
+		</Adds>
+		<Alters>
+			<Alter type="columnType" columnName="AMOUNT"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+		</Alters>
+		<Index>
+			<defineIndex name="INDEX_CHKOTHERFUND">
+				<key name="COMPANYID" />
+				<key name="TRADEDATE" />
+				<key name="CLIENTID" />
+				<key name="FUNDTYPE" />
+			</defineIndex>
+		</Index>
+	</Table>
+	<Table name="H_CHECKCLITRDDETAIL" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+			<Drop type="index" indexName="IDX_H_CHKCLITRDDTL_CLIENTID" ></Drop>
+			<Drop type="index" indexName="IDX_H_CHKCLITRDDTL_DATE_COMPID" ></Drop>
+		</Drops>
+		<Adds>
+		</Adds>
+		<Alters>
+			<Alter type="columnType" columnName="PRICE"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="AMOUNT"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="CLOSEPROFIT"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+		</Alters>
+		<Index>
+			<defineIndex name="IDX_H_CHKCLITRDDTL_CLIENTID">
+				<key name="CLIENTID" />
+			</defineIndex>
+			<defineIndex name="IDX_H_CHKCLITRDDTL_DATE_COMPID">
+				<key name="TRADEDATE" />
+				<key name="COMPANYID" />
+			</defineIndex>
+		</Index>
+	</Table>
+	<Table name="H_STANDCLIOPTPOSDETAIL" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+		</Drops>
+		<Adds>
+		</Adds>
+		<Alters>
+			<Alter type="columnType" columnName="MARGIN"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="POSITIONPROFIT"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+		</Alters>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="H_CHECKCLITRDSUMBYCOMP" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+			<Drop type="index" indexName="PK_H_CHECKCLITRDSUMBYCOMP" ></Drop>
+			<Drop type="index" indexName="IX_H_CHECKCLITRDSUMBYCOMP_PK" ></Drop>
+		</Drops>
+		<Adds>
+		</Adds>
+		<Alters>
+			<Alter type="columnType" columnName="PRICE"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="AMOUNT"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="CLOSEPROFIT"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+		</Alters>
+		<Index>
+			<defineIndex name="PK_H_CHECKCLITRDSUMBYCOMP">
+				<key name="CURRENCY" />
+				<key name="TRADEDATE" />
+				<key name="COMPANYID" />
+			</defineIndex>
+			<defineIndex name="IX_H_CHECKCLITRDSUMBYCOMP_PK">
+				<key name="TRADEDATE" />
+				<key name="COMPANYID" />
+			</defineIndex>
+		</Index>
+	</Table>
+	<Table name="H_CHECKCLIPOSDETAIL" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+			<Drop type="index" indexName="IX_H_CHKCLIPOSDTL_DATE_COMPID" ></Drop>
+		</Drops>
+		<Adds>
+		</Adds>
+		<Alters>
+			<Alter type="columnType" columnName="MARGIN"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="POSITIONPROFIT"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+		</Alters>
+		<Index>
+			<defineIndex name="IX_H_CHKCLIPOSDTL_DATE_COMPID">
+				<key name="TRADEDATE" />
+				<key name="COMPANYID" />
+			</defineIndex>
+		</Index>
+	</Table>
+	<Table name="C_CHECKCLIPOSSUMBYCONTRACT" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+			<Drop type="index" indexName="PK_C_CHECKCLIPOSSUMBYCONTRACT" ></Drop>
+		</Drops>
+		<Adds>
+		</Adds>
+		<Alters>
+			<Alter type="columnType" columnName="MARGIN"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="POSITIONPROFIT"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+		</Alters>
+		<Index>
+			<defineIndex name="PK_C_CHECKCLIPOSSUMBYCONTRACT">
+				<key name="CURRENCY" />
+				<key name="TRADEDATE" />
+				<key name="COMPANYID" />
+				<key name="CONTRACTID" />
+			</defineIndex>
+		</Index>
+	</Table>
+	<Table name="R_CLIFUNDCONTINUEREMAIN" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+		</Drops>
+		<Adds>
+		</Adds>
+		<Alters>
+			<Alter type="columnType" columnName="PROFIT"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="LASTMARGINTOTAL"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="LASTRIGHTBYDATE"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="TODAYRIGHTBYDATE"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="DELIVERYFUND"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="IOFUND"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="SETTLEMENTFUND"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="MARGINTOTAL"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="TRADEMARGIN"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="LASTRIGHTBYTRADE"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="TODAYRIGHTBYTRADE"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="FEE"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="COLLATERALFUND"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+		</Alters>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="C_CHECKCLIOPTTRDDETAIL" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+		</Drops>
+		<Adds>
+		</Adds>
+		<Alters>
+			<Alter type="columnType" columnName="PRICE"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="AMOUNT"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+		</Alters>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="H_STANDCLIPOSSUMBYCOMP" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+			<Drop type="index" indexName="IX_H_STANDCLIPOSSUMBYCOMP_PK" ></Drop>
+			<Drop type="index" indexName="PK_H_STANDCLIPOSSUMBYCOMP" ></Drop>
+		</Drops>
+		<Adds>
+		</Adds>
+		<Alters>
+			<Alter type="columnType" columnName="MARGIN"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="POSITIONPROFIT"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+		</Alters>
+		<Index>
+			<defineIndex name="IX_H_STANDCLIPOSSUMBYCOMP_PK">
+				<key name="TRADEDATE" />
+				<key name="COMPANYID" />
+			</defineIndex>
+			<defineIndex name="PK_H_STANDCLIPOSSUMBYCOMP">
+				<key name="CURRENCY" />
+				<key name="TRADEDATE" />
+				<key name="COMPANYID" />
+			</defineIndex>
+		</Index>
+	</Table>
+	<Table name="H_CHECKCLIPOSSUMBYCONTRACT" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+			<Drop type="index" indexName="PK_H_CHECKCLIPOSSUMBYCONTRACT" ></Drop>
+			<Drop type="index" indexName="IX_H_CHKCLIPOSSUMBYRACT_PK" ></Drop>
+		</Drops>
+		<Adds>
+		</Adds>
+		<Alters>
+			<Alter type="columnType" columnName="MARGIN"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="POSITIONPROFIT"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+		</Alters>
+		<Index>
+			<defineIndex name="PK_H_CHECKCLIPOSSUMBYCONTRACT">
+				<key name="CURRENCY" />
+				<key name="TRADEDATE" />
+				<key name="COMPANYID" />
+				<key name="CONTRACTID" />
+			</defineIndex>
+			<defineIndex name="IX_H_CHKCLIPOSSUMBYRACT_PK">
+				<key name="TRADEDATE" />
+				<key name="COMPANYID" />
+				<key name="CONTRACTID" />
+			</defineIndex>
+		</Index>
+	</Table>
+	<Table name="R_CLITRDDETAILREMAIN" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+		</Drops>
+		<Adds>
+		</Adds>
+		<Alters>
+			<Alter type="columnType" columnName="AMOUNTCHK"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="AMOUNTSTD"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="PRICESTD"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="CLOSEPROFITSTD"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="CLOSEPROFITCHK"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="PRICECHK"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+		</Alters>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="C_STANDCLIPOSDETAIL" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+		</Drops>
+		<Adds>
+		</Adds>
+		<Alters>
+			<Alter type="columnType" columnName="MARGIN"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="POSITIONPROFIT"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+		</Alters>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="H_STANDCLIPOSDETAIL" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+			<Drop type="index" indexName="IX_H_STDCLIPOSDTL_DATE_COMPID" ></Drop>
+		</Drops>
+		<Adds>
+		</Adds>
+		<Alters>
+			<Alter type="columnType" columnName="MARGIN"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="POSITIONPROFIT"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+		</Alters>
+		<Index>
+			<defineIndex name="IX_H_STDCLIPOSDTL_DATE_COMPID">
+				<key name="TRADEDATE" />
+				<key name="COMPANYID" />
+			</defineIndex>
+		</Index>
+	</Table>
+	<Table name="C_CHECKCLIOPTPOSDETAIL" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+		</Drops>
+		<Adds>
+		</Adds>
+		<Alters>
+			<Alter type="columnType" columnName="MARGIN"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="POSITIONPROFIT"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+		</Alters>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="H_CHECKCLITRDSUMBYCONTRACT" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+			<Drop type="index" indexName="PK_H_CHECKCLITRDSUMBYCONTRACT" ></Drop>
+			<Drop type="index" indexName="IX_H_CHKCLITRDSUMBYRACT_PK" ></Drop>
+		</Drops>
+		<Adds>
+		</Adds>
+		<Alters>
+			<Alter type="columnType" columnName="PRICE"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="AMOUNT"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="CLOSEPROFIT"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+		</Alters>
+		<Index>
+			<defineIndex name="PK_H_CHECKCLITRDSUMBYCONTRACT">
+				<key name="CURRENCY" />
+				<key name="TRADEDATE" />
+				<key name="COMPANYID" />
+				<key name="CONTRACTID" />
+			</defineIndex>
+			<defineIndex name="IX_H_CHKCLITRDSUMBYRACT_PK">
+				<key name="TRADEDATE" />
+				<key name="COMPANYID" />
+				<key name="CONTRACTID" />
+			</defineIndex>
+		</Index>
+	</Table>
+	<Table name="C_STANDCLIOPTTRDDETAIL" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+		</Drops>
+		<Adds>
+		</Adds>
+		<Alters>
+			<Alter type="columnType" columnName="PRICE"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="AMOUNT"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+		</Alters>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="C_CHECKCLITRDDETAIL" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+			<Drop type="index" indexName="INDEX_C_CHKTRD_SEQ_COMP_EX_BS" ></Drop>
+		</Drops>
+		<Adds>
+		</Adds>
+		<Alters>
+			<Alter type="columnType" columnName="PRICE"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="AMOUNT"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="CLOSEPROFIT"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+		</Alters>
+		<Index>
+			<defineIndex name="INDEX_C_CHKTRD_SEQ_COMP_EX_BS">
+				<key name="EXCHANGEID" />
+				<key name="TRADESEQ" />
+				<key name="COMPANYID" />
+				<key name="BSTAG" />
+			</defineIndex>
+		</Index>
+	</Table>
+	<Table name="H_STANDCLIOPTTRDDETAIL" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+		</Drops>
+		<Adds>
+		</Adds>
+		<Alters>
+			<Alter type="columnType" columnName="PRICE"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="AMOUNT"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+		</Alters>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="R_ID_BANKACCNM_COMPACCNMDIFF" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+		</Drops>
+		<Adds>
+		</Adds>
+		<Alters>
+			<Alter type="columnType" columnName="AMOUNT"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+		</Alters>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="C_STANDCOMPFUND" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+			<Drop type="index" indexName="PK_C_STANDCOMPFUND" ></Drop>
+		</Drops>
+		<Adds>
+		</Adds>
+		<Alters>
+			<Alter type="columnType" columnName="PROFIT"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="OTHERFUND"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="DELIVFEE"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="OPTEXEFEE"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="DELIVERYFUND"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="TRADEFEE"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="IOFUND"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="MARGIN"  changedTypeName="NUMBER(20,4)" originalChangedTypeName="TY_AMOUNT4"></Alter>
+			<Alter type="columnType" columnName="OPTAMOUNT"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="SETTLEMENTFUND"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="DELIVMARGIN"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="MARGINTOTAL"  changedTypeName="NUMBER(20,4)" originalChangedTypeName="TY_AMOUNT4"></Alter>
+			<Alter type="columnType" columnName="TRADEMARGIN"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="OPTMARGIN"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="COLLATERALFUND"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="FEE"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+		</Alters>
+		<Index>
+			<defineIndex name="PK_C_STANDCOMPFUND">
+				<key name="CURRENCY" />
+				<key name="TRADEDATE" />
+				<key name="COMPANYID" />
+			</defineIndex>
+		</Index>
+	</Table>
+	<Table name="R_CLIPOSREMAINSUMBYCOMP" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+		</Drops>
+		<Adds>
+		</Adds>
+		<Alters>
+			<Alter type="columnType" columnName="POSITIONPROFITSTD"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="MARGINCHK"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="MARGINSTD"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="POSITIONPROFITCHK"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+		</Alters>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="H_STANDCLITRDDETAIL_TEST" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+		</Drops>
+		<Adds>
+		</Adds>
+		<Alters>
+			<Alter type="columnType" columnName="PRICE"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="AMOUNT"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+		</Alters>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="R_CLIFUNDREMAIN" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+		</Drops>
+		<Adds>
+		</Adds>
+		<Alters>
+			<Alter type="columnType" columnName="PROFITCHK"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="DELIVERYFUNDSTD"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="MARGINTOTALCHK"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="TRADEMARGINCHK"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="DELIVERYFUNDCHK"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="OPTAMOUNTCHK"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="COLLATERALFUNDSTD"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="OPTMARGINCHK"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="IOFUNDSTD"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="FREEFUNDCHK"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="OTHERFUNDCHK"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="PROFITSTD"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="COLLATERALFUNDCHK"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="DELIVMARGINCHK"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="OPTMARGINSTD"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="OPTAMOUNTSTD"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="OTHERFUNDSTD"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="DELIVMARGINSTD"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="FREEFUNDSTD"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="MARGINTOTALSTD"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="TRADEMARGINSTD"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="FEECHK"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="IOFUNDCHK"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="FEESTD"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+		</Alters>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="C_CHECKCLIPOSDETAIL" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+		</Drops>
+		<Adds>
+		</Adds>
+		<Alters>
+			<Alter type="columnType" columnName="MARGIN"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="POSITIONPROFIT"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+		</Alters>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="R_CLITRDREMAINSUMBYCOMP" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+		</Drops>
+		<Adds>
+		</Adds>
+		<Alters>
+			<Alter type="columnType" columnName="AMOUNTCHK"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="AMOUNTSTD"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="CLOSEPROFITCHK"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="PRICESTD"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="CLOSEPROFITSTD"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="PRICECHK"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+		</Alters>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="C_CHECKCOMPFUND" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+			<Drop type="index" indexName="PK_C_CHECKCOMPFUND" ></Drop>
+		</Drops>
+		<Adds>
+		</Adds>
+		<Alters>
+			<Alter type="columnType" columnName="PROFIT"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="OTHERFUND"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="DELIVFEE"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="OPTEXEFEE"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="DELIVERYFUND"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="TRADEFEE"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="IOFUND"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="OPTAMOUNT"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="MARGIN"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="SETTLEMENTFUND"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="DELIVMARGIN"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="MARGINTOTAL"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="TRADEMARGIN"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="OPTMARGIN"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="MARGINTOTALALL"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="COLLATERALFUND"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="FEE"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+		</Alters>
+		<Index>
+			<defineIndex name="PK_C_CHECKCOMPFUND">
+				<key name="CURRENCY" />
+				<key name="TRADEDATE" />
+				<key name="COMPANYID" />
+			</defineIndex>
+		</Index>
+	</Table>
+	<Table name="R_CLIENTOTHERFUNDREMAIN" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+		</Drops>
+		<Adds>
+		</Adds>
+		<Alters>
+			<Alter type="columnType" columnName="AMOUNTCHK"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="AMOUNTSTD"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+		</Alters>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="H_STANDCLITRDSUMBYCOMP" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+			<Drop type="index" indexName="PK_H_STANDCLITRDSUMBYCOMP" ></Drop>
+			<Drop type="index" indexName="IX_H_STANDCLITRDSUMBYCOMP_PK" ></Drop>
+		</Drops>
+		<Adds>
+		</Adds>
+		<Alters>
+			<Alter type="columnType" columnName="PRICE"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="AMOUNT"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="CLOSEPROFIT"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+		</Alters>
+		<Index>
+			<defineIndex name="PK_H_STANDCLITRDSUMBYCOMP">
+				<key name="CURRENCY" />
+				<key name="TRADEDATE" />
+				<key name="COMPANYID" />
+			</defineIndex>
+			<defineIndex name="IX_H_STANDCLITRDSUMBYCOMP_PK">
+				<key name="TRADEDATE" />
+				<key name="COMPANYID" />
+			</defineIndex>
+		</Index>
+	</Table>
+	<Table name="R_CLIPOSREMAINSUMBYCONTRACT" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+		</Drops>
+		<Adds>
+		</Adds>
+		<Alters>
+			<Alter type="columnType" columnName="POSITIONPROFITSTD"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="MARGINCHK"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="MARGINSTD"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="POSITIONPROFITCHK"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+		</Alters>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="C_STANDCLIPOSSUMBYCONTRACT" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+			<Drop type="index" indexName="PK_C_STANDCLIPOSSUMBYCONTRACT" ></Drop>
+		</Drops>
+		<Adds>
+		</Adds>
+		<Alters>
+			<Alter type="columnType" columnName="MARGIN"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="POSITIONPROFIT"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+		</Alters>
+		<Index>
+			<defineIndex name="PK_C_STANDCLIPOSSUMBYCONTRACT">
+				<key name="CURRENCY" />
+				<key name="TRADEDATE" />
+				<key name="COMPANYID" />
+				<key name="CONTRACTID" />
+			</defineIndex>
+		</Index>
+	</Table>
+	<Table name="C_STANDCLIFUND" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+			<Drop type="index" indexName="PK_C_STANDCLIFUND" ></Drop>
+		</Drops>
+		<Adds>
+		</Adds>
+		<Alters>
+			<Alter type="columnType" columnName="PROFIT"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="OTHERFUND"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="DELIVFEE"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="OPTEXEFEE"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="DELIVERYFUND"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="TRADEFEE"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="IOFUND"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="OPTAMOUNT"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="DELIVMARGIN"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="MARGINTOTAL"  changedTypeName="NUMBER(20,4)" originalChangedTypeName="TY_AMOUNT4"></Alter>
+			<Alter type="columnType" columnName="TRADEMARGIN"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="OPTMARGIN"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="FREEFUND"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="COLLATERALFUND"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="FEE"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+		</Alters>
+		<Index>
+			<defineIndex name="PK_C_STANDCLIFUND">
+				<key name="CURRENCY" />
+				<key name="TRADEDATE" />
+				<key name="COMPANYID" />
+				<key name="CLIENTID" />
+			</defineIndex>
+		</Index>
+	</Table>
+	<Table name="H_CHECKCLIOPTTRDDETAIL" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+		</Drops>
+		<Adds>
+		</Adds>
+		<Alters>
+			<Alter type="columnType" columnName="PRICE"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="AMOUNT"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+		</Alters>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="C_STANDCLIPOSSUMBYCOMP" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+			<Drop type="index" indexName="PK_C_STANDCLIPOSSUMBYCOMP" ></Drop>
+		</Drops>
+		<Adds>
+		</Adds>
+		<Alters>
+			<Alter type="columnType" columnName="MARGIN"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="POSITIONPROFIT"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+		</Alters>
+		<Index>
+			<defineIndex name="PK_C_STANDCLIPOSSUMBYCOMP">
+				<key name="CURRENCY" />
+				<key name="TRADEDATE" />
+				<key name="COMPANYID" />
+			</defineIndex>
+		</Index>
+	</Table>
+	<Table name="C_CHECKCLICONTINUEFUNDLAST" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+			<Drop type="index" indexName="PK_C_CHECKCLICONTINUEFUNDLAST" ></Drop>
+		</Drops>
+		<Adds>
+		</Adds>
+		<Alters>
+			<Alter type="columnType" columnName="LASTRIGHTBYTRADE"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="LASTRIGHTBYDATE"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="TODAYRIGHTBYDATE"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="TODAYPROFITBYDATE"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="TODAYPROFITBYTRADE"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="TODAYRIGHTBYTRADE"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="FLOATPROFITBYTRADE"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+		</Alters>
+		<Index>
+			<defineIndex name="PK_C_CHECKCLICONTINUEFUNDLAST">
+				<key name="TRADEDATE" />
+				<key name="COMPANYID" />
+				<key name="CLIENTID" />
+			</defineIndex>
+		</Index>
+	</Table>
+	<Table name="C_STANDCLIOTHERFUND" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+		</Drops>
+		<Adds>
+		</Adds>
+		<Alters>
+			<Alter type="columnType" columnName="AMOUNT"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+		</Alters>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="C_CHECKCLITRDSUMBYCOMP" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+			<Drop type="index" indexName="PK_C_CHECKCLITRDSUMBYCOMP" ></Drop>
+		</Drops>
+		<Adds>
+		</Adds>
+		<Alters>
+			<Alter type="columnType" columnName="PRICE"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="AMOUNT"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="CLOSEPROFIT"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+		</Alters>
+		<Index>
+			<defineIndex name="PK_C_CHECKCLITRDSUMBYCOMP">
+				<key name="CURRENCY" />
+				<key name="TRADEDATE" />
+				<key name="COMPANYID" />
+			</defineIndex>
+		</Index>
+	</Table>
+	<Table name="C_STANDCLITRDSUMBYCONTRACT" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+			<Drop type="index" indexName="PK_C_STANDCLITRDSUMBYCONTRACT" ></Drop>
+		</Drops>
+		<Adds>
+		</Adds>
+		<Alters>
+			<Alter type="columnType" columnName="PRICE"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="AMOUNT"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="CLOSEPROFIT"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+		</Alters>
+		<Index>
+			<defineIndex name="PK_C_STANDCLITRDSUMBYCONTRACT">
+				<key name="CURRENCY" />
+				<key name="TRADEDATE" />
+				<key name="COMPANYID" />
+				<key name="CONTRACTID" />
+			</defineIndex>
+		</Index>
+	</Table>
+	<Table name="R_CLIPROFITFUNDREMAIN" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+		</Drops>
+		<Adds>
+		</Adds>
+		<Alters>
+			<Alter type="columnType" columnName="PROFITCHK"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="DELIVERYFUNDSTD"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="MARGINTOTALCHK"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="TRADEMARGINCHK"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="DELIVERYFUNDCHK"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="COLLATERALFUNDSTD"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="IOFUNDSTD"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="FREEFUNDCHK"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="PROFITSTD"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="COLLATERALFUNDCHK"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="FREEFUNDSTD"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="MARGINTOTALSTD"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="TRADEMARGINSTD"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="FEECHK"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="IOFUNDCHK"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="FEESTD"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+		</Alters>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="R_CLITRDREMAINSUMBYCONTRACT" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+		</Drops>
+		<Adds>
+		</Adds>
+		<Alters>
+			<Alter type="columnType" columnName="AMOUNTCHK"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="AMOUNTSTD"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="CLOSEPROFITCHK"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="PRICESTD"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="CLOSEPROFITSTD"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="PRICECHK"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+		</Alters>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="H_CHECKCLIOPTPOSDETAIL" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+		</Drops>
+		<Adds>
+		</Adds>
+		<Alters>
+			<Alter type="columnType" columnName="MARGIN"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="POSITIONPROFIT"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+		</Alters>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="R_CLIIOFUNDDETAILREMAIN" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+			<Drop type="index" indexName="PK_R_CLIIOFUNDDETAILREMAIN" ></Drop>
+			<Drop type="index" indexName="INDEX_R_CLIFUNDREMAIN_DATE" ></Drop>
+		</Drops>
+		<Adds>
+		</Adds>
+		<Alters>
+			<Alter type="columnType" columnName="AMOUNTCHK"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="AMOUNTSTD"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+		</Alters>
+		<Index>
+			<defineIndex name="PK_R_CLIIOFUNDDETAILREMAIN">
+				<key name="ALARMID" />
+			</defineIndex>
+			<defineIndex name="INDEX_R_CLIFUNDREMAIN_DATE">
+				<key name="TRADEDATESTD" />
+				<key name="TRADEDATECHK" />
+				<key name="COMPANYID" />
+			</defineIndex>
+		</Index>
+	</Table>
+	<Table name="R_CLIPOSDETAILREMAIN" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+		</Drops>
+		<Adds>
+		</Adds>
+		<Alters>
+			<Alter type="columnType" columnName="POSITIONPROFITSTD"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="MARGINCHK"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="MARGINSTD"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="POSITIONPROFITCHK"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+		</Alters>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="R_CLIPROFITDETAILREMAIN" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+		</Drops>
+		<Adds>
+		</Adds>
+		<Alters>
+			<Alter type="columnType" columnName="TOTALPROFIT"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="POSPROFIT"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="DIFF"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="DELIVPROFIT"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="CLOSEPROFIT"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+		</Alters>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="H_STANDCOMPFUND" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+			<Drop type="index" indexName="IX_H_STANDCOMPFUND_PK" ></Drop>
+			<Drop type="index" indexName="PK_H_STANDCOMPFUND" ></Drop>
+		</Drops>
+		<Adds>
+		</Adds>
+		<Alters>
+			<Alter type="columnType" columnName="PROFIT"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="OTHERFUND"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="DELIVFEE"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="OPTEXEFEE"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="DELIVERYFUND"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="TRADEFEE"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="OPTAMOUNT"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="IOFUND"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="SETTLEMENTFUND"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="DELIVMARGIN"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="MARGINTOTAL"  changedTypeName="NUMBER(20,4)" originalChangedTypeName="TY_AMOUNT4"></Alter>
+			<Alter type="columnType" columnName="TRADEMARGIN"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="OPTMARGIN"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="COLLATERALFUND"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="FEE"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+		</Alters>
+		<Index>
+			<defineIndex name="IX_H_STANDCOMPFUND_PK">
+				<key name="TRADEDATE" />
+				<key name="COMPANYID" />
+			</defineIndex>
+			<defineIndex name="PK_H_STANDCOMPFUND">
+				<key name="CURRENCY" />
+				<key name="TRADEDATE" />
+				<key name="COMPANYID" />
+			</defineIndex>
+		</Index>
+	</Table>
+	<Table name="H_CHECKCLIPOSSUMBYCOMP" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+			<Drop type="index" indexName="PK_H_CHECKCLIPOSSUMBYCOMP" ></Drop>
+			<Drop type="index" indexName="IX_H_CHECKCLIPOSSUMBYCOMP_PK" ></Drop>
+		</Drops>
+		<Adds>
+		</Adds>
+		<Alters>
+			<Alter type="columnType" columnName="MARGIN"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="POSITIONPROFIT"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+		</Alters>
+		<Index>
+			<defineIndex name="PK_H_CHECKCLIPOSSUMBYCOMP">
+				<key name="CURRENCY" />
+				<key name="TRADEDATE" />
+				<key name="COMPANYID" />
+			</defineIndex>
+			<defineIndex name="IX_H_CHECKCLIPOSSUMBYCOMP_PK">
+				<key name="TRADEDATE" />
+				<key name="COMPANYID" />
+			</defineIndex>
+		</Index>
+	</Table>
+	<Table name="C_STANDCLIOPTPOSDETAIL" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+		</Drops>
+		<Adds>
+		</Adds>
+		<Alters>
+			<Alter type="columnType" columnName="MARGIN"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="POSITIONPROFIT"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+		</Alters>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="H_CHECKCLIFUND" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+			<Drop type="index" indexName="IX_H_CHECKCLIFUND_PK" ></Drop>
+			<Drop type="index" indexName="PK_H_CHECKCLIFUND" ></Drop>
+		</Drops>
+		<Adds>
+		</Adds>
+		<Alters>
+			<Alter type="columnType" columnName="PROFIT"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="OPTEXEFEE"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="OTHERFUND"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="LASTRIGHTBYDATE"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="JHAMOUNT"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="IOFUND"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="DELIVMARGIN"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="TODAYPROFITBYDATE"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="FEE"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="DELIVFEE"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="TODAYRIGHTBYDATE"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="DELIVERYFUND"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="TRADEFEE"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="OPTAMOUNT"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="FLOATPROFITBYTRADE"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="MARGINTOTAL"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="TRADEMARGIN"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="FREEFUND"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="LASTRIGHTBYTRADE"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="SHNAMOUNT"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="TODAYPROFITBYTRADE"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="TODAYRIGHTBYTRADE"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="COLLATERALFUND"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="OPTTRADEMARGIN"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+		</Alters>
+		<Index>
+			<defineIndex name="IX_H_CHECKCLIFUND_PK">
+				<key name="TRADEDATE" />
+				<key name="COMPANYID" />
+				<key name="CLIENTID" />
+			</defineIndex>
+			<defineIndex name="PK_H_CHECKCLIFUND">
+				<key name="CURRENCY" />
+				<key name="TRADEDATE" />
+				<key name="COMPANYID" />
+				<key name="CLIENTID" />
+			</defineIndex>
+		</Index>
+	</Table>
+	<Table name="R_COMPFUNDREMAIN" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+		</Drops>
+		<Adds>
+		</Adds>
+		<Alters>
+			<Alter type="columnType" columnName="PROFITCHK"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="DELIVERYFUNDSTD"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="MARGINTOTALCHK"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="TRADEMARGINCHK"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="DELIVERYFUNDCHK"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="OPTAMOUNTCHK"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="COLLATERALFUNDSTD"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="MARGINCHK"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="IOFUNDSTD"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="MARGINSTD"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="SETTLEMENTFUNDCHK"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="OTHERFUNDCHK"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="PROFITSTD"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="COLLATERALFUNDCHK"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="OPTAMOUNTSTD"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="OTHERFUNDSTD"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="MARGINTOTALSTD"  changedTypeName="NUMBER(20,4)" originalChangedTypeName="TY_AMOUNT4"></Alter>
+			<Alter type="columnType" columnName="TRADEMARGINSTD"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="FEECHK"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="IOFUNDCHK"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="SETTLEMENTFUNDSTD"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="FEESTD"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+		</Alters>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="H_STANDCLITRDSUMBYCONTRACT" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+			<Drop type="index" indexName="PK_H_STANDCLITRDSUMBYCONTRACT" ></Drop>
+			<Drop type="index" indexName="IX_H_STDCLITRDSUMBYRACT_PK" ></Drop>
+		</Drops>
+		<Adds>
+		</Adds>
+		<Alters>
+			<Alter type="columnType" columnName="PRICE"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="AMOUNT"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="CLOSEPROFIT"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+		</Alters>
+		<Index>
+			<defineIndex name="PK_H_STANDCLITRDSUMBYCONTRACT">
+				<key name="CURRENCY" />
+				<key name="TRADEDATE" />
+				<key name="COMPANYID" />
+				<key name="CONTRACTID" />
+			</defineIndex>
+			<defineIndex name="IX_H_STDCLITRDSUMBYRACT_PK">
+				<key name="TRADEDATE" />
+				<key name="COMPANYID" />
+				<key name="CONTRACTID" />
+			</defineIndex>
+		</Index>
+	</Table>
+	<Table name="C_STANDCLIIOFUNDDETAIL" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+			<Drop type="index" indexName="PK_C_STANDCLIIOFUNDDETAIL" ></Drop>
+		</Drops>
+		<Adds>
+		</Adds>
+		<Alters>
+			<Alter type="columnType" columnName="AMOUNT"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+		</Alters>
+		<Index>
+			<defineIndex name="PK_C_STANDCLIIOFUNDDETAIL">
+				<key name="SEQID" />
+				<key name="TRADEDATE" />
+			</defineIndex>
+		</Index>
+	</Table>
+	<Table name="C_STANDCLITRDSUMBYCOMP" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+			<Drop type="index" indexName="PK_C_STANDCLITRDSUMBYCOMP" ></Drop>
+		</Drops>
+		<Adds>
+		</Adds>
+		<Alters>
+			<Alter type="columnType" columnName="PRICE"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="AMOUNT"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="CLOSEPROFIT"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+		</Alters>
+		<Index>
+			<defineIndex name="PK_C_STANDCLITRDSUMBYCOMP">
+				<key name="CURRENCY" />
+				<key name="TRADEDATE" />
+				<key name="COMPANYID" />
+			</defineIndex>
+		</Index>
+	</Table>
+	<Table name="H_STANDCLITRDDETAIL" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+			<Drop type="index" indexName="IX_H_STDCLITRDDTL_DATE_COMPID" ></Drop>
+		</Drops>
+		<Adds>
+		</Adds>
+		<Alters>
+			<Alter type="columnType" columnName="PRICE"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="AMOUNT"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="CLOSEPROFIT"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+		</Alters>
+		<Index>
+			<defineIndex name="IX_H_STDCLITRDDTL_DATE_COMPID">
+				<key name="TRADEDATE" />
+				<key name="COMPANYID" />
+			</defineIndex>
+		</Index>
+	</Table>
+	<Table name="C_CHECKCLICONTINUEFUND" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+			<Drop type="index" indexName="PK_C_CHECKCLICONTINUEFUND" ></Drop>
+		</Drops>
+		<Adds>
+		</Adds>
+		<Alters>
+			<Alter type="columnType" columnName="LASTRIGHTBYTRADE"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="LASTRIGHTBYDATE"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="TODAYRIGHTBYDATE"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="TODAYPROFITBYDATE"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="TODAYPROFITBYTRADE"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="TODAYRIGHTBYTRADE"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="FLOATPROFITBYTRADE"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+		</Alters>
+		<Index>
+			<defineIndex name="PK_C_CHECKCLICONTINUEFUND">
+				<key name="CURRENCY" />
+				<key name="TRADEDATE" />
+				<key name="COMPANYID" />
+				<key name="CLIENTID" />
+			</defineIndex>
+		</Index>
+	</Table>
+	<Table name="R_COMPFUNDCONTINUEREMAIN" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+		</Drops>
+		<Adds>
+		</Adds>
+		<Alters>
+			<Alter type="columnType" columnName="FEE_TODAY"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="PROFIT_TODAY"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="MARGINTOTAL_TODAY"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="OTHERFUND_TODAY"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="IOFUND_TODAY"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="DIFFERENCE"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="MARGINTOTAL_LAST"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+		</Alters>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="H_CHECKCOMPFUND" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+			<Drop type="index" indexName="IX_H_CHECKCOMPFUND_PK" ></Drop>
+			<Drop type="index" indexName="PK_H_CHECKCOMPFUND" ></Drop>
+		</Drops>
+		<Adds>
+		</Adds>
+		<Alters>
+			<Alter type="columnType" columnName="PROFIT"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="OTHERFUND"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="DELIVFEE"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="OPTEXEFEE"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="DELIVERYFUND"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="TRADEFEE"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="FEEFUND"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="IOFUND"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="OPTAMOUNT"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="SETTLEMENTFUND"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="DELIVMARGIN"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="MARGINTOTAL"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="TRADEMARGIN"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="MARGINTOTALALL"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="COLLATERALFUND"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="FEE"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="OPTTRADEMARGIN"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+		</Alters>
+		<Index>
+			<defineIndex name="IX_H_CHECKCOMPFUND_PK">
+				<key name="TRADEDATE" />
+				<key name="COMPANYID" />
+			</defineIndex>
+			<defineIndex name="PK_H_CHECKCOMPFUND">
+				<key name="CURRENCY" />
+				<key name="TRADEDATE" />
+				<key name="COMPANYID" />
+			</defineIndex>
+		</Index>
+	</Table>
+	<Table name="C_CHECKCLIFUND" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+			<Drop type="index" indexName="PK_C_CHECKCLIFUND" ></Drop>
+		</Drops>
+		<Adds>
+		</Adds>
+		<Alters>
+			<Alter type="columnType" columnName="PROFIT"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="OTHERFUND"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="DELIVERYFUND"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="OPTAMOUNT"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="IOFUND"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="DELIVMARGIN"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="MARGINTOTAL"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="TRADEMARGIN"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="OPTMARGIN"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="FREEFUND"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="COLLATERALFUND"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="FEE"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+		</Alters>
+		<Index>
+			<defineIndex name="PK_C_CHECKCLIFUND">
+				<key name="CURRENCY" />
+				<key name="TRADEDATE" />
+				<key name="COMPANYID" />
+				<key name="CLIENTID" />
+			</defineIndex>
+		</Index>
+	</Table>
+	<Table name="C_STANDCLITRDDETAIL" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+			<Drop type="index" indexName="INDEX_C_STDTRD_SEQ_COMP_EX_BS" ></Drop>
+		</Drops>
+		<Adds>
+		</Adds>
+		<Alters>
+			<Alter type="columnType" columnName="PRICE"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="AMOUNT"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="CLOSEPROFIT"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+		</Alters>
+		<Index>
+			<defineIndex name="INDEX_C_STDTRD_SEQ_COMP_EX_BS">
+				<key name="EXCHANGEID" />
+				<key name="TRADESEQ" />
+				<key name="COMPANYID" />
+				<key name="BSTAG" />
+			</defineIndex>
+		</Index>
+	</Table>
+	<Table name="R_ID_BANKACC_COMPACCDIFF" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+		</Drops>
+		<Adds>
+		</Adds>
+		<Alters>
+			<Alter type="columnType" columnName="AMOUNT"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+		</Alters>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="C_CHECKCLIPOSSUMBYCOMP" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+			<Drop type="index" indexName="PK_C_CHECKCLIPOSSUMBYCOMP" ></Drop>
+		</Drops>
+		<Adds>
+		</Adds>
+		<Alters>
+			<Alter type="columnType" columnName="MARGIN"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="POSITIONPROFIT"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+		</Alters>
+		<Index>
+			<defineIndex name="PK_C_CHECKCLIPOSSUMBYCOMP">
+				<key name="CURRENCY" />
+				<key name="TRADEDATE" />
+				<key name="COMPANYID" />
+			</defineIndex>
+		</Index>
+	</Table>
+	<Table name="C_CHECKCLIIOFUNDDETAIL" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+			<Drop type="index" indexName="PK_C_CHECKCLIIOFUNDDETAIL" ></Drop>
+		</Drops>
+		<Adds>
+		</Adds>
+		<Alters>
+			<Alter type="columnType" columnName="IOFUND"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+		</Alters>
+		<Index>
+			<defineIndex name="PK_C_CHECKCLIIOFUNDDETAIL">
+				<key name="SEQID" />
+				<key name="TRADEDATE" />
+			</defineIndex>
+		</Index>
+	</Table>
+	<Table name="H_STANDCLIPOSSUMBYCONTRACT" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+			<Drop type="index" indexName="PK_H_STANDCLIPOSSUMBYCONTRACT" ></Drop>
+			<Drop type="index" indexName="IX_H_STDCLIPOSSUMBYRACT_PK" ></Drop>
+		</Drops>
+		<Adds>
+		</Adds>
+		<Alters>
+			<Alter type="columnType" columnName="MARGIN"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="POSITIONPROFIT"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+		</Alters>
+		<Index>
+			<defineIndex name="PK_H_STANDCLIPOSSUMBYCONTRACT">
+				<key name="CURRENCY" />
+				<key name="TRADEDATE" />
+				<key name="COMPANYID" />
+				<key name="CONTRACTID" />
+			</defineIndex>
+			<defineIndex name="IX_H_STDCLIPOSSUMBYRACT_PK">
+				<key name="TRADEDATE" />
+				<key name="COMPANYID" />
+				<key name="CONTRACTID" />
+			</defineIndex>
+		</Index>
+	</Table>
+	<Table name="H_CHECKCLIIOFUNDDETAIL" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+			<Drop type="index" indexName="IX_H_CHECKCLIIOFUNDDETAIL_PK" ></Drop>
+			<Drop type="index" indexName="IX_H_CHKIOFUNDDTL_DATE_COMPID" ></Drop>
+		</Drops>
+		<Adds>
+		</Adds>
+		<Alters>
+			<Alter type="columnType" columnName="IOFUND"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+		</Alters>
+		<Index>
+			<defineIndex name="IX_H_CHECKCLIIOFUNDDETAIL_PK">
+				<key name="TRADEDATE" />
+				<key name="SEQID" />
+			</defineIndex>
+			<defineIndex name="IX_H_CHKIOFUNDDTL_DATE_COMPID">
+				<key name="TRADEDATE" />
+				<key name="COMPANYID" />
+			</defineIndex>
+		</Index>
+	</Table>
+	<Table name="C_CHECKCLIFUNDLAST" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+			<Drop type="index" indexName="PK_C_CHECKCLIFUNDLAST" ></Drop>
+		</Drops>
+		<Adds>
+		</Adds>
+		<Alters>
+			<Alter type="columnType" columnName="PROFIT"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="FREEFUND"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="DELIVERYFUND"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="IOFUND"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="TRADEMARGIN"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="MARGINTOTAL"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="COLLATERALFUND"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="FEE"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+		</Alters>
+		<Index>
+			<defineIndex name="PK_C_CHECKCLIFUNDLAST">
+				<key name="TRADEDATE" />
+				<key name="COMPANYID" />
+				<key name="CLIENTID" />
+			</defineIndex>
+		</Index>
+	</Table>
+	<Table name="C_CHECKCLIOTHERFUND" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+		</Drops>
+		<Adds>
+		</Adds>
+		<Alters>
+			<Alter type="columnType" columnName="AMOUNT"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+		</Alters>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="H_STANDCLIOTHERFUND" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+			<Drop type="index" indexName="INDEX_STDTOTHERFUND" ></Drop>
+		</Drops>
+		<Adds>
+		</Adds>
+		<Alters>
+			<Alter type="columnType" columnName="AMOUNT"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+		</Alters>
+		<Index>
+			<defineIndex name="INDEX_STDTOTHERFUND">
+				<key name="COMPANYID" />
+				<key name="TRADEDATE" />
+			</defineIndex>
+		</Index>
+	</Table>
+	<Table name="C_CHECKCLITRDSUMBYCONTRACT" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+			<Drop type="index" indexName="PK_C_CHECKCLITRDSUMBYCONTRACT" ></Drop>
+		</Drops>
+		<Adds>
+		</Adds>
+		<Alters>
+			<Alter type="columnType" columnName="PRICE"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="AMOUNT"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="CLOSEPROFIT"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+		</Alters>
+		<Index>
+			<defineIndex name="PK_C_CHECKCLITRDSUMBYCONTRACT">
+				<key name="CURRENCY" />
+				<key name="TRADEDATE" />
+				<key name="COMPANYID" />
+				<key name="CONTRACTID" />
+			</defineIndex>
+		</Index>
+	</Table>
+	<Table name="H_STANDCLIFUND" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+			<Drop type="index" indexName="IX_H_STANDCLIFUND_PK" ></Drop>
+			<Drop type="index" indexName="PK_H_STANDCLIFUND" ></Drop>
+		</Drops>
+		<Adds>
+		</Adds>
+		<Alters>
+			<Alter type="columnType" columnName="PROFIT"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="OTHERFUND"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="DELIVFEE"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="OPTEXEFEE"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="DELIVERYFUND"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="TRADEFEE"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="IOFUND"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="OPTAMOUNT"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="DELIVMARGIN"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="TRADEMARGIN"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="MARGINTOTAL"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="OPTMARGIN"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="FREEFUND"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="COLLATERALFUND"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+			<Alter type="columnType" columnName="FEE"  changedTypeName="NUMBER(19,3)" originalChangedTypeName="TY_AMOUNT3"></Alter>
+		</Alters>
+		<Index>
+			<defineIndex name="IX_H_STANDCLIFUND_PK">
+				<key name="TRADEDATE" />
+				<key name="COMPANYID" />
+				<key name="CLIENTID" />
+			</defineIndex>
+			<defineIndex name="PK_H_STANDCLIFUND">
+				<key name="CURRENCY" />
+				<key name="TRADEDATE" />
+				<key name="COMPANYID" />
+				<key name="CLIENTID" />
+			</defineIndex>
+		</Index>
+	</Table>
+</Tables>

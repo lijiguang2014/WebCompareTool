@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE taglib PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN" "http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd">
+
+<taglib>
+    <tlib-version>1.0</tlib-version>
+    <jsp-version>1.2</jsp-version>
+    <short-name>comparetool-commons</short-name>
+    <!-- Pagenation tag -->
+    <tag>
+        <name>pagenation</name>
+        <tag-class>com.sfit.comparetool.web.utils.taglib.PagenationTag</tag-class>
+        <body-content>JSP</body-content>
+        <attribute>
+        	<name>type</name>
+        	<required>true</required>
+        	<rtexprvalue>false</rtexprvalue>
+        </attribute>
+        <attribute>
+			<name>pageNoProperty</name>
+			<required>true</required>
+			<rtexprvalue>false</rtexprvalue>
+		</attribute>
+        <attribute>
+			<name>totalPagesProperty</name>
+			<required>true</required>
+			<rtexprvalue>false</rtexprvalue>
+		</attribute>
+        <attribute>
+			<name>recordCountProperty</name>
+			<required>true</required>
+			<rtexprvalue>false</rtexprvalue>
+		</attribute>
+        <attribute>
+			<name>callBack</name>
+			<required>false</required>
+			<rtexprvalue>false</rtexprvalue>
+		</attribute>
+        <attribute>
+			<name>style</name>
+			<required>false</required>
+			<rtexprvalue>false</rtexprvalue>
+		</attribute>
+    </tag>
+    
+</taglib>

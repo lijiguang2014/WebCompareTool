@@ -1,0 +1,60 @@
+@CHARSET "UTF-8";
+body{
+	font-size: 14px;
+	color:	#333;
+	border:solid 1px;
+	margin:0px auto;;
+	padding:0px;
+}
+
+#Container{
+    margin:0px auto;/*设置整个容器在浏览器中水平居中*/
+    padding:0px auto;
+    width:100%;
+    height:100%;
+}
+
+#Header{
+    height:60px;
+    color:white;
+    background:#000;
+    align:center;
+    padding:20px auto;
+    margin:0px auto;
+}
+
+#Header a{
+	/*color:white;*/
+}
+
+#Content{
+	overflow:auto;
+    background:#FFF;
+}
+
+#Main_Panel{
+    height:600px;
+    width:720px;
+    margin:0px;
+    padding-left:20px;
+    padding-top:20px;
+    float:left;/*设置浮动，实现多列效果，div+Css布局中很重要的*/
+}
+
+#Compare_Condition{
+	padding:10px 10px;
+	height:200px;
+	background:#FFF;
+}
+
+#History_Report{
+	height:350px;
+	margin-top:10px;
+	background:#FFF;
+}
+
+#Footer{
+    height: 40px;
+    background: #249;
+    margin-top: 20px;
+}

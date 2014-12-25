@@ -1,0 +1,684 @@
+drop table H_SECBYINVESTORTYPE;
+	
+drop table H_CHECKCLIOPTTRDDETAIL;
+	
+drop table R_ID_COMPACC_DUPLICATE;
+	
+drop table S_QUERYUSERPREREG;
+	
+drop table S_QUERY_BULLETIN_ATTACHMENT;
+	
+drop table B_COMPBUSSITYPE;
+	
+drop table S_STDBUSINESSLOG;
+	
+drop table T_H_COMPEXCHANGEDETAILS_YC;
+	
+drop table H_CHECKCLIOTHERFUND;
+	
+drop table H_COMPCLIENTLIQUID;
+	
+drop table YC_USERS;
+	
+drop table A_TEMP_NOLOGIN;
+	
+drop table B_BUSSITYPE;
+	
+drop table R_ID_EXCLIID_DUPLICATE;
+	
+drop table H_CHECKCLITRDDETAIL;
+	
+drop table P_USERAUTH;
+	
+drop table H_STANDCLIOPTPOSDETAIL;
+	
+drop table S_QUERY_BULLETIN_TYPE;
+	
+drop table C_STANDCLIPOSSUMBYCOMP;
+	
+drop table B_EXMEMBERRELATION;
+	
+drop table C_CHECKCLICONTINUEFUNDLAST;
+	
+drop table H_COMPCLIENTOPTLIQUID;
+	
+drop table R_ID_EXCLINM_COMPACCNMDIFF;
+	
+drop table D_COMPCLIENTOTHERFUND;
+	
+drop table H_COMPOTHERINFO;
+	
+drop table H_EXCLIPOSDETAIL;
+	
+drop table H_EXOPTIONEXERCISE;
+	
+drop table B_COMPDEPACC;
+	
+drop table T_H_COMPCLIENTFUNDDETAIL_YC;
+	
+drop table D_COMPCLIENTFUND;
+	
+drop table B_COMPUPLOADFILE;
+	
+drop table S_QUERYUSER_DELETED;
+	
+drop table S_BUSINESSPROJECT;
+	
+drop table T_H_EXCOMPFUND_YC;
+	
+drop table H_EXWAREHOUSE;
+	
+drop table H_EXOTHERINFO;
+	
+drop table P_KEYOPTION;
+	
+drop table B_EXMEMBERALL;
+	
+drop table TT;
+	
+drop table H_COMPCLIENTOPTTRADE;
+	
+drop table C_STANDCLIOTHERFUND;
+	
+drop table H_CHECKCLIPOSDETAIL;
+	
+drop table H_CHECKCLITRDSUMBYCOMP;
+	
+drop table H_COMPDELIVDETAILS;
+	
+drop table H_COMPCLIENTFUNDACC;
+	
+drop table S_SYSROLE;
+	
+drop table S_SYSCHECKRULEMATCHING;
+	
+drop table A_TEMP_LOGINRANK;
+	
+drop table B_EXCHANGE_FOR_DSG;
+	
+drop table D_EXWARRANT;
+	
+drop table S_QUERYLOGINFAIL_BK;
+	
+drop table T_H_COMPCLIENTTRADE_YC;
+	
+drop table B_EXCHANGECLIENTINFO;
+	
+drop table C_CHECKCLIPOSSUMBYCONTRACT;
+	
+drop table H_STDFUNDTRANSFER;
+	
+drop table H_BANKIOFUNDDETAIL2;
+	
+drop table S_QUERYLOGINFAIL;
+	
+drop table R_CLIFUNDCONTINUEREMAIN;
+	
+drop table H_COMPCLIENTPOSDETAIL;
+	
+drop table B_USERNOTICE;
+	
+drop table COLUMS_TYPE;
+	
+drop table C_STANDCLITRDSUMBYCONTRACT;
+	
+drop table C_CHECKCLITRDSUMBYCOMP;
+	
+drop table P_USERAUTHEX_OLD;
+	
+drop table B_COMPDEPACC_LOG;
+	
+drop table R_CLIPROFITFUNDREMAIN;
+	
+drop table R_ID_COMPCLIID_DUPLICATE;
+	
+drop table P_COMPTOKENLOG;
+	
+drop table R_CLITRDREMAINSUMBYCONTRACT;
+	
+drop table S_CLIENTCHECKRESULT;
+	
+drop table T_H_COMPCLIENTCODE_YC;
+	
+drop table B_OTHERFUND;
+	
+drop table H_EXWARRANT;
+	
+drop table H_SECBYALLINVESTOR;
+	
+drop table S_QUERYUSERIPKEYID;
+	
+drop table S_ORGTYPE;
+	
+drop table A_QUERYUSER2_LOGINSTATUS;
+	
+drop table H_SECBYARBITRAGEHEDGE;
+	
+drop table H_SECBYCURRENCYVALUE;
+	
+drop table P_COMPSECUREKEYLOG;
+	
+drop table H_BANKFIRMACCOUNT;
+	
+drop table S_QUERYUSERTYPE;
+	
+drop table H_CHECKCLIOPTPOSDETAIL;
+	
+drop table D_COMPEXCHANGEDETAILS;
+	
+drop table R_CLIIOFUNDDETAILREMAIN;
+	
+drop table C_CLIENTLAST;
+	
+drop table R_CLIPOSDETAILREMAIN;
+	
+drop table D_COMPAMASSETS;
+	
+drop table S_ERRORINFO;
+	
+drop table D_COMPDELIVDETAILS;
+	
+drop table TMP_COMPCLIENTCODE_S;
+	
+drop table R_CLIPROFITDETAILREMAIN;
+	
+drop table T_H_COMPCLIENTPOS_YC;
+	
+drop table H_STANDCOMPFUND;
+	
+drop table D_COMPCLIENTTRADE;
+	
+drop table C_CHECKCLIOPTTRDDETAIL;
+	
+drop table S_SYSCHECKRULESQL;
+	
+drop table D_SECBYARBITRAGEHEDGE;
+	
+drop table H_STANDCLIPOSSUMBYCOMP;
+	
+drop table H_EXMEMBERRELATION;
+	
+drop table H_EXEXCHANGEDETAILS;
+	
+drop table H_CHECKCLIPOSSUMBYCONTRACT;
+	
+drop table H_COMPCLIENTFUND;
+	
+drop table R_CLITRDDETAILREMAIN;
+	
+drop table TMP_COMPCLIENTCODE_C;
+	
+drop table H_CHECKCLIPOSSUMBYCOMP;
+	
+drop table P_USERTOKEN;
+	
+drop table C_STANDCLIPOSDETAIL;
+	
+drop table R_ID_COMPCLIENTCODE_DIFF;
+	
+drop table S_QUERYUSER2;
+	
+drop table H_STANDCLIPOSDETAIL;
+	
+drop table S_QUERYLOG2;
+	
+drop table D_EXCLIENT;
+	
+drop table H_STANDCLIPOSDETAIL_TEST;
+	
+drop table S_ALARM;
+	
+drop table P_COMPSECUREKEY_OLD;
+	
+drop table D_EXEXIOFUND;
+	
+drop table D_COMPCLIENTOPTPOSDETAIL;
+	
+drop table C_CHECKCLIOPTPOSDETAIL;
+	
+drop table H_EXOPTIONPOSITION;
+	
+drop table T_H_COMPCLIENTPOSDETAIL_YC;
+	
+drop table P_USERAUTH_OLD;
+	
+drop table H_CHECKCLITRDSUMBYCONTRACT;
+	
+drop table H_COMPCLIENTPOS;
+	
+drop table H_EXMORTGAGERATE;
+	
+drop table C_STANDCLIOPTPOSDETAIL;
+	
+drop table C_STANDCLIOPTTRDDETAIL;
+	
+drop table D_EXCASHMORTGAGE;
+	
+drop table C_CHECKCLITRDDETAIL;
+	
+drop table H_CHECKCLIFUND;
+	
+drop table B_COMPANYALL;
+	
+drop table T_H_COMPAMACCOUNTS_YC;
+	
+drop table D_EXCONTRACT;
+	
+drop table S_UPLOADFILE;
+	
+drop table D_COMPCLIENTOPTTRADE;
+	
+drop table D_COMPCLIENTCODE;
+	
+drop table S_UPLOADFILE_FIELDDEF1;
+	
+drop table T_B_CLIACC_YC;
+	
+drop table D_EXOPTIONEXERCISE;
+	
+drop table S_INNERLOG;
+	
+drop table D_COMPDELIVCONTRACTDATA;
+	
+drop table B_CURRENCY;
+	
+drop table R_COMPFUNDREMAIN;
+	
+drop table S_BIZDICT;
+	
+drop table H_STANDCLITRDSUMBYCONTRACT;
+	
+drop table B_TERM;
+	
+drop table B_USERNOTICELOG;
+	
+drop table D_COMPAMCUSTODYACCOUNT;
+	
+drop table YC_DATACHECK_RESULT;
+	
+drop table B_EXACC;
+	
+drop table H_COMPCLIENTFUNDDETAIL;
+	
+drop table B_COMMODITYALL;
+	
+drop table H_COMPDELIVCONTRACTDATA;
+	
+drop table H_STANDCLIOTHERFUND_TEST;
+	
+drop table S_SYSLOG;
+	
+drop table S_QUERYAUTHCOMPANY;
+	
+drop table P_USERAUTHEX_ORI;
+	
+drop table D_COMPCASHMORTGAGE;
+	
+drop table D_EXPROGRAMTRADING;
+	
+drop table D_COMPCLIENTLIQUID;
+	
+drop table D_EXCLIENTCONTROL;
+	
+drop table D_BANKIOFUNDDETAIL2;
+	
+drop table S_BASICINFOUPDATELOG;
+	
+drop table B_CLIENT;
+	
+drop table H_EXCOMPOTHERFUND;
+	
+drop table S_RESENDEXCEPTION;
+	
+drop table H_STANDCLIOPTTRDDETAIL;
+	
+drop table C_STANDCLIIOFUNDDETAIL;
+	
+drop table D_EXCOMPFUND;
+	
+drop table H_SECBYOPENDATE;
+	
+drop table H_EXCASHMORTGAGE;
+	
+drop table T_H_COMPDELIVDETAILS_YC;
+	
+drop table S_QUERYUSER_DELETED_BK;
+	
+drop table D_COMPCASHMORTGAGEDETAILS;
+	
+drop table S_SYSFUNCTION;
+	
+drop table D_EXCOMPOTHERFUND;
+	
+drop table H_EXDELIVCONTRACTDATA;
+	
+drop table T_H_COMPDELIVCONTRACTDATA_YC;
+	
+drop table T_H_EXCOMPFUND;
+	
+drop table C_STANDCLITRDSUMBYCOMP;
+	
+drop table S_TRADEDATE;
+	
+drop table R_ID_BANKACCNM_COMPACCNMDIFF;
+	
+drop table S_QUERYUSER2_20111224;
+	
+drop table H_COMPCLIENTCODE;
+	
+drop table D_EXCLITRDDETAIL;
+	
+drop table S_UPLOADFILEDEF;
+	
+drop table S_EMAILSUBSCRIPTION;
+	
+drop table S_DEALLOG;
+	
+drop table H_COMPEXCHANGEDETAILS;
+	
+drop table C_STANDCOMPFUND;
+	
+drop table B_EXCHANGECOMPANYMAPALL;
+	
+drop table T_H_COMPCLIENTOTHERFUND_YC;
+	
+drop table D_EXSPOTPRICE;
+	
+drop table H_EXCLIENTCONTROL;
+	
+drop table P_USERAUTHEX;
+	
+drop table H_COMPMORTGAGEDETAILS;
+	
+drop table S_BLOG;
+	
+drop table D_COMPCLIENTOPTEXERCISE;
+	
+drop table S_UPLOADFILEDEFBYMEMTYPE;
+	
+drop table S_BUSINESSSTATUS;
+	
+drop table B_CLEAR;
+	
+drop table H_COMPAMACCOUNTS;
+	
+drop table D_COMPCLIENTOPTPOS;
+	
+drop table B_BULLETIN;
+	
+drop table D_EXMEMBER;
+	
+drop table T_H_COMPCLIENTINFO_YC;
+	
+drop table D_COMPAMACCOUNTS;
+	
+drop table T_H_COMPOTHERINFO_YC;
+	
+drop table T_H_COMPCLIENTFUND_YC;
+	
+drop table H_EXDELIVDATA;
+	
+drop table B_EXMEMBER;
+	
+drop table T_S_QUERYUSER2_YC;
+	
+drop table H_SECBYSPECIALCORPTYPE;
+	
+drop table D_EXCASHMORTGAGEDETAILS;
+	
+drop table YC_STATUS;
+	
+drop table B_EXCHANGECLIENTMAP;
+	
+drop table D_SECBYINVESTORTYPE;
+	
+drop table C_CLIACC;
+	
+drop table H_EXCOMPFUND;
+	
+drop table R_CLIPOSREMAINSUMBYCOMP;
+	
+drop table B_EXCHANGE;
+	
+drop table D_EXMORTGAGERATE;
+	
+drop table D_COMPCLIENTPOSDETAIL;
+	
+drop table D_SECBYSPECIALCORPTYPE;
+	
+drop table R_CLIENTINFOCHANGE;
+	
+drop table S_USERDEALLOG;
+	
+drop table D_COMPOTHERINFO;
+	
+drop table T_H_EXCLIPOSDETAIL_YC;
+	
+drop table P_USERAUTH_ORI;
+	
+drop table B_COMPSELFACC;
+	
+drop table S_SYSCHECKRULE;
+	
+drop table H_STANDCLITRDDETAIL;
+	
+drop table D_COMPCLIENTPOS;
+	
+drop table S_RESENDLOG;
+	
+drop table C_CHECKCLICONTINUEFUND;
+	
+drop table T_H_COMPCASHMORTGAGEDETAILS_YC;
+	
+drop table R_COMPFUNDCONTINUEREMAIN;
+	
+drop table D_EXOPTIONTRADE;
+	
+drop table H_EXOPTIONTRADE;
+	
+drop table D_BANKFIRMACCOUNT;
+	
+drop table H_COMPCLIENTINFO;
+	
+drop table H_CHECKCOMPFUND;
+	
+drop table S_COMPAREPROJECT;
+	
+drop table R_CLIIOFUNDDETAILREMAIN_OLD;
+	
+drop table C_CHECKCLIFUND;
+	
+drop table D_EXCLIPOSDETAIL;
+	
+drop table S_QUERYUSER2_TEST;
+	
+drop table R_ID_COMPCLINM_COMPACCNMDIFF;
+	
+drop table H_STANDCLITRDDETAIL_TEST;
+	
+drop table B_CLIACC;
+	
+drop table S_UPLOADFILE_FIELDDEF;
+	
+drop table P_COMPSECUREKEYLOG_OLD;
+	
+drop table H_COMPCLIENTOPTPOS;
+	
+drop table H_EXEXIOFUND;
+	
+drop table H_EXMEMBER;
+	
+drop table S_SYSSTATUSINFO;
+	
+drop table R_ID_BANKACC_COMPACCDIFF;
+	
+drop table C_STANDCLITRDDETAIL;
+	
+drop table S_SYSCHECKSUBENTRY;
+	
+drop table D_EXWAREHOUSE;
+	
+drop table H_COMPCLIENTTRADE;
+	
+drop table H_COMPCASHMORTGAGE;
+	
+drop table H_EXTOTALCOMPFUND;
+	
+drop table R_CLIFUNDREMAIN;
+	
+drop table C_CHECKCLIPOSSUMBYCOMP;
+	
+drop table D_EXDELIVDATA;
+	
+drop table S_CHKBUSINESSLOG;
+	
+drop table D_COMPMORTGAGEDETAILS;
+	
+drop table D_EXOTHERINFO;
+	
+drop table T_H_COMPMORTGAGEDETAILS_YC;
+	
+drop table C_CHECKCLIPOSDETAIL;
+	
+drop table H_COMPCLIENTOPTPOSDETAIL;
+	
+drop table C_CHECKCLIIOFUNDDETAIL;
+	
+drop table C_EXCHANGECLIENTMAP;
+	
+drop table R_CLITRDREMAINSUMBYCOMP;
+	
+drop table COMPAREHISTORY;
+	
+drop table S_QUERY_BULLETIN;
+	
+drop table P_COMPSECUREKEY;
+	
+drop table B_COMMODITY_FOR_DSG;
+	
+drop table T_B_CLIENT_YC;
+	
+drop table D_EXDELIVCONTRACTDATA;
+	
+drop table R_CLIENTOPTIONPOSITIONREMAIN;
+	
+drop table H_STANDCLIPOSSUMBYCONTRACT;
+	
+drop table H_COMPAMASSETS;
+	
+drop table R_ID_CLINM_CLIACCNMDIFF;
+	
+drop table D_SECBYCURRENCYVALUE;
+	
+drop table T_H_COMPCLIENTFUNDACC_YC;
+	
+drop table D_EXMEMBERRELATION;
+	
+drop table C_CHECKCOMPFUND;
+	
+drop table C_CLIENT;
+	
+drop table R_CLIENTOTHERFUNDREMAIN;
+	
+drop table H_CHECKCLIIOFUNDDETAIL;
+	
+drop table H_STANDCLITRDSUMBYCOMP;
+	
+drop table B_BANK;
+	
+drop table H_EXCLIENT;
+	
+drop table H_BANKMISSINGACCOUNT;
+	
+drop table S_QUERY_BULLETIN_TO;
+	
+drop table H_COMPCLIENTOTHERFUND;
+	
+drop table H_BANKEXCHANGEDETAILS;
+	
+drop table C_CHECKCLIFUNDLAST;
+	
+drop table D_SECBYALLINVESTOR;
+	
+drop table C_CHECKCLIOTHERFUND;
+	
+drop table D_COMPCLIENTOPTLIQUID;
+	
+drop table D_SECBYOPENDATE;
+	
+drop table H_EXSPOTPRICE;
+	
+drop table H_STANDCLIOTHERFUND;
+	
+drop table D_COMPCLIENTFUNDACC;
+	
+drop table D_BANKEXCHANGEDETAILS;
+	
+drop table B_REGIONBUREAU_FOR_DSG;
+	
+drop table T_H_COMPAMASSETS_YC;
+	
+drop table S_COMPCHECKRESULT;
+	
+drop table B_COMPSELFDEPACCMAP;
+	
+drop table R_ID_EXCLIINFO_COMPCLIINFODIFF;
+	
+drop table H_EXCONTRACT;
+	
+drop table C_CHECKCLITRDSUMBYCONTRACT;
+	
+drop table H_STANDCOMPFUNDBALANCE;
+	
+drop table H_BUREAUREPORT;
+	
+drop table H_COMPCASHMORTGAGEDETAILS;
+	
+drop table D_COMPCLIENTFUNDDETAIL;
+	
+drop table H_EXCASHMORTGAGEDETAILS;
+	
+drop table H_EXPROGRAMTRADING;
+	
+drop table TEMPCHECK;
+	
+drop table H_EXCLITRDDETAIL;
+	
+drop table S_GENERATEPROJECT;
+	
+drop table H_STANDCLIIOFUNDDETAIL;
+	
+drop table R_CLIPOSREMAINSUMBYCONTRACT;
+	
+drop table C_STANDCLIPOSSUMBYCONTRACT;
+	
+drop table D_EXEXCHANGEDETAILS;
+	
+drop table C_STANDCLIFUND;
+	
+drop table T_YC_ZJCLIENT;
+	
+drop table T_H_COMPCLIENTLIQUID_YC;
+	
+drop table R_FUNDTRANSFERREMAIN;
+	
+drop table B_REGIONBUREAU;
+	
+drop table R_CLIENTOPTIONTRADEREMAIN;
+	
+drop table D_EXOPTIONPOSITION;
+	
+drop table D_COMPCLIENTINFO;
+	
+drop table S_SYSUSERFUNCTION;
+	
+drop table P_USERAUTHORI;
+	
+drop table H_STANDCLIFUND;
+	
+drop table S_QUERYUSER2_BK20120904;
+	
+drop table S_QUERY_POPWINDOWS;
+	
+drop table S_SYSUSER;
+	

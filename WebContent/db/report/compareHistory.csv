@@ -1,0 +1,6 @@
+V1,2014-12-19,dataModel/upload/20141219142451.xml,/dataModel/stable/reportV1.xml,template/fumargin/alter.sql.tpl,result/temp/alterScript/20141219142500.sql,result/temp/report/20141219142500.txt,0
+V2,2014-12-19,dataModel/fromDB/20141219142628.csv,/dataModel/stable/reportV2.xml,template/fumargin/alter.sql.tpl,result/temp/alterScript/20141219142628.sql,result/temp/report/20141219142628.txt,0
+V3,2014-12-19,dataModel/upload/20141219143948.xls,/dataModel/stable/reportV3.xls,template/fumargin/alter.sql.tpl,result/temp/alterScript/20141219144002.sql,result/temp/report/20141219144002.txt,0
+V4,2014-12-19,dataModel/upload/20141219151704.xml,/dataModel/stable/reportV4.xml,template/fumargin/alter.sql.tpl,result/temp/alterScript/20141219151730.sql,result/temp/report/20141219151730.txt,0
+V5,2014-12-24,dataModel/upload/20141224141840.xml,/dataModel/stable/reportV5.xml,template/fumargin/alter.sql.tpl,result/temp/alterScript/20141224141849.sql,result/temp/report/20141224141849.txt,0
+V6,2014-12-24,dataModel/upload/20141224141906.xml,/dataModel/stable/reportV6.xml,template/fumargin/alter.sql.tpl,result/temp/alterScript/20141224141909.sql,result/temp/report/20141224141909.txt,0
