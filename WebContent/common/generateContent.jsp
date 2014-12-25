@@ -14,7 +14,7 @@
 		</div>
 		<div id="upload_info" style="width:100%;height:20px;visibility:hidden" ></div>
 		<div>
-			<input id="designRelativeFilePath" name="designRelativeFilePath" type="text">
+			<input id="designRelativeFilePath" name="designRelativeFilePath" type="hidden">
 			<input id="generate" type="button" value="生成">
 		</div>
 	</div>

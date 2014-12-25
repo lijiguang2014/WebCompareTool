@@ -33,7 +33,7 @@
 					if (result.success == "1") {
 						alert("上传文件成功！");
 						var filename=getFileNameFromFilePath(result.fileRelativePath);
-						$("#upload_info").html("<div>文件:"+ filename +"   <a href='javascript:void(0)' onclick='deletefile("+"\""+result.fileRelativePath+"\",\"source\")'>删除</a>"+"<br/></div>");
+						$("#upload_info").html("<div>文件:"+ filename +"   <a href='javascript:void(0)' onclick='deletefile("+"\""+result.fileRelativePath+"\",\"designFile\")'>删除</a>"+"<br/></div>");
 						$("#upload_info").css("visibility", "visible");
 						$("#designRelativeFilePath").val(result.fileRelativePath);
 					} else {
@@ -54,41 +54,43 @@
 			});
 			return false;
 		});
-	});
-	
-	$("#generate").click(function(){
-		var designRelativeFilePath = $("#designRelativeFilePath").val();
-		if(designFilePath == "") {
-			alert("请上传数据库设计文件!");
-			return;
-		}
-		$.ajax({
-			type:"post",
-			url: "generate.do?designRelativeFilePath="+designRelativeFilePath,
-			beforeSend: function(xmlHttpRequest) {
-				$("#show p").text("正在比对，请耐心等待");
-				showMask();
-			},
-			success: function(data, status) {
-				if(data.success == "0") {
-					alert("数据模型生成失败： " + data.msg);
-				} else {
-				   var form = $("<form>");   //定义一个form表单
-			       form.attr('style','display:none');   //在form表单中添加查询参数
-			       form.attr('target','');
-			       form.attr('method','post');
-			       form.attr('action',"downloadFile.do");
-	
-			       var input1 = $('<input>'); 
-			       input1.attr('type','hidden'); 
-			       input1.attr('name','filePath'); 
-			       input1.attr('value',data.filePath); 
-			       $('body').append(form);  //将表单放置在web中
-			       form.append(input1);   //将查询参数控件提交到表单上
-			       form.submit();   //表单提交
-				}	
+		
+		$("#generate").click(function(){
+			var designRelativeFilePath = $("#designRelativeFilePath").val();
+			if(designRelativeFilePath == "") {
+				alert("请上传数据库设计文件!");
+				return;
 			}
-			
+			$.ajax({
+				type:"post",
+				url: "generate.do?designRelativeFilePath="+designRelativeFilePath,
+				beforeSend: function(xmlHttpRequest) {
+					$("#show p").text("正在比对，请耐心等待");
+					showMask();
+				},
+				success: function(data, status) {
+					if(data.success == "0") {
+						alert("数据模型生成失败： " + data.msg);
+					} else {
+					   var form = $("<form>");   //定义一个form表单
+				       form.attr('style','display:none');   //在form表单中添加查询参数
+				       form.attr('target','');
+				       form.attr('method','post');
+				       form.attr('action',"downloadFile.do");
+		
+				       var input1 = $('<input>'); 
+				       input1.attr('type','hidden'); 
+				       input1.attr('name','filePath'); 
+				       input1.attr('value',data.filePath); 
+				       $('body').append(form);  //将表单放置在web中
+				       form.append(input1);   //将查询参数控件提交到表单上
+				       form.submit();   //表单提交
+					}	
+				},
+				complete:function(xmlHttpRequest, status) {
+					closeMask();
+				}
+			});
 		});
 	});
 </script>

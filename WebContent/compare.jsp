@@ -225,14 +225,8 @@
 					}
 				},
 				complete:function(xmlHttpRequest, status) {
-					/**
-					if ($("#sourceType").val() == 0) {
-						$("input[name='sourceType'][value='1']").attr("checked",true);
-	    				$("#sourceDiv").html($("#sourceDivContent"));
-					}*/
 					closeMask();
 				}
-				
 			});
 			clearCmpCondition();
 		});

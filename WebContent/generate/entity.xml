@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="GB2312"?>
+<!DOCTYPE UFEntityModel SYSTEM "UFEntity.dtd">
+<UFEntityModel>
+		<Entity name="A_QUERYUSER2_LOGINSTATUS" title="" description="">
+			<Field name="LOGINCNT" type="TY_POSITION" label="" description="" iskey="no" notnull="no" />
+			<Field name="TRADECNT" type="TY_POSITION" label="" description="" iskey="no" notnull="no" />
+			<Field name="LOGINTYPE" type="TY_ACCOUNT" label="" description="" iskey="no" notnull="no" />
+			<Field name="TRADEDATE" type="TY_ACCOUNT" label="" description="" iskey="no" notnull="no" />
+		</Entity>
+</UFEntityModel>

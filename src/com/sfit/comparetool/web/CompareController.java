@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.sfit.comparetool.bean.CompareBean;
 import com.sfit.comparetool.bean.CompareHistory;
+import com.sfit.comparetool.bean.TableBean;
 import com.sfit.comparetool.service.CSVCompare;
 import com.sfit.comparetool.service.CSVGenerator;
 import com.sfit.comparetool.service.ExcelCompare;
@@ -29,6 +30,8 @@ import com.sfit.comparetool.service.XMLCompare;
 import com.sfit.comparetool.service.XMLGenerator;
 import com.sfit.comparetool.service.i.Generator;
 import com.sfit.comparetool.utils.ConsoleUtils;
+import com.sfit.comparetool.utils.ConvertUtils;
+import com.sfit.comparetool.utils.ExcelUtils;
 import com.sfit.comparetool.utils.PropertiesUtils;
 
 @Controller
@@ -194,13 +197,49 @@ public class CompareController {
 
 	@RequestMapping("/generate.do")
 	public @ResponseBody Map<String, String> generate(@RequestParam String designRelativeFilePath) {
+		Map<String, String> returnMap = new HashMap<String, String>();
+		
+		String errorMsg = "";
+		
 		URL resource = this.getClass().getClassLoader().getResource("/");
 		String basePath = resource.toString().substring(6) + "../../";
 		String designFilePath = basePath + designRelativeFilePath;
 		
+		String generatePath = basePath + "generate/";
+		File generateDirectory = new File(generatePath);
+		if (!generateDirectory.exists()) {
+			generateDirectory.mkdirs();
+		}
 		
+		String entityPath =  basePath+"generate/entity.xml";
+		String frameworkPath = basePath + "generate/framework.xml";
+		String typeMappingPath = basePath + "generate/typeMapping.xml";
 		
-		return null;
+		ConvertUtils convertUtils = new ConvertUtils();
+		ExcelUtils excelUtils = new ExcelUtils();
+		try {
+			Map<String, TableBean> tableBeanMap = excelUtils.getTableBeanMap(designFilePath);
+			Map<String, String> typeMapping = excelUtils.getTypeMapping(designFilePath);
+			convertUtils.generateEntityXMLFromExcel(tableBeanMap, entityPath);
+			convertUtils.generateFrameworkXML(tableBeanMap, frameworkPath);
+			convertUtils.generateTypeMappingXMLFromExcel(typeMapping, typeMappingPath);
+			String shellStr = "cmd /c " + basePath + "script/bat/createDataModel.bat "
+					+ generatePath+"result.xml" + " " + frameworkPath +" " + entityPath
+					+ " " + typeMappingPath + " " + generatePath + "result.sql" + " "
+					+ basePath+"template/fumargin/CreateTable.sql.tpl";
+			ConsoleUtils.callShell(shellStr);
+			
+			returnMap.put("success", "1");
+			returnMap.put("filePath", "generate/result.sql");
+			return returnMap;
+		} catch (IOException e) {
+			log.error(e);
+			errorMsg = e.getMessage();
+		}
+		
+		returnMap.put("success", "0");
+		returnMap.put("msg", errorMsg);
+		return returnMap;
 	}
 	
 	@RequestMapping("/getProjectNames.do")
