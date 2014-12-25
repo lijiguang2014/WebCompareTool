@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.sfit.comparetool.bean.CompareHistory;
-import com.sfit.comparetool.context.GlobalConstants;
+import com.sfit.comparetool.constants.GlobalConstants;
 import com.sfit.comparetool.utils.FileDBUtils;
 
 @Controller

@@ -52,28 +52,6 @@
 		});
 	}
 
-	//删除文件
-	function deletefile(file, type){
-		$.ajax({
-			type: "post",
-			contentType : "application/json", 
-			dataType: "json",
-			url: "deleteFile.do?fileRelativePath=" + file,
-			success:function(data, status) {
-				if ("1" == data.success) {
-					alert("文件删除成功, 请重新选择文件上传");
-					if (type=="source") {
-						$("#source_upload_info").css("visibility", "hidden");
-					} else {
-						$("#target_upload_info").css("visibility", "hidden");
-					}
-				} else {
-					alert(data.msg);
-				}
-			}
-		});
-	}
-
 	//初始化主界面
 	function getHistoryList(projectName, pageNo) {
 		if (pageNo == "") {
@@ -134,7 +112,7 @@
 		$("#sourceUpload").submit(function(){
 			$.ajaxFileUpload({
 				type: "post",
-				url: '${pageContext.request.contextPath}/upload.do',
+				url: 'upload.do',
 				secureuri:false,
 				fileElementId:'sourceFile',
 				dataType: "json",
@@ -158,8 +136,7 @@
 					});
 				},
 				error: function(data, status, e) {
-		            alert(data.message+" error:  " + e); 
-					alert("文件上传失败!");
+		            alert("文件上传失败!" + data.message+" error:  " + e); 
 				}
 			});
 			return false;
@@ -173,7 +150,7 @@
 		$("#targetUpload").submit(function(){
 			$.ajaxFileUpload({
 				type: "post",
-				url: "${pageContext.request.contextPath}/upload.do",
+				url: "upload.do",
 				secureuri:false,
 				fileElementId:"targetFile",
 				dataType: "json",
@@ -211,7 +188,7 @@
 			var compareCondition = $("#compareCondition").serializeArray();
 			$.ajax({
 				type: "POST",
-				url: "${pageContext.request.contextPath}/compare.do",
+				url: "compare.do",
 				data: compareCondition,
 				beforeSend: function(xmlHttpRequest) {
 					$("#show p").text("正在比对，请耐心等待");

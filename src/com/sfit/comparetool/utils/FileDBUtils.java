@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.sfit.comparetool.bean.CompareHistory;
-import com.sfit.comparetool.context.GlobalConstants;
+import com.sfit.comparetool.constants.GlobalConstants;
 
 public class FileDBUtils {
 	

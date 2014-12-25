@@ -1,4 +1,4 @@
-package com.sfit.comparetool.context;
+package com.sfit.comparetool.constants;
 
 public class GlobalConstants {
 	public static final String TOTAL = "total";

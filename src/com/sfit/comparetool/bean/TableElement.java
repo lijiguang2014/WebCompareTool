@@ -22,7 +22,7 @@ public class TableElement {
 	private List<ColumnBean> adds = new ArrayList<ColumnBean>();
 	private List<AlterElement> alters = new ArrayList<AlterElement>();
 	private Map<String, ColumnBean> columns = new HashMap<String, ColumnBean>();
-	private Map<String, List<IndexBean>> indexes = new HashMap<String, List<IndexBean>>();
+	private Map<String, DefineIndex> indexes = new HashMap<String, DefineIndex>();
 	private List<String> dropIndexes = new ArrayList<String>();
 	private String keyList = "";
 	
@@ -80,10 +80,10 @@ public class TableElement {
 	public void setColumns(Map<String, ColumnBean> columns) {
 		this.columns = columns;
 	}
-	public Map<String, List<IndexBean>> getIndexes() {
+	public Map<String, DefineIndex> getIndexes() {
 		return indexes;
 	}
-	public void setIndexes(Map<String, List<IndexBean>> indexes) {
+	public void setIndexes(Map<String, DefineIndex> indexes) {
 		this.indexes = indexes;
 	}
 	public List<String> getDropIndexes() {

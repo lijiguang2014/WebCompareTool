@@ -18,7 +18,8 @@ import org.apache.log4j.Logger;
 
 import com.sfit.comparetool.bean.AlterElement;
 import com.sfit.comparetool.bean.ColumnBean;
-import com.sfit.comparetool.bean.IndexBean;
+import com.sfit.comparetool.bean.DefineIndex;
+import com.sfit.comparetool.bean.KeyBean;
 import com.sfit.comparetool.bean.TableBean;
 import com.sfit.comparetool.bean.TableElement;
 
@@ -103,7 +104,7 @@ public class CSVCompare {
 								+ columnBean.getNotNull() + "\"></Column>\r\n");
 					}
 					sb.append("\t\t</Columns>\r\n");
-					Map<String, List<IndexBean>> indexes = tableElement.getIndexes();
+					Map<String, DefineIndex> indexes = tableElement.getIndexes();
 					generateIndexesElement(sb, reportsb, indexes);
 					sb.append("\t</Table>\r\n");
 				} else {
@@ -111,7 +112,7 @@ public class CSVCompare {
 					List<ColumnBean> adds = tableElement.getAdds();
 					List<AlterElement> alters = tableElement.getAlters();
 					List<String> dropIndexes = tableElement.getDropIndexes();
-					Map<String, List<IndexBean>> indexes = tableElement.getIndexes();
+					Map<String, DefineIndex> indexes = tableElement.getIndexes();
 					
 					if (dropColumns.size() > 0 || adds.size() > 0 || alters.size() > 0) {
 						isChanged = true;
@@ -227,20 +228,21 @@ public class CSVCompare {
 				
 				//比较索引列
 				List<String> dropIndexes = new ArrayList<String>();
-				Map<String, List<IndexBean>> changedIndexes = new HashMap<String, List<IndexBean>>();
+				Map<String, DefineIndex> changedIndexes = new HashMap<String, DefineIndex>();
 				
-				Map<String, List<IndexBean>> newIndexes = newTableBean.getIndexes();
-				Map<String, List<IndexBean>> oldIndexes = oldTableBean.getIndexes();
+				Map<String, DefineIndex> newIndexes = newTableBean.getIndexes();
+				Map<String, DefineIndex> oldIndexes = oldTableBean.getIndexes();
+				//找出在新表中drop掉的索引和发生变化的索引
 				for (String indexName : oldIndexes.keySet()) {
 					if (newIndexes.containsKey(indexName)) {
-						List<IndexBean> newIndexColumns = newIndexes.get(indexName);
-						List<IndexBean> oldIndexColumns = oldIndexes.get(indexName);
-						for(IndexBean oldIndexColumn : oldIndexColumns) {
+						DefineIndex newIndex = newIndexes.get(indexName);
+						DefineIndex oldIndex = oldIndexes.get(indexName);
+						for(KeyBean oldKeyBean : oldIndex.getKeyList()) {
 							//比对两个索引的索引列是否相等
 							boolean flag = false;
-							for (IndexBean newIndexColumn : newIndexColumns) {
-								if ((!oldIndexColumn.toString().equals(newIndexColumn.toString()))
-										&&oldIndexColumn.getColumnName().equals(newIndexColumn.getColumnName())) {
+							for (KeyBean newKeyBean: newIndex.getKeyList()) {
+								if ((!oldKeyBean.toString().equals(newKeyBean.toString()))
+										&&oldKeyBean.getName().equals(newKeyBean.getName())) {
 									flag = true;
 									break;
 								}
@@ -254,15 +256,15 @@ public class CSVCompare {
 						dropIndexes.add(indexName);
 					}
 				}
-				for (String index : newIndexes.keySet()) {
-					if (oldIndexes.containsKey(index)) {
-						List<IndexBean> newIndexColumns = newIndexes.get(index);
-						List<IndexBean> oldIndexColumns = oldIndexes.get(index);
-						for(IndexBean newIndex : newIndexColumns) {
+				for (String indexName : newIndexes.keySet()) {
+					if (oldIndexes.containsKey(indexName)) {
+						DefineIndex newIndex = newIndexes.get(indexName);
+						DefineIndex oldIndex = oldIndexes.get(indexName);
+						for(KeyBean newKeyBean : newIndex.getKeyList()) {
 							boolean flag = false;
-							for (IndexBean oldIndex : oldIndexColumns) {
-								if ((newIndex.getColumnName().equals(oldIndex.getColumnName()))
-										&& (!newIndex.toString().equals(oldIndex.toString()))) {
+							for (KeyBean oldKeyBean : oldIndex.getKeyList()) {
+								if ((newKeyBean.getName().equals(oldKeyBean.getName()))
+										&& (!newKeyBean.toString().equals(oldKeyBean.toString()))) {
 									flag = true;
 									break;
 								}
@@ -270,13 +272,13 @@ public class CSVCompare {
 							
 							if (flag) {
 								//索引列有变化，drop之后重新创建索引
-								changedIndexes.put(index, newIndexColumns);
+								changedIndexes.put(indexName, newIndex);
 								break;
 							}
 						}
 					} else {
 						//增加新的索引
-						changedIndexes.put(index, newIndexes.get(index));
+						changedIndexes.put(indexName, newIndexes.get(indexName));
 					}
 				}
 				tableElement.setIndexes(changedIndexes);
@@ -376,13 +378,13 @@ public class CSVCompare {
 		return tableElements;
 	}
 	
-	private void generateIndexesElement(StringBuilder sb, StringBuilder reportsb, Map<String, List<IndexBean>> indexes) {
+	private void generateIndexesElement(StringBuilder sb, StringBuilder reportsb, Map<String, DefineIndex> indexes) {
 		sb.append("\t\t<Index>\r\n");
-		for(String key : indexes.keySet()) {
-			sb.append("\t\t\t<defineIndex name=\"" + key + "\">\r\n");
-			List<IndexBean> list = indexes.get(key);
-			for(IndexBean indexColumn : list) {
-				sb.append("\t\t\t\t<key name=\"" + indexColumn.getColumnName() + "\" />\r\n");
+		for(String indexName : indexes.keySet()) {
+			DefineIndex index = indexes.get(indexName);
+			sb.append("\t\t\t<defineIndex name=\"" + indexName + "\" unique=\"" + index.getUniqueness() + "\">\r\n");
+			for(KeyBean keyBean : index.getKeyList()) {
+				sb.append("\t\t\t\t<key name=\"" + keyBean.getName() + "\" order=\"" + keyBean.getOrder() + "\" />\r\n");
 			}
 			sb.append("\t\t\t</defineIndex>\r\n");
 		}
@@ -458,28 +460,29 @@ public class CSVCompare {
 						continue;
 					} else {
 						if (startIndex) {
-							Map<String, List<IndexBean>> indexes = tableBean.getIndexes();
+							Map<String, DefineIndex> indexes = tableBean.getIndexes();
+							
 							if (indexes.containsKey(cols[0])) {
-								List<IndexBean> list = indexes.get(cols[0]);
-								IndexBean indexBean = new IndexBean();
-								indexBean.setIndexName(cols[0]);
-								indexBean.setColumnName(cols[1]);
-								indexBean.setDescend(cols[2]);
+								DefineIndex index = indexes.get(cols[0]);
 								if (cols.length == 4) {
-									indexBean.setUniqueness(cols[3]);
+									index.setUniqueness(cols[3]);
+								} else {
+									index.setUniqueness("no");
 								}
-								list.add(indexBean);
+								KeyBean keyBean = new KeyBean();
+								keyBean.setName(cols[1]);
+								keyBean.setOrder(cols[2]);
+								index.getKeyList().add(keyBean);
 							} else {
-								List<IndexBean> list = new ArrayList<IndexBean>();
-								IndexBean indexBean = new IndexBean();
-								indexBean.setIndexName(cols[0]);
-								indexBean.setColumnName(cols[1]);
-								indexBean.setDescend(cols[2]);
+								DefineIndex index = new DefineIndex();
 								if (cols.length == 4) {
-									indexBean.setUniqueness(cols[3]);
+									index.setUniqueness(cols[3]);
 								}
-								list.add(indexBean);
-								indexes.put(cols[0], list);
+								KeyBean keyBean = new KeyBean();
+								keyBean.setName(cols[1]);
+								keyBean.setOrder(cols[2]);
+								index.getKeyList().add(keyBean);
+								indexes.put(cols[0], index);
 							}
 						} else {
 							ColumnBean col = new ColumnBean();

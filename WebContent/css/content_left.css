@@ -9,7 +9,12 @@
 }
 
 #menus{
-	margin:0 0 0 20px;
+	margin:20px 0px 0px 20px;
+}
+
+.menu{
+	margin-bottom: 3px;
+	white-space: nowrap;
 }
 
 .task-link{
@@ -20,29 +25,9 @@
 	text-decoration: none;
 }
 
-#menus{
-	margin-bottom: 20px;	
-}
-
-.menu{
-	margin-bottom: 3px;
-	white-space: nowrap;
-}
-
 .row {
     margin-left: -15px;
     margin-right: -15px;
-}
-
-.pane-header {
-	color:#3b3b3b;
-    font-weight: 700;
-    padding-right: 24px;
-    background:#E2D7E7;
-}
-
-.pane-content{
-	 border: medium none;
 }
 
 #compareHistory{
@@ -52,4 +37,18 @@
 	padding-left:15px;
 	border:1px solid #f0f0f0;
 	border-radius: 4px;
+}
+
+.pane-header {
+	height:35px;
+	padding:5px;
+	color:#3b3b3b;
+    font-weight:700;
+    background:#E2D7E7;
+}
+
+.pane-content{
+	border: medium none;
+	margin:0;
+	padding:0;
 }

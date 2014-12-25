@@ -192,6 +192,17 @@ public class CompareController {
 		return result;
 	}
 
+	@RequestMapping("/generate.do")
+	public @ResponseBody Map<String, String> generate(@RequestParam String designRelativeFilePath) {
+		URL resource = this.getClass().getClassLoader().getResource("/");
+		String basePath = resource.toString().substring(6) + "../../";
+		String designFilePath = basePath + designRelativeFilePath;
+		
+		
+		
+		return null;
+	}
+	
 	@RequestMapping("/getProjectNames.do")
 	public @ResponseBody List<String> getProjectNames() {
 		return PropertiesUtils.getProjectNames();

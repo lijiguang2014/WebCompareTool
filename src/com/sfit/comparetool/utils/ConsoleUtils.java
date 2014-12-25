@@ -1,7 +1,6 @@
 package com.sfit.comparetool.utils;
 
 import java.io.BufferedReader;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 
 import org.apache.log4j.Logger;

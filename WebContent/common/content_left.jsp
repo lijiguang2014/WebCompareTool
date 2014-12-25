@@ -15,6 +15,12 @@
 			<a class="task-link" href="export.jsp">模型导出</a>
 		</div>
 		<div class="menu">
+			<a class="task-icon-link" href="generate.jsp">
+				<img style="width: 24px; height: 24px; width: 24px; height: 24px; margin: 2px;" class="icon-user icon-md" src="images/download.png">
+			</a>&nbsp;
+			<a class="task-link" href="generate.jsp">模型生成</a>
+		</div>
+		<div class="menu">
 			<a class="task-icon-link" href="compare.jsp">
 				<img style="width: 24px; height: 24px; width: 24px; height: 24px; margin: 2px;" class="icon-user icon-md" src="images/new.png">
 			</a>&nbsp;
@@ -29,18 +35,6 @@
 		</div>
 		<div class="pane-content">
 			<table id="historyList">
-				<tr>
-					<td>
-						<a>
-							#186
-						</a>
-					</td>
-					<td>
-						<a>
-							2014-12-20 23:23:00
-						</a>
-					</td>
-				</tr>
 			</table>
 		</div>
 	</div>

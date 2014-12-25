@@ -176,6 +176,31 @@ function fillLeftHistoryList(data, status) {
 /**
  * 下面是一些公用函数
  */
+
+//删除文件
+function deletefile(file, type){
+	$.ajax({
+		type: "post",
+		contentType : "application/json", 
+		dataType: "json",
+		url: "deleteFile.do?fileRelativePath=" + file,
+		success:function(data, status) {
+			if ("1" == data.success) {
+				alert("文件删除成功, 请重新选择文件上传");
+				if (type=="source") {
+					$("#source_upload_info").css("visibility", "hidden");
+				} else if (type=="target") {
+					$("#target_upload_info").css("visibility", "hidden");
+				} else {
+					$("#upload_info").css("visibility", "hidden");
+				}
+			} else {
+				alert(data.msg);
+			}
+		}
+	});
+}
+
 function showMask() {
 	$("#bg").css("display", "block");
 	$("#show").css("display", "block");

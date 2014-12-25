@@ -1,7 +1,6 @@
 package com.sfit.comparetool.bean;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class TableBean {
@@ -11,7 +10,7 @@ public class TableBean {
 	private String domainDescription;
 	private String markup;
 	private Map<String, ColumnBean> columnMap = new HashMap<String, ColumnBean>();
-	private Map<String, List<IndexBean>> indexes = new HashMap<String, List<IndexBean>>();
+	private Map<String, DefineIndex> indexes = new HashMap<String, DefineIndex>();
 	
 	public String getId() {
 		return id;
@@ -43,10 +42,10 @@ public class TableBean {
 	public void setColumnMap(Map<String, ColumnBean> columnMap) {
 		this.columnMap = columnMap;
 	}
-	public Map<String, List<IndexBean>> getIndexes() {
+	public Map<String, DefineIndex> getIndexes() {
 		return indexes;
 	}
-	public void setIndexes(Map<String, List<IndexBean>> indexes) {
+	public void setIndexes(Map<String, DefineIndex> indexes) {
 		this.indexes = indexes;
 	}
 }
