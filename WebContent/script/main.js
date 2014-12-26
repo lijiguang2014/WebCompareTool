@@ -212,6 +212,7 @@ function closeMask(){
 }
 
 function getFileNameFromFilePath(filePath) {
+	alert(filePath);
 	var ss = filePath.split("/");
 	return ss[ss.length-1];
 }

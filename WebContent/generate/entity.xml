@@ -1,10 +1,356 @@
 <?xml version="1.0" encoding="GB2312"?>
 <!DOCTYPE UFEntityModel SYSTEM "UFEntity.dtd">
 <UFEntityModel>
-		<Entity name="A_QUERYUSER2_LOGINSTATUS" title="" description="">
-			<Field name="LOGINCNT" type="TY_POSITION" label="" description="" iskey="no" notnull="no" />
-			<Field name="TRADECNT" type="TY_POSITION" label="" description="" iskey="no" notnull="no" />
-			<Field name="LOGINTYPE" type="TY_ACCOUNT" label="" description="" iskey="no" notnull="no" />
-			<Field name="TRADEDATE" type="TY_ACCOUNT" label="" description="" iskey="no" notnull="no" />
+		<Entity name="H_EXWARRANT" title="仓单文件" description="仓单文件">
+			<Field name="WAREHOUSEID" type="TY_VARCHAR2_7" label="仓库编号" description="仓库编号" iskey="no" notnull="yes" />
+			<Field name="EXCOMPANYID" type="TY_CHAR2" label="会员号" description="会员号" iskey="no" notnull="yes" />
+			<Field name="COMMODITYID" type="TY_VARCHAR2_1" label="品种" description="品种" iskey="no" notnull="yes" />
+			<Field name="EXCHANGEID" type="TY_VARCHAR2_1" label="交易所代码" description="交易所代码" iskey="no" notnull="yes" />
+			<Field name="EXCLIENTID" type="TY_VARCHAR2_2" label="客户编码" description="客户编码" iskey="no" notnull="yes" />
+			<Field name="UPLOADDATE" type="TY_CHAR4" label="上报日期" description="上报日期" iskey="no" notnull="yes" />
+			<Field name="WARRANTAMOUNT" type="TY_NUMBER2" label="仓单数量" description="仓单数量" iskey="no" notnull="yes" />
+			<Field name="TRADEDATE" type="TY_CHAR4" label="交易日" description="交易日" iskey="no" notnull="yes" />
+		</Entity>
+		<Entity name="H_EXCLIENT" title="客户基本资料文件" description="客户基本资料文件">
+			<Field name="CLIENTSTATE" type="TY_CHAR1" label="账户休眠状态" description="账户休眠状态" iskey="no" notnull="yes" />
+			<Field name="EXCLIENTIDTYPE" type="TY_CHAR1" label="交易编码类型" description="交易编码类型" iskey="no" notnull="yes" />
+			<Field name="NAME" type="TY_VARCHAR2_4" label="客户名称" description="客户名称" iskey="no" notnull="yes" />
+			<Field name="REALOPENDATE" type="TY_CHAR4" label="客户开户日期" description="客户开户日期" iskey="no" notnull="yes" />
+			<Field name="IDENTITY" type="TY_VARCHAR2_3" label="身份证" description="身份证" iskey="no" notnull="no" />
+			<Field name="ADDRESS" type="TY_VARCHAR2_5" label="通讯地址" description="通讯地址" iskey="no" notnull="yes" />
+			<Field name="POSTCODE" type="TY_CHAR3" label="邮政编码" description="邮政编码" iskey="no" notnull="yes" />
+			<Field name="LOCATE" type="TY_VARCHAR2_3" label="所在地" description="所在地" iskey="no" notnull="yes" />
+			<Field name="OPENDATE" type="TY_CHAR4" label="交易日期" description="交易日期" iskey="no" notnull="yes" />
+			<Field name="DEPUTYIDENTITY" type="TY_VARCHAR2_3" label="开户授权人身份证" description="开户授权人身份证" iskey="no" notnull="no" />
+			<Field name="TELEPHONE" type="TY_VARCHAR2_3" label="联系电话" description="联系电话" iskey="no" notnull="yes" />
+			<Field name="UPLOADDATE" type="TY_CHAR4" label="上报日期" description="上报日期" iskey="no" notnull="yes" />
+			<Field name="CLIENTTYPE" type="TY_CHAR1" label="客户类型" description="客户类型" iskey="no" notnull="yes" />
+			<Field name="EXCOMPANYID" type="TY_CHAR2" label="所属会员号" description="所属会员号" iskey="no" notnull="yes" />
+			<Field name="DEPUTYNAME" type="TY_VARCHAR2_3" label="开户授权人名称" description="开户授权人名称" iskey="no" notnull="no" />
+			<Field name="BUSINESSCODE" type="TY_VARCHAR2_3" label="组织机构代码证号" description="组织机构代码证号" iskey="no" notnull="no" />
+			<Field name="EXCHANGEID" type="TY_VARCHAR2_1" label="交易所代码" description="交易所代码" iskey="no" notnull="yes" />
+			<Field name="EXCLIENTID" type="TY_VARCHAR2_2" label="客户编码" description="客户编码" iskey="no" notnull="yes" />
+			<Field name="ORGANCODE" type="TY_VARCHAR2_3" label="营业执照号" description="营业执照号" iskey="no" notnull="no" />
+		</Entity>
+		<Entity name="H_EXDELIVCONTRACTDATA" title="待交割结算合约文件" description="待交割结算合约文件">
+			<Field name="DELIVTYPE" type="TY_CHAR1" label="交割类型" description="交割类型" iskey="no" notnull="yes" />
+			<Field name="OPENPRICE" type="TY_NUMBER1" label="开仓价" description="开仓价" iskey="no" notnull="yes" />
+			<Field name="DELIVSETTLEPRICE" type="TY_NUMBER1" label="交割结算价" description="交割结算价" iskey="no" notnull="yes" />
+			<Field name="CONTRACTID" type="TY_VARCHAR2_6" label="品种合约" description="品种合约" iskey="no" notnull="yes" />
+			<Field name="DELIVMARGIN" type="TY_NUMBER1" label="交割保证金" description="交割保证金" iskey="no" notnull="yes" />
+			<Field name="UPLOADDATE" type="TY_CHAR4" label="上报日期" description="上报日期" iskey="no" notnull="yes" />
+			<Field name="TRADESEQ" type="TY_VARCHAR2_2" label="成交流水号" description="成交流水号" iskey="no" notnull="no" />
+			<Field name="CURRENCY" type="TY_CHAR5" label="币种" description="币种" iskey="no" notnull="yes" />
+			<Field name="EXCOMPANYID" type="TY_CHAR2" label="会员号" description="会员号" iskey="no" notnull="yes" />
+			<Field name="BSTAG" type="TY_CHAR1" label="买卖标志" description="买卖标志" iskey="no" notnull="yes" />
+			<Field name="EXCHANGEID" type="TY_VARCHAR2_1" label="交易所代码" description="交易所代码" iskey="no" notnull="yes" />
+			<Field name="EXCLIENTID" type="TY_VARCHAR2_2" label="客户编码" description="客户编码" iskey="no" notnull="yes" />
+			<Field name="POSITION" type="TY_NUMBER2" label="待交割持仓量" description="待交割持仓量" iskey="no" notnull="yes" />
+			<Field name="TRADEDATE" type="TY_CHAR4" label="交易日" description="交易日" iskey="no" notnull="yes" />
+		</Entity>
+		<Entity name="H_EXORDER" title="委托响应数据" description="委托响应数据">
+			<Field name="CONTRACTCODE" type="TY_VARCHAR2_11" label="合约代码" description="合约代码" iskey="no" notnull="yes" />
+			<Field name="TRADEUSERCODE" type="TY_VARCHAR2_10" label="交易用户代码" description="交易用户代码" iskey="no" notnull="yes" />
+			<Field name="TRIGGERCONDITION" type="TY_CHAR1" label="触发条件" description="触发条件" iskey="no" notnull="yes" />
+			<Field name="DECLAREDPRICE" type="TY_NUMBER6" label="申报价格" description="申报价格" iskey="no" notnull="yes" />
+			<Field name="ORDERSOURCE" type="TY_CHAR1" label="报单来源" description="报单来源" iskey="no" notnull="yes" />
+			<Field name="VOLUMNED" type="TY_NUMBER7" label="已成交数量" description="已成交数量" iskey="no" notnull="yes" />
+			<Field name="REPORTNUM" type="TY_VARCHAR2_9" label="报单编号" description="报单编号" iskey="no" notnull="yes" />
+			<Field name="DECLAREDAMOUNT" type="TY_NUMBER7" label="申报数量" description="申报数量" iskey="no" notnull="yes" />
+			<Field name="EXCOMPANYCODE" type="TY_VARCHAR2_7" label="会员代码" description="会员代码" iskey="no" notnull="yes" />
+			<Field name="LASTMODIFYTIME" type="TY_CHAR7" label="最后修改时间" description="最后修改时间" iskey="no" notnull="yes" />
+			<Field name="VHFLAG" type="TY_CHAR1" label="投机套保标志" description="投机套保标志" iskey="no" notnull="yes" />
+			<Field name="BSTAG" type="TY_CHAR1" label="买卖方向" description="买卖方向" iskey="no" notnull="yes" />
+			<Field name="VOLUMNTYPE" type="TY_CHAR1" label="成交量类型 " description="成交量类型 " iskey="no" notnull="yes" />
+			<Field name="NUMBERCODE" type="TY_VARCHAR2_7" label="结算会员代码" description="结算会员代码" iskey="no" notnull="yes" />
+			<Field name="ORDERTYPE" type="TY_CHAR1" label="报单类型" description="报单类型" iskey="no" notnull="yes" />
+			<Field name="EXCHANGEID" type="TY_VARCHAR2_1" label="交易所代码" description="交易所代码" iskey="no" notnull="yes" />
+			<Field name="SQUAREREASON" type="TY_CHAR1" label="强平原因" description="强平原因" iskey="no" notnull="yes" />
+			<Field name="ACTIVATIONTIME" type="TY_CHAR7" label="激活时间" description="激活时间" iskey="no" notnull="yes" />
+			<Field name="ORDERDATE" type="TY_CHAR4" label="报单日期" description="报单日期" iskey="no" notnull="yes" />
+			<Field name="TRADEDATE" type="TY_CHAR4" label="交易日期" description="交易日期" iskey="no" notnull="yes" />
+			<Field name="MINVOLUMN" type="TY_NUMBER7" label="最小成交量" description="最小成交量" iskey="no" notnull="no" />
+			<Field name="EXCLIENTCODE" type="TY_VARCHAR2_7" label="客户代码" description="客户代码" iskey="no" notnull="yes" />
+			<Field name="ORDERSTATE" type="TY_CHAR1" label="报单状态" description="报单状态" iskey="no" notnull="yes" />
+			<Field name="LOCALNUM" type="TY_VARCHAR2_9" label="本地报单编号" description="本地报单编号" iskey="no" notnull="yes" />
+			<Field name="REMAINING" type="TY_NUMBER7" label="剩余数量" description="剩余数量" iskey="no" notnull="yes" />
+			<Field name="PVTYPE" type="TY_CHAR1" label="有效期类型" description="有效期类型" iskey="no" notnull="yes" />
+			<Field name="MODIFYUSERCODE" type="TY_VARCHAR2_10" label="最后修改交易用户代码" description="最后修改交易用户代码" iskey="no" notnull="yes" />
+			<Field name="TRIGGERPRICE" type="TY_NUMBER6" label="触发价格" description="触发价格" iskey="no" notnull="no" />
+			<Field name="ORDERTIME" type="TY_CHAR7" label="报单时间" description="报单时间" iskey="no" notnull="yes" />
+			<Field name="UPLOADDATE" type="TY_CHAR4" label="上报日期" description="上报日期" iskey="no" notnull="yes" />
+			<Field name="PRICECONDITION" type="TY_CHAR1" label="报单价格条件" description="报单价格条件" iskey="no" notnull="yes" />
+			<Field name="HANGTIME" type="TY_CHAR7" label="挂起时间" description="挂起时间" iskey="no" notnull="yes" />
+			<Field name="CANCLETIME" type="TY_CHAR7" label="撤销时间" description="撤销时间" iskey="no" notnull="yes" />
+			<Field name="OCTAG" type="TY_CHAR1" label="开平标志" description="开平标志" iskey="no" notnull="yes" />
+			<Field name="BUSINESSDATE" type="TY_CHAR4" label="业务发生日期" description="业务发生日期" iskey="no" notnull="yes" />
+		</Entity>
+		<Entity name="H_EXCLITRDDETAIL" title="成交明细文件" description="成交明细文件">
+			<Field name="PRICE" type="TY_NUMBER1" label="成交价" description="成交价" iskey="no" notnull="yes" />
+			<Field name="TRANSDATE" type="TY_CHAR4" label="成交日期" description="成交日期" iskey="no" notnull="yes" />
+			<Field name="CONTRACTID" type="TY_VARCHAR2_6" label="品种合约" description="品种合约" iskey="no" notnull="yes" />
+			<Field name="AMOUNT" type="TY_NUMBER1" label="成交额" description="成交额" iskey="no" notnull="yes" />
+			<Field name="UPLOADDATE" type="TY_CHAR4" label="上报日期" description="上报日期" iskey="no" notnull="yes" />
+			<Field name="TRADESEQ" type="TY_VARCHAR2_2" label="成交流水号" description="成交流水号" iskey="no" notnull="yes" />
+			<Field name="VHFLAG" type="TY_CHAR1" label="投机套保标志" description="投机套保标志" iskey="no" notnull="yes" />
+			<Field name="CURRENCY" type="TY_CHAR5" label="币种" description="币种" iskey="no" notnull="yes" />
+			<Field name="EXCOMPANYID" type="TY_CHAR2" label="会员号" description="会员号" iskey="no" notnull="yes" />
+			<Field name="BSTAG" type="TY_CHAR1" label="买卖标志" description="买卖标志" iskey="no" notnull="yes" />
+			<Field name="VOLUMN" type="TY_NUMBER2" label="成交量" description="成交量" iskey="no" notnull="yes" />
+			<Field name="EXCHANGEID" type="TY_VARCHAR2_1" label="交易所代码" description="交易所代码" iskey="no" notnull="yes" />
+			<Field name="TRADETIME" type="TY_CHAR7" label="成交时间" description="成交时间" iskey="no" notnull="yes" />
+			<Field name="EXCLIENTID" type="TY_VARCHAR2_2" label="客户编码" description="客户编码" iskey="no" notnull="yes" />
+			<Field name="CLOSEPROFIT" type="TY_NUMBER1" label="平仓盈亏" description="平仓盈亏" iskey="no" notnull="no" />
+			<Field name="OCTAG" type="TY_CHAR1" label="开平仓标志" description="开平仓标志" iskey="no" notnull="yes" />
+			<Field name="TRADEDATE" type="TY_CHAR4" label="交易日" description="交易日" iskey="no" notnull="yes" />
+		</Entity>
+		<Entity name="H_EXCLIPOSDETAIL" title="持仓明细文件" description="持仓明细文件">
+			<Field name="LASTSETTLEPRICE" type="TY_NUMBER1" label="昨结算价" description="昨结算价" iskey="no" notnull="yes" />
+			<Field name="CONTRACTID" type="TY_VARCHAR2_6" label="品种合约" description="品种合约" iskey="no" notnull="yes" />
+			<Field name="TRADEMARGIN" type="TY_NUMBER1" label="交易保证金" description="交易保证金" iskey="no" notnull="yes" />
+			<Field name="POSITIONPROFIT" type="TY_NUMBER1" label="持仓盈亏" description="持仓盈亏" iskey="no" notnull="no" />
+			<Field name="UPLOADDATE" type="TY_CHAR4" label="上报日期" description="上报日期" iskey="no" notnull="yes" />
+			<Field name="VHFLAG" type="TY_CHAR1" label="投机套保标志" description="投机套保标志" iskey="no" notnull="yes" />
+			<Field name="CURRENCY" type="TY_CHAR5" label="币种" description="币种" iskey="no" notnull="yes" />
+			<Field name="EXCOMPANYID" type="TY_CHAR2" label="会员号" description="会员号" iskey="no" notnull="yes" />
+			<Field name="BSTAG" type="TY_CHAR1" label="买卖标志" description="买卖标志" iskey="no" notnull="yes" />
+			<Field name="TODAYSETTLEPRICE" type="TY_NUMBER1" label="今结算价" description="今结算价" iskey="no" notnull="yes" />
+			<Field name="EXCHANGEID" type="TY_VARCHAR2_1" label="交易所代码" description="交易所代码" iskey="no" notnull="yes" />
+			<Field name="EXCLIENTID" type="TY_VARCHAR2_2" label="客户编码" description="客户编码" iskey="no" notnull="yes" />
+			<Field name="POSITION" type="TY_NUMBER2" label="持仓量" description="持仓量" iskey="no" notnull="yes" />
+			<Field name="TRADEDATE" type="TY_CHAR4" label="交易日期" description="交易日期" iskey="no" notnull="yes" />
+		</Entity>
+		<Entity name="H_EXHEDGEVOLUME" title="套期保值额度数据" description="套期保值额度数据">
+			<Field name="CONTRACTCODE" type="TY_VARCHAR2_11" label="合约代码" description="合约代码" iskey="no" notnull="yes" />
+			<Field name="EFFECTIVEDATE" type="TY_CHAR4" label="生效日期" description="生效日期" iskey="no" notnull="yes" />
+			<Field name="SHORTHEDGAMOUNT" type="TY_NUMBER8" label="空头保值额度最初申请量" description="空头保值额度最初申请量" iskey="no" notnull="yes" />
+			<Field name="UPLOADDATE" type="TY_CHAR4" label="上报日期" description="上报日期" iskey="no" notnull="yes" />
+			<Field name="EXCOMPANYCODE" type="TY_VARCHAR2_7" label="会员代码" description="会员代码" iskey="no" notnull="yes" />
+			<Field name="SHORTLIMIT" type="TY_NUMBER8" label="空头限额" description="空头限额" iskey="no" notnull="yes" />
+			<Field name="CLOSINGDATE" type="TY_CHAR4" label="截止日期" description="截止日期" iskey="no" notnull="no" />
+			<Field name="HEDGINGTYPE" type="TY_CHAR4" label="套保额度使用类型" description="套保额度使用类型" iskey="no" notnull="yes" />
+			<Field name="APPROVALDATE" type="TY_CHAR4" label="审批日期" description="审批日期" iskey="no" notnull="yes" />
+			<Field name="LONGHEDGAMOUNT" type="TY_NUMBER8" label="多头保值额度最初申请量" description="多头保值额度最初申请量" iskey="no" notnull="yes" />
+			<Field name="EXCHANGEID" type="TY_VARCHAR2_1" label="交易所代码" description="交易所代码" iskey="no" notnull="yes" />
+			<Field name="LONGLIMIT" type="TY_NUMBER8" label="多头限额" description="多头限额" iskey="no" notnull="yes" />
+			<Field name="TRADEDATE" type="TY_CHAR4" label="交易日期" description="交易日期" iskey="no" notnull="yes" />
+			<Field name="EXCLIENTCODE" type="TY_VARCHAR2_7" label="客户代码" description="客户代码" iskey="no" notnull="yes" />
+		</Entity>
+		<Entity name="H_EXCLIENTPOSILIMIT" title="客户合约限仓数据" description="客户合约限仓数据">
+			<Field name="ROUNDMODE" type="TY_CHAR4" label="取整方式" description="取整方式" iskey="no" notnull="yes" />
+			<Field name="SHORTLIMIT" type="TY_NUMBER7" label="空头绝对限仓量" description="空头绝对限仓量" iskey="no" notnull="yes" />
+			<Field name="CONTRACTCODE" type="TY_VARCHAR2_11" label="合约代码" description="合约代码" iskey="no" notnull="yes" />
+			<Field name="CLIENTTYPE" type="TY_CHAR1" label="客户类型" description="客户类型" iskey="no" notnull="yes" />
+			<Field name="SHORTLIMITRATE" type="TY_NUMBER11" label="空头限仓比例" description="空头限仓比例" iskey="no" notnull="yes" />
+			<Field name="LIMITPOINT" type="TY_NUMBER7" label="限仓起点" description="限仓起点" iskey="no" notnull="yes" />
+			<Field name="LONGLIMIT" type="TY_NUMBER7" label="多头绝对限仓量" description="多头绝对限仓量" iskey="no" notnull="yes" />
+			<Field name="EXCHANGEID" type="TY_VARCHAR2_1" label="交易所代码" description="交易所代码" iskey="no" notnull="yes" />
+			<Field name="UPLOADDATE" type="TY_CHAR4" label="上报日期" description="上报日期" iskey="no" notnull="yes" />
+			<Field name="LONGLIMITRATE" type="TY_NUMBER11" label="多头限仓比例" description="多头限仓比例" iskey="no" notnull="yes" />
+			<Field name="TRADEDATE" type="TY_CHAR4" label="交易日期" description="交易日期" iskey="no" notnull="yes" />
+		</Entity>
+		<Entity name="H_EXEXIOFUND" title="会员出入金文件" description="会员出入金文件">
+			<Field name="FUNDAMOUNT" type="TY_NUMBER1" label="资金变动额" description="资金变动额" iskey="no" notnull="yes" />
+			<Field name="CURRENCY" type="TY_CHAR5" label="币种" description="币种" iskey="no" notnull="yes" />
+			<Field name="EXCOMPANYID" type="TY_CHAR2" label="会员号" description="会员号" iskey="no" notnull="yes" />
+			<Field name="TRANSDATE" type="TY_CHAR4" label="出入金发生日期" description="出入金发生日期" iskey="no" notnull="yes" />
+			<Field name="BANKACCOUNTNO" type="TY_VARCHAR2_2" label="资金账户号码" description="资金账户号码" iskey="no" notnull="yes" />
+			<Field name="BANKID" type="TY_CHAR6" label="银行统一标识" description="银行统一标识" iskey="no" notnull="yes" />
+			<Field name="ACCOUNTTYPE" type="TY_CHAR1" label="资金账户类型" description="资金账户类型" iskey="no" notnull="yes" />
+			<Field name="EXCHANGEID" type="TY_VARCHAR2_1" label="交易所代码" description="交易所代码" iskey="no" notnull="yes" />
+			<Field name="UPLOADDATE" type="TY_CHAR4" label="上报日期" description="上报日期" iskey="no" notnull="yes" />
+			<Field name="TRADEDATE" type="TY_CHAR4" label="交易日" description="交易日" iskey="no" notnull="yes" />
+		</Entity>
+		<Entity name="H_EXMEMBER" title="会员资料文件" description="会员资料文件">
+			<Field name="NAME" type="TY_VARCHAR2_3" label="会员名称" description="会员名称" iskey="no" notnull="yes" />
+			<Field name="EXCOMPANYID" type="TY_CHAR2" label="客户编码" description="客户编码" iskey="no" notnull="yes" />
+			<Field name="TRADETYPE" type="TY_CHAR1" label="会员交易类型" description="会员交易类型" iskey="no" notnull="yes" />
+			<Field name="SHORTNAME" type="TY_VARCHAR2_7" label="会员简称" description="会员简称" iskey="no" notnull="yes" />
+			<Field name="EXCHANGEID" type="TY_VARCHAR2_1" label="交易所代码" description="交易所代码" iskey="no" notnull="yes" />
+			<Field name="UPLOADDATE" type="TY_CHAR4" label="上报日期" description="上报日期" iskey="no" notnull="yes" />
+			<Field name="SETTLEMENTTYPE" type="TY_CHAR1" label="会员结算类型" description="会员结算类型" iskey="no" notnull="yes" />
+			<Field name="TRADEDATE" type="TY_CHAR4" label="交易日" description="交易日" iskey="no" notnull="yes" />
+		</Entity>
+		<Entity name="H_EXCOMPOTHERFUND" title="客户分项资金文件" description="客户分项资金文件">
+			<Field name="CURRENCY" type="TY_CHAR5" label="币种" description="币种" iskey="no" notnull="yes" />
+			<Field name="EXCOMPANYID" type="TY_CHAR2" label="会员号" description="会员号" iskey="no" notnull="yes" />
+			<Field name="EXCHANGEID" type="TY_VARCHAR2_1" label="交易所代码" description="交易所代码" iskey="no" notnull="yes" />
+			<Field name="EXCLIENTID" type="TY_VARCHAR2_2" label="客户编码" description="客户编码" iskey="no" notnull="no" />
+			<Field name="AMOUNT" type="TY_NUMBER1" label="资金金额" description="资金金额" iskey="no" notnull="yes" />
+			<Field name="ACCOUNT" type="TY_VARCHAR2_2" label="资金账户号码" description="资金账户号码" iskey="no" notnull="yes" />
+			<Field name="UPLOADDATE" type="TY_CHAR4" label="上报日期" description="上报日期" iskey="no" notnull="yes" />
+			<Field name="TRADEDATE" type="TY_CHAR4" label="交易日" description="交易日" iskey="no" notnull="yes" />
+			<Field name="FUNDTYPE" type="TY_CHAR2" label="资金项目编号" description="资金项目编号" iskey="no" notnull="yes" />
+		</Entity>
+		<Entity name="H_EXINSTRUMENTPROPERTY" title="合约属性数据" description="合约属性数据">
+			<Field name="CONTRACTCODE" type="TY_VARCHAR2_11" label="合约代码" description="合约代码" iskey="no" notnull="yes" />
+			<Field name="FEEREDCUTRATE" type="TY_NUMBER10" label="手续费减免率" description="手续费减免率" iskey="no" notnull="yes" />
+			<Field name="MINCHANGEPRICE" type="TY_NUMBER9" label="最小变动价" description="最小变动价" iskey="no" notnull="yes" />
+			<Field name="PEROFUP" type="TY_NUMBER6" label="涨停百分比" description="涨停百分比" iskey="no" notnull="yes" />
+			<Field name="DELIVERYMANNER" type="TY_CHAR4" label="交割方式" description="交割方式" iskey="no" notnull="yes" />
+			<Field name="FEEMETHOD" type="TY_CHAR4" label="交易手续费取值方式" description="交易手续费取值方式" iskey="no" notnull="yes" />
+			<Field name="BEGINDATE" type="TY_CHAR4" label="开始交割日" description="开始交割日" iskey="no" notnull="yes" />
+			<Field name="CONTRACTNAME" type="TY_VARCHAR2_11" label="合约名称" description="合约名称" iskey="no" notnull="yes" />
+			<Field name="FEEREDCUT" type="TY_CHAR4" label="手续费减免取值方式" description="手续费减免取值方式" iskey="no" notnull="yes" />
+			<Field name="DOWNPRICE" type="TY_NUMBER6" label="跌停价" description="跌停价" iskey="no" notnull="yes" />
+			<Field name="EXCHANGEID" type="TY_VARCHAR2_1" label="交易所代码" description="交易所代码" iskey="no" notnull="yes" />
+			<Field name="UPAMP" type="TY_NUMBER6" label="涨停幅度" description="涨停幅度" iskey="no" notnull="yes" />
+			<Field name="PRODUCTTYPE" type="TY_CHAR4" label="产品类型" description="产品类型" iskey="no" notnull="yes" />
+			<Field name="REFERENCEPRICE" type="TY_NUMBER6" label="挂牌基准价" description="挂牌基准价" iskey="no" notnull="yes" />
+			<Field name="TRADEDATE" type="TY_CHAR4" label="交易日期" description="交易日期" iskey="no" notnull="yes" />
+			<Field name="ENDDATE" type="TY_CHAR4" label="最后交割日" description="最后交割日" iskey="no" notnull="yes" />
+			<Field name="LIMITTYPE" type="TY_CHAR4" label="涨跌停板取值方式" description="涨跌停板取值方式" iskey="no" notnull="yes" />
+			<Field name="TRADEDATEFLAG" type="TY_CHAR4" label="是否首交易日" description="是否首交易日" iskey="no" notnull="yes" />
+			<Field name="PRODUCTCODE" type="TY_VARCHAR2_2" label="产品代码" description="产品代码" iskey="no" notnull="yes" />
+			<Field name="FEEPRICE" type="TY_NUMBER10" label="交易手续费单价" description="交易手续费单价" iskey="no" notnull="yes" />
+			<Field name="PEROFDOWN" type="TY_NUMBER6" label="跌停百分比" description="跌停百分比" iskey="no" notnull="yes" />
+			<Field name="UPLOADDATE" type="TY_CHAR4" label="上报日期" description="上报日期" iskey="no" notnull="yes" />
+			<Field name="FEEERDCUTPRICE" type="TY_NUMBER10" label="手续费减免单价" description="手续费减免单价" iskey="no" notnull="yes" />
+			<Field name="DELIVFEERATE" type="TY_NUMBER10" label="交割手续费率" description="交割手续费率" iskey="no" notnull="yes" />
+			<Field name="UPPRICE" type="TY_NUMBER6" label="涨停价" description="涨停价" iskey="no" notnull="yes" />
+			<Field name="TRADEUNIT" type="TY_NUMBER8" label="合约数量乘数" description="合约数量乘数" iskey="no" notnull="yes" />
+			<Field name="DELIVERYUNIT" type="TY_NUMBER8" label="交割单位" description="交割单位" iskey="no" notnull="yes" />
+			<Field name="FEERATE" type="TY_NUMBER10" label="交易手续费率" description="交易手续费率" iskey="no" notnull="yes" />
+			<Field name="DELIVERFEE" type="TY_CHAR4" label="交割手续费取值方式" description="交割手续费取值方式" iskey="no" notnull="yes" />
+			<Field name="DOWNAMP" type="TY_NUMBER6" label="跌停幅度" description="跌停幅度" iskey="no" notnull="yes" />
+			<Field name="DELIVFEEPRICE" type="TY_NUMBER10" label="交割手续费" description="交割手续费" iskey="no" notnull="yes" />
+			<Field name="AHEADMONTH" type="TY_NUMBER8" label="提前月份" description="提前月份" iskey="no" notnull="yes" />
+		</Entity>
+		<Entity name="H_EXDELIVDATA" title="交割明细文件" description="交割明细文件">
+			<Field name="DELIVTYPE" type="TY_CHAR1" label="交割类型" description="交割类型" iskey="no" notnull="yes" />
+			<Field name="DELIV_PRICE" type="TY_NUMBER1" label="交割结算价" description="交割结算价" iskey="no" notnull="yes" />
+			<Field name="CURRENCY" type="TY_CHAR5" label="币种" description="币种" iskey="no" notnull="yes" />
+			<Field name="BSTAG" type="TY_CHAR1" label="买卖标志" description="买卖标志" iskey="no" notnull="yes" />
+			<Field name="EXCOMPANYID" type="TY_CHAR2" label="会员号" description="会员号" iskey="no" notnull="yes" />
+			<Field name="DELIV_AMOUNT" type="TY_NUMBER1" label="交割货款" description="交割货款" iskey="no" notnull="yes" />
+			<Field name="EXCHANGEID" type="TY_VARCHAR2_1" label="交易所代码" description="交易所代码" iskey="no" notnull="yes" />
+			<Field name="CONTRACTID" type="TY_VARCHAR2_6" label="品种合约" description="品种合约" iskey="no" notnull="yes" />
+			<Field name="EXCLIENTID" type="TY_VARCHAR2_2" label="客户编码" description="客户编码" iskey="no" notnull="yes" />
+			<Field name="POSITION" type="TY_NUMBER2" label="交割量" description="交割量" iskey="no" notnull="yes" />
+			<Field name="UPLOADDATE" type="TY_CHAR4" label="上报日期" description="上报日期" iskey="no" notnull="yes" />
+			<Field name="TRADEDATE" type="TY_CHAR4" label="交易日" description="交易日" iskey="no" notnull="yes" />
+		</Entity>
+		<Entity name="H_EXSPECIALPOSILIMIT" title="特别客户合约限仓数据" description="特别客户合约限仓数据">
+			<Field name="ROUNDMODE" type="TY_CHAR4" label="取整方式" description="取整方式" iskey="no" notnull="yes" />
+			<Field name="SHORTLIMIT" type="TY_NUMBER7" label="空头绝对限仓量" description="空头绝对限仓量" iskey="no" notnull="yes" />
+			<Field name="CONTRACTCODE" type="TY_VARCHAR2_11" label="合约代码" description="合约代码" iskey="no" notnull="yes" />
+			<Field name="SHORTLIMITRATE" type="TY_NUMBER11" label="空头限仓比例" description="空头限仓比例" iskey="no" notnull="yes" />
+			<Field name="LIMITPOINT" type="TY_NUMBER7" label="限仓起点" description="限仓起点" iskey="no" notnull="yes" />
+			<Field name="LONGLIMIT" type="TY_NUMBER7" label="多头绝对限仓量" description="多头绝对限仓量" iskey="no" notnull="yes" />
+			<Field name="EXCHANGEID" type="TY_VARCHAR2_1" label="交易所代码" description="交易所代码" iskey="no" notnull="yes" />
+			<Field name="UPLOADDATE" type="TY_CHAR4" label="上报日期" description="上报日期" iskey="no" notnull="yes" />
+			<Field name="LONGLIMITRATE" type="TY_NUMBER11" label="多头限仓比例" description="多头限仓比例" iskey="no" notnull="yes" />
+			<Field name="TRADEDATE" type="TY_CHAR4" label="交易日期" description="交易日期" iskey="no" notnull="yes" />
+			<Field name="EXCLIENTCODE" type="TY_VARCHAR2_7" label="客户代码" description="客户代码" iskey="no" notnull="yes" />
+		</Entity>
+		<Entity name="H_EXPARTPOSILIMIT" title="会员合约限仓数据" description="会员合约限仓数据">
+			<Field name="CONTRACTCODE" type="TY_VARCHAR2_11" label="合约代码" description="合约代码" iskey="no" notnull="yes" />
+			<Field name="TRADEROLE" type="TY_CHAR4" label="交易角色" description="交易角色" iskey="no" notnull="yes" />
+			<Field name="LIMITPOINT" type="TY_NUMBER7" label="限仓起点" description="限仓起点" iskey="no" notnull="yes" />
+			<Field name="UPLOADDATE" type="TY_CHAR4" label="上报日期" description="上报日期" iskey="no" notnull="yes" />
+			<Field name="CREDITRATIO" type="TY_NUMBER11" label="信用系数" description="信用系数" iskey="no" notnull="yes" />
+			<Field name="LONGLIMITRATE" type="TY_NUMBER11" label="多头限仓比例" description="多头限仓比例" iskey="no" notnull="yes" />
+			<Field name="BUSINESSRATIO" type="TY_NUMBER11" label="业务系数" description="业务系数" iskey="no" notnull="yes" />
+			<Field name="EXCOMPANYCODE" type="TY_VARCHAR2_7" label="会员代码" description="会员代码" iskey="no" notnull="yes" />
+			<Field name="SHORTLIMIT" type="TY_NUMBER7" label="空头绝对限仓量" description="空头绝对限仓量" iskey="no" notnull="yes" />
+			<Field name="ROUNDMODE" type="TY_CHAR4" label="取整方式" description="取整方式" iskey="no" notnull="yes" />
+			<Field name="SHORTLIMITRATE" type="TY_NUMBER11" label="空头限仓比例" description="空头限仓比例" iskey="no" notnull="yes" />
+			<Field name="EXCHANGEID" type="TY_VARCHAR2_1" label="交易所代码" description="交易所代码" iskey="no" notnull="yes" />
+			<Field name="LONGLIMIT" type="TY_NUMBER7" label="多头绝对限仓量" description="多头绝对限仓量" iskey="no" notnull="yes" />
+			<Field name="TRADEDATE" type="TY_CHAR4" label="交易日期" description="交易日期" iskey="no" notnull="yes" />
+		</Entity>
+		<Entity name="H_EXSPOTPRICE" title="现货价格文件" description="现货价格文件">
+			<Field name="MEMO" type="TY_VARCHAR2_5" label="备注" description="备注" iskey="no" notnull="no" />
+			<Field name="PRICE" type="TY_NUMBER1" label="价格" description="价格" iskey="no" notnull="no" />
+			<Field name="CURRENCY" type="TY_CHAR4" label="币种" description="币种" iskey="no" notnull="no" />
+			<Field name="SOURCENAME" type="TY_VARCHAR2_4" label="现货价格来源" description="现货价格来源" iskey="no" notnull="no" />
+			<Field name="COMMODITYID" type="TY_VARCHAR2_1" label="品种" description="品种" iskey="no" notnull="yes" />
+			<Field name="EXCHANGEID" type="TY_VARCHAR2_1" label="交易所代码" description="交易所代码" iskey="no" notnull="yes" />
+			<Field name="MARKETPLACE" type="TY_VARCHAR2_3" label="产地/市场" description="产地/市场" iskey="no" notnull="no" />
+			<Field name="COMMODITYNAME" type="TY_VARCHAR2_3" label="现货名称" description="现货名称" iskey="no" notnull="no" />
+			<Field name="SOURCEID" type="TY_VARCHAR2_7" label="现货价格编号" description="现货价格编号" iskey="no" notnull="yes" />
+			<Field name="UPLOADDATE" type="TY_CHAR4" label="上报日期" description="上报日期" iskey="no" notnull="yes" />
+			<Field name="TRADEDATE" type="TY_CHAR4" label="交易日" description="交易日" iskey="no" notnull="yes" />
+		</Entity>
+		<Entity name="H_EXWAREHOUSE" title="仓库文件" description="仓库文件">
+			<Field name="INVENTORY" type="TY_NUMBER5" label="库存量" description="库存量" iskey="no" notnull="no" />
+			<Field name="WAREHOUSEID" type="TY_VARCHAR2_7" label="仓库编号" description="仓库编号" iskey="no" notnull="yes" />
+			<Field name="CAPACITY" type="TY_NUMBER5" label="库容量" description="库容量" iskey="no" notnull="no" />
+			<Field name="COMMODITYID" type="TY_VARCHAR2_1" label="品种" description="品种" iskey="no" notnull="yes" />
+			<Field name="EXCHANGEID" type="TY_VARCHAR2_1" label="交易所代码" description="交易所代码" iskey="no" notnull="yes" />
+			<Field name="UPLOADDATE" type="TY_CHAR4" label="上报日期" description="上报日期" iskey="no" notnull="yes" />
+			<Field name="WAREHOUSENAME" type="TY_VARCHAR2_8" label="仓库名称" description="仓库名称" iskey="no" notnull="yes" />
+			<Field name="TRADEDATE" type="TY_CHAR4" label="交易日" description="交易日" iskey="no" notnull="yes" />
+		</Entity>
+		<Entity name="H_EXMARGINRATE" title="会员合约交易保证金率数据" description="会员合约交易保证金率数据">
+			<Field name="EXCOMPANYCODE" type="TY_VARCHAR2_7" label="会员代码" description="会员代码" iskey="no" notnull="yes" />
+			<Field name="CONTRACTCODE" type="TY_VARCHAR2_11" label="合约代码" description="合约代码" iskey="no" notnull="yes" />
+			<Field name="VHFLAG" type="TY_CHAR1" label="投机套保标志 " description="投机套保标志 " iskey="no" notnull="yes" />
+			<Field name="TRADEROLE" type="TY_CHAR4" label="交易角色" description="交易角色" iskey="no" notnull="yes" />
+			<Field name="EXCHANGEID" type="TY_VARCHAR2_1" label="交易所代码" description="交易所代码" iskey="no" notnull="yes" />
+			<Field name="SHORTRATE" type="TY_NUMBER11" label="空头保证金率" description="空头保证金率" iskey="no" notnull="yes" />
+			<Field name="UPLOADDATE" type="TY_CHAR4" label="上报日期" description="上报日期" iskey="no" notnull="yes" />
+			<Field name="TRADEDATE" type="TY_CHAR4" label="交易日期" description="交易日期" iskey="no" notnull="yes" />
+			<Field name="LONGRATE" type="TY_NUMBER11" label="多头保证金率" description="多头保证金率" iskey="no" notnull="yes" />
+		</Entity>
+		<Entity name="H_EXCUSPROFIT" title="客户盈亏数据" description="客户盈亏数据">
+			<Field name="FUNDACCNUMBER" type="TY_VARCHAR2_2" label="资金账户号码" description="资金账户号码" iskey="no" notnull="yes" />
+			<Field name="PROFIT" type="TY_NUMBER1" label="盈亏金额" description="盈亏金额" iskey="no" notnull="yes" />
+			<Field name="VHFLAG" type="TY_CHAR1" label="投机套保标志" description="投机套保标志" iskey="no" notnull="yes" />
+			<Field name="CURRENCY" type="TY_CHAR5" label="币种" description="币种" iskey="no" notnull="yes" />
+			<Field name="BSTAG" type="TY_CHAR1" label="买卖标志" description="买卖标志" iskey="no" notnull="yes" />
+			<Field name="EXCOMPANYID" type="TY_CHAR2" label="会员号" description="会员号" iskey="no" notnull="yes" />
+			<Field name="EXCHANGEID" type="TY_VARCHAR2_1" label="交易所代码" description="交易所代码" iskey="no" notnull="yes" />
+			<Field name="CONTRACTID" type="TY_VARCHAR2_6" label="品种合约" description="品种合约" iskey="no" notnull="yes" />
+			<Field name="EXCLIENTID" type="TY_VARCHAR2_2" label="客户编码" description="客户编码" iskey="no" notnull="no" />
+			<Field name="UPLOADDATE" type="TY_CHAR4" label="上报日期" description="上报日期" iskey="no" notnull="yes" />
+			<Field name="TRADEDATE" type="TY_CHAR4" label="日期" description="日期" iskey="no" notnull="yes" />
+			<Field name="PROFITTYPE" type="TY_CHAR1" label="盈亏类型" description="盈亏类型" iskey="no" notnull="yes" />
+		</Entity>
+		<Entity name="H_EXCOMPFUND" title="会员资金文件" description="会员资金文件">
+			<Field name="PROFIT" type="TY_NUMBER1" label="当日总盈亏" description="当日总盈亏" iskey="no" notnull="yes" />
+			<Field name="MORTGAGECHANGE" type="TY_NUMBER1" label="质押变动额" description="质押变动额" iskey="no" notnull="yes" />
+			<Field name="MARGIN" type="TY_NUMBER1" label="会员权益总额" description="会员权益总额" iskey="no" notnull="yes" />
+			<Field name="MONEYIN" type="TY_NUMBER1" label="入金" description="入金" iskey="no" notnull="yes" />
+			<Field name="SETTLEMENTFUND" type="TY_NUMBER1" label="结算准备金" description="结算准备金" iskey="no" notnull="yes" />
+			<Field name="CASH" type="TY_NUMBER1" label="实有货币资金" description="实有货币资金" iskey="no" notnull="yes" />
+			<Field name="UPLOADDATE" type="TY_CHAR4" label="上报日期" description="上报日期" iskey="no" notnull="yes" />
+			<Field name="TRADEMARGIN" type="TY_NUMBER1" label="交易保证金" description="交易保证金" iskey="no" notnull="yes" />
+			<Field name="DELIVMARGIN" type="TY_NUMBER1" label="交割保证金" description="交割保证金" iskey="no" notnull="yes" />
+			<Field name="FUNDACCNUMBER" type="TY_VARCHAR2_2" label="资金账户号码" description="资金账户号码" iskey="no" notnull="yes" />
+			<Field name="CURRENCY" type="TY_CHAR5" label="币种" description="币种" iskey="no" notnull="yes" />
+			<Field name="MORTGAGE" type="TY_NUMBER1" label="质押额" description="质押额" iskey="no" notnull="yes" />
+			<Field name="EXCOMPANYID" type="TY_CHAR2" label="会员号" description="会员号" iskey="no " notnull="yes" />
+			<Field name="EXCHANGEID" type="TY_VARCHAR2_1" label="交易所代码" description="交易所代码" iskey="no" notnull="yes" />
+			<Field name="ACCOUNTTYPE" type="TY_CHAR1" label="资金账户类型" description="资金账户类型" iskey="no" notnull="yes" />
+			<Field name="LASTMARGIN" type="TY_NUMBER1" label="上日保证金总额" description="上日保证金总额" iskey="no" notnull="yes" />
+			<Field name="TRADEDATE" type="TY_CHAR4" label="交易日期" description="交易日期" iskey="no" notnull="yes" />
+			<Field name="OTHERS" type="TY_NUMBER1" label="其它资金" description="其它资金" iskey="no" notnull="yes" />
+			<Field name="DELIVAMOUNT" type="TY_NUMBER1" label="交割货款" description="交割货款" iskey="no" notnull="yes" />
+			<Field name="FEE" type="TY_NUMBER1" label="各类手续费" description="各类手续费" iskey="no" notnull="yes" />
+			<Field name="MONEYOUT" type="TY_NUMBER1" label="出金" description="出金" iskey="no" notnull="yes" />
+		</Entity>
+		<Entity name="H_EXCONTRACT" title="品种合约文件" description="品种合约文件">
+			<Field name="CLOSINGPRICE" type="TY_NUMBER1" label="收盘价" description="收盘价" iskey="no" notnull="yes" />
+			<Field name="LASTSETTLEPRICE" type="TY_NUMBER1" label="昨结算价" description="昨结算价" iskey="no" notnull="yes" />
+			<Field name="HIGHESTPRICE" type="TY_NUMBER1" label="最高价" description="最高价" iskey="no" notnull="yes" />
+			<Field name="MARGIN" type="TY_NUMBER1" label="保证金额" description="保证金额" iskey="no" notnull="no" />
+			<Field name="COMMODITYID" type="TY_VARCHAR2_1" label="品种" description="品种" iskey="no" notnull="yes" />
+			<Field name="CONTRACTID" type="TY_VARCHAR2_6" label="品种合约" description="品种合约" iskey="no" notnull="yes" />
+			<Field name="AMOUNT" type="TY_NUMBER5" label="成交额" description="成交额" iskey="no" notnull="yes" />
+			<Field name="UPLOADDATE" type="TY_CHAR4" label="上报日期" description="上报日期" iskey="no" notnull="yes" />
+			<Field name="SETTLEPRICE" type="TY_NUMBER1" label="今结算价" description="今结算价" iskey="no" notnull="yes" />
+			<Field name="CURRENCY" type="TY_CHAR5" label="币种" description="币种" iskey="no" notnull="yes" />
+			<Field name="STARTDATE" type="TY_CHAR4" label="开始交易日" description="开始交易日" iskey="no" notnull="yes" />
+			<Field name="OPENINGPRICE" type="TY_NUMBER1" label="开盘价" description="开盘价" iskey="no" notnull="yes" />
+			<Field name="LOWESTPRICE" type="TY_NUMBER1" label="最低价" description="最低价" iskey="no" notnull="yes" />
+			<Field name="FEERATE" type="TY_NUMBER4" label="手续费率" description="手续费率" iskey="no" notnull="no" />
+			<Field name="MARGINRATE" type="TY_NUMBER3" label="保证金率" description="保证金率" iskey="no" notnull="no" />
+			<Field name="VOLUMN" type="TY_NUMBER2" label="成交量" description="成交量" iskey="no" notnull="yes" />
+			<Field name="EXCHANGEID" type="TY_VARCHAR2_1" label="交易所代码" description="交易所代码" iskey="no" notnull="yes" />
+			<Field name="POSITION" type="TY_NUMBER2" label="持仓量" description="持仓量" iskey="no" notnull="yes" />
+			<Field name="TRADEDATE" type="TY_CHAR4" label="交易日" description="交易日" iskey="no" notnull="yes" />
+			<Field name="ENDDATE" type="TY_CHAR4" label="最后交易日" description="最后交易日" iskey="no" notnull="yes" />
+			<Field name="FEE" type="TY_NUMBER1" label="手续费额" description="手续费额" iskey="no" notnull="no" />
 		</Entity>
 </UFEntityModel>

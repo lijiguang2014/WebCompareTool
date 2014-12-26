@@ -4,12 +4,418 @@
 	<schemas/>
 	<tableGroups>
 		<tables group="Framework">
-			<table name="A_QUERYUSER2_LOGINSTATUS" title="" description="">
+			<table name="H_EXWARRANT" title="仓单文件" description="仓单文件">
 				<Columns>
-					<Column name="LOGINCNT" type="number(10,0)" label="" description="" notnull="no" iskey="no" originaltype="TY_POSITION" basetype="Float" length="10" precision="0"/>
-					<Column name="TRADECNT" type="number(10,0)" label="" description="" notnull="no" iskey="no" originaltype="TY_POSITION" basetype="Float" length="10" precision="0"/>
-					<Column name="LOGINTYPE" type="varchar2(10)" label="" description="" notnull="no" iskey="no" originaltype="TY_ACCOUNT" basetype="VString" length="10" precision="0"/>
-					<Column name="TRADEDATE" type="varchar2(10)" label="" description="" notnull="no" iskey="no" originaltype="TY_ACCOUNT" basetype="VString" length="10" precision="0"/>
+					<Column name="WAREHOUSEID" type="varchar2(10)" label="仓库编号" description="仓库编号" notnull="yes" iskey="no" originaltype="TY_VARCHAR2_7" basetype="VString" length="10" precision="0"/>
+					<Column name="EXCOMPANYID" type="char(4)" label="会员号" description="会员号" notnull="yes" iskey="no" originaltype="TY_CHAR2" basetype="String" length="4" precision="0"/>
+					<Column name="COMMODITYID" type="varchar2(2)" label="品种" description="品种" notnull="yes" iskey="no" originaltype="TY_VARCHAR2_1" basetype="VString" length="2" precision="0"/>
+					<Column name="EXCHANGEID" type="varchar2(2)" label="交易所代码" description="交易所代码" notnull="yes" iskey="no" originaltype="TY_VARCHAR2_1" basetype="VString" length="2" precision="0"/>
+					<Column name="EXCLIENTID" type="varchar2(8)" label="客户编码" description="客户编码" notnull="yes" iskey="no" originaltype="TY_VARCHAR2_2" basetype="VString" length="8" precision="0"/>
+					<Column name="UPLOADDATE" type="char(10)" label="上报日期" description="上报日期" notnull="yes" iskey="no" originaltype="TY_CHAR4" basetype="String" length="10" precision="0"/>
+					<Column name="WARRANTAMOUNT" type="number(10)" label="仓单数量" description="仓单数量" notnull="yes" iskey="no" originaltype="TY_NUMBER2" basetype="Int" length="10" precision="0"/>
+					<Column name="TRADEDATE" type="char(10)" label="交易日" description="交易日" notnull="yes" iskey="no" originaltype="TY_CHAR4" basetype="String" length="10" precision="0"/>
+				</Columns>
+				<Index/>
+			</table>
+			<table name="H_EXCLIENT" title="客户基本资料文件" description="客户基本资料文件">
+				<Columns>
+					<Column name="CLIENTSTATE" type="char(1)" label="账户休眠状态" description="账户休眠状态" notnull="yes" iskey="no" originaltype="TY_CHAR1" basetype="String" length="1" precision="0"/>
+					<Column name="EXCLIENTIDTYPE" type="char(1)" label="交易编码类型" description="交易编码类型" notnull="yes" iskey="no" originaltype="TY_CHAR1" basetype="String" length="1" precision="0"/>
+					<Column name="NAME" type="varchar2(100)" label="客户名称" description="客户名称" notnull="yes" iskey="no" originaltype="TY_VARCHAR2_4" basetype="VString" length="100" precision="0"/>
+					<Column name="REALOPENDATE" type="char(10)" label="客户开户日期" description="客户开户日期" notnull="yes" iskey="no" originaltype="TY_CHAR4" basetype="String" length="10" precision="0"/>
+					<Column name="IDENTITY" type="varchar2(40)" label="身份证" description="身份证" notnull="no" iskey="no" originaltype="TY_VARCHAR2_3" basetype="VString" length="40" precision="0"/>
+					<Column name="ADDRESS" type="varchar2(200)" label="通讯地址" description="通讯地址" notnull="yes" iskey="no" originaltype="TY_VARCHAR2_5" basetype="VString" length="200" precision="0"/>
+					<Column name="POSTCODE" type="char(6)" label="邮政编码" description="邮政编码" notnull="yes" iskey="no" originaltype="TY_CHAR3" basetype="String" length="6" precision="0"/>
+					<Column name="LOCATE" type="varchar2(40)" label="所在地" description="所在地" notnull="yes" iskey="no" originaltype="TY_VARCHAR2_3" basetype="VString" length="40" precision="0"/>
+					<Column name="OPENDATE" type="char(10)" label="交易日期" description="交易日期" notnull="yes" iskey="no" originaltype="TY_CHAR4" basetype="String" length="10" precision="0"/>
+					<Column name="DEPUTYIDENTITY" type="varchar2(40)" label="开户授权人身份证" description="开户授权人身份证" notnull="no" iskey="no" originaltype="TY_VARCHAR2_3" basetype="VString" length="40" precision="0"/>
+					<Column name="TELEPHONE" type="varchar2(40)" label="联系电话" description="联系电话" notnull="yes" iskey="no" originaltype="TY_VARCHAR2_3" basetype="VString" length="40" precision="0"/>
+					<Column name="UPLOADDATE" type="char(10)" label="上报日期" description="上报日期" notnull="yes" iskey="no" originaltype="TY_CHAR4" basetype="String" length="10" precision="0"/>
+					<Column name="CLIENTTYPE" type="char(1)" label="客户类型" description="客户类型" notnull="yes" iskey="no" originaltype="TY_CHAR1" basetype="String" length="1" precision="0"/>
+					<Column name="EXCOMPANYID" type="char(4)" label="所属会员号" description="所属会员号" notnull="yes" iskey="no" originaltype="TY_CHAR2" basetype="String" length="4" precision="0"/>
+					<Column name="DEPUTYNAME" type="varchar2(40)" label="开户授权人名称" description="开户授权人名称" notnull="no" iskey="no" originaltype="TY_VARCHAR2_3" basetype="VString" length="40" precision="0"/>
+					<Column name="BUSINESSCODE" type="varchar2(40)" label="组织机构代码证号" description="组织机构代码证号" notnull="no" iskey="no" originaltype="TY_VARCHAR2_3" basetype="VString" length="40" precision="0"/>
+					<Column name="EXCHANGEID" type="varchar2(2)" label="交易所代码" description="交易所代码" notnull="yes" iskey="no" originaltype="TY_VARCHAR2_1" basetype="VString" length="2" precision="0"/>
+					<Column name="EXCLIENTID" type="varchar2(8)" label="客户编码" description="客户编码" notnull="yes" iskey="no" originaltype="TY_VARCHAR2_2" basetype="VString" length="8" precision="0"/>
+					<Column name="ORGANCODE" type="varchar2(40)" label="营业执照号" description="营业执照号" notnull="no" iskey="no" originaltype="TY_VARCHAR2_3" basetype="VString" length="40" precision="0"/>
+				</Columns>
+				<Index/>
+			</table>
+			<table name="H_EXDELIVCONTRACTDATA" title="待交割结算合约文件" description="待交割结算合约文件">
+				<Columns>
+					<Column name="DELIVTYPE" type="char(1)" label="交割类型" description="交割类型" notnull="yes" iskey="no" originaltype="TY_CHAR1" basetype="String" length="1" precision="0"/>
+					<Column name="OPENPRICE" type="number(15,3)" label="开仓价" description="开仓价" notnull="yes" iskey="no" originaltype="TY_NUMBER1" basetype="Float" length="15" precision="3"/>
+					<Column name="DELIVSETTLEPRICE" type="number(15,3)" label="交割结算价" description="交割结算价" notnull="yes" iskey="no" originaltype="TY_NUMBER1" basetype="Float" length="15" precision="3"/>
+					<Column name="CONTRACTID" type="varchar2(6)" label="品种合约" description="品种合约" notnull="yes" iskey="no" originaltype="TY_VARCHAR2_6" basetype="VString" length="6" precision="0"/>
+					<Column name="DELIVMARGIN" type="number(15,3)" label="交割保证金" description="交割保证金" notnull="yes" iskey="no" originaltype="TY_NUMBER1" basetype="Float" length="15" precision="3"/>
+					<Column name="UPLOADDATE" type="char(10)" label="上报日期" description="上报日期" notnull="yes" iskey="no" originaltype="TY_CHAR4" basetype="String" length="10" precision="0"/>
+					<Column name="TRADESEQ" type="varchar2(8)" label="成交流水号" description="成交流水号" notnull="no" iskey="no" originaltype="TY_VARCHAR2_2" basetype="VString" length="8" precision="0"/>
+					<Column name="CURRENCY" type="char(3)" label="币种" description="币种" notnull="yes" iskey="no" originaltype="TY_CHAR5" basetype="String" length="3" precision="0"/>
+					<Column name="EXCOMPANYID" type="char(4)" label="会员号" description="会员号" notnull="yes" iskey="no" originaltype="TY_CHAR2" basetype="String" length="4" precision="0"/>
+					<Column name="BSTAG" type="char(1)" label="买卖标志" description="买卖标志" notnull="yes" iskey="no" originaltype="TY_CHAR1" basetype="String" length="1" precision="0"/>
+					<Column name="EXCHANGEID" type="varchar2(2)" label="交易所代码" description="交易所代码" notnull="yes" iskey="no" originaltype="TY_VARCHAR2_1" basetype="VString" length="2" precision="0"/>
+					<Column name="EXCLIENTID" type="varchar2(8)" label="客户编码" description="客户编码" notnull="yes" iskey="no" originaltype="TY_VARCHAR2_2" basetype="VString" length="8" precision="0"/>
+					<Column name="POSITION" type="number(10)" label="待交割持仓量" description="待交割持仓量" notnull="yes" iskey="no" originaltype="TY_NUMBER2" basetype="Int" length="10" precision="0"/>
+					<Column name="TRADEDATE" type="char(10)" label="交易日" description="交易日" notnull="yes" iskey="no" originaltype="TY_CHAR4" basetype="String" length="10" precision="0"/>
+				</Columns>
+				<Index/>
+			</table>
+			<table name="H_EXORDER" title="委托响应数据" description="委托响应数据">
+				<Columns>
+					<Column name="CONTRACTCODE" type="varchar2(30)" label="合约代码" description="合约代码" notnull="yes" iskey="no" originaltype="TY_VARCHAR2_11" basetype="VString" length="30" precision="0"/>
+					<Column name="TRADEUSERCODE" type="varchar2(15)" label="交易用户代码" description="交易用户代码" notnull="yes" iskey="no" originaltype="TY_VARCHAR2_10" basetype="VString" length="15" precision="0"/>
+					<Column name="TRIGGERCONDITION" type="char(1)" label="触发条件" description="触发条件" notnull="yes" iskey="no" originaltype="TY_CHAR1" basetype="String" length="1" precision="0"/>
+					<Column name="DECLAREDPRICE" type="number(12,3)" label="申报价格" description="申报价格" notnull="yes" iskey="no" originaltype="TY_NUMBER6" basetype="Float" length="12" precision="3"/>
+					<Column name="ORDERSOURCE" type="char(1)" label="报单来源" description="报单来源" notnull="yes" iskey="no" originaltype="TY_CHAR1" basetype="String" length="1" precision="0"/>
+					<Column name="VOLUMNED" type="number(19,3)" label="已成交数量" description="已成交数量" notnull="yes" iskey="no" originaltype="TY_NUMBER7" basetype="Float" length="19" precision="3"/>
+					<Column name="REPORTNUM" type="varchar2(12)" label="报单编号" description="报单编号" notnull="yes" iskey="no" originaltype="TY_VARCHAR2_9" basetype="VString" length="12" precision="0"/>
+					<Column name="DECLAREDAMOUNT" type="number(19,3)" label="申报数量" description="申报数量" notnull="yes" iskey="no" originaltype="TY_NUMBER7" basetype="Float" length="19" precision="3"/>
+					<Column name="EXCOMPANYCODE" type="varchar2(10)" label="会员代码" description="会员代码" notnull="yes" iskey="no" originaltype="TY_VARCHAR2_7" basetype="VString" length="10" precision="0"/>
+					<Column name="LASTMODIFYTIME" type="char(8)" label="最后修改时间" description="最后修改时间" notnull="yes" iskey="no" originaltype="TY_CHAR7" basetype="String" length="8" precision="0"/>
+					<Column name="VHFLAG" type="char(1)" label="投机套保标志" description="投机套保标志" notnull="yes" iskey="no" originaltype="TY_CHAR1" basetype="String" length="1" precision="0"/>
+					<Column name="BSTAG" type="char(1)" label="买卖方向" description="买卖方向" notnull="yes" iskey="no" originaltype="TY_CHAR1" basetype="String" length="1" precision="0"/>
+					<Column name="VOLUMNTYPE" type="char(1)" label="成交量类型 " description="成交量类型 " notnull="yes" iskey="no" originaltype="TY_CHAR1" basetype="String" length="1" precision="0"/>
+					<Column name="NUMBERCODE" type="varchar2(10)" label="结算会员代码" description="结算会员代码" notnull="yes" iskey="no" originaltype="TY_VARCHAR2_7" basetype="VString" length="10" precision="0"/>
+					<Column name="ORDERTYPE" type="char(1)" label="报单类型" description="报单类型" notnull="yes" iskey="no" originaltype="TY_CHAR1" basetype="String" length="1" precision="0"/>
+					<Column name="EXCHANGEID" type="varchar2(2)" label="交易所代码" description="交易所代码" notnull="yes" iskey="no" originaltype="TY_VARCHAR2_1" basetype="VString" length="2" precision="0"/>
+					<Column name="SQUAREREASON" type="char(1)" label="强平原因" description="强平原因" notnull="yes" iskey="no" originaltype="TY_CHAR1" basetype="String" length="1" precision="0"/>
+					<Column name="ACTIVATIONTIME" type="char(8)" label="激活时间" description="激活时间" notnull="yes" iskey="no" originaltype="TY_CHAR7" basetype="String" length="8" precision="0"/>
+					<Column name="ORDERDATE" type="char(10)" label="报单日期" description="报单日期" notnull="yes" iskey="no" originaltype="TY_CHAR4" basetype="String" length="10" precision="0"/>
+					<Column name="TRADEDATE" type="char(10)" label="交易日期" description="交易日期" notnull="yes" iskey="no" originaltype="TY_CHAR4" basetype="String" length="10" precision="0"/>
+					<Column name="MINVOLUMN" type="number(19,3)" label="最小成交量" description="最小成交量" notnull="no" iskey="no" originaltype="TY_NUMBER7" basetype="Float" length="19" precision="3"/>
+					<Column name="EXCLIENTCODE" type="varchar2(10)" label="客户代码" description="客户代码" notnull="yes" iskey="no" originaltype="TY_VARCHAR2_7" basetype="VString" length="10" precision="0"/>
+					<Column name="ORDERSTATE" type="char(1)" label="报单状态" description="报单状态" notnull="yes" iskey="no" originaltype="TY_CHAR1" basetype="String" length="1" precision="0"/>
+					<Column name="LOCALNUM" type="varchar2(12)" label="本地报单编号" description="本地报单编号" notnull="yes" iskey="no" originaltype="TY_VARCHAR2_9" basetype="VString" length="12" precision="0"/>
+					<Column name="REMAINING" type="number(19,3)" label="剩余数量" description="剩余数量" notnull="yes" iskey="no" originaltype="TY_NUMBER7" basetype="Float" length="19" precision="3"/>
+					<Column name="PVTYPE" type="char(1)" label="有效期类型" description="有效期类型" notnull="yes" iskey="no" originaltype="TY_CHAR1" basetype="String" length="1" precision="0"/>
+					<Column name="MODIFYUSERCODE" type="varchar2(15)" label="最后修改交易用户代码" description="最后修改交易用户代码" notnull="yes" iskey="no" originaltype="TY_VARCHAR2_10" basetype="VString" length="15" precision="0"/>
+					<Column name="TRIGGERPRICE" type="number(12,3)" label="触发价格" description="触发价格" notnull="no" iskey="no" originaltype="TY_NUMBER6" basetype="Float" length="12" precision="3"/>
+					<Column name="ORDERTIME" type="char(8)" label="报单时间" description="报单时间" notnull="yes" iskey="no" originaltype="TY_CHAR7" basetype="String" length="8" precision="0"/>
+					<Column name="UPLOADDATE" type="char(10)" label="上报日期" description="上报日期" notnull="yes" iskey="no" originaltype="TY_CHAR4" basetype="String" length="10" precision="0"/>
+					<Column name="PRICECONDITION" type="char(1)" label="报单价格条件" description="报单价格条件" notnull="yes" iskey="no" originaltype="TY_CHAR1" basetype="String" length="1" precision="0"/>
+					<Column name="HANGTIME" type="char(8)" label="挂起时间" description="挂起时间" notnull="yes" iskey="no" originaltype="TY_CHAR7" basetype="String" length="8" precision="0"/>
+					<Column name="CANCLETIME" type="char(8)" label="撤销时间" description="撤销时间" notnull="yes" iskey="no" originaltype="TY_CHAR7" basetype="String" length="8" precision="0"/>
+					<Column name="OCTAG" type="char(1)" label="开平标志" description="开平标志" notnull="yes" iskey="no" originaltype="TY_CHAR1" basetype="String" length="1" precision="0"/>
+					<Column name="BUSINESSDATE" type="char(10)" label="业务发生日期" description="业务发生日期" notnull="yes" iskey="no" originaltype="TY_CHAR4" basetype="String" length="10" precision="0"/>
+				</Columns>
+				<Index/>
+			</table>
+			<table name="H_EXCLITRDDETAIL" title="成交明细文件" description="成交明细文件">
+				<Columns>
+					<Column name="PRICE" type="number(15,3)" label="成交价" description="成交价" notnull="yes" iskey="no" originaltype="TY_NUMBER1" basetype="Float" length="15" precision="3"/>
+					<Column name="TRANSDATE" type="char(10)" label="成交日期" description="成交日期" notnull="yes" iskey="no" originaltype="TY_CHAR4" basetype="String" length="10" precision="0"/>
+					<Column name="CONTRACTID" type="varchar2(6)" label="品种合约" description="品种合约" notnull="yes" iskey="no" originaltype="TY_VARCHAR2_6" basetype="VString" length="6" precision="0"/>
+					<Column name="AMOUNT" type="number(15,3)" label="成交额" description="成交额" notnull="yes" iskey="no" originaltype="TY_NUMBER1" basetype="Float" length="15" precision="3"/>
+					<Column name="UPLOADDATE" type="char(10)" label="上报日期" description="上报日期" notnull="yes" iskey="no" originaltype="TY_CHAR4" basetype="String" length="10" precision="0"/>
+					<Column name="TRADESEQ" type="varchar2(8)" label="成交流水号" description="成交流水号" notnull="yes" iskey="no" originaltype="TY_VARCHAR2_2" basetype="VString" length="8" precision="0"/>
+					<Column name="VHFLAG" type="char(1)" label="投机套保标志" description="投机套保标志" notnull="yes" iskey="no" originaltype="TY_CHAR1" basetype="String" length="1" precision="0"/>
+					<Column name="CURRENCY" type="char(3)" label="币种" description="币种" notnull="yes" iskey="no" originaltype="TY_CHAR5" basetype="String" length="3" precision="0"/>
+					<Column name="EXCOMPANYID" type="char(4)" label="会员号" description="会员号" notnull="yes" iskey="no" originaltype="TY_CHAR2" basetype="String" length="4" precision="0"/>
+					<Column name="BSTAG" type="char(1)" label="买卖标志" description="买卖标志" notnull="yes" iskey="no" originaltype="TY_CHAR1" basetype="String" length="1" precision="0"/>
+					<Column name="VOLUMN" type="number(10)" label="成交量" description="成交量" notnull="yes" iskey="no" originaltype="TY_NUMBER2" basetype="Int" length="10" precision="0"/>
+					<Column name="EXCHANGEID" type="varchar2(2)" label="交易所代码" description="交易所代码" notnull="yes" iskey="no" originaltype="TY_VARCHAR2_1" basetype="VString" length="2" precision="0"/>
+					<Column name="TRADETIME" type="char(8)" label="成交时间" description="成交时间" notnull="yes" iskey="no" originaltype="TY_CHAR7" basetype="String" length="8" precision="0"/>
+					<Column name="EXCLIENTID" type="varchar2(8)" label="客户编码" description="客户编码" notnull="yes" iskey="no" originaltype="TY_VARCHAR2_2" basetype="VString" length="8" precision="0"/>
+					<Column name="CLOSEPROFIT" type="number(15,3)" label="平仓盈亏" description="平仓盈亏" notnull="no" iskey="no" originaltype="TY_NUMBER1" basetype="Float" length="15" precision="3"/>
+					<Column name="OCTAG" type="char(1)" label="开平仓标志" description="开平仓标志" notnull="yes" iskey="no" originaltype="TY_CHAR1" basetype="String" length="1" precision="0"/>
+					<Column name="TRADEDATE" type="char(10)" label="交易日" description="交易日" notnull="yes" iskey="no" originaltype="TY_CHAR4" basetype="String" length="10" precision="0"/>
+				</Columns>
+				<Index/>
+			</table>
+			<table name="H_EXCLIPOSDETAIL" title="持仓明细文件" description="持仓明细文件">
+				<Columns>
+					<Column name="LASTSETTLEPRICE" type="number(15,3)" label="昨结算价" description="昨结算价" notnull="yes" iskey="no" originaltype="TY_NUMBER1" basetype="Float" length="15" precision="3"/>
+					<Column name="CONTRACTID" type="varchar2(6)" label="品种合约" description="品种合约" notnull="yes" iskey="no" originaltype="TY_VARCHAR2_6" basetype="VString" length="6" precision="0"/>
+					<Column name="TRADEMARGIN" type="number(15,3)" label="交易保证金" description="交易保证金" notnull="yes" iskey="no" originaltype="TY_NUMBER1" basetype="Float" length="15" precision="3"/>
+					<Column name="POSITIONPROFIT" type="number(15,3)" label="持仓盈亏" description="持仓盈亏" notnull="no" iskey="no" originaltype="TY_NUMBER1" basetype="Float" length="15" precision="3"/>
+					<Column name="UPLOADDATE" type="char(10)" label="上报日期" description="上报日期" notnull="yes" iskey="no" originaltype="TY_CHAR4" basetype="String" length="10" precision="0"/>
+					<Column name="VHFLAG" type="char(1)" label="投机套保标志" description="投机套保标志" notnull="yes" iskey="no" originaltype="TY_CHAR1" basetype="String" length="1" precision="0"/>
+					<Column name="CURRENCY" type="char(3)" label="币种" description="币种" notnull="yes" iskey="no" originaltype="TY_CHAR5" basetype="String" length="3" precision="0"/>
+					<Column name="EXCOMPANYID" type="char(4)" label="会员号" description="会员号" notnull="yes" iskey="no" originaltype="TY_CHAR2" basetype="String" length="4" precision="0"/>
+					<Column name="BSTAG" type="char(1)" label="买卖标志" description="买卖标志" notnull="yes" iskey="no" originaltype="TY_CHAR1" basetype="String" length="1" precision="0"/>
+					<Column name="TODAYSETTLEPRICE" type="number(15,3)" label="今结算价" description="今结算价" notnull="yes" iskey="no" originaltype="TY_NUMBER1" basetype="Float" length="15" precision="3"/>
+					<Column name="EXCHANGEID" type="varchar2(2)" label="交易所代码" description="交易所代码" notnull="yes" iskey="no" originaltype="TY_VARCHAR2_1" basetype="VString" length="2" precision="0"/>
+					<Column name="EXCLIENTID" type="varchar2(8)" label="客户编码" description="客户编码" notnull="yes" iskey="no" originaltype="TY_VARCHAR2_2" basetype="VString" length="8" precision="0"/>
+					<Column name="POSITION" type="number(10)" label="持仓量" description="持仓量" notnull="yes" iskey="no" originaltype="TY_NUMBER2" basetype="Int" length="10" precision="0"/>
+					<Column name="TRADEDATE" type="char(10)" label="交易日期" description="交易日期" notnull="yes" iskey="no" originaltype="TY_CHAR4" basetype="String" length="10" precision="0"/>
+				</Columns>
+				<Index/>
+			</table>
+			<table name="H_EXHEDGEVOLUME" title="套期保值额度数据" description="套期保值额度数据">
+				<Columns>
+					<Column name="CONTRACTCODE" type="varchar2(30)" label="合约代码" description="合约代码" notnull="yes" iskey="no" originaltype="TY_VARCHAR2_11" basetype="VString" length="30" precision="0"/>
+					<Column name="EFFECTIVEDATE" type="char(10)" label="生效日期" description="生效日期" notnull="yes" iskey="no" originaltype="TY_CHAR4" basetype="String" length="10" precision="0"/>
+					<Column name="SHORTHEDGAMOUNT" type="number(18)" label="空头保值额度最初申请量" description="空头保值额度最初申请量" notnull="yes" iskey="no" originaltype="TY_NUMBER8" basetype="Int" length="18" precision="0"/>
+					<Column name="UPLOADDATE" type="char(10)" label="上报日期" description="上报日期" notnull="yes" iskey="no" originaltype="TY_CHAR4" basetype="String" length="10" precision="0"/>
+					<Column name="EXCOMPANYCODE" type="varchar2(10)" label="会员代码" description="会员代码" notnull="yes" iskey="no" originaltype="TY_VARCHAR2_7" basetype="VString" length="10" precision="0"/>
+					<Column name="SHORTLIMIT" type="number(18)" label="空头限额" description="空头限额" notnull="yes" iskey="no" originaltype="TY_NUMBER8" basetype="Int" length="18" precision="0"/>
+					<Column name="CLOSINGDATE" type="char(10)" label="截止日期" description="截止日期" notnull="no" iskey="no" originaltype="TY_CHAR4" basetype="String" length="10" precision="0"/>
+					<Column name="HEDGINGTYPE" type="char(10)" label="套保额度使用类型" description="套保额度使用类型" notnull="yes" iskey="no" originaltype="TY_CHAR4" basetype="String" length="10" precision="0"/>
+					<Column name="APPROVALDATE" type="char(10)" label="审批日期" description="审批日期" notnull="yes" iskey="no" originaltype="TY_CHAR4" basetype="String" length="10" precision="0"/>
+					<Column name="LONGHEDGAMOUNT" type="number(18)" label="多头保值额度最初申请量" description="多头保值额度最初申请量" notnull="yes" iskey="no" originaltype="TY_NUMBER8" basetype="Int" length="18" precision="0"/>
+					<Column name="EXCHANGEID" type="varchar2(2)" label="交易所代码" description="交易所代码" notnull="yes" iskey="no" originaltype="TY_VARCHAR2_1" basetype="VString" length="2" precision="0"/>
+					<Column name="LONGLIMIT" type="number(18)" label="多头限额" description="多头限额" notnull="yes" iskey="no" originaltype="TY_NUMBER8" basetype="Int" length="18" precision="0"/>
+					<Column name="TRADEDATE" type="char(10)" label="交易日期" description="交易日期" notnull="yes" iskey="no" originaltype="TY_CHAR4" basetype="String" length="10" precision="0"/>
+					<Column name="EXCLIENTCODE" type="varchar2(10)" label="客户代码" description="客户代码" notnull="yes" iskey="no" originaltype="TY_VARCHAR2_7" basetype="VString" length="10" precision="0"/>
+				</Columns>
+				<Index/>
+			</table>
+			<table name="H_EXCLIENTPOSILIMIT" title="客户合约限仓数据" description="客户合约限仓数据">
+				<Columns>
+					<Column name="ROUNDMODE" type="char(10)" label="取整方式" description="取整方式" notnull="yes" iskey="no" originaltype="TY_CHAR4" basetype="String" length="10" precision="0"/>
+					<Column name="SHORTLIMIT" type="number(19,3)" label="空头绝对限仓量" description="空头绝对限仓量" notnull="yes" iskey="no" originaltype="TY_NUMBER7" basetype="Float" length="19" precision="3"/>
+					<Column name="CONTRACTCODE" type="varchar2(30)" label="合约代码" description="合约代码" notnull="yes" iskey="no" originaltype="TY_VARCHAR2_11" basetype="VString" length="30" precision="0"/>
+					<Column name="CLIENTTYPE" type="char(1)" label="客户类型" description="客户类型" notnull="yes" iskey="no" originaltype="TY_CHAR1" basetype="String" length="1" precision="0"/>
+					<Column name="SHORTLIMITRATE" type="number(10,4)" label="空头限仓比例" description="空头限仓比例" notnull="yes" iskey="no" originaltype="TY_NUMBER11" basetype="Float" length="10" precision="4"/>
+					<Column name="LIMITPOINT" type="number(19,3)" label="限仓起点" description="限仓起点" notnull="yes" iskey="no" originaltype="TY_NUMBER7" basetype="Float" length="19" precision="3"/>
+					<Column name="LONGLIMIT" type="number(19,3)" label="多头绝对限仓量" description="多头绝对限仓量" notnull="yes" iskey="no" originaltype="TY_NUMBER7" basetype="Float" length="19" precision="3"/>
+					<Column name="EXCHANGEID" type="varchar2(2)" label="交易所代码" description="交易所代码" notnull="yes" iskey="no" originaltype="TY_VARCHAR2_1" basetype="VString" length="2" precision="0"/>
+					<Column name="UPLOADDATE" type="char(10)" label="上报日期" description="上报日期" notnull="yes" iskey="no" originaltype="TY_CHAR4" basetype="String" length="10" precision="0"/>
+					<Column name="LONGLIMITRATE" type="number(10,4)" label="多头限仓比例" description="多头限仓比例" notnull="yes" iskey="no" originaltype="TY_NUMBER11" basetype="Float" length="10" precision="4"/>
+					<Column name="TRADEDATE" type="char(10)" label="交易日期" description="交易日期" notnull="yes" iskey="no" originaltype="TY_CHAR4" basetype="String" length="10" precision="0"/>
+				</Columns>
+				<Index/>
+			</table>
+			<table name="H_EXEXIOFUND" title="会员出入金文件" description="会员出入金文件">
+				<Columns>
+					<Column name="FUNDAMOUNT" type="number(15,3)" label="资金变动额" description="资金变动额" notnull="yes" iskey="no" originaltype="TY_NUMBER1" basetype="Float" length="15" precision="3"/>
+					<Column name="CURRENCY" type="char(3)" label="币种" description="币种" notnull="yes" iskey="no" originaltype="TY_CHAR5" basetype="String" length="3" precision="0"/>
+					<Column name="EXCOMPANYID" type="char(4)" label="会员号" description="会员号" notnull="yes" iskey="no" originaltype="TY_CHAR2" basetype="String" length="4" precision="0"/>
+					<Column name="TRANSDATE" type="char(10)" label="出入金发生日期" description="出入金发生日期" notnull="yes" iskey="no" originaltype="TY_CHAR4" basetype="String" length="10" precision="0"/>
+					<Column name="BANKACCOUNTNO" type="varchar2(8)" label="资金账户号码" description="资金账户号码" notnull="yes" iskey="no" originaltype="TY_VARCHAR2_2" basetype="VString" length="8" precision="0"/>
+					<Column name="BANKID" type="char(2)" label="银行统一标识" description="银行统一标识" notnull="yes" iskey="no" originaltype="TY_CHAR6" basetype="String" length="2" precision="0"/>
+					<Column name="ACCOUNTTYPE" type="char(1)" label="资金账户类型" description="资金账户类型" notnull="yes" iskey="no" originaltype="TY_CHAR1" basetype="String" length="1" precision="0"/>
+					<Column name="EXCHANGEID" type="varchar2(2)" label="交易所代码" description="交易所代码" notnull="yes" iskey="no" originaltype="TY_VARCHAR2_1" basetype="VString" length="2" precision="0"/>
+					<Column name="UPLOADDATE" type="char(10)" label="上报日期" description="上报日期" notnull="yes" iskey="no" originaltype="TY_CHAR4" basetype="String" length="10" precision="0"/>
+					<Column name="TRADEDATE" type="char(10)" label="交易日" description="交易日" notnull="yes" iskey="no" originaltype="TY_CHAR4" basetype="String" length="10" precision="0"/>
+				</Columns>
+				<Index/>
+			</table>
+			<table name="H_EXMEMBER" title="会员资料文件" description="会员资料文件">
+				<Columns>
+					<Column name="NAME" type="varchar2(40)" label="会员名称" description="会员名称" notnull="yes" iskey="no" originaltype="TY_VARCHAR2_3" basetype="VString" length="40" precision="0"/>
+					<Column name="EXCOMPANYID" type="char(4)" label="客户编码" description="客户编码" notnull="yes" iskey="no" originaltype="TY_CHAR2" basetype="String" length="4" precision="0"/>
+					<Column name="TRADETYPE" type="char(1)" label="会员交易类型" description="会员交易类型" notnull="yes" iskey="no" originaltype="TY_CHAR1" basetype="String" length="1" precision="0"/>
+					<Column name="SHORTNAME" type="varchar2(10)" label="会员简称" description="会员简称" notnull="yes" iskey="no" originaltype="TY_VARCHAR2_7" basetype="VString" length="10" precision="0"/>
+					<Column name="EXCHANGEID" type="varchar2(2)" label="交易所代码" description="交易所代码" notnull="yes" iskey="no" originaltype="TY_VARCHAR2_1" basetype="VString" length="2" precision="0"/>
+					<Column name="UPLOADDATE" type="char(10)" label="上报日期" description="上报日期" notnull="yes" iskey="no" originaltype="TY_CHAR4" basetype="String" length="10" precision="0"/>
+					<Column name="SETTLEMENTTYPE" type="char(1)" label="会员结算类型" description="会员结算类型" notnull="yes" iskey="no" originaltype="TY_CHAR1" basetype="String" length="1" precision="0"/>
+					<Column name="TRADEDATE" type="char(10)" label="交易日" description="交易日" notnull="yes" iskey="no" originaltype="TY_CHAR4" basetype="String" length="10" precision="0"/>
+				</Columns>
+				<Index/>
+			</table>
+			<table name="H_EXCOMPOTHERFUND" title="客户分项资金文件" description="客户分项资金文件">
+				<Columns>
+					<Column name="CURRENCY" type="char(3)" label="币种" description="币种" notnull="yes" iskey="no" originaltype="TY_CHAR5" basetype="String" length="3" precision="0"/>
+					<Column name="EXCOMPANYID" type="char(4)" label="会员号" description="会员号" notnull="yes" iskey="no" originaltype="TY_CHAR2" basetype="String" length="4" precision="0"/>
+					<Column name="EXCHANGEID" type="varchar2(2)" label="交易所代码" description="交易所代码" notnull="yes" iskey="no" originaltype="TY_VARCHAR2_1" basetype="VString" length="2" precision="0"/>
+					<Column name="EXCLIENTID" type="varchar2(8)" label="客户编码" description="客户编码" notnull="no" iskey="no" originaltype="TY_VARCHAR2_2" basetype="VString" length="8" precision="0"/>
+					<Column name="AMOUNT" type="number(15,3)" label="资金金额" description="资金金额" notnull="yes" iskey="no" originaltype="TY_NUMBER1" basetype="Float" length="15" precision="3"/>
+					<Column name="ACCOUNT" type="varchar2(8)" label="资金账户号码" description="资金账户号码" notnull="yes" iskey="no" originaltype="TY_VARCHAR2_2" basetype="VString" length="8" precision="0"/>
+					<Column name="UPLOADDATE" type="char(10)" label="上报日期" description="上报日期" notnull="yes" iskey="no" originaltype="TY_CHAR4" basetype="String" length="10" precision="0"/>
+					<Column name="TRADEDATE" type="char(10)" label="交易日" description="交易日" notnull="yes" iskey="no" originaltype="TY_CHAR4" basetype="String" length="10" precision="0"/>
+					<Column name="FUNDTYPE" type="char(4)" label="资金项目编号" description="资金项目编号" notnull="yes" iskey="no" originaltype="TY_CHAR2" basetype="String" length="4" precision="0"/>
+				</Columns>
+				<Index/>
+			</table>
+			<table name="H_EXINSTRUMENTPROPERTY" title="合约属性数据" description="合约属性数据">
+				<Columns>
+					<Column name="CONTRACTCODE" type="varchar2(30)" label="合约代码" description="合约代码" notnull="yes" iskey="no" originaltype="TY_VARCHAR2_11" basetype="VString" length="30" precision="0"/>
+					<Column name="FEEREDCUTRATE" type="number(15,8)" label="手续费减免率" description="手续费减免率" notnull="yes" iskey="no" originaltype="TY_NUMBER10" basetype="Float" length="15" precision="8"/>
+					<Column name="MINCHANGEPRICE" type="number(9,3)" label="最小变动价" description="最小变动价" notnull="yes" iskey="no" originaltype="TY_NUMBER9" basetype="Float" length="9" precision="3"/>
+					<Column name="PEROFUP" type="number(12,3)" label="涨停百分比" description="涨停百分比" notnull="yes" iskey="no" originaltype="TY_NUMBER6" basetype="Float" length="12" precision="3"/>
+					<Column name="DELIVERYMANNER" type="char(10)" label="交割方式" description="交割方式" notnull="yes" iskey="no" originaltype="TY_CHAR4" basetype="String" length="10" precision="0"/>
+					<Column name="FEEMETHOD" type="char(10)" label="交易手续费取值方式" description="交易手续费取值方式" notnull="yes" iskey="no" originaltype="TY_CHAR4" basetype="String" length="10" precision="0"/>
+					<Column name="BEGINDATE" type="char(10)" label="开始交割日" description="开始交割日" notnull="yes" iskey="no" originaltype="TY_CHAR4" basetype="String" length="10" precision="0"/>
+					<Column name="CONTRACTNAME" type="varchar2(30)" label="合约名称" description="合约名称" notnull="yes" iskey="no" originaltype="TY_VARCHAR2_11" basetype="VString" length="30" precision="0"/>
+					<Column name="FEEREDCUT" type="char(10)" label="手续费减免取值方式" description="手续费减免取值方式" notnull="yes" iskey="no" originaltype="TY_CHAR4" basetype="String" length="10" precision="0"/>
+					<Column name="DOWNPRICE" type="number(12,3)" label="跌停价" description="跌停价" notnull="yes" iskey="no" originaltype="TY_NUMBER6" basetype="Float" length="12" precision="3"/>
+					<Column name="EXCHANGEID" type="varchar2(2)" label="交易所代码" description="交易所代码" notnull="yes" iskey="no" originaltype="TY_VARCHAR2_1" basetype="VString" length="2" precision="0"/>
+					<Column name="UPAMP" type="number(12,3)" label="涨停幅度" description="涨停幅度" notnull="yes" iskey="no" originaltype="TY_NUMBER6" basetype="Float" length="12" precision="3"/>
+					<Column name="PRODUCTTYPE" type="char(10)" label="产品类型" description="产品类型" notnull="yes" iskey="no" originaltype="TY_CHAR4" basetype="String" length="10" precision="0"/>
+					<Column name="REFERENCEPRICE" type="number(12,3)" label="挂牌基准价" description="挂牌基准价" notnull="yes" iskey="no" originaltype="TY_NUMBER6" basetype="Float" length="12" precision="3"/>
+					<Column name="TRADEDATE" type="char(10)" label="交易日期" description="交易日期" notnull="yes" iskey="no" originaltype="TY_CHAR4" basetype="String" length="10" precision="0"/>
+					<Column name="ENDDATE" type="char(10)" label="最后交割日" description="最后交割日" notnull="yes" iskey="no" originaltype="TY_CHAR4" basetype="String" length="10" precision="0"/>
+					<Column name="LIMITTYPE" type="char(10)" label="涨跌停板取值方式" description="涨跌停板取值方式" notnull="yes" iskey="no" originaltype="TY_CHAR4" basetype="String" length="10" precision="0"/>
+					<Column name="TRADEDATEFLAG" type="char(10)" label="是否首交易日" description="是否首交易日" notnull="yes" iskey="no" originaltype="TY_CHAR4" basetype="String" length="10" precision="0"/>
+					<Column name="PRODUCTCODE" type="varchar2(8)" label="产品代码" description="产品代码" notnull="yes" iskey="no" originaltype="TY_VARCHAR2_2" basetype="VString" length="8" precision="0"/>
+					<Column name="FEEPRICE" type="number(15,8)" label="交易手续费单价" description="交易手续费单价" notnull="yes" iskey="no" originaltype="TY_NUMBER10" basetype="Float" length="15" precision="8"/>
+					<Column name="PEROFDOWN" type="number(12,3)" label="跌停百分比" description="跌停百分比" notnull="yes" iskey="no" originaltype="TY_NUMBER6" basetype="Float" length="12" precision="3"/>
+					<Column name="UPLOADDATE" type="char(10)" label="上报日期" description="上报日期" notnull="yes" iskey="no" originaltype="TY_CHAR4" basetype="String" length="10" precision="0"/>
+					<Column name="FEEERDCUTPRICE" type="number(15,8)" label="手续费减免单价" description="手续费减免单价" notnull="yes" iskey="no" originaltype="TY_NUMBER10" basetype="Float" length="15" precision="8"/>
+					<Column name="DELIVFEERATE" type="number(15,8)" label="交割手续费率" description="交割手续费率" notnull="yes" iskey="no" originaltype="TY_NUMBER10" basetype="Float" length="15" precision="8"/>
+					<Column name="UPPRICE" type="number(12,3)" label="涨停价" description="涨停价" notnull="yes" iskey="no" originaltype="TY_NUMBER6" basetype="Float" length="12" precision="3"/>
+					<Column name="TRADEUNIT" type="number(18)" label="合约数量乘数" description="合约数量乘数" notnull="yes" iskey="no" originaltype="TY_NUMBER8" basetype="Int" length="18" precision="0"/>
+					<Column name="DELIVERYUNIT" type="number(18)" label="交割单位" description="交割单位" notnull="yes" iskey="no" originaltype="TY_NUMBER8" basetype="Int" length="18" precision="0"/>
+					<Column name="FEERATE" type="number(15,8)" label="交易手续费率" description="交易手续费率" notnull="yes" iskey="no" originaltype="TY_NUMBER10" basetype="Float" length="15" precision="8"/>
+					<Column name="DELIVERFEE" type="char(10)" label="交割手续费取值方式" description="交割手续费取值方式" notnull="yes" iskey="no" originaltype="TY_CHAR4" basetype="String" length="10" precision="0"/>
+					<Column name="DOWNAMP" type="number(12,3)" label="跌停幅度" description="跌停幅度" notnull="yes" iskey="no" originaltype="TY_NUMBER6" basetype="Float" length="12" precision="3"/>
+					<Column name="DELIVFEEPRICE" type="number(15,8)" label="交割手续费" description="交割手续费" notnull="yes" iskey="no" originaltype="TY_NUMBER10" basetype="Float" length="15" precision="8"/>
+					<Column name="AHEADMONTH" type="number(18)" label="提前月份" description="提前月份" notnull="yes" iskey="no" originaltype="TY_NUMBER8" basetype="Int" length="18" precision="0"/>
+				</Columns>
+				<Index/>
+			</table>
+			<table name="H_EXDELIVDATA" title="交割明细文件" description="交割明细文件">
+				<Columns>
+					<Column name="DELIVTYPE" type="char(1)" label="交割类型" description="交割类型" notnull="yes" iskey="no" originaltype="TY_CHAR1" basetype="String" length="1" precision="0"/>
+					<Column name="DELIV_PRICE" type="number(15,3)" label="交割结算价" description="交割结算价" notnull="yes" iskey="no" originaltype="TY_NUMBER1" basetype="Float" length="15" precision="3"/>
+					<Column name="CURRENCY" type="char(3)" label="币种" description="币种" notnull="yes" iskey="no" originaltype="TY_CHAR5" basetype="String" length="3" precision="0"/>
+					<Column name="BSTAG" type="char(1)" label="买卖标志" description="买卖标志" notnull="yes" iskey="no" originaltype="TY_CHAR1" basetype="String" length="1" precision="0"/>
+					<Column name="EXCOMPANYID" type="char(4)" label="会员号" description="会员号" notnull="yes" iskey="no" originaltype="TY_CHAR2" basetype="String" length="4" precision="0"/>
+					<Column name="DELIV_AMOUNT" type="number(15,3)" label="交割货款" description="交割货款" notnull="yes" iskey="no" originaltype="TY_NUMBER1" basetype="Float" length="15" precision="3"/>
+					<Column name="EXCHANGEID" type="varchar2(2)" label="交易所代码" description="交易所代码" notnull="yes" iskey="no" originaltype="TY_VARCHAR2_1" basetype="VString" length="2" precision="0"/>
+					<Column name="CONTRACTID" type="varchar2(6)" label="品种合约" description="品种合约" notnull="yes" iskey="no" originaltype="TY_VARCHAR2_6" basetype="VString" length="6" precision="0"/>
+					<Column name="EXCLIENTID" type="varchar2(8)" label="客户编码" description="客户编码" notnull="yes" iskey="no" originaltype="TY_VARCHAR2_2" basetype="VString" length="8" precision="0"/>
+					<Column name="POSITION" type="number(10)" label="交割量" description="交割量" notnull="yes" iskey="no" originaltype="TY_NUMBER2" basetype="Int" length="10" precision="0"/>
+					<Column name="UPLOADDATE" type="char(10)" label="上报日期" description="上报日期" notnull="yes" iskey="no" originaltype="TY_CHAR4" basetype="String" length="10" precision="0"/>
+					<Column name="TRADEDATE" type="char(10)" label="交易日" description="交易日" notnull="yes" iskey="no" originaltype="TY_CHAR4" basetype="String" length="10" precision="0"/>
+				</Columns>
+				<Index/>
+			</table>
+			<table name="H_EXSPECIALPOSILIMIT" title="特别客户合约限仓数据" description="特别客户合约限仓数据">
+				<Columns>
+					<Column name="ROUNDMODE" type="char(10)" label="取整方式" description="取整方式" notnull="yes" iskey="no" originaltype="TY_CHAR4" basetype="String" length="10" precision="0"/>
+					<Column name="SHORTLIMIT" type="number(19,3)" label="空头绝对限仓量" description="空头绝对限仓量" notnull="yes" iskey="no" originaltype="TY_NUMBER7" basetype="Float" length="19" precision="3"/>
+					<Column name="CONTRACTCODE" type="varchar2(30)" label="合约代码" description="合约代码" notnull="yes" iskey="no" originaltype="TY_VARCHAR2_11" basetype="VString" length="30" precision="0"/>
+					<Column name="SHORTLIMITRATE" type="number(10,4)" label="空头限仓比例" description="空头限仓比例" notnull="yes" iskey="no" originaltype="TY_NUMBER11" basetype="Float" length="10" precision="4"/>
+					<Column name="LIMITPOINT" type="number(19,3)" label="限仓起点" description="限仓起点" notnull="yes" iskey="no" originaltype="TY_NUMBER7" basetype="Float" length="19" precision="3"/>
+					<Column name="LONGLIMIT" type="number(19,3)" label="多头绝对限仓量" description="多头绝对限仓量" notnull="yes" iskey="no" originaltype="TY_NUMBER7" basetype="Float" length="19" precision="3"/>
+					<Column name="EXCHANGEID" type="varchar2(2)" label="交易所代码" description="交易所代码" notnull="yes" iskey="no" originaltype="TY_VARCHAR2_1" basetype="VString" length="2" precision="0"/>
+					<Column name="UPLOADDATE" type="char(10)" label="上报日期" description="上报日期" notnull="yes" iskey="no" originaltype="TY_CHAR4" basetype="String" length="10" precision="0"/>
+					<Column name="LONGLIMITRATE" type="number(10,4)" label="多头限仓比例" description="多头限仓比例" notnull="yes" iskey="no" originaltype="TY_NUMBER11" basetype="Float" length="10" precision="4"/>
+					<Column name="TRADEDATE" type="char(10)" label="交易日期" description="交易日期" notnull="yes" iskey="no" originaltype="TY_CHAR4" basetype="String" length="10" precision="0"/>
+					<Column name="EXCLIENTCODE" type="varchar2(10)" label="客户代码" description="客户代码" notnull="yes" iskey="no" originaltype="TY_VARCHAR2_7" basetype="VString" length="10" precision="0"/>
+				</Columns>
+				<Index/>
+			</table>
+			<table name="H_EXPARTPOSILIMIT" title="会员合约限仓数据" description="会员合约限仓数据">
+				<Columns>
+					<Column name="CONTRACTCODE" type="varchar2(30)" label="合约代码" description="合约代码" notnull="yes" iskey="no" originaltype="TY_VARCHAR2_11" basetype="VString" length="30" precision="0"/>
+					<Column name="TRADEROLE" type="char(10)" label="交易角色" description="交易角色" notnull="yes" iskey="no" originaltype="TY_CHAR4" basetype="String" length="10" precision="0"/>
+					<Column name="LIMITPOINT" type="number(19,3)" label="限仓起点" description="限仓起点" notnull="yes" iskey="no" originaltype="TY_NUMBER7" basetype="Float" length="19" precision="3"/>
+					<Column name="UPLOADDATE" type="char(10)" label="上报日期" description="上报日期" notnull="yes" iskey="no" originaltype="TY_CHAR4" basetype="String" length="10" precision="0"/>
+					<Column name="CREDITRATIO" type="number(10,4)" label="信用系数" description="信用系数" notnull="yes" iskey="no" originaltype="TY_NUMBER11" basetype="Float" length="10" precision="4"/>
+					<Column name="LONGLIMITRATE" type="number(10,4)" label="多头限仓比例" description="多头限仓比例" notnull="yes" iskey="no" originaltype="TY_NUMBER11" basetype="Float" length="10" precision="4"/>
+					<Column name="BUSINESSRATIO" type="number(10,4)" label="业务系数" description="业务系数" notnull="yes" iskey="no" originaltype="TY_NUMBER11" basetype="Float" length="10" precision="4"/>
+					<Column name="EXCOMPANYCODE" type="varchar2(10)" label="会员代码" description="会员代码" notnull="yes" iskey="no" originaltype="TY_VARCHAR2_7" basetype="VString" length="10" precision="0"/>
+					<Column name="SHORTLIMIT" type="number(19,3)" label="空头绝对限仓量" description="空头绝对限仓量" notnull="yes" iskey="no" originaltype="TY_NUMBER7" basetype="Float" length="19" precision="3"/>
+					<Column name="ROUNDMODE" type="char(10)" label="取整方式" description="取整方式" notnull="yes" iskey="no" originaltype="TY_CHAR4" basetype="String" length="10" precision="0"/>
+					<Column name="SHORTLIMITRATE" type="number(10,4)" label="空头限仓比例" description="空头限仓比例" notnull="yes" iskey="no" originaltype="TY_NUMBER11" basetype="Float" length="10" precision="4"/>
+					<Column name="EXCHANGEID" type="varchar2(2)" label="交易所代码" description="交易所代码" notnull="yes" iskey="no" originaltype="TY_VARCHAR2_1" basetype="VString" length="2" precision="0"/>
+					<Column name="LONGLIMIT" type="number(19,3)" label="多头绝对限仓量" description="多头绝对限仓量" notnull="yes" iskey="no" originaltype="TY_NUMBER7" basetype="Float" length="19" precision="3"/>
+					<Column name="TRADEDATE" type="char(10)" label="交易日期" description="交易日期" notnull="yes" iskey="no" originaltype="TY_CHAR4" basetype="String" length="10" precision="0"/>
+				</Columns>
+				<Index/>
+			</table>
+			<table name="H_EXSPOTPRICE" title="现货价格文件" description="现货价格文件">
+				<Columns>
+					<Column name="MEMO" type="varchar2(200)" label="备注" description="备注" notnull="no" iskey="no" originaltype="TY_VARCHAR2_5" basetype="VString" length="200" precision="0"/>
+					<Column name="PRICE" type="number(15,3)" label="价格" description="价格" notnull="no" iskey="no" originaltype="TY_NUMBER1" basetype="Float" length="15" precision="3"/>
+					<Column name="CURRENCY" type="char(10)" label="币种" description="币种" notnull="no" iskey="no" originaltype="TY_CHAR4" basetype="String" length="10" precision="0"/>
+					<Column name="SOURCENAME" type="varchar2(100)" label="现货价格来源" description="现货价格来源" notnull="no" iskey="no" originaltype="TY_VARCHAR2_4" basetype="VString" length="100" precision="0"/>
+					<Column name="COMMODITYID" type="varchar2(2)" label="品种" description="品种" notnull="yes" iskey="no" originaltype="TY_VARCHAR2_1" basetype="VString" length="2" precision="0"/>
+					<Column name="EXCHANGEID" type="varchar2(2)" label="交易所代码" description="交易所代码" notnull="yes" iskey="no" originaltype="TY_VARCHAR2_1" basetype="VString" length="2" precision="0"/>
+					<Column name="MARKETPLACE" type="varchar2(40)" label="产地/市场" description="产地/市场" notnull="no" iskey="no" originaltype="TY_VARCHAR2_3" basetype="VString" length="40" precision="0"/>
+					<Column name="COMMODITYNAME" type="varchar2(40)" label="现货名称" description="现货名称" notnull="no" iskey="no" originaltype="TY_VARCHAR2_3" basetype="VString" length="40" precision="0"/>
+					<Column name="SOURCEID" type="varchar2(10)" label="现货价格编号" description="现货价格编号" notnull="yes" iskey="no" originaltype="TY_VARCHAR2_7" basetype="VString" length="10" precision="0"/>
+					<Column name="UPLOADDATE" type="char(10)" label="上报日期" description="上报日期" notnull="yes" iskey="no" originaltype="TY_CHAR4" basetype="String" length="10" precision="0"/>
+					<Column name="TRADEDATE" type="char(10)" label="交易日" description="交易日" notnull="yes" iskey="no" originaltype="TY_CHAR4" basetype="String" length="10" precision="0"/>
+				</Columns>
+				<Index/>
+			</table>
+			<table name="H_EXWAREHOUSE" title="仓库文件" description="仓库文件">
+				<Columns>
+					<Column name="INVENTORY" type="number(16,3)" label="库存量" description="库存量" notnull="no" iskey="no" originaltype="TY_NUMBER5" basetype="Float" length="16" precision="3"/>
+					<Column name="WAREHOUSEID" type="varchar2(10)" label="仓库编号" description="仓库编号" notnull="yes" iskey="no" originaltype="TY_VARCHAR2_7" basetype="VString" length="10" precision="0"/>
+					<Column name="CAPACITY" type="number(16,3)" label="库容量" description="库容量" notnull="no" iskey="no" originaltype="TY_NUMBER5" basetype="Float" length="16" precision="3"/>
+					<Column name="COMMODITYID" type="varchar2(2)" label="品种" description="品种" notnull="yes" iskey="no" originaltype="TY_VARCHAR2_1" basetype="VString" length="2" precision="0"/>
+					<Column name="EXCHANGEID" type="varchar2(2)" label="交易所代码" description="交易所代码" notnull="yes" iskey="no" originaltype="TY_VARCHAR2_1" basetype="VString" length="2" precision="0"/>
+					<Column name="UPLOADDATE" type="char(10)" label="上报日期" description="上报日期" notnull="yes" iskey="no" originaltype="TY_CHAR4" basetype="String" length="10" precision="0"/>
+					<Column name="WAREHOUSENAME" type="varchar2(50)" label="仓库名称" description="仓库名称" notnull="yes" iskey="no" originaltype="TY_VARCHAR2_8" basetype="VString" length="50" precision="0"/>
+					<Column name="TRADEDATE" type="char(10)" label="交易日" description="交易日" notnull="yes" iskey="no" originaltype="TY_CHAR4" basetype="String" length="10" precision="0"/>
+				</Columns>
+				<Index/>
+			</table>
+			<table name="H_EXMARGINRATE" title="会员合约交易保证金率数据" description="会员合约交易保证金率数据">
+				<Columns>
+					<Column name="EXCOMPANYCODE" type="varchar2(10)" label="会员代码" description="会员代码" notnull="yes" iskey="no" originaltype="TY_VARCHAR2_7" basetype="VString" length="10" precision="0"/>
+					<Column name="CONTRACTCODE" type="varchar2(30)" label="合约代码" description="合约代码" notnull="yes" iskey="no" originaltype="TY_VARCHAR2_11" basetype="VString" length="30" precision="0"/>
+					<Column name="VHFLAG" type="char(1)" label="投机套保标志 " description="投机套保标志 " notnull="yes" iskey="no" originaltype="TY_CHAR1" basetype="String" length="1" precision="0"/>
+					<Column name="TRADEROLE" type="char(10)" label="交易角色" description="交易角色" notnull="yes" iskey="no" originaltype="TY_CHAR4" basetype="String" length="10" precision="0"/>
+					<Column name="EXCHANGEID" type="varchar2(2)" label="交易所代码" description="交易所代码" notnull="yes" iskey="no" originaltype="TY_VARCHAR2_1" basetype="VString" length="2" precision="0"/>
+					<Column name="SHORTRATE" type="number(10,4)" label="空头保证金率" description="空头保证金率" notnull="yes" iskey="no" originaltype="TY_NUMBER11" basetype="Float" length="10" precision="4"/>
+					<Column name="UPLOADDATE" type="char(10)" label="上报日期" description="上报日期" notnull="yes" iskey="no" originaltype="TY_CHAR4" basetype="String" length="10" precision="0"/>
+					<Column name="TRADEDATE" type="char(10)" label="交易日期" description="交易日期" notnull="yes" iskey="no" originaltype="TY_CHAR4" basetype="String" length="10" precision="0"/>
+					<Column name="LONGRATE" type="number(10,4)" label="多头保证金率" description="多头保证金率" notnull="yes" iskey="no" originaltype="TY_NUMBER11" basetype="Float" length="10" precision="4"/>
+				</Columns>
+				<Index/>
+			</table>
+			<table name="H_EXCUSPROFIT" title="客户盈亏数据" description="客户盈亏数据">
+				<Columns>
+					<Column name="FUNDACCNUMBER" type="varchar2(8)" label="资金账户号码" description="资金账户号码" notnull="yes" iskey="no" originaltype="TY_VARCHAR2_2" basetype="VString" length="8" precision="0"/>
+					<Column name="PROFIT" type="number(15,3)" label="盈亏金额" description="盈亏金额" notnull="yes" iskey="no" originaltype="TY_NUMBER1" basetype="Float" length="15" precision="3"/>
+					<Column name="VHFLAG" type="char(1)" label="投机套保标志" description="投机套保标志" notnull="yes" iskey="no" originaltype="TY_CHAR1" basetype="String" length="1" precision="0"/>
+					<Column name="CURRENCY" type="char(3)" label="币种" description="币种" notnull="yes" iskey="no" originaltype="TY_CHAR5" basetype="String" length="3" precision="0"/>
+					<Column name="BSTAG" type="char(1)" label="买卖标志" description="买卖标志" notnull="yes" iskey="no" originaltype="TY_CHAR1" basetype="String" length="1" precision="0"/>
+					<Column name="EXCOMPANYID" type="char(4)" label="会员号" description="会员号" notnull="yes" iskey="no" originaltype="TY_CHAR2" basetype="String" length="4" precision="0"/>
+					<Column name="EXCHANGEID" type="varchar2(2)" label="交易所代码" description="交易所代码" notnull="yes" iskey="no" originaltype="TY_VARCHAR2_1" basetype="VString" length="2" precision="0"/>
+					<Column name="CONTRACTID" type="varchar2(6)" label="品种合约" description="品种合约" notnull="yes" iskey="no" originaltype="TY_VARCHAR2_6" basetype="VString" length="6" precision="0"/>
+					<Column name="EXCLIENTID" type="varchar2(8)" label="客户编码" description="客户编码" notnull="no" iskey="no" originaltype="TY_VARCHAR2_2" basetype="VString" length="8" precision="0"/>
+					<Column name="UPLOADDATE" type="char(10)" label="上报日期" description="上报日期" notnull="yes" iskey="no" originaltype="TY_CHAR4" basetype="String" length="10" precision="0"/>
+					<Column name="TRADEDATE" type="char(10)" label="日期" description="日期" notnull="yes" iskey="no" originaltype="TY_CHAR4" basetype="String" length="10" precision="0"/>
+					<Column name="PROFITTYPE" type="char(1)" label="盈亏类型" description="盈亏类型" notnull="yes" iskey="no" originaltype="TY_CHAR1" basetype="String" length="1" precision="0"/>
+				</Columns>
+				<Index/>
+			</table>
+			<table name="H_EXCOMPFUND" title="会员资金文件" description="会员资金文件">
+				<Columns>
+					<Column name="PROFIT" type="number(15,3)" label="当日总盈亏" description="当日总盈亏" notnull="yes" iskey="no" originaltype="TY_NUMBER1" basetype="Float" length="15" precision="3"/>
+					<Column name="MORTGAGECHANGE" type="number(15,3)" label="质押变动额" description="质押变动额" notnull="yes" iskey="no" originaltype="TY_NUMBER1" basetype="Float" length="15" precision="3"/>
+					<Column name="MARGIN" type="number(15,3)" label="会员权益总额" description="会员权益总额" notnull="yes" iskey="no" originaltype="TY_NUMBER1" basetype="Float" length="15" precision="3"/>
+					<Column name="MONEYIN" type="number(15,3)" label="入金" description="入金" notnull="yes" iskey="no" originaltype="TY_NUMBER1" basetype="Float" length="15" precision="3"/>
+					<Column name="SETTLEMENTFUND" type="number(15,3)" label="结算准备金" description="结算准备金" notnull="yes" iskey="no" originaltype="TY_NUMBER1" basetype="Float" length="15" precision="3"/>
+					<Column name="CASH" type="number(15,3)" label="实有货币资金" description="实有货币资金" notnull="yes" iskey="no" originaltype="TY_NUMBER1" basetype="Float" length="15" precision="3"/>
+					<Column name="UPLOADDATE" type="char(10)" label="上报日期" description="上报日期" notnull="yes" iskey="no" originaltype="TY_CHAR4" basetype="String" length="10" precision="0"/>
+					<Column name="TRADEMARGIN" type="number(15,3)" label="交易保证金" description="交易保证金" notnull="yes" iskey="no" originaltype="TY_NUMBER1" basetype="Float" length="15" precision="3"/>
+					<Column name="DELIVMARGIN" type="number(15,3)" label="交割保证金" description="交割保证金" notnull="yes" iskey="no" originaltype="TY_NUMBER1" basetype="Float" length="15" precision="3"/>
+					<Column name="FUNDACCNUMBER" type="varchar2(8)" label="资金账户号码" description="资金账户号码" notnull="yes" iskey="no" originaltype="TY_VARCHAR2_2" basetype="VString" length="8" precision="0"/>
+					<Column name="CURRENCY" type="char(3)" label="币种" description="币种" notnull="yes" iskey="no" originaltype="TY_CHAR5" basetype="String" length="3" precision="0"/>
+					<Column name="MORTGAGE" type="number(15,3)" label="质押额" description="质押额" notnull="yes" iskey="no" originaltype="TY_NUMBER1" basetype="Float" length="15" precision="3"/>
+					<Column name="EXCOMPANYID" type="char(4)" label="会员号" description="会员号" notnull="yes" iskey="no " originaltype="TY_CHAR2" basetype="String" length="4" precision="0"/>
+					<Column name="EXCHANGEID" type="varchar2(2)" label="交易所代码" description="交易所代码" notnull="yes" iskey="no" originaltype="TY_VARCHAR2_1" basetype="VString" length="2" precision="0"/>
+					<Column name="ACCOUNTTYPE" type="char(1)" label="资金账户类型" description="资金账户类型" notnull="yes" iskey="no" originaltype="TY_CHAR1" basetype="String" length="1" precision="0"/>
+					<Column name="LASTMARGIN" type="number(15,3)" label="上日保证金总额" description="上日保证金总额" notnull="yes" iskey="no" originaltype="TY_NUMBER1" basetype="Float" length="15" precision="3"/>
+					<Column name="TRADEDATE" type="char(10)" label="交易日期" description="交易日期" notnull="yes" iskey="no" originaltype="TY_CHAR4" basetype="String" length="10" precision="0"/>
+					<Column name="OTHERS" type="number(15,3)" label="其它资金" description="其它资金" notnull="yes" iskey="no" originaltype="TY_NUMBER1" basetype="Float" length="15" precision="3"/>
+					<Column name="DELIVAMOUNT" type="number(15,3)" label="交割货款" description="交割货款" notnull="yes" iskey="no" originaltype="TY_NUMBER1" basetype="Float" length="15" precision="3"/>
+					<Column name="FEE" type="number(15,3)" label="各类手续费" description="各类手续费" notnull="yes" iskey="no" originaltype="TY_NUMBER1" basetype="Float" length="15" precision="3"/>
+					<Column name="MONEYOUT" type="number(15,3)" label="出金" description="出金" notnull="yes" iskey="no" originaltype="TY_NUMBER1" basetype="Float" length="15" precision="3"/>
+				</Columns>
+				<Index/>
+			</table>
+			<table name="H_EXCONTRACT" title="品种合约文件" description="品种合约文件">
+				<Columns>
+					<Column name="CLOSINGPRICE" type="number(15,3)" label="收盘价" description="收盘价" notnull="yes" iskey="no" originaltype="TY_NUMBER1" basetype="Float" length="15" precision="3"/>
+					<Column name="LASTSETTLEPRICE" type="number(15,3)" label="昨结算价" description="昨结算价" notnull="yes" iskey="no" originaltype="TY_NUMBER1" basetype="Float" length="15" precision="3"/>
+					<Column name="HIGHESTPRICE" type="number(15,3)" label="最高价" description="最高价" notnull="yes" iskey="no" originaltype="TY_NUMBER1" basetype="Float" length="15" precision="3"/>
+					<Column name="MARGIN" type="number(15,3)" label="保证金额" description="保证金额" notnull="no" iskey="no" originaltype="TY_NUMBER1" basetype="Float" length="15" precision="3"/>
+					<Column name="COMMODITYID" type="varchar2(2)" label="品种" description="品种" notnull="yes" iskey="no" originaltype="TY_VARCHAR2_1" basetype="VString" length="2" precision="0"/>
+					<Column name="CONTRACTID" type="varchar2(6)" label="品种合约" description="品种合约" notnull="yes" iskey="no" originaltype="TY_VARCHAR2_6" basetype="VString" length="6" precision="0"/>
+					<Column name="AMOUNT" type="number(16,3)" label="成交额" description="成交额" notnull="yes" iskey="no" originaltype="TY_NUMBER5" basetype="Float" length="16" precision="3"/>
+					<Column name="UPLOADDATE" type="char(10)" label="上报日期" description="上报日期" notnull="yes" iskey="no" originaltype="TY_CHAR4" basetype="String" length="10" precision="0"/>
+					<Column name="SETTLEPRICE" type="number(15,3)" label="今结算价" description="今结算价" notnull="yes" iskey="no" originaltype="TY_NUMBER1" basetype="Float" length="15" precision="3"/>
+					<Column name="CURRENCY" type="char(3)" label="币种" description="币种" notnull="yes" iskey="no" originaltype="TY_CHAR5" basetype="String" length="3" precision="0"/>
+					<Column name="STARTDATE" type="char(10)" label="开始交易日" description="开始交易日" notnull="yes" iskey="no" originaltype="TY_CHAR4" basetype="String" length="10" precision="0"/>
+					<Column name="OPENINGPRICE" type="number(15,3)" label="开盘价" description="开盘价" notnull="yes" iskey="no" originaltype="TY_NUMBER1" basetype="Float" length="15" precision="3"/>
+					<Column name="LOWESTPRICE" type="number(15,3)" label="最低价" description="最低价" notnull="yes" iskey="no" originaltype="TY_NUMBER1" basetype="Float" length="15" precision="3"/>
+					<Column name="FEERATE" type="number(10,8)" label="手续费率" description="手续费率" notnull="no" iskey="no" originaltype="TY_NUMBER4" basetype="Float" length="10" precision="8"/>
+					<Column name="MARGINRATE" type="number(6,4)" label="保证金率" description="保证金率" notnull="no" iskey="no" originaltype="TY_NUMBER3" basetype="Float" length="6" precision="4"/>
+					<Column name="VOLUMN" type="number(10)" label="成交量" description="成交量" notnull="yes" iskey="no" originaltype="TY_NUMBER2" basetype="Int" length="10" precision="0"/>
+					<Column name="EXCHANGEID" type="varchar2(2)" label="交易所代码" description="交易所代码" notnull="yes" iskey="no" originaltype="TY_VARCHAR2_1" basetype="VString" length="2" precision="0"/>
+					<Column name="POSITION" type="number(10)" label="持仓量" description="持仓量" notnull="yes" iskey="no" originaltype="TY_NUMBER2" basetype="Int" length="10" precision="0"/>
+					<Column name="TRADEDATE" type="char(10)" label="交易日" description="交易日" notnull="yes" iskey="no" originaltype="TY_CHAR4" basetype="String" length="10" precision="0"/>
+					<Column name="ENDDATE" type="char(10)" label="最后交易日" description="最后交易日" notnull="yes" iskey="no" originaltype="TY_CHAR4" basetype="String" length="10" precision="0"/>
+					<Column name="FEE" type="number(15,3)" label="手续费额" description="手续费额" notnull="no" iskey="no" originaltype="TY_NUMBER1" basetype="Float" length="15" precision="3"/>
 				</Columns>
 				<Index/>
 			</table>

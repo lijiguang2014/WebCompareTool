@@ -16,9 +16,31 @@
     #show{display: none;  position: absolute;  top: 25%;  left: 22%;  width: 53%;  height: 49%;  padding: 8px;  border: 8px solid #E8E9F7;  background-color: white;  z-index:1002;  overflow: auto; text-align:center; line-height: 49%; font-size: 18px;}
 </style>
 <script type="text/javascript">
+	//初始化左侧比对列表
+	function getHistoryList(projectName, pageNo) {
+		var pageNo = $("#pageNo").val();
+		if (pageNo == "") {
+			pageNo=1;
+		}
+		$.ajax({
+			type:"POST",
+			contentType : "application/json",
+			dataType: "json",
+			url: "compareHistory/getList.do?projectName="+projectName+"&pageNo="+pageNo,
+			success: fillLeftHistoryList,
+			error: function(error) {
+				alert("比对历史加载失败!");
+			}
+		});
+	}
+
 	$(document).ready(function(){
+		//在页面载入的时候，加载比对记录列表
+		getHistoryList($("#projectName").val(), $("#pageNo").val());
+		
 		$("#upFile").change(function(){
 			var filename = $(this).val();
+			alert("change():" + filename);
 			$("#originalUploadFileName").val(filename);
 		});
 		
@@ -30,6 +52,7 @@
 				fileElementId:'upFile',
 				dataType: "json",
 				success: function(result, status) {
+					alert(result+ "--" + result.success + "--" + status);
 					if (result.success == "1") {
 						alert("上传文件成功！");
 						var filename=getFileNameFromFilePath(result.fileRelativePath);
@@ -49,7 +72,7 @@
 					});
 				},
 				error: function(data, status, e) {
-		            alert("文件上传失败!" + data.message+" error:  " + e); 
+		            alert("文件上传失败!" + data.msg+" error:  " + e); 
 				}
 			});
 			return false;
@@ -65,7 +88,6 @@
 				type:"post",
 				url: "generate.do?designRelativeFilePath="+designRelativeFilePath,
 				beforeSend: function(xmlHttpRequest) {
-					$("#show p").text("正在比对，请耐心等待");
 					showMask();
 				},
 				success: function(data, status) {

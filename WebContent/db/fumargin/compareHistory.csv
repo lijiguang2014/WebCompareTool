@@ -1,3 +1,4 @@
 V1,2014-12-19,dataModel/upload/20141219141341.xml,/dataModel/stable/fumarginV1.xml,template/fumargin/alter.sql.tpl,result/temp/alterScript/20141219141348.sql,result/temp/report/20141219141348.txt,0
 V2,2014-12-19,dataModel/upload/20141219141400.xml,/dataModel/stable/fumarginV2.xml,template/fumargin/alter.sql.tpl,result/temp/alterScript/20141219141404.sql,result/temp/report/20141219141404.txt,0
 V3,2014-12-24,dataModel/upload/20141224093413.xml,/dataModel/stable/fumarginV3.xml,template/fumargin/alter.sql.tpl,result/temp/alterScript/20141224093423.sql,result/temp/report/20141224093423.txt,0
+V4,2014-12-26 09:56:22,dataModel/upload/20141226095601.xml,/dataModel/stable/fumarginV4.xml,template/fumargin/alter.sql.tpl,result/temp/alterScript/20141226095622.sql,result/temp/report/20141226095622.txt,0

@@ -1,0 +1,36 @@
+<Tables>
+	<Table name="A_TEMP_NOLOGIN" isCreate="false" isDrop="false" keyList="SHORTNAME,COMPANYID" changedDescription="">
+		<Drops>
+			<Drop type="primaryKey" constraintName="PK_A_TEMP_NOLOGIN" ></Drop>
+		</Drops>
+		<Adds>
+		</Adds>
+		<Alters>
+			<Alter type="columnNotnull" columnName="CLIENTID"  changedNotnull="yes" ></Alter>
+		</Alters>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="A_TEMP_LOGINRANK" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+		</Drops>
+		<Adds>
+			<Add columnName="TRADEMONTH1" typeName="VCHAR2(10)" originalTypeName="TY_WAREHOUSEID" label="" iskey="no" notnull="no"></Add>
+		</Adds>
+		<Alters>
+		</Alters>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="A_QUERYUSER2_LOGINSTATUS" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+			<Drop type="column" tableName="A_QUERYUSER2_LOGINSTATUS" columnName="TRADEDATE" ></Drop>
+		</Drops>
+		<Adds>
+		</Adds>
+		<Alters>
+		</Alters>
+		<Index>
+		</Index>
+	</Table>
+</Tables>

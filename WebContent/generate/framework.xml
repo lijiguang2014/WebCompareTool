@@ -4,8 +4,108 @@
 	<schemas />
 	<tableGroups>
 		<tables group="Framework">
-			<table name="A_QUERYUSER2_LOGINSTATUS" title="" description="">
-				<Columns ref="A_QUERYUSER2_LOGINSTATUS" />
+			<table name="H_EXWARRANT" title="仓单文件" description="仓单文件">
+				<Columns ref="H_EXWARRANT" />
+				<Index>
+				</Index>
+			</table>
+			<table name="H_EXCLIENT" title="客户基本资料文件" description="客户基本资料文件">
+				<Columns ref="H_EXCLIENT" />
+				<Index>
+				</Index>
+			</table>
+			<table name="H_EXDELIVCONTRACTDATA" title="待交割结算合约文件" description="待交割结算合约文件">
+				<Columns ref="H_EXDELIVCONTRACTDATA" />
+				<Index>
+				</Index>
+			</table>
+			<table name="H_EXORDER" title="委托响应数据" description="委托响应数据">
+				<Columns ref="H_EXORDER" />
+				<Index>
+				</Index>
+			</table>
+			<table name="H_EXCLITRDDETAIL" title="成交明细文件" description="成交明细文件">
+				<Columns ref="H_EXCLITRDDETAIL" />
+				<Index>
+				</Index>
+			</table>
+			<table name="H_EXCLIPOSDETAIL" title="持仓明细文件" description="持仓明细文件">
+				<Columns ref="H_EXCLIPOSDETAIL" />
+				<Index>
+				</Index>
+			</table>
+			<table name="H_EXHEDGEVOLUME" title="套期保值额度数据" description="套期保值额度数据">
+				<Columns ref="H_EXHEDGEVOLUME" />
+				<Index>
+				</Index>
+			</table>
+			<table name="H_EXCLIENTPOSILIMIT" title="客户合约限仓数据" description="客户合约限仓数据">
+				<Columns ref="H_EXCLIENTPOSILIMIT" />
+				<Index>
+				</Index>
+			</table>
+			<table name="H_EXEXIOFUND" title="会员出入金文件" description="会员出入金文件">
+				<Columns ref="H_EXEXIOFUND" />
+				<Index>
+				</Index>
+			</table>
+			<table name="H_EXMEMBER" title="会员资料文件" description="会员资料文件">
+				<Columns ref="H_EXMEMBER" />
+				<Index>
+				</Index>
+			</table>
+			<table name="H_EXCOMPOTHERFUND" title="客户分项资金文件" description="客户分项资金文件">
+				<Columns ref="H_EXCOMPOTHERFUND" />
+				<Index>
+				</Index>
+			</table>
+			<table name="H_EXINSTRUMENTPROPERTY" title="合约属性数据" description="合约属性数据">
+				<Columns ref="H_EXINSTRUMENTPROPERTY" />
+				<Index>
+				</Index>
+			</table>
+			<table name="H_EXDELIVDATA" title="交割明细文件" description="交割明细文件">
+				<Columns ref="H_EXDELIVDATA" />
+				<Index>
+				</Index>
+			</table>
+			<table name="H_EXSPECIALPOSILIMIT" title="特别客户合约限仓数据" description="特别客户合约限仓数据">
+				<Columns ref="H_EXSPECIALPOSILIMIT" />
+				<Index>
+				</Index>
+			</table>
+			<table name="H_EXPARTPOSILIMIT" title="会员合约限仓数据" description="会员合约限仓数据">
+				<Columns ref="H_EXPARTPOSILIMIT" />
+				<Index>
+				</Index>
+			</table>
+			<table name="H_EXSPOTPRICE" title="现货价格文件" description="现货价格文件">
+				<Columns ref="H_EXSPOTPRICE" />
+				<Index>
+				</Index>
+			</table>
+			<table name="H_EXWAREHOUSE" title="仓库文件" description="仓库文件">
+				<Columns ref="H_EXWAREHOUSE" />
+				<Index>
+				</Index>
+			</table>
+			<table name="H_EXMARGINRATE" title="会员合约交易保证金率数据" description="会员合约交易保证金率数据">
+				<Columns ref="H_EXMARGINRATE" />
+				<Index>
+				</Index>
+			</table>
+			<table name="H_EXCUSPROFIT" title="客户盈亏数据" description="客户盈亏数据">
+				<Columns ref="H_EXCUSPROFIT" />
+				<Index>
+				</Index>
+			</table>
+			<table name="H_EXCOMPFUND" title="会员资金文件" description="会员资金文件">
+				<Columns ref="H_EXCOMPFUND" />
+				<Index>
+				</Index>
+			</table>
+			<table name="H_EXCONTRACT" title="品种合约文件" description="品种合约文件">
+				<Columns ref="H_EXCONTRACT" />
 				<Index>
 				</Index>
 			</table>

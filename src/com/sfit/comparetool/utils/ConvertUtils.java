@@ -118,15 +118,15 @@ public class ConvertUtils {
 			StringBuilder sb = new StringBuilder();
 			for(String alias: typeMapping.keySet()) {
 				String type = typeMapping.get(alias);
-				if (type.startsWith("CHAR")) {
+				if (type.toUpperCase().startsWith("CHAR")) {
 					sb.append("\t<String typename=\""+ alias + "\" length=\"" 
 				+ type.substring(type.indexOf("(")+1, type.indexOf(")"))
 				+ "\" label=\"\" />\r\n");
-				} else if (type.startsWith("VARCHAR2")) {
+				} else if (type.toUpperCase().startsWith("VARCHAR2")) {
 					sb.append("\t<VString typename=\""+ alias + "\" length=\"" 
 							+ type.substring(type.indexOf("(")+1, type.indexOf(")"))
 							+ "\" label=\"\" />\r\n");
-				} else if (type.startsWith("NUMBER")) {
+				} else if (type.toUpperCase().startsWith("NUMBER")) {
 					if(!type.contains(",")) {
 						sb.append("\t<Int typename=\"" + alias + "\" length=\""
 								+ type.substring(type.indexOf("(")+1, type.indexOf(")"))
