@@ -1,7 +1,8 @@
 @CHARSET "UTF-8";
 #Content_Left{
     height:440px;
-    width:300px;
+    /*width:300px;*/
+    width:25%;
     float:left;/*设置浮动，实现多列效果，div+Css布局中很重要的*/
     background:#FAF7FD;
     padding:0;
@@ -31,6 +32,7 @@
 }
 
 #compareHistory{
+	margin-top:20px;
 	margin-left:20px;
 	margin-bottom:15px;
 	padding-right:15px;
@@ -41,10 +43,12 @@
 
 .pane-header {
 	height:35px;
+	line-height:35px;
 	padding:5px;
 	color:#3b3b3b;
     font-weight:700;
     background:#E2D7E7;
+    vertical-align: center;
 }
 
 .pane-content{

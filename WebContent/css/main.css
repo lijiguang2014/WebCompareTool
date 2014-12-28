@@ -19,8 +19,8 @@ body{
     color:white;
     background:#000;
     align:center;
-    padding:20px auto;
-    margin:0px auto;
+    padding:20px 0 0 0;
+    margin:0px;
 }
 
 #Header a{
@@ -28,17 +28,19 @@ body{
 }
 
 #Content{
+	width:100%;
 	overflow:auto;
     background:#FFF;
 }
 
 #Main_Panel{
     height:600px;
-    width:720px;
+    /*width:720px;*/
+    width:70%;
     margin:0px;
     padding-left:20px;
     padding-top:20px;
-    float:left;/*设置浮动，实现多列效果，div+Css布局中很重要的*/
+    float:left;
 }
 
 #Compare_Condition{
@@ -47,14 +49,107 @@ body{
 	background:#FFF;
 }
 
+.condition {
+	margin: 10px 0 0 0;
+	padding: 0px;
+}
+
 #History_Report{
 	height:350px;
-	margin-top:10px;
+	margin-top:20px;
+	padding:0px;
 	background:#FFF;
+}
+  
+#latestHistoryForTempDiv {
+	margin: 20px 0 0 0;
+}
+
+.latestHistoryForStableDiv {
+	border: 1px solid #f0f0f0;
+    border-radius: 4px;
+}
+
+.latestReport {
+	margin: 20px 0 0 0;
+	padding: 0px;
 }
 
 #Footer{
     height: 40px;
     background: #249;
     margin-top: 20px;
+}
+
+/*
+以下是表格样式
+*/
+#pane-frame {
+	border: 1px solid #f0f0f0;
+    border-radius: 4px;
+}
+
+table{
+	width:100%;
+	text-align:center;
+	border-spacing: 0px; 
+	border-spacing: expression(this.cellSpacing=0);
+	cellpadding:0px;
+	padding:0px;
+	border:0px; 
+}
+
+.versionTitle {
+	width:20%;
+	height:22px; 
+	background:#F0F0F0;
+}
+
+.compareDateTitle {
+	width:20%;
+	height:22px; 
+	background:#F0F0F0;
+}
+
+.templateTitle {
+	width:20%;
+	height:22px; 
+	background:#F0F0F0;
+}
+
+.scriptTitle {
+	width:20%;
+	height:22px; 
+	background:#F0F0F0;
+}
+
+.reportTitle {
+	width:20%;
+	height:22px; 
+	background:#F0F0F0;
+}
+
+.version {
+	width:20%;
+	height:20px; 
+}
+
+.compareDate {
+	width:20%;
+	height:20px; 
+}
+
+.template {
+	width:20%;
+	height:20px; 
+}
+
+.script {
+	width:20%;
+	height:20px; 
+}
+
+.report {
+	width:20%;
+	height:20px; 
 }

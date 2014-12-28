@@ -50,27 +50,9 @@
 		});
 	}
 	
-	//初始化左侧比对列表
-	function getHistoryList(projectName, pageNo) {
-		var pageNo = $("#pageNo").val();
-		if (pageNo == "") {
-			pageNo=1;
-		}
-		$.ajax({
-			type:"POST",
-			contentType : "application/json",  
-			dataType: "json",
-			url: "compareHistory/getList.do?projectName="+projectName+"&pageNo="+pageNo,
-			success: fillLeftHistoryList,
-			error: function(error) {
-				alert("比对历史加载失败!");
-			}
-		});
-	}
-
 	$(document).ready(function(){
 		//在页面载入的时候，加载比对记录列表
-		getHistoryList($("#projectName").val(), $("#pageNo").val());
+		getLeftHistoryList($("#projectName").val(), $("#pageNo").val());
 		$("#export").click(exportFileFromDB);
 	});
 </script>

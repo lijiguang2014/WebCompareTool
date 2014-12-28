@@ -3,22 +3,22 @@
 <div id="Main_Panel">
 	<div id="Main_Panel_Content">
 	<div>
-		<div>
+		<div class="condition">
 			<label>数据库类型：</label>
 			<label><input type="radio" name="databaseType" value="oracle" checked="checked">Oracle</label>
 			<label><input type="radio" name="databaseType" value="mySql" >MySQL</label>
 		</div>
-		<div>
+		<div class="condition">
 			<label>比对文件类型：</label>
 			<label><input type="radio" name="compareFileType" value=".xml" checked="checked">XML</label>
 			<label><input type="radio" name="compareFileType" value=".xls" >Excel</label>
 		</div>
-		<div>
+		<div class="condition">
 			<label>基准数据来源：</label>
 			<label><input type="radio" name="sourceType" value="0">数据库</label>
 			<label><input type="radio" name="sourceType" value="1" checked="checked">文件</label>
 		</div>
-		<div id="sourceDiv">
+		<div id="sourceDiv" class="condition">
 			<form id="sourceUpload"> 
 	     	   <span>基准数据：</span>
 	     	   <input type="text" onclick="$('#sourceFile').click()" id="originalSourceFileName" size="40" /> 
@@ -30,7 +30,7 @@
 		</div>
 		<div id="source_upload_info" style="width:100%;height:20px;visibility:hidden" ></div>
 		
-	   	<div id="targetDiv">
+	   	<div id="targetDiv" class="condition">
 			<form id="targetUpload"> 
 	     	   <span>目标数据：</span>
 	     	   <input type="text" onclick="$('#targetFile').click()" id="originalTargetFileName" size="40" /> 
@@ -61,8 +61,10 @@
 	  
 	  <div id="History_Report">
 			<label>最新稳定版本记录：</label><br/>
-			<table id="latestHistoryForStable">
-			</table>
+			<div class="latestHistoryForStableDiv">
+				<table id="latestHistoryForStable">
+				</table>
+			</div>
 			<div id="latestHistoryForTempDiv" style="display:none">
 				<label>最新比对记录：</label><br/>
 				<table id="latestHistoryForTemp">
@@ -78,8 +80,10 @@
 					<input id="status" name="status" type="hidden"/>
 				</form>
 			</div>
-			<label>最新比对报告：</label><br/>
-			<textarea id="latestReport" rows="10" cols="50"></textarea>
+			<div class="latestReport">
+				<label>最新比对报告：</label><br/>
+				<textarea id="latestReport" rows="10" cols="105"></textarea>
+			</div>
 		</div>
 	</div>
 </div>

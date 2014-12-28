@@ -3,7 +3,9 @@
 <div id="Main_Panel">
 	<div id="Main_Panel_Content">
 		<h1>Project ${projectName}</h1>
-		<table id="historyDetailList">
-		</table>
+		<div id="pane-frame">
+			<table id="historyDetailList">
+			</table>
+		</div>
 	</div>
 </div>

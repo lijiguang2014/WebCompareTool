@@ -63,12 +63,13 @@ function exportDatabaseInfo() {
 //更新最新稳定版本记录
 function updateLatestHistoryForStable(latestHistory) {
 	var latestHistoryContent = "";
-	latestHistoryContent += "<tr><td>版本号</td><td>比对日期</td><td>模板</td><td>alter脚本</td><td>比对报告</td></tr>";
-	latestHistoryContent += "<tr><td>" + latestHistory.version + "</td><td>" + latestHistory.compareDate + "</td><td>" + getFileNameFromFilePath(latestHistory.templateFilePath)
-	+ "</td><td>" + "<a href=\"${pageContext.request.contextPath}/downloadFile.do?filePath=" + latestHistory.alterSqlFilePath + "\">" 
-	+ getFileNameFromFilePath(latestHistory.alterSqlFilePath) + "</a></td><td>" 
-	+ "<a href=\"javascript:void(0)\" onclick=\"displayReport(\'"+latestHistory.reportFilePath+"\')\">"+getFileNameFromFilePath(latestHistory.reportFilePath)
-	+ "</a></td></tr>";
+	latestHistoryContent += "<tr><td class=\"versionTitle\">版本号</td><td class=\"compareDateTitle\">比对日期</td><td class=\"templateTitle\">模板</td><td class=\"scriptTitle\">alter脚本</td><td class=\"reportTitle\">比对报告</td></tr>";
+	latestHistoryContent += "<tr><td class=\"version\">" + latestHistory.version + "</td>" 
+							+"<td class=\"compareDate\">" + latestHistory.compareDate + "</td>" 
+							+"<td class=\"template\">" + getFileNameFromFilePath(latestHistory.templateFilePath) + "</td>"
+							+"<td class=\"script\">" + "<a href=\"${pageContext.request.contextPath}/downloadFile.do?filePath=" + latestHistory.alterSqlFilePath + "\">" 
+							+ getFileNameFromFilePath(latestHistory.alterSqlFilePath) + "</a></td>" +
+							"<td class=\"report\">" + "<a href=\"javascript:void(0)\" onclick=\"displayReport(\'"+latestHistory.reportFilePath+"\')\">"+getFileNameFromFilePath(latestHistory.reportFilePath)+ "</a></td></tr>";
 	$("#latestHistoryForStable").empty();
 	$("#latestHistoryForStable").append(latestHistoryContent);
 }
@@ -102,14 +103,14 @@ function fillHistoryList(data, status) {
 	var totalPages = data.totalPages;
 	var histories = data.recordList;
 	$("#historyDetailList").empty();
-	$("#historyDetailList").append("<tr><td>版本号</td><td>比对日期</td><td>模板</td><td>alter脚本</td><td>比对报告</td></tr>");
+	$("#historyDetailList").append("<tr><th class=\"versionTitle\">版本号</th><th class=\"compareDateTitle\">比对日期</th><th class=\"templateTitle\">模板</th><th class=\"scriptTitle\">alter脚本</th><th class=\"reportTitle\">比对报告</th></tr>");
 	var historyContent = "";
 	$.each(histories, function(i, history) {
-		historyContent += "<tr><td>" + history.version + "</td>"
-		+ "<td>" + history.compareDate + "</td>" 
-		+ "<td>" + getFileNameFromFilePath(history.templateFilePath)
-		+ "</td><td>" + "<a href=\"downloadFile.do?filePath=" + history.alterSqlFilePath + "\">" 
-		+ getFileNameFromFilePath(history.alterSqlFilePath) + "</a></td><td>" 
+		historyContent += "<tr><td class=\"version\">" + history.version + "</td>"
+		+ "<td class=\"compareDate\">" + history.compareDate + "</td>" 
+		+ "<td class=\"template\">" + getFileNameFromFilePath(history.templateFilePath)
+		+ "</td><td class=\"script\">" + "<a href=\"downloadFile.do?filePath=" + history.alterSqlFilePath + "\">" 
+		+ getFileNameFromFilePath(history.alterSqlFilePath) + "</a></td><td class=\"report\">" 
 		+ "<a href=\"showReport.do?reportPath="+history.reportFilePath+"\">"
 		+"<img src='images/terminal.gif'>" + "</a></td></tr>";
 		$("#historyDetailList").append(historyContent);
@@ -146,10 +147,10 @@ function fillLeftHistoryList(data, status) {
 	
 	var histories = data.recordList;
 	$("#historyList").empty();
-	$("#historyList").append("<tr><td>版本号</td><td>生成时间</td><td>基准</td><td>目标</td></tr>");
+	$("#historyList").append("<tr><th>版本号</th><th>生成时间</th><th>基准</th><th>目标</th></tr>");
 	$.each(histories, function(i, history) {
 		var tBody="";
-		tBody += "<tr><td><a href=\"downloadFile.do?filePath=" + history.targetFilePath + "\">" + history.version + "</a></td><td>" + history.compareDate + "</td>"
+		tBody += "<tr><td class=\"version\"><a href=\"downloadFile.do?filePath=" + history.targetFilePath + "\">" + history.version + "</a></td><td class=\"compareDate\">" + history.compareDate + "</td>"
 		+ "<td><input type=\"radio\" name=\"stableSourceFilePath\" onclick=\"changeSourceFile()\" value=\"" + history.targetFilePath + "\"/></td>"
 		+ "<td><input type=\"radio\" name=\"stableTargetFilePath\" onclick=\"changeTargetFile()\" value=\"" + history.targetFilePath + "\"/></td></tr>";
 		$("#historyList").append(tBody);
@@ -171,6 +172,24 @@ function fillLeftHistoryList(data, status) {
 		pagenation += "<td><input type='button' onclick='getHistoryList(\"" + $("#projectName").val() + "\"," + nextPage + ")' value=\"下页\" /></td></tr>";
 	}
 	$("#historyList").append(pagenation);
+}
+
+//初始化左侧比对列表
+function getLeftHistoryList(projectName, pageNo) {
+	var pageNo = $("#pageNo").val();
+	if (pageNo == "") {
+		pageNo=1;
+	}
+	$.ajax({
+		type:"POST",
+		contentType : "application/json",  
+		dataType: "json",
+		url: "compareHistory/getList.do?projectName="+projectName+"&pageNo="+pageNo,
+		success: fillLeftHistoryList,
+		error: function(error) {
+			alert("比对历史加载失败!");
+		}
+	});
 }
 
 /**
@@ -212,7 +231,6 @@ function closeMask(){
 }
 
 function getFileNameFromFilePath(filePath) {
-	alert(filePath);
 	var ss = filePath.split("/");
 	return ss[ss.length-1];
 }
