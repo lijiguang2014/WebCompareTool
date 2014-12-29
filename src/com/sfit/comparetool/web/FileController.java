@@ -49,6 +49,7 @@ public class FileController {
 			result.put("msg", "后台未接收到上传文件");
 			return result;
 		}
+		
 		String fileName = upFile[0].getOriginalFilename();
 		String fileExtend = fileName.substring(fileName.indexOf("."));
 		if(checkFileExt(fileName)) {
@@ -220,8 +221,8 @@ public class FileController {
 		return mv;
 	}
 	
-	@RequestMapping("/export.do")
-	public @ResponseBody Map<String, String> exportFromDB(CompareBean condition, @RequestParam String exportType,
+	@RequestMapping("/exportEntity.do")
+	public @ResponseBody Map<String, String> exportEntityFileFromDB(CompareBean condition, @RequestParam String exportType,
 			HttpServletRequest request, HttpServletResponse response) {
 		Map<String, String> result = new HashMap<String, String>();
 		

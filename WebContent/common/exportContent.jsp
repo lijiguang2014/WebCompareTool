@@ -37,7 +37,8 @@
 				</tr>
 				<tr>
 					<td colspan="3" align="right">
-						<input id="export" type="button" value="导出">
+						<input id="exportType" type="button" value="Type导出">
+						<input id="exportEntity" type="button" value="Entity导出">
 					</td>
 				</tr>
 			</table>

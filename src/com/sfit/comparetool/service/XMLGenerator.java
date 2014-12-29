@@ -2,7 +2,6 @@ package com.sfit.comparetool.service;
 
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -63,16 +62,81 @@ public class XMLGenerator implements Generator {
 			+ " from user_ind_columns a, user_indexes b "
 			+ " where a.INDEX_NAME = b.index_name and a.table_Name=? and a.column_Name=?";
 	
+	/**
+	 * 按规则生成数据库中所有数据类型的别名
+	 */
+	private static final String GENERATE_TYPE = "select 'TY_' || min(c.COLUMN_NAME) TYPE_NAME, cc.datatype type"
+			+ " from user_tab_columns c, (select distinct u.DATA_TYPE || '(' || u.DATA_LENGTH || ')' datatype"
+			+ " from user_tab_columns u"
+			+ " where u.DATA_TYPE <> 'NUMBER') cc"
+			+ " where cc.datatype = c.DATA_TYPE || '(' || c.DATA_LENGTH || ')' and c.DATA_TYPE <> 'NUMBER'"
+			+ " group by cc.datatype"
+			+ " union select 'TY_' || min(c.COLUMN_NAME) TYPE_NAME, cc.datatype type"
+			+ " from user_tab_columns c, (select distinct u.DATA_TYPE || '(' || u.DATA_PRECISION || ',' ||u.DATA_SCALE || ')' datatype"
+			+ " from user_tab_columns u"
+			+ " where u.DATA_TYPE = 'NUMBER' and u.DATA_PRECISION is not null) cc"
+			+ " where cc.datatype = c.DATA_TYPE || '(' || c.DATA_PRECISION || ',' || c.DATA_SCALE || ')' and c.DATA_TYPE = 'NUMBER'"
+			+ " group by cc.datatype "
+			+ " union select 'TY_' || min(c.COLUMN_NAME) TYPE_NAME, cc.datatype type"
+			+ " from user_tab_columns c,"
+			+ "(select distinct u.DATA_TYPE || '(' || u.DATA_LENGTH || ')' datatype"
+			+ " from user_tab_columns u"
+			+ " where u.DATA_TYPE = 'NUMBER' and u.DATA_PRECISION is null) cc"
+			+ " where cc.datatype = c.DATA_TYPE || '(' || c.DATA_LENGTH || ')' and c.DATA_TYPE = 'NUMBER'"
+			+ " group by cc.datatype";
+	
 	private ArrayList<String> tableNameList = new ArrayList<String>();
 	private ArrayList<String> uselessTableNameList = new ArrayList<String>(Arrays.asList("H_COMPANYREPORT", "H_COMPANYMESSAGE", "H_COMPCLIENTFEEDBACK", 
 			"H_COMPCLIENTIDUPDATE","H_COMPAMCUSTODYACCOUNT","H_COMPCLIENTOPTEXERCISE"));
 	
 	
-	public static void main(String[] args) throws IOException {
-		new XMLGenerator().generateEntity(url, username, password, "D:\\fumarginEntity.xml");
+	public static void main(String[] args) throws Exception {
+//		new XMLGenerator().generateEntity(url, username, password, "D:\\fumarginEntity.xml");
+		new XMLGenerator().generateXMLType(url, username, password, "D:\\fumarginType.xml");
 	}
 	
-	public void generateEntity(String url, String username, String password, String resultPath) throws IOException {
+	public void generateXMLType(String url, String username, String password, String resultPath) throws Exception {
+		
+		Connection conn = JdbcUtil.getConnection(url, username, password);
+		
+		try {
+			FileOutputStream fos = new FileOutputStream(resultPath);
+			OutputStreamWriter osw = new OutputStreamWriter(fos, "GBK");
+			
+			Statement statement = conn.createStatement();
+			ResultSet rs = statement.executeQuery(GENERATE_TYPE);
+			
+			StringBuilder sb = new StringBuilder();
+			sb.append("<UFDataTypes>\r\n");
+			while (rs.next()) {
+				String alias = rs.getString("TYPE_NAME");
+				String type = rs.getString("TYPE");
+				
+				if (type.toUpperCase().startsWith("VARCHAR2")) {
+					sb.append("\t<VString typename=\"" + alias + "\" length=\"" + type.substring(type.indexOf("(")+1, type.indexOf(")")) 
+							+ "\" label=\"\" />\r\n");
+				} else if (type.toUpperCase().startsWith("CHAR")) {
+					sb.append("\t<String typename=\"" + alias + "\" length=\"" + type.substring(type.indexOf("(")+1, type.indexOf(")"))
+							+ "\" label=\"\" />\r\n");
+				} else if (type.toUpperCase().startsWith("NUMBER") && type.contains(",")) {
+					sb.append("\t<Float typename=\"" + alias + "\" length=\"" + type.substring(type.indexOf("(")+1, type.indexOf(","))
+							+ "\" precision=\"" + type.substring(type.indexOf(",")+1, type.indexOf(")")) + "\" label=\"\" />\r\n");
+				} else {
+					sb.append("\t<Int typename=\"" + alias + "\" length=\"" + type.substring(type.indexOf("(")+1, type.indexOf(")"))
+							+ "\" label=\"\" />\r\n");
+				}
+			}
+			sb.append("</UFDataTypes>");
+			osw.append(sb.toString());
+			osw.flush();
+			osw.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new Exception("导出XML格式的TYPE文件中出错!");
+		}
+	}
+	
+	public void generateEntity(String url, String username, String password, String resultPath) throws Exception {
 
 		Connection conn = JdbcUtil.getConnection(url, username, password);
 		try {
@@ -194,12 +258,14 @@ public class XMLGenerator implements Generator {
 			isKeyJudgement.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
+			throw new Exception("导出XML格式的Entity文件出错!");
 		} finally {
 			if (null != conn) {
 				try {
 					conn.close();
 				} catch (SQLException e) {
 					e.printStackTrace();
+					throw new Exception("关闭数据库连接出错");
 				}
 			}
 		}

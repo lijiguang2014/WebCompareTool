@@ -1,8 +1,8 @@
 package com.sfit.comparetool.service;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -72,16 +72,77 @@ public class ExcelGenerator implements Generator {
 			+ " from user_ind_columns a, user_indexes b "
 			+ " where a.INDEX_NAME = b.index_name and a.table_Name=? and a.column_Name=?";
 	
+	/**
+	 * 按规则生成数据库中所有数据类型的别名
+	 */
+	private static final String GENERATE_TYPE = "select 'TY_' || min(c.COLUMN_NAME) TYPE_NAME, cc.datatype type"
+			+ " from user_tab_columns c, (select distinct u.DATA_TYPE || '(' || u.DATA_LENGTH || ')' datatype"
+			+ " from user_tab_columns u"
+			+ " where u.DATA_TYPE <> 'NUMBER') cc"
+			+ " where cc.datatype = c.DATA_TYPE || '(' || c.DATA_LENGTH || ')' and c.DATA_TYPE <> 'NUMBER'"
+			+ " group by cc.datatype"
+			+ " union select 'TY_' || min(c.COLUMN_NAME) TYPE_NAME, cc.datatype type"
+			+ " from user_tab_columns c, (select distinct u.DATA_TYPE || '(' || u.DATA_PRECISION || ',' ||u.DATA_SCALE || ')' datatype"
+			+ " from user_tab_columns u"
+			+ " where u.DATA_TYPE = 'NUMBER' and u.DATA_PRECISION is not null) cc"
+			+ " where cc.datatype = c.DATA_TYPE || '(' || c.DATA_PRECISION || ',' || c.DATA_SCALE || ')' and c.DATA_TYPE = 'NUMBER'"
+			+ " group by cc.datatype "
+			+ " union select 'TY_' || min(c.COLUMN_NAME) TYPE_NAME, cc.datatype type"
+			+ " from user_tab_columns c,"
+			+ "(select distinct u.DATA_TYPE || '(' || u.DATA_LENGTH || ')' datatype"
+			+ " from user_tab_columns u"
+			+ " where u.DATA_TYPE = 'NUMBER' and u.DATA_PRECISION is null) cc"
+			+ " where cc.datatype = c.DATA_TYPE || '(' || c.DATA_LENGTH || ')' and c.DATA_TYPE = 'NUMBER'"
+			+ " group by cc.datatype";
+	
 	private ArrayList<String> tableNameList = new ArrayList<String>();
 	private ArrayList<String> uselessTableNameList = new ArrayList<String>(Arrays.asList("H_COMPANYREPORT", "H_COMPANYMESSAGE", "H_COMPCLIENTFEEDBACK", 
 			"H_COMPCLIENTIDUPDATE","H_COMPAMCUSTODYACCOUNT","H_COMPCLIENTOPTEXERCISE"));
 	
 	
-	public static void main(String[] args) throws IOException {
-		new ExcelGenerator().generateEntity(url, username, password, "D:\\fumarginEntity.xls");
+	public static void main(String[] args) throws Exception {
+//		new ExcelGenerator().generateEntity(url, username, password, "D:\\fumarginEntity.xls");
+		new ExcelGenerator().generateType(url, username, password, "D:\\fumarginEntity.xls");
 	}
 	
-	public void generateEntity(String url, String username, String password, String resultPath) throws IOException {
+	public void generateType(String url, String username, String password, String resultPath) throws Exception {
+		
+		Connection conn = JdbcUtil.getConnection(url, username, password);
+		
+		try {
+			FileInputStream fis = new FileInputStream(resultPath);
+			HSSFWorkbook wb = new HSSFWorkbook(fis);
+			HSSFSheet sheet = wb.createSheet("TypeMapping");
+			
+			Statement statement = conn.createStatement();
+			ResultSet rs = statement.executeQuery(GENERATE_TYPE);
+			
+			int rownum = 0;
+			while (rs.next()) {
+				String alias = rs.getString("TYPE_NAME");
+				String type = rs.getString("TYPE");
+				
+				HSSFRow row = sheet.createRow(rownum);
+				createCellAndFillValue(row, 0, alias);
+				createCellAndFillValue(row, 1, type);
+				rownum++;
+			}
+			File f = new File("D:/fumarginEntity1.xls");
+			FileOutputStream fos = new FileOutputStream(f);
+			wb.write(fos);
+			fos.flush();
+			fos.close();
+			fis.close();
+			File originalFile = new File(resultPath);
+			originalFile.delete();
+			f.renameTo(originalFile);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new Exception("导出Excel格式的TYPE文件中出错!");
+		}
+	}
+	
+	public void generateEntity(String url, String username, String password, String resultPath) throws Exception {
 
 		Connection conn = JdbcUtil.getConnection(url, username, password);
 		FileOutputStream fos = null;
@@ -276,6 +337,12 @@ public class ExcelGenerator implements Generator {
 		}
 	}
 	
+	/**
+	 * 
+	 * @param row 
+	 * @param cellNum 列序号
+	 * @param value   列中单元格的值
+	 */
 	private void createCellAndFillValue(Row row, int cellNum, String value) {
 		Cell cell = row.createCell(cellNum);
 		cell.setCellValue(value);

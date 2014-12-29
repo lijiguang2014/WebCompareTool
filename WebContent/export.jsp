@@ -17,11 +17,11 @@
 </style>
 <script type="text/javascript">
 	//从数据库导出数据模型文件（支持Excel和Xml格式）
-	function exportFileFromDB() {
+	function exportEntityFileFromDB() {
 		var formData = $("#exportCondition").serializeArray();
 		$.ajax({
 			type: "post",
-			url: "export.do",
+			url: "exportEntity.do",
 			data: formData,
 			beforeSend: function(xmlHttpRequest) {
 				$("#show p").text("正在导出，请耐心等待");
@@ -53,7 +53,7 @@
 	$(document).ready(function(){
 		//在页面载入的时候，加载比对记录列表
 		getLeftHistoryList($("#projectName").val(), $("#pageNo").val());
-		$("#export").click(exportFileFromDB);
+		$("#exportEntity").click(exportEntityFileFromDB);
 	});
 </script>
 </head>
