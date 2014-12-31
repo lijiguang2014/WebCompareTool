@@ -20,7 +20,7 @@ import com.sfit.comparetool.bean.AlterElement;
 import com.sfit.comparetool.bean.ColumnBean;
 import com.sfit.comparetool.bean.DefineIndex;
 import com.sfit.comparetool.bean.KeyBean;
-import com.sfit.comparetool.bean.TableBean;
+import com.sfit.comparetool.bean.EntityBean;
 import com.sfit.comparetool.bean.TableElement;
 
 public class CSVCompare {
@@ -200,8 +200,8 @@ public class CSVCompare {
 	}
 	
 	private List<TableElement> getComapreResult(InputStream oldFile, InputStream newFile) {
-		Map<String, TableBean> oldTableBeanMap = getTableBeanMap(oldFile);
-		Map<String, TableBean> newTableBeanMap = getTableBeanMap(newFile);
+		Map<String, EntityBean> oldTableBeanMap = getTableBeanMap(oldFile);
+		Map<String, EntityBean> newTableBeanMap = getTableBeanMap(newFile);
 		
 		List<TableElement> tableElements = new ArrayList<TableElement>();
 		
@@ -216,9 +216,9 @@ public class CSVCompare {
 		}
 		
 		for (String tableName : newTableBeanMap.keySet()) { 
-			TableBean newTableBean = newTableBeanMap.get(tableName);
+			EntityBean newTableBean = newTableBeanMap.get(tableName);
 			if(oldTableBeanMap.containsKey(tableName)) {
-				TableBean oldTableBean = oldTableBeanMap.get(tableName);
+				EntityBean oldTableBean = oldTableBeanMap.get(tableName);
 				
 				TableElement tableElement = new TableElement();
 				tableElement.setTableName(oldTableBean.getDomainName());
@@ -425,14 +425,14 @@ public class CSVCompare {
 	 * @param fileName
 	 * @return
 	 */
-	private Map<String, TableBean> getTableBeanMap(InputStream inputStream) {
-		Map<String, TableBean> map = new HashMap<String, TableBean>();
+	private Map<String, EntityBean> getTableBeanMap(InputStream inputStream) {
+		Map<String, EntityBean> map = new HashMap<String, EntityBean>();
 		BufferedReader br = null;
 		try {
 			br = new BufferedReader(new InputStreamReader(inputStream, "GBK"));
 			String line = null;
 			boolean startIndex = false;
-			TableBean tableBean = null;
+			EntityBean tableBean = null;
 			while((line = br.readLine()) != null) {
 				if(isBlankLine(line)) {
 					startIndex = false;
@@ -440,7 +440,7 @@ public class CSVCompare {
 				} else {
 					String[] cols = line.split(",");
 					if ("编号".equals(cols[0])) {
-						tableBean = new TableBean();
+						tableBean = new EntityBean();
 						tableBean.setId(cols[1]);
 						map.put(tableBean.getId(), tableBean);
 						continue;

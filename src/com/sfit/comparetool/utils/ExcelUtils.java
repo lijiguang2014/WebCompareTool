@@ -23,7 +23,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import com.sfit.comparetool.bean.ColumnBean;
 import com.sfit.comparetool.bean.DefineIndex;
 import com.sfit.comparetool.bean.KeyBean;
-import com.sfit.comparetool.bean.TableBean;
+import com.sfit.comparetool.bean.EntityBean;
 
 public class ExcelUtils {
 	/**
@@ -33,7 +33,7 @@ public class ExcelUtils {
 	 * @return
 	 * @throws IOException
 	 */
-	public Map<String, TableBean> getTableBeanMap(String newFilePath) throws IOException {
+	public Map<String, EntityBean> getTableBeanMap(String newFilePath) throws IOException {
 		String[] ss = newFilePath.split("\\\\");
 		String fileName = ss[ss.length-1];
 		String extension = fileName.lastIndexOf(".") == -1 ? "" : fileName
@@ -48,9 +48,9 @@ public class ExcelUtils {
 		}
 	}
 
-	private Map<String, TableBean> readTableBeanMapFrom2007Excel(File file) {
+	private Map<String, EntityBean> readTableBeanMapFrom2007Excel(File file) {
 		
-		Map<String, TableBean> tableBeanMap = new LinkedHashMap<String, TableBean>();
+		Map<String, EntityBean> tableBeanMap = new LinkedHashMap<String, EntityBean>();
 		
 		try {
 			XSSFWorkbook hwb = new XSSFWorkbook(new FileInputStream(file));
@@ -63,9 +63,9 @@ public class ExcelUtils {
 		return tableBeanMap;
 	}
 
-	private Map<String, TableBean> readTableBeanMapFrom2003Excel(File file) {
+	private Map<String, EntityBean> readTableBeanMapFrom2003Excel(File file) {
 		
-		Map<String, TableBean> tableBeanMap = new LinkedHashMap<String, TableBean>();
+		Map<String, EntityBean> tableBeanMap = new LinkedHashMap<String, EntityBean>();
 		
 		try {
 			HSSFWorkbook hwb = new HSSFWorkbook(new FileInputStream(file));
@@ -77,11 +77,11 @@ public class ExcelUtils {
 		return tableBeanMap;
 	}
 
-	private void readTableBeanMap(Sheet sheet, Map<String, TableBean> tableBeanMap) {
+	private void readTableBeanMap(Sheet sheet, Map<String, EntityBean> tableBeanMap) {
 		Row row = null;
 		Cell cell = null;
 		int counter = 0;
-		TableBean tableBean = null;
+		EntityBean tableBean = null;
 		List<String> cellValueList = new ArrayList<String>();
 		boolean startIndex = false;//指示某一行开始是索引列的信息
 		for (int i = sheet.getFirstRowNum(); counter < sheet.getPhysicalNumberOfRows(); i++) {
@@ -106,7 +106,7 @@ public class ExcelUtils {
 				String firstValue = cellValueList.get(0);
 				if (firstValue.equals("编号")) {
 					startIndex = false;
-					tableBean = new TableBean();
+					tableBean = new EntityBean();
 				} else if (firstValue.equals("域名称")) {
 					tableBean.setDomainName(cellValueList.get(1));
 					tableBeanMap.put(cellValueList.get(1), tableBean);

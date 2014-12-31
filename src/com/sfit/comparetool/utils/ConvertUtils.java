@@ -11,14 +11,14 @@ import java.util.Map;
 import com.sfit.comparetool.bean.ColumnBean;
 import com.sfit.comparetool.bean.DefineIndex;
 import com.sfit.comparetool.bean.KeyBean;
-import com.sfit.comparetool.bean.TableBean;
+import com.sfit.comparetool.bean.EntityBean;
 
 public class ConvertUtils {
 	
 	public static void main(String[] args) {
 		ExcelUtils excelUtils = new ExcelUtils();
 		try {
-			Map<String, TableBean> tableBeanMap = excelUtils.getTableBeanMap("D:\\fumarginEntity.xls");
+			Map<String, EntityBean> tableBeanMap = excelUtils.getTableBeanMap("D:\\fumarginEntity.xls");
 			Map<String, String> typeMapping = excelUtils.getTypeMapping("D:\\fumarginEntity.xls");
 			ConvertUtils convertUtils = new ConvertUtils();
 			convertUtils.generateEntityXMLFromExcel(tableBeanMap, "D:/Entity.xml");
@@ -29,7 +29,7 @@ public class ConvertUtils {
 		}
 	}
 	
-	public void generateFrameworkXML(Map<String, TableBean> tableBeanMap, String destFilePath) {
+	public void generateFrameworkXML(Map<String, EntityBean> tableBeanMap, String destFilePath) {
 		try {
 			OutputStreamWriter fw = new OutputStreamWriter(new FileOutputStream(destFilePath), "gb2312");
 			fw.append("<?xml version=\"1.0\" encoding=\"gb2312\"?>\r\n");
@@ -38,7 +38,7 @@ public class ConvertUtils {
 			fw.append("\t<schemas />\r\n");
 			fw.append("\t<tableGroups>\r\n");
 			fw.append("\t\t<tables group=\"Framework\">\r\n");
-			TableBean tableBean = null;
+			EntityBean tableBean = null;
 			String description = null;
 			Map<String, DefineIndex> indexes = null;
 			DefineIndex defineIndex = null;
@@ -73,14 +73,14 @@ public class ConvertUtils {
 		}
 	}
 	
-	public void generateEntityXMLFromExcel(Map<String, TableBean> tableBeanMap, String destFilePath) {
+	public void generateEntityXMLFromExcel(Map<String, EntityBean> tableBeanMap, String destFilePath) {
 		try {
 			OutputStreamWriter fw = new OutputStreamWriter(new FileOutputStream(destFilePath), "gb2312");
 			fw.append("<?xml version=\"1.0\" encoding=\"GB2312\"?>\r\n");
 			fw.append("<!DOCTYPE UFEntityModel SYSTEM \"UFEntity.dtd\">\r\n");
 			fw.append("<UFEntityModel>\r\n");
 			StringBuilder sb = new StringBuilder();
-			TableBean tableBean = null;
+			EntityBean tableBean = null;
 			ColumnBean columnBean = null;
 			for(String tableName : tableBeanMap.keySet()) {
 				tableBean = tableBeanMap.get(tableName);

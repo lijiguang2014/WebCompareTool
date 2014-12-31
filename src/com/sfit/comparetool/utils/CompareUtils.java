@@ -14,7 +14,7 @@ import com.sfit.comparetool.bean.AlterElement;
 import com.sfit.comparetool.bean.ColumnBean;
 import com.sfit.comparetool.bean.DefineIndex;
 import com.sfit.comparetool.bean.KeyBean;
-import com.sfit.comparetool.bean.TableBean;
+import com.sfit.comparetool.bean.EntityBean;
 import com.sfit.comparetool.bean.TableElement;
 
 public class CompareUtils {
@@ -206,8 +206,8 @@ public class CompareUtils {
 	 * @param oldTableBeanMap
 	 * @return
 	 */
-	public List<TableElement> diff(Map<String, TableBean> newTableBeanMap
-			, Map<String, TableBean> oldTableBeanMap) {
+	public List<TableElement> diff(Map<String, EntityBean> newTableBeanMap
+			, Map<String, EntityBean> oldTableBeanMap) {
 		
 		List<TableElement> tableElements = new ArrayList<TableElement>();
 		
@@ -221,9 +221,9 @@ public class CompareUtils {
 		}
 		
 		for (String tableName : newTableBeanMap.keySet()) {
-			TableBean newTableBean = newTableBeanMap.get(tableName);
+			EntityBean newTableBean = newTableBeanMap.get(tableName);
 			if (oldTableBeanMap.containsKey(tableName)) {
-				TableBean oldTableBean = oldTableBeanMap.get(tableName);
+				EntityBean oldTableBean = oldTableBeanMap.get(tableName);
 				
 				TableElement tableElement = new TableElement();
 				tableElement.setTableName(oldTableBean.getDomainName());

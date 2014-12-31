@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.sfit.comparetool.bean.CompareBean;
 import com.sfit.comparetool.bean.CompareHistory;
-import com.sfit.comparetool.bean.TableBean;
+import com.sfit.comparetool.bean.EntityBean;
 import com.sfit.comparetool.service.CSVCompare;
 import com.sfit.comparetool.service.CSVGenerator;
 import com.sfit.comparetool.service.ExcelCompare;
@@ -218,7 +218,7 @@ public class CompareController {
 		ConvertUtils convertUtils = new ConvertUtils();
 		ExcelUtils excelUtils = new ExcelUtils();
 		try {
-			Map<String, TableBean> tableBeanMap = excelUtils.getTableBeanMap(designFilePath);
+			Map<String, EntityBean> tableBeanMap = excelUtils.getTableBeanMap(designFilePath);
 			Map<String, String> typeMapping = excelUtils.getTypeMapping(designFilePath);
 			convertUtils.generateEntityXMLFromExcel(tableBeanMap, entityPath);
 			convertUtils.generateFrameworkXML(tableBeanMap, frameworkPath);

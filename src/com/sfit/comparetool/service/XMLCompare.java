@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.sfit.comparetool.bean.ColumnBean;
-import com.sfit.comparetool.bean.TableBean;
+import com.sfit.comparetool.bean.EntityBean;
 import com.sfit.comparetool.bean.TableElement;
 import com.sfit.comparetool.utils.CompareUtils;
 import com.sfit.comparetool.utils.ConsoleUtils;
@@ -46,8 +46,8 @@ public class XMLCompare {
 			String typeFilePath, String resultFilePath,
 			String reportFilePath) {
 		Map<String, String> typeMapping = getTypeMapping(typeFilePath);
-		Map<String, TableBean> newMap = getTableBeanMap(newFilePath, typeMapping);
-		Map<String, TableBean> oldMap = getTableBeanMap(oldFilePath, typeMapping);
+		Map<String, EntityBean> newMap = getTableBeanMap(newFilePath, typeMapping);
+		Map<String, EntityBean> oldMap = getTableBeanMap(oldFilePath, typeMapping);
 		CompareUtils compareUtils = new CompareUtils();
 		List<TableElement> diffResult = compareUtils.diff(newMap, oldMap);
 		if (diffResult.size() > 0) {
@@ -104,18 +104,18 @@ public class XMLCompare {
 		return map;
 	}
 	
-	private Map<String, TableBean> getTableBeanMap(String filePath, Map<String, String> typeAliasMap) {
-		Map<String, TableBean> tableBeanMap = new HashMap<String, TableBean>();
+	private Map<String, EntityBean> getTableBeanMap(String filePath, Map<String, String> typeAliasMap) {
+		Map<String, EntityBean> tableBeanMap = new HashMap<String, EntityBean>();
 		BufferedReader br = null;
 		try {
 			br = new BufferedReader(
 					new InputStreamReader(new FileInputStream(filePath), "GBK"));
-			TableBean tableBean = null;
+			EntityBean tableBean = null;
 			Map<String, ColumnBean> columnMap = null;
 			String line = null;
 			while(null != (line=br.readLine())) {
 				if (line.contains("<Entity")) {
-					tableBean = new TableBean();
+					tableBean = new EntityBean();
 					tableBean.setDomainName(getDomainName(line));
 					tableBean.setDomainDescription(getDomainDescription(line));
 					tableBeanMap.put(tableBean.getDomainName(), tableBean);
