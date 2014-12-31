@@ -2,7 +2,8 @@ package com.sfit.comparetool.bean;
 
 public class ColumnBean {
 	private String columnName;
-	private String typeName;
+	private String alias;
+	private String type;
 	private String columnDescription;
 	private String notNull;
 	private String isKey;
@@ -14,11 +15,17 @@ public class ColumnBean {
 	public void setColumnName(String columnName) {
 		this.columnName = columnName;
 	}
-	public String getTypeName() {
-		return typeName;
+	public String getAlias() {
+		return alias;
 	}
-	public void setTypeName(String typeName) {
-		this.typeName = typeName;
+	public void setAlias(String alias) {
+		this.alias = alias;
+	}
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
 	}
 	public String getColumnDescription() {
 		return columnDescription;

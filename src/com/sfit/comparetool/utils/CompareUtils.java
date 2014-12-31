@@ -55,7 +55,7 @@ public class CompareUtils {
 					resultSb.append("\t\t<Columns>\r\n");
 					for(String columnName : columns.keySet()) {
 						ColumnBean columnBean = columns.get(columnName);
-						String typeName = columnBean.getTypeName();
+						String typeName = columnBean.getAlias();
 						String realTypeName = typeAliasMapping.get(typeName);
 						if (null == realTypeName) {
 							realTypeName = "";
@@ -106,7 +106,7 @@ public class CompareUtils {
 						
 						resultSb.append("\t\t<Adds>\r\n");
 						for (ColumnBean add : adds) {
-							String typeName = add.getTypeName();
+							String typeName = add.getAlias();
 							String realTypeName = typeAliasMapping.get(typeName);
 							if (null == realTypeName) {
 								realTypeName = "";
@@ -329,8 +329,8 @@ public class CompareUtils {
 							alters.add(alter);
 						}
 						
-						String oldTypeName = oldColumnBean.getTypeName();
-						String newTypeName = newColumnBean.getTypeName();
+						String oldTypeName = oldColumnBean.getAlias();
+						String newTypeName = newColumnBean.getAlias();
 						if(!newTypeName.equals(oldTypeName)) {
 							AlterElement alter = new AlterElement();
 							alter.setType("columnType");

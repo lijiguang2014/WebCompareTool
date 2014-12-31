@@ -156,7 +156,7 @@ public class ExcelUtils {
 					} else {
 						ColumnBean column = new ColumnBean();
 						column.setColumnName(cellValueList.get(0));
-						column.setTypeName(cellValueList.get(1));
+						column.setAlias(cellValueList.get(1));
 						column.setColumnDescription(cellValueList.get(2));
 						column.setIsKey(cellValueList.get(3));
 						column.setNotNull(cellValueList.get(4));

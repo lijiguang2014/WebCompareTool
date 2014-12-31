@@ -88,7 +88,7 @@ public class ConvertUtils {
 				Map<String, ColumnBean> columnMap = tableBean.getColumnMap();
 				for (String columnName : columnMap.keySet()) {
 					columnBean = columnMap.get(columnName);
-					sb.append("\t\t\t<Field name=\"" + columnName + "\" type=\"" + columnBean.getTypeName()
+					sb.append("\t\t\t<Field name=\"" + columnName + "\" type=\"" + columnBean.getAlias()
 							+ "\" label=\"" + columnBean.getColumnDescription() + "\" description=\"" + columnBean.getColumnDescription() 
 							+ "\" iskey=\"" + columnBean.getIsKey() + "\" notnull=\"" + columnBean.getNotNull() + "\" />\r\n");
 				}

@@ -5,11 +5,13 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
 import com.sfit.comparetool.bean.ColumnBean;
 import com.sfit.comparetool.bean.EntityBean;
+import com.sfit.comparetool.bean.TableBean;
 import com.sfit.comparetool.bean.TableElement;
 import com.sfit.comparetool.utils.CompareUtils;
 import com.sfit.comparetool.utils.ConsoleUtils;
@@ -22,7 +24,6 @@ public class XMLCompare {
 		String typeFilePath = "D:\\Working\\CompareTestData\\fumarginType.xml";
 		String resultFilePath = "D:\\result.xml";
 		String reportFilePath = "D:\\report.xml";
-		new XMLCompare().compare(newFilePath, oldFilePath, typeFilePath, resultFilePath, reportFilePath);
 	}
 	
 	/**
@@ -38,93 +39,47 @@ public class XMLCompare {
 		String shellStr = "cmd /c " + resultFilePath + " " + frameworkFilePath + " " + entityFilePath + " " + typeFilePath;
 		boolean success = ConsoleUtils.callShell(shellStr);
 		if (!success) {
-			throw new Exception("合并过程中出错了！");
+			throw new Exception("xml文件合并过程中出错了！");
 		}
 	}
 	
-	public void compare(String newFilePath, String oldFilePath,
-			String typeFilePath, String resultFilePath,
+	public void compare(String newFilePath, String oldFilePath,String resultFilePath,
 			String reportFilePath) {
-		Map<String, String> typeMapping = getTypeMapping(typeFilePath);
-		Map<String, EntityBean> newMap = getTableBeanMap(newFilePath, typeMapping);
-		Map<String, EntityBean> oldMap = getTableBeanMap(oldFilePath, typeMapping);
+		Map<String, TableBean> newMap = getTableBeanMap(newFilePath);
+		Map<String, TableBean> oldMap = getTableBeanMap(oldFilePath);
 		CompareUtils compareUtils = new CompareUtils();
 		List<TableElement> diffResult = compareUtils.diff(newMap, oldMap);
 		if (diffResult.size() > 0) {
-			compareUtils.recordAndReport(diffResult, resultFilePath, reportFilePath, typeMapping);
+			compareUtils.recordAndReport(diffResult, resultFilePath, reportFilePath);
 		}
 	}
 
-	private Map<String, String> getTypeMapping(String typeFilePath) {
-		Map<String, String> map = new HashMap<String, String>();
-		BufferedReader br = null;
-		try {
-			br = new BufferedReader(new InputStreamReader(new FileInputStream(typeFilePath),"GBK"));
-			String line = null;
-			String type = null;
-			String typeAlias = null;
-			while (null != (line = br.readLine())) {
-				int nb, ne;
-				if (line.contains("<VString")) {
-					nb = line.indexOf("length") + 8;
-					ne = line.indexOf("label")-1;
-					type = "VCHAR2(" + line.substring(nb, ne).replace("\"","").replace(" ","")+")";
-					typeAlias = line.substring(line.indexOf("typename")+10, line.indexOf("length")-2);
-				} else if (line.contains("<String")) {
-					nb = line.indexOf("length") + 8;
-					ne = line.indexOf("label")-1;
-					type = "CHAR(" + line.substring(nb, ne).replace("\"","").replace(" ","")+")";
-					typeAlias = line.substring(line.indexOf("typename")+10, line.indexOf("length")-2);
-				} else if (line.contains("<Int")) {
-					nb = line.indexOf("length")+8;
-			        ne = line.indexOf("label")-1;
-			        type = "NUMBER("+line.substring(nb, ne).replace("\"","").replace(" ","")+")";
-			        typeAlias = line.substring(line.indexOf("typename")+10, line.indexOf("length")-2);
-				} else if (line.contains("<Float")) {
-					nb = line.indexOf("length")+8;
-			        ne = line.indexOf("precision")-1;
-			        int ne2e = line.indexOf("label")-1;
-			        int ne2b = ne + 11;
-			        type = "NUMBER("+line.substring(nb, ne).replace("\"","").replace(" ","")+","+line.substring(ne2b, ne2e).replace("\"","").replace(" ","")+")";
-			        typeAlias = line.substring(line.indexOf("typename")+10, line.indexOf("length")-2);
-				}
-				map.put(typeAlias, type);
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			if (null != br) {
-				try {
-					br.close();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			}
-		}
-		return map;
-	}
-	
-	private Map<String, EntityBean> getTableBeanMap(String filePath, Map<String, String> typeAliasMap) {
-		Map<String, EntityBean> tableBeanMap = new HashMap<String, EntityBean>();
+	private Map<String, TableBean> getTableBeanMap(String filePath) {
+		Map<String, TableBean> tableBeanMap = new HashMap<String, TableBean>();
 		BufferedReader br = null;
 		try {
 			br = new BufferedReader(
 					new InputStreamReader(new FileInputStream(filePath), "GBK"));
-			EntityBean tableBean = null;
+			TableBean tableBean = null;
+			EntityBean entityBean = null;
 			Map<String, ColumnBean> columnMap = null;
 			String line = null;
 			while(null != (line=br.readLine())) {
-				if (line.contains("<Entity")) {
-					tableBean = new EntityBean();
-					tableBean.setDomainName(getDomainName(line));
-					tableBean.setDomainDescription(getDomainDescription(line));
-					tableBeanMap.put(tableBean.getDomainName(), tableBean);
-				} else if (line.contains("<Field name=\"字段名称\"")) {
-					columnMap = tableBean.getColumnMap();
-				} else if (line.contains("<Field")) {
+				if (line.contains("<table")) {
+					tableBean = new TableBean();
+					tableBean.setTablename(getDomainName(line));
+					entityBean = new EntityBean();
+					entityBean.setDomainName(getDomainName(line));
+					entityBean.setDomainDescription(getDomainDescription(line));
+					tableBeanMap.put(tableBean.getTablename(), tableBean);
+				} else if (line.contains("<Columns>")) {
+					columnMap = new LinkedHashMap<String, ColumnBean>();
+					entityBean.setColumnMap(columnMap);
+				} else if (line.contains("<Column")) {
 					ColumnBean column = new ColumnBean();
 					column.setColumnName(getColumnName(line));
-					column.setTypeName(getColumnType(line));
+					column.setType(getColumnType(line));
+					column.setAlias(getTypeAlias(line));
 					column.setColumnDescription(getColumnDescription(line));
 					column.setIsKey(getIskey(line));
 					column.setNotNull(getNotnull(line));
@@ -146,35 +101,39 @@ public class XMLCompare {
 		return tableBeanMap;
 	}
 
+	private String getTypeAlias(String line) {
+		return getAttributeValueInColumn(line, "originaltype");
+	}
+
 	private String getNotnull(String line) {
-		return getAttributeValueInField(line, "notnull");
+		return getAttributeValueInColumn(line, "notnull");
 	}
 
 	private String getIskey(String line) {
-		return getAttributeValueInField(line, "iskey");
+		return getAttributeValueInColumn(line, "iskey");
 	}
 
 	private String getColumnDescription(String line) {
-		return getAttributeValueInField(line, "description");
+		return getAttributeValueInColumn(line, "description");
 	}
 
 	private String getColumnType(String line) {
-		return getAttributeValueInField(line, "type");
+		return getAttributeValueInColumn(line, "type");
 	}
 
 	private String getColumnName(String line) {
-		return getAttributeValueInField(line, "name");
+		return getAttributeValueInColumn(line, "name");
 	}
 
 	private String getDomainDescription(String line) {
-		return getAttributeValueInEntity(line, "description");
+		return getAttributeValueInTable(line, "description");
 	}
 
 	private String getDomainName(String line) {
-		return getAttributeValueInEntity(line, "name");
+		return getAttributeValueInTable(line, "name");
 	}
 	
-	private String getAttributeValueInEntity (String line, String attributeName) {
+	private String getAttributeValueInTable (String line, String attributeName) {
 		int nb = 0, ne=0;
 		if (attributeName.equals("name")) {
 			nb = line.indexOf("name") + 6;
@@ -189,8 +148,9 @@ public class XMLCompare {
 		return line.substring(nb, ne);
 	}
 	
-	private String getAttributeValueInField (String line, String attributeName) {
+	private String getAttributeValueInColumn (String line, String attributeName) {
 		int nb = 0, ne = 0;
+		
 		if (attributeName.equals("name")) {
 			nb = line.indexOf("name") + 6;
 			ne = line.indexOf("type") - 2;
@@ -202,14 +162,18 @@ public class XMLCompare {
 			ne = line.indexOf("description") - 2;
 		} else if (attributeName.equals("description")) {
 			nb = line.indexOf("description") + 13;
-			ne = line.indexOf("iskey") - 2;
-		} else if (attributeName.equals("iskey")) {
-			nb = line.indexOf("iskey") + 7;
 			ne = line.indexOf("notnull") - 2;
 		} else if (attributeName.equals("notnull")) {
-			nb = line.indexOf("notnull") + 9;
-			ne = line.indexOf("/>") - 2;
+			ne = line.indexOf("notnull") + 9;
+			nb = line.indexOf("iskey") -2;
+		} else if (attributeName.equals("iskey")) {
+			nb = line.indexOf("iskey") + 7;
+			ne = line.indexOf("originaltype") - 2;
+		} else if (attributeName.equals("originaltype")) {
+			nb = line.indexOf("originaltype") + 12;
+			ne = line.indexOf("basetype") - 2;
 		}
+		
 		return line.substring(nb, ne);
  	}
 }

@@ -98,7 +98,7 @@ public class CSVCompare {
 					sb.append("\t\t<Columns>\r\n");
 					for(String columId : columns.keySet()) {
 						ColumnBean columnBean = columns.get(columId);
-						String typeName = columnBean.getTypeName();
+						String typeName = columnBean.getAlias();
 						sb.append("\t\t\t<Column columnName=\"" + columnBean.getColumnName() + "\" columnType=\""
 								+ typeMapping.get(typeName) + "\" originalColumnType=\"" + typeName + "\" label=\"" + columnBean.getColumnDescription() + "\" iskey=\"" + columnBean.getIsKey() + "\" notnull=\""
 								+ columnBean.getNotNull() + "\"></Column>\r\n");
@@ -138,7 +138,7 @@ public class CSVCompare {
 						
 						sb.append("\t\t<Adds>\r\n");
 						for (ColumnBean add : adds) {
-							String typeName = add.getTypeName();
+							String typeName = add.getAlias();
 							sb.append("\t\t\t<Add columnName=\"" + add.getColumnName() +"\" typeName=\"" + typeName + 
 									"\" originalTypeName=\"" + typeName + "\" label=\"" + add.getColumnDescription() + "\" iskey=\"" + add.getIsKey() 
 									+ "\" notnull=\"" + add.getNotNull() + "\"></Add>\r\n");
@@ -316,8 +316,8 @@ public class CSVCompare {
 							alters.add(alter);
 						}
 						
-						String oldTypeName = oldColumnBean.getTypeName();
-						String newTypeName = newColumnBean.getTypeName();
+						String oldTypeName = oldColumnBean.getAlias();
+						String newTypeName = newColumnBean.getAlias();
 						if(!newTypeName.equals(oldTypeName)) {
 							AlterElement alter = new AlterElement();
 							alter.setType("columnType");
@@ -487,7 +487,7 @@ public class CSVCompare {
 						} else {
 							ColumnBean col = new ColumnBean();
 							col.setColumnName(cols[0]);
-							col.setTypeName(cols[1]);
+							col.setAlias(cols[1]);
 							col.setColumnDescription(cols[2]);
 							col.setIsKey(cols[3]);
 							col.setNotNull(cols[4]);
