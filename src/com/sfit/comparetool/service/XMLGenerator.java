@@ -11,9 +11,11 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 import com.sfit.comparetool.bean.IndexBean;
 import com.sfit.comparetool.service.i.Generator;
+import com.sfit.comparetool.utils.GenerateUtils;
 import com.sfit.comparetool.utils.JdbcUtil;
 
 public class XMLGenerator implements Generator {
@@ -62,29 +64,6 @@ public class XMLGenerator implements Generator {
 			+ " from user_ind_columns a, user_indexes b "
 			+ " where a.INDEX_NAME = b.index_name and a.table_Name=? and a.column_Name=?";
 	
-	/**
-	 * 按规则生成数据库中所有数据类型的别名
-	 */
-	private static final String GENERATE_TYPE = "select 'TY_' || min(c.COLUMN_NAME) TYPE_NAME, cc.datatype type"
-			+ " from user_tab_columns c, (select distinct u.DATA_TYPE || '(' || u.DATA_LENGTH || ')' datatype"
-			+ " from user_tab_columns u"
-			+ " where u.DATA_TYPE <> 'NUMBER') cc"
-			+ " where cc.datatype = c.DATA_TYPE || '(' || c.DATA_LENGTH || ')' and c.DATA_TYPE <> 'NUMBER'"
-			+ " group by cc.datatype"
-			+ " union select 'TY_' || min(c.COLUMN_NAME) TYPE_NAME, cc.datatype type"
-			+ " from user_tab_columns c, (select distinct u.DATA_TYPE || '(' || u.DATA_PRECISION || ',' ||u.DATA_SCALE || ')' datatype"
-			+ " from user_tab_columns u"
-			+ " where u.DATA_TYPE = 'NUMBER' and u.DATA_PRECISION is not null) cc"
-			+ " where cc.datatype = c.DATA_TYPE || '(' || c.DATA_PRECISION || ',' || c.DATA_SCALE || ')' and c.DATA_TYPE = 'NUMBER'"
-			+ " group by cc.datatype "
-			+ " union select 'TY_' || min(c.COLUMN_NAME) TYPE_NAME, cc.datatype type"
-			+ " from user_tab_columns c,"
-			+ "(select distinct u.DATA_TYPE || '(' || u.DATA_LENGTH || ')' datatype"
-			+ " from user_tab_columns u"
-			+ " where u.DATA_TYPE = 'NUMBER' and u.DATA_PRECISION is null) cc"
-			+ " where cc.datatype = c.DATA_TYPE || '(' || c.DATA_LENGTH || ')' and c.DATA_TYPE = 'NUMBER'"
-			+ " group by cc.datatype";
-	
 	private ArrayList<String> tableNameList = new ArrayList<String>();
 	private ArrayList<String> uselessTableNameList = new ArrayList<String>(Arrays.asList("H_COMPANYREPORT", "H_COMPANYMESSAGE", "H_COMPCLIENTFEEDBACK", 
 			"H_COMPCLIENTIDUPDATE","H_COMPAMCUSTODYACCOUNT","H_COMPCLIENTOPTEXERCISE"));
@@ -96,22 +75,17 @@ public class XMLGenerator implements Generator {
 	}
 	
 	public void generateXMLType(String url, String username, String password, String resultPath) throws Exception {
-		
-		Connection conn = JdbcUtil.getConnection(url, username, password);
-		
 		try {
+			GenerateUtils generateUtils = new GenerateUtils();
+			Map<String, String> typeMap = generateUtils.generateTypeMap(url, username, password);
+
 			FileOutputStream fos = new FileOutputStream(resultPath);
 			OutputStreamWriter osw = new OutputStreamWriter(fos, "GBK");
 			
-			Statement statement = conn.createStatement();
-			ResultSet rs = statement.executeQuery(GENERATE_TYPE);
-			
 			StringBuilder sb = new StringBuilder();
 			sb.append("<UFDataTypes>\r\n");
-			while (rs.next()) {
-				String alias = rs.getString("TYPE_NAME");
-				String type = rs.getString("TYPE");
-				
+			for(String alias : typeMap.keySet()) {
+				String type = typeMap.get(alias);
 				if (type.toUpperCase().startsWith("VARCHAR2")) {
 					sb.append("\t<VString typename=\"" + alias + "\" length=\"" + type.substring(type.indexOf("(")+1, type.indexOf(")")) 
 							+ "\" label=\"\" />\r\n");
@@ -132,7 +106,7 @@ public class XMLGenerator implements Generator {
 			osw.close();
 		} catch (Exception e) {
 			e.printStackTrace();
-			throw new Exception("导出XML格式的TYPE文件中出错!");
+			throw new Exception("导出XML格式的TYPE文件中出错!" + e);
 		}
 	}
 	
@@ -182,7 +156,6 @@ public class XMLGenerator implements Generator {
 				tableName = tableNameList.get(i);
 				domainDescription = getDomainDescription(getTableComment, tableName);
 				sb.append("\t\t<Entity name=\"" + tableName + "\" title=\"" + domainDescription + "\" description=\"" + domainDescription + "\">\r\n");
-				sb.append("\t\t\t<Field name=\"字段名称\" type=\"类型名称\" label=\"字段说明\" description=\"字段说明\" iskey=\"iskey\" notnull=\"notnull\" />\r\n");
 				
 				prepareStatement.setString(1, tableName);
 				ResultSet columnInfo = prepareStatement.executeQuery();

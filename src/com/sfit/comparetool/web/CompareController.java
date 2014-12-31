@@ -121,16 +121,16 @@ public class CompareController {
 			
 			String typeMappingFilePath = basePath + PropertiesUtils.getTypeMappingPath(projectName);
 			
-			String middleResultDirectoryPath = basePath + "xmlReuslt/";
+			String middleResultDirectoryPath = basePath + "xmlMiddleReuslt/";
 			File middleResultDirectory = new File(middleResultDirectoryPath);
 			if (!middleResultDirectory.exists()) {
 				middleResultDirectory.mkdirs();
 			}
 			String middleResultPath = middleResultDirectoryPath + dateStr + ".xml";
 			
-			String reportFileRelativePath = "result/temp/report/" + dateStr + ".txt";
+			String reportFileRelativePath = "result/report/" + dateStr + ".txt";
 			String reportFilePath = basePath + reportFileRelativePath;
-			File reportDirectory = new File(basePath + "result/temp/report/");
+			File reportDirectory = new File(basePath + "result/report/");
 			if (!reportDirectory.exists()) {
 				reportDirectory.mkdirs();
 			}

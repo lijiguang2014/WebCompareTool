@@ -9,6 +9,12 @@
 			<a class="task-link" href="main.jsp">版本管理</a>
 		</div>
 		<div class="menu">
+			<a class="task-icon-link" href="main.jsp">
+				<img style="width: 24px; height: 24px; width: 24px; height: 24px; margin: 2px;" class="icon-user icon-md" src="images/VersionManager.png">
+			</a>&nbsp;
+			<a class="task-link" href="main.jsp"></a>
+		</div>
+		<div class="menu">
 			<a class="task-icon-link" href="export.jsp">
 				<img style="width: 24px; height: 24px; width: 24px; height: 24px; margin: 2px;" class="icon-user icon-md" src="images/download.png">
 			</a>&nbsp;

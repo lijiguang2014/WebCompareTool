@@ -87,10 +87,10 @@ public class FileDBUtils {
 
 	@SuppressWarnings("unchecked")
 	public Map<String, Object> pageQuery(String projectName, int pageSize, int pageNum) {
-		String filePath = PropertiesUtils.getHistoryPath(projectName);
+		String historyDirectoryPath = PropertiesUtils.getHistoryDirectoryPath(projectName);
 		Map<String, Object> returnMap = new HashMap<String, Object>();
 
-		Map<String, Object> map = readHistoryFromFile(filePath);
+		Map<String, Object> map = readHistoryFromFile(historyDirectoryPath + "compareHistory.csv");
 		if(map.size() == 0 || (Integer)map.get(GlobalConstants.TOTAL) == 0) {
 			return returnMap;
 		}
@@ -120,13 +120,19 @@ public class FileDBUtils {
 	}
 	
 	public void insertHistory(CompareHistory history, String projectName) {
-		String historyPath = PropertiesUtils.getHistoryPath(projectName);
+		String historyDirectoryPath = PropertiesUtils.getHistoryDirectoryPath(projectName);
 		URL resource = this.getClass().getClassLoader().getResource("/");
 		//classes文件夹的路径
 		String basePath = resource.toString().substring(6)+"../../";
+		
+		File historyDirectory = new File(historyDirectoryPath);
+		if (!historyDirectory.exists()) {
+			historyDirectory.mkdirs();
+		}
+		
 		BufferedWriter bw = null;
 		try {
-			bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(basePath+historyPath, true), "GBK"));
+			bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(basePath+historyDirectoryPath+"compareHistory.csv", true), "GBK"));
 			bw.append(history.toString()+"\r\n");
 			bw.flush();
 		} catch (Exception e) {

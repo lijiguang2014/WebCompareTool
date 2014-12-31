@@ -12,6 +12,7 @@ import com.sfit.comparetool.bean.ColumnBean;
 import com.sfit.comparetool.bean.TableBean;
 import com.sfit.comparetool.bean.TableElement;
 import com.sfit.comparetool.utils.CompareUtils;
+import com.sfit.comparetool.utils.ConsoleUtils;
 
 public class XMLCompare {
 	
@@ -22,6 +23,23 @@ public class XMLCompare {
 		String resultFilePath = "D:\\result.xml";
 		String reportFilePath = "D:\\report.xml";
 		new XMLCompare().compare(newFilePath, oldFilePath, typeFilePath, resultFilePath, reportFilePath);
+	}
+	
+	/**
+	 * 合并framework,entity,type成一个xml
+	 * 
+	 * @param frameworkFilePath
+	 * @param entityFilePath
+	 * @param typeFilePath
+	 * @param resultFilePath
+	 * @throws Exception
+	 */
+	public void merge(String frameworkFilePath, String entityFilePath, String typeFilePath, String resultFilePath) throws Exception {
+		String shellStr = "cmd /c " + resultFilePath + " " + frameworkFilePath + " " + entityFilePath + " " + typeFilePath;
+		boolean success = ConsoleUtils.callShell(shellStr);
+		if (!success) {
+			throw new Exception("合并过程中出错了！");
+		}
 	}
 	
 	public void compare(String newFilePath, String oldFilePath,

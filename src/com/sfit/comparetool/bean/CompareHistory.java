@@ -7,6 +7,7 @@ public class CompareHistory {
 	private String srcFilePath;
 	private String targetFilePath;
 	private String templateFilePath;
+	private String middleResultFilePath;
 	private String alterSqlFilePath;
 	private String reportFilePath;
 	private String status;
@@ -40,6 +41,12 @@ public class CompareHistory {
 	}
 	public void setTemplateFilePath(String templateFilePath) {
 		this.templateFilePath = templateFilePath;
+	}
+	public String getMiddleResultFilePath() {
+		return middleResultFilePath;
+	}
+	public void setMiddleResultFilePath(String middleResultFilePath) {
+		this.middleResultFilePath = middleResultFilePath;
 	}
 	public String getAlterSqlFilePath() {
 		return alterSqlFilePath;

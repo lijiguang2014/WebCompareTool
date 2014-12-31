@@ -20,7 +20,7 @@ public class PropertiesUtils {
 	
 	private static final String file = "/config.properties";
 	
-	private static final String historyPath= "historyPath";
+	private static final String historyDirectoryPath= "historyDirectoryPath";
 	private static final String templatePath= "templatePath";
 	private static final String typeMappingPath= "typeMappingPath";
 	private static final String projectNames= "projectNames";
@@ -84,8 +84,8 @@ public class PropertiesUtils {
 	 * @param projectName
 	 * @return
 	 */
-	public static String getHistoryPath(String projectName) {
-		return get(projectName + "." + historyPath);
+	public static String getHistoryDirectoryPath(String projectName) {
+		return get(projectName + "." + historyDirectoryPath);
 	}
 	
 	/**

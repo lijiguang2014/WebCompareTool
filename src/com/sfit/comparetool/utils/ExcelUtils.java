@@ -7,6 +7,7 @@ import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -49,7 +50,7 @@ public class ExcelUtils {
 
 	private Map<String, TableBean> readTableBeanMapFrom2007Excel(File file) {
 		
-		Map<String, TableBean> tableBeanMap = new HashMap<String, TableBean>();
+		Map<String, TableBean> tableBeanMap = new LinkedHashMap<String, TableBean>();
 		
 		try {
 			XSSFWorkbook hwb = new XSSFWorkbook(new FileInputStream(file));
@@ -64,7 +65,7 @@ public class ExcelUtils {
 
 	private Map<String, TableBean> readTableBeanMapFrom2003Excel(File file) {
 		
-		Map<String, TableBean> tableBeanMap = new HashMap<String, TableBean>();
+		Map<String, TableBean> tableBeanMap = new LinkedHashMap<String, TableBean>();
 		
 		try {
 			HSSFWorkbook hwb = new HSSFWorkbook(new FileInputStream(file));

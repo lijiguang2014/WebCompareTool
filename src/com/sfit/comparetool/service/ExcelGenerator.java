@@ -11,6 +11,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.poi.hssf.usermodel.HSSFCellStyle;
 import org.apache.poi.hssf.usermodel.HSSFFont;
@@ -23,6 +24,7 @@ import org.apache.poi.ss.usermodel.Row;
 
 import com.sfit.comparetool.bean.IndexBean;
 import com.sfit.comparetool.service.i.Generator;
+import com.sfit.comparetool.utils.GenerateUtils;
 import com.sfit.comparetool.utils.JdbcUtil;
 
 public class ExcelGenerator implements Generator {
@@ -72,73 +74,44 @@ public class ExcelGenerator implements Generator {
 			+ " from user_ind_columns a, user_indexes b "
 			+ " where a.INDEX_NAME = b.index_name and a.table_Name=? and a.column_Name=?";
 	
-	/**
-	 * 按规则生成数据库中所有数据类型的别名
-	 */
-	private static final String GENERATE_TYPE = "select 'TY_' || min(c.COLUMN_NAME) TYPE_NAME, cc.datatype type"
-			+ " from user_tab_columns c, (select distinct u.DATA_TYPE || '(' || u.DATA_LENGTH || ')' datatype"
-			+ " from user_tab_columns u"
-			+ " where u.DATA_TYPE <> 'NUMBER') cc"
-			+ " where cc.datatype = c.DATA_TYPE || '(' || c.DATA_LENGTH || ')' and c.DATA_TYPE <> 'NUMBER'"
-			+ " group by cc.datatype"
-			+ " union select 'TY_' || min(c.COLUMN_NAME) TYPE_NAME, cc.datatype type"
-			+ " from user_tab_columns c, (select distinct u.DATA_TYPE || '(' || u.DATA_PRECISION || ',' ||u.DATA_SCALE || ')' datatype"
-			+ " from user_tab_columns u"
-			+ " where u.DATA_TYPE = 'NUMBER' and u.DATA_PRECISION is not null) cc"
-			+ " where cc.datatype = c.DATA_TYPE || '(' || c.DATA_PRECISION || ',' || c.DATA_SCALE || ')' and c.DATA_TYPE = 'NUMBER'"
-			+ " group by cc.datatype "
-			+ " union select 'TY_' || min(c.COLUMN_NAME) TYPE_NAME, cc.datatype type"
-			+ " from user_tab_columns c,"
-			+ "(select distinct u.DATA_TYPE || '(' || u.DATA_LENGTH || ')' datatype"
-			+ " from user_tab_columns u"
-			+ " where u.DATA_TYPE = 'NUMBER' and u.DATA_PRECISION is null) cc"
-			+ " where cc.datatype = c.DATA_TYPE || '(' || c.DATA_LENGTH || ')' and c.DATA_TYPE = 'NUMBER'"
-			+ " group by cc.datatype";
-	
 	private ArrayList<String> tableNameList = new ArrayList<String>();
 	private ArrayList<String> uselessTableNameList = new ArrayList<String>(Arrays.asList("H_COMPANYREPORT", "H_COMPANYMESSAGE", "H_COMPCLIENTFEEDBACK", 
 			"H_COMPCLIENTIDUPDATE","H_COMPAMCUSTODYACCOUNT","H_COMPCLIENTOPTEXERCISE"));
 	
 	
 	public static void main(String[] args) throws Exception {
-//		new ExcelGenerator().generateEntity(url, username, password, "D:\\fumarginEntity.xls");
-		new ExcelGenerator().generateType(url, username, password, "D:\\fumarginEntity.xls");
+		new ExcelGenerator().generateEntity(url, username, password, "D:\\fumarginEntity.xls");
+//		new ExcelGenerator().generateExcelType(url, username, password, "D:\\fumarginEntity.xls");
 	}
 	
-	public void generateType(String url, String username, String password, String resultPath) throws Exception {
-		
-		Connection conn = JdbcUtil.getConnection(url, username, password);
+	public void generateExcelType(String url, String username, String password, String resultPath) throws Exception {
 		
 		try {
+			GenerateUtils generateUtils = new GenerateUtils();
+			Map<String, String> typeMap = generateUtils.generateTypeMap(url, username, password);
+			
 			FileInputStream fis = new FileInputStream(resultPath);
 			HSSFWorkbook wb = new HSSFWorkbook(fis);
 			HSSFSheet sheet = wb.createSheet("TypeMapping");
 			
-			Statement statement = conn.createStatement();
-			ResultSet rs = statement.executeQuery(GENERATE_TYPE);
-			
 			int rownum = 0;
-			while (rs.next()) {
-				String alias = rs.getString("TYPE_NAME");
-				String type = rs.getString("TYPE");
+			for(String alias : typeMap.keySet()) {
+				String type = typeMap.get(alias);
 				
 				HSSFRow row = sheet.createRow(rownum);
 				createCellAndFillValue(row, 0, alias);
 				createCellAndFillValue(row, 1, type);
 				rownum++;
 			}
-			File f = new File("D:/fumarginEntity1.xls");
-			FileOutputStream fos = new FileOutputStream(f);
+			fis.close();
+			
+			FileOutputStream fos = new FileOutputStream(resultPath);
 			wb.write(fos);
 			fos.flush();
 			fos.close();
-			fis.close();
-			File originalFile = new File(resultPath);
-			originalFile.delete();
-			f.renameTo(originalFile);
 		} catch (Exception e) {
 			e.printStackTrace();
-			throw new Exception("导出Excel格式的TYPE文件中出错!");
+			throw new Exception("导出Excel格式的TYPE文件中出错!" + e);
 		}
 	}
 	
@@ -152,6 +125,12 @@ public class ExcelGenerator implements Generator {
 			recordTableName(rs);
 			rs.close();
 			statement.close();
+			
+			String tableStr = "";
+			for(String table: tableNameList) {
+				tableStr += table;
+			}
+			System.out.println(tableStr);
 			
 			//开始收集各个表字段的信息
 //			String domainName = null;
@@ -198,6 +177,7 @@ public class ExcelGenerator implements Generator {
             int rownum = 0;
 			for (int i = 0; i < tableNameList.size(); i++) {
 				tableName = tableNameList.get(i);
+				System.out.println(tableName);
 				domainDescription = getDomainDescription(getTableComment, tableName);
 
 				HSSFRow row = sheet.createRow(rownum);
