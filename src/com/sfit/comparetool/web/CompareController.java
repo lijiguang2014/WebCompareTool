@@ -21,17 +21,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.sfit.comparetool.bean.CompareBean;
 import com.sfit.comparetool.bean.CompareHistory;
-import com.sfit.comparetool.bean.EntityBean;
-import com.sfit.comparetool.service.CSVCompare;
-import com.sfit.comparetool.service.CSVGenerator;
 import com.sfit.comparetool.service.ExcelCompare;
 import com.sfit.comparetool.service.ExcelGenerator;
 import com.sfit.comparetool.service.XMLCompare;
 import com.sfit.comparetool.service.XMLGenerator;
 import com.sfit.comparetool.service.i.Generator;
 import com.sfit.comparetool.utils.ConsoleUtils;
-import com.sfit.comparetool.utils.ConvertUtils;
-import com.sfit.comparetool.utils.ExcelUtils;
 import com.sfit.comparetool.utils.PropertiesUtils;
 
 @Controller
@@ -100,9 +95,7 @@ public class CompareController {
 					generator = new ExcelGenerator();
 				} else if (compareFileType.equals(xmlExtend)) {
 					generator = new XMLGenerator();
-				} else {
-					generator = new CSVGenerator();
-				}
+				} 
 				try {
 					generator.generateEntity(url, username, password, sourceFilePath);
 				} catch (IOException e) {
@@ -118,8 +111,6 @@ public class CompareController {
 			}
 			
 			String uploadTargetFilePath = basePath + targetFileRelativePath;
-			
-			String typeMappingFilePath = basePath + PropertiesUtils.getTypeMappingPath(projectName);
 			
 			String middleResultDirectoryPath = basePath + "xmlMiddleReuslt/";
 			File middleResultDirectory = new File(middleResultDirectoryPath);
@@ -138,14 +129,11 @@ public class CompareController {
 			try {
 				if (compareFileType.equals(xmlExtend)) {
 					XMLCompare comparetool = new XMLCompare();
-					comparetool.compare(uploadTargetFilePath, sourceFilePath, typeMappingFilePath, middleResultPath, reportFilePath);
+					comparetool.compare(uploadTargetFilePath, sourceFilePath, middleResultPath, reportFilePath);
 				} else if (compareFileType.equals(excelExtend)) {
 					ExcelCompare comparetool = new ExcelCompare();
 					comparetool.compare(uploadTargetFilePath, sourceFilePath, middleResultPath, reportFilePath);
-				} else {
-					CSVCompare comparetool = new CSVCompare();
-					comparetool.compare(sourceInputStream, targetInputStream, typeMappingFilePath, middleResultPath, reportFilePath);
-				}
+				} 
 			} catch (Exception e) {
 				e.printStackTrace();
 				log.error(e);
@@ -215,27 +203,28 @@ public class CompareController {
 		String frameworkPath = basePath + "generate/framework.xml";
 		String typeMappingPath = basePath + "generate/typeMapping.xml";
 		
-		ConvertUtils convertUtils = new ConvertUtils();
-		ExcelUtils excelUtils = new ExcelUtils();
-		try {
-			Map<String, EntityBean> tableBeanMap = excelUtils.getEntityBeanMap(designFilePath);
-			Map<String, String> typeMapping = excelUtils.getTypeMapping(designFilePath);
-			convertUtils.generateEntityXMLFromExcel(tableBeanMap, entityPath);
-			convertUtils.generateFrameworkXML(tableBeanMap, frameworkPath);
-			convertUtils.generateTypeMappingXMLFromExcel(typeMapping, typeMappingPath);
-			String shellStr = "cmd /c " + basePath + "script/bat/createDataModel.bat "
-					+ generatePath+"result.xml" + " " + frameworkPath +" " + entityPath
-					+ " " + typeMappingPath + " " + generatePath + "result.sql" + " "
-					+ basePath+"template/fumargin/CreateTable.sql.tpl";
-			ConsoleUtils.callShell(shellStr);
-			
-			returnMap.put("success", "1");
-			returnMap.put("filePath", "generate/result.sql");
-			return returnMap;
-		} catch (IOException e) {
-			log.error(e);
-			errorMsg = e.getMessage();
-		}
+//		ConvertUtils convertUtils = new ConvertUtils();
+//		ExcelUtils excelUtils = new ExcelUtils();
+//		try {
+//			Map<String, EntityBean> tableBeanMap = excelUtils.getEntityBeanMap(designFilePath);
+//			Map<String, String> typeMapping = excelUtils.getTypeMapping(designFilePath);
+//			convertUtils.generateEntityXMLFromExcel(tableBeanMap, entityPath);
+//			convertUtils.generateFrameworkXML(tableBeanMap, frameworkPath);
+//			convertUtils.generateTypeMappingXMLFromExcel(typeMapping, typeMappingPath);
+//			String shellStr = "cmd /c " + basePath + "script/bat/createDataModel.bat "
+//					+ generatePath+"result.xml" + " " + frameworkPath +" " + entityPath
+//					+ " " + typeMappingPath + " " + generatePath + "result.sql" + " "
+//					+ basePath+"template/fumargin/CreateTable.sql.tpl";
+//			ConsoleUtils.callShell(shellStr);
+//			
+//			returnMap.put("success", "1");
+//			returnMap.put("filePath", "generate/result.sql");
+//			return returnMap;
+//			
+//		} catch (IOException e) {
+//			log.error(e);
+//			errorMsg = e.getMessage();
+//		}
 		
 		returnMap.put("success", "0");
 		returnMap.put("msg", errorMsg);
