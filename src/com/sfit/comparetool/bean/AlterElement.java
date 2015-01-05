@@ -5,6 +5,7 @@ public class AlterElement {
 	private String columnName;
 	private String type;
 	private String changedColumnName;
+	private String originalChangedTypeName;
 	private String changedTypeName;
 	private String changedComment;
 	private String changedIsKey;
@@ -59,4 +60,11 @@ public class AlterElement {
 	public void setChangedIsIndex(String changedIsIndex) {
 		this.changedIsIndex = changedIsIndex;
 	}
+	public String getOriginalChangedTypeName() {
+		return originalChangedTypeName;
+	}
+	public void setOriginalChangedTypeName(String originalChangedTypeName) {
+		this.originalChangedTypeName = originalChangedTypeName;
+	}
+	
 }

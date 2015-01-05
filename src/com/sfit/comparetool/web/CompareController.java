@@ -218,7 +218,7 @@ public class CompareController {
 		ConvertUtils convertUtils = new ConvertUtils();
 		ExcelUtils excelUtils = new ExcelUtils();
 		try {
-			Map<String, EntityBean> tableBeanMap = excelUtils.getTableBeanMap(designFilePath);
+			Map<String, EntityBean> tableBeanMap = excelUtils.getEntityBeanMap(designFilePath);
 			Map<String, String> typeMapping = excelUtils.getTypeMapping(designFilePath);
 			convertUtils.generateEntityXMLFromExcel(tableBeanMap, entityPath);
 			convertUtils.generateFrameworkXML(tableBeanMap, frameworkPath);

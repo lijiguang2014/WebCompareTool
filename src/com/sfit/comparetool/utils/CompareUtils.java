@@ -14,12 +14,10 @@ import com.sfit.comparetool.bean.AlterElement;
 import com.sfit.comparetool.bean.ColumnBean;
 import com.sfit.comparetool.bean.DefineIndex;
 import com.sfit.comparetool.bean.KeyBean;
-import com.sfit.comparetool.bean.EntityBean;
-import com.sfit.comparetool.bean.TableElement;
+import com.sfit.comparetool.bean.AlterTableElement;
+import com.sfit.comparetool.bean.TableBean;
 
 public class CompareUtils {
-	
-	private static Logger log = Logger.getLogger(CompareUtils.class);
 	
 	/**
 	 * 生成报告和xml结果文件
@@ -29,8 +27,8 @@ public class CompareUtils {
 	 * @param reportFilePath
 	 * @param typeAliasMapping
 	 */
-	public void recordAndReport(List<TableElement> tableElements,
-			String resultFilePath, String reportFilePath, Map<String, String> typeAliasMapping) {
+	public void recordAndReport(List<AlterTableElement> tableElements,
+			String resultFilePath, String reportFilePath) {
 		OutputStreamWriter resultWriter = null;
 		OutputStreamWriter reportWriter = null;
 		
@@ -41,7 +39,7 @@ public class CompareUtils {
 			StringBuilder resultSb = new StringBuilder();
 			StringBuilder reportSb = new StringBuilder();
 			resultSb.append("<Tables>\r\n");
-			for (TableElement tableElement : tableElements) {
+			for (AlterTableElement tableElement : tableElements) {
 
 				String tableName = tableElement.getTableName();
 				if (tableElement.isDrop()) {
@@ -56,13 +54,13 @@ public class CompareUtils {
 					for(String columnName : columns.keySet()) {
 						ColumnBean columnBean = columns.get(columnName);
 						String typeName = columnBean.getAlias();
-						String realTypeName = typeAliasMapping.get(typeName);
-						if (null == realTypeName) {
-							realTypeName = "";
-							String errorMsg = "表" + tableName+"中的列" + columnName + "的类型别名" + typeName + "没有对应的数据类型！";
-							log.error(errorMsg);
-//							throw new Exception(errorMsg);
-						}
+						String realTypeName = columnBean.getType();
+//						if (null == realTypeName) {
+//							realTypeName = "";
+//							String errorMsg = "表" + tableName+"中的列" + columnName + "的类型别名" + typeName + "没有对应的数据类型！";
+//							log.error(errorMsg);
+////							throw new Exception(errorMsg);
+//						}
 						resultSb.append("\t\t\t<Column columnName=\"" + columnBean.getColumnName() + "\" columnType=\""
 								+ realTypeName + "\" originalColumnType=\"" + typeName + "\" label=\"" + columnBean.getColumnDescription() + "\" iskey=\"" + columnBean.getIsKey() + "\" notnull=\""
 								+ columnBean.getNotNull() + "\"></Column>\r\n");
@@ -107,13 +105,7 @@ public class CompareUtils {
 						resultSb.append("\t\t<Adds>\r\n");
 						for (ColumnBean add : adds) {
 							String typeName = add.getAlias();
-							String realTypeName = typeAliasMapping.get(typeName);
-							if (null == realTypeName) {
-								realTypeName = "";
-								String errorMsg = "表" + tableName+"中的列" + add.getColumnName() + "的类型别名" + typeName + "没有对应的数据类型！";
-								log.error(errorMsg);
-//								throw new Exception(errorMsg);
-							}
+							String realTypeName = add.getType();
 							resultSb.append("\t\t\t<Add columnName=\"" + add.getColumnName() +"\" typeName=\"" + realTypeName + 
 									"\" originalTypeName=\"" + typeName + "\" label=\"" + add.getColumnDescription() + "\" iskey=\"" + add.getIsKey() 
 									+ "\" notnull=\"" + add.getNotNull() + "\"></Add>\r\n");
@@ -130,14 +122,8 @@ public class CompareUtils {
 								resultSb.append(" changedName=\"" + alter.getChangedColumnName() + "\" ");
 								reportSb.append("列名" + alter.getColumnName() + "变更成列名" + alter.getChangedColumnName() + "\r\n");
 							} else if (alterType.equals("columnType")) {
-								String changedTypeName = alter.getChangedTypeName();
-								String realChangedTypeName = typeAliasMapping.get(changedTypeName);
-								if (null == realChangedTypeName) {
-									realChangedTypeName = "";
-									String errorMsg = "表" + tableName+"中的列" + alter.getColumnName() + "的类型别名" + changedTypeName + "没有对应的数据类型！";
-									log.error(errorMsg);
-//									throw new Exception(errorMsg);
-								}
+								String realChangedTypeName = alter.getChangedTypeName();
+								String changedTypeName = alter.getOriginalChangedTypeName();
 								resultSb.append(" changedTypeName=\"" + realChangedTypeName + "\" originalChangedTypeName=\""
 																								+ changedTypeName + "\"");
 								reportSb.append("列" + alter.getColumnName() + "数据类型变更为" + realChangedTypeName + "\r\n");
@@ -206,14 +192,14 @@ public class CompareUtils {
 	 * @param oldTableBeanMap
 	 * @return
 	 */
-	public List<TableElement> diff(Map<String, EntityBean> newTableBeanMap
-			, Map<String, EntityBean> oldTableBeanMap) {
+	public List<AlterTableElement> diff(Map<String, TableBean> newTableBeanMap
+			, Map<String, TableBean> oldTableBeanMap) {
 		
-		List<TableElement> tableElements = new ArrayList<TableElement>();
+		List<AlterTableElement> tableElements = new ArrayList<AlterTableElement>();
 		
 		for (String tableName : oldTableBeanMap.keySet()) {
 			if (!newTableBeanMap.containsKey(tableName)) {
-				TableElement e = new TableElement();
+				AlterTableElement e = new AlterTableElement();
 				e.setDrop(true);
 				e.setTableName(tableName);
 				tableElements.add(e);
@@ -221,14 +207,14 @@ public class CompareUtils {
 		}
 		
 		for (String tableName : newTableBeanMap.keySet()) {
-			EntityBean newTableBean = newTableBeanMap.get(tableName);
+			TableBean newTableBean = newTableBeanMap.get(tableName);
 			if (oldTableBeanMap.containsKey(tableName)) {
-				EntityBean oldTableBean = oldTableBeanMap.get(tableName);
+				TableBean oldTableBean = oldTableBeanMap.get(tableName);
 				
-				TableElement tableElement = new TableElement();
-				tableElement.setTableName(oldTableBean.getDomainName());
-				if (!oldTableBean.getDomainDescription().equals(newTableBean.getDomainDescription())) {
-					tableElement.setDescription(newTableBean.getDomainDescription());
+				AlterTableElement tableElement = new AlterTableElement();
+				tableElement.setTableName(oldTableBean.getTablename());
+				if (!oldTableBean.getDescription().equals(newTableBean.getDescription())) {
+					tableElement.setDescription(newTableBean.getDescription());
 				}
 				
 				//比较索引列
@@ -297,8 +283,8 @@ public class CompareUtils {
 				tableElement.setIndexes(changedIndexes);
 				tableElement.setDropIndexes(dropIndexes);
 				
-				Map<String, ColumnBean> newColumnMap = newTableBean.getColumnMap();
-				Map<String, ColumnBean> oldColumnMap = oldTableBean.getColumnMap();
+				Map<String, ColumnBean> newColumnMap = newTableBean.getColumns();
+				Map<String, ColumnBean> oldColumnMap = oldTableBean.getColumns();
 				List<String> dropColumns = new ArrayList<String>();
 				
 				//找出drop的column
@@ -329,13 +315,14 @@ public class CompareUtils {
 							alters.add(alter);
 						}
 						
-						String oldTypeName = oldColumnBean.getAlias();
-						String newTypeName = newColumnBean.getAlias();
+						String oldTypeName = oldColumnBean.getType();
+						String newTypeName = newColumnBean.getType();
 						if(!newTypeName.equals(oldTypeName)) {
 							AlterElement alter = new AlterElement();
 							alter.setType("columnType");
 							alter.setColumnName(newColumnName);
 							alter.setChangedTypeName(newTypeName);
+							alter.setOriginalChangedTypeName(newColumnBean.getAlias());
 							alters.add(alter);
 						}
 						
@@ -392,10 +379,10 @@ public class CompareUtils {
 					tableElements.add(tableElement);
 				}
 			} else {
-				TableElement e = new TableElement();
+				AlterTableElement e = new AlterTableElement();
 				e.setTableName(tableName);
 				e.setCreate(true);
-				e.setColumns(newTableBean.getColumnMap());
+				e.setColumns(newTableBean.getColumns());
 				e.setIndexes(newTableBean.getIndexes());
 				tableElements.add(e);
 			}

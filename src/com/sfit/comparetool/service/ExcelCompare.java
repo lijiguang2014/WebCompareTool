@@ -4,7 +4,8 @@ import java.util.List;
 import java.util.Map;
 
 import com.sfit.comparetool.bean.EntityBean;
-import com.sfit.comparetool.bean.TableElement;
+import com.sfit.comparetool.bean.AlterTableElement;
+import com.sfit.comparetool.bean.TableBean;
 import com.sfit.comparetool.utils.CompareUtils;
 import com.sfit.comparetool.utils.ExcelUtils;
 
@@ -20,13 +21,12 @@ public class ExcelCompare {
 	
 	public void compare(String newFilePath, String oldFilePath, String resultFilePath,
 			String reportFilePath) throws Exception {
-		ExcelUtils xmlUtils = new ExcelUtils();
-		Map<String, String> typeMapping = xmlUtils.getTypeMapping(newFilePath);
-		Map<String, EntityBean> newTableBeanMap = xmlUtils.getTableBeanMap(newFilePath);
-		Map<String, EntityBean> oldTableBeanMap = xmlUtils.getTableBeanMap(oldFilePath);
+		ExcelUtils excelUtils = new ExcelUtils();
+		Map<String, TableBean> oldTableBeanMap = excelUtils.getTableBeanMap(oldFilePath);
+		Map<String, TableBean> newTableBeanMap = excelUtils.getTableBeanMap(newFilePath);
 		CompareUtils compareUtils = new CompareUtils();
-		List<TableElement> diffResult = compareUtils.diff(newTableBeanMap, oldTableBeanMap);
-		compareUtils.recordAndReport(diffResult, resultFilePath, reportFilePath, typeMapping);
+		List<AlterTableElement> diffResult = compareUtils.diff(newTableBeanMap, oldTableBeanMap);
+		compareUtils.recordAndReport(diffResult, resultFilePath, reportFilePath);
 	}
 
 	

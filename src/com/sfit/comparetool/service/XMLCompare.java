@@ -11,19 +11,20 @@ import java.util.Map;
 
 import com.sfit.comparetool.bean.ColumnBean;
 import com.sfit.comparetool.bean.EntityBean;
+import com.sfit.comparetool.bean.ExcelTableBean;
+import com.sfit.comparetool.bean.AlterTableElement;
 import com.sfit.comparetool.bean.TableBean;
-import com.sfit.comparetool.bean.TableElement;
 import com.sfit.comparetool.utils.CompareUtils;
 import com.sfit.comparetool.utils.ConsoleUtils;
 
 public class XMLCompare {
 	
 	public static void main(String[] args) {
-		String newFilePath = "D:\\Working\\CompareTestData\\fumarginEntity1.xml";
-		String oldFilePath = "D:\\Working\\CompareTestData\\fumarginEntity.xml";
-		String typeFilePath = "D:\\Working\\CompareTestData\\fumarginType.xml";
+		String newFilePath = "D:\\test1.xml";
+		String oldFilePath = "D:\\test.xml";
 		String resultFilePath = "D:\\result.xml";
 		String reportFilePath = "D:\\report.xml";
+		new XMLCompare().compare(newFilePath, oldFilePath, resultFilePath, reportFilePath);
 	}
 	
 	/**
@@ -48,7 +49,7 @@ public class XMLCompare {
 		Map<String, TableBean> newMap = getTableBeanMap(newFilePath);
 		Map<String, TableBean> oldMap = getTableBeanMap(oldFilePath);
 		CompareUtils compareUtils = new CompareUtils();
-		List<TableElement> diffResult = compareUtils.diff(newMap, oldMap);
+		List<AlterTableElement> diffResult = compareUtils.diff(newMap, oldMap);
 		if (diffResult.size() > 0) {
 			compareUtils.recordAndReport(diffResult, resultFilePath, reportFilePath);
 		}
@@ -61,21 +62,19 @@ public class XMLCompare {
 			br = new BufferedReader(
 					new InputStreamReader(new FileInputStream(filePath), "GBK"));
 			TableBean tableBean = null;
-			EntityBean entityBean = null;
 			Map<String, ColumnBean> columnMap = null;
 			String line = null;
 			while(null != (line=br.readLine())) {
-				if (line.contains("<table")) {
+				if (line.contains("<table ")) {
 					tableBean = new TableBean();
 					tableBean.setTablename(getDomainName(line));
-					entityBean = new EntityBean();
-					entityBean.setDomainName(getDomainName(line));
-					entityBean.setDomainDescription(getDomainDescription(line));
+					tableBean.setDescription(getDomainDescription(line));
+					tableBean.setTitle(getDomainDescription(line));
 					tableBeanMap.put(tableBean.getTablename(), tableBean);
 				} else if (line.contains("<Columns>")) {
 					columnMap = new LinkedHashMap<String, ColumnBean>();
-					entityBean.setColumnMap(columnMap);
-				} else if (line.contains("<Column")) {
+					tableBean.setColumns(columnMap);
+				} else if (line.contains("<Column ")) {
 					ColumnBean column = new ColumnBean();
 					column.setColumnName(getColumnName(line));
 					column.setType(getColumnType(line));
@@ -145,6 +144,7 @@ public class XMLCompare {
 			nb = line.indexOf("description") + 13;
 			ne = line.indexOf(">")-1;
 		}
+		
 		return line.substring(nb, ne);
 	}
 	
@@ -164,8 +164,8 @@ public class XMLCompare {
 			nb = line.indexOf("description") + 13;
 			ne = line.indexOf("notnull") - 2;
 		} else if (attributeName.equals("notnull")) {
-			ne = line.indexOf("notnull") + 9;
-			nb = line.indexOf("iskey") -2;
+			nb = line.indexOf("notnull") + 9;
+			ne = line.indexOf("iskey") -2;
 		} else if (attributeName.equals("iskey")) {
 			nb = line.indexOf("iskey") + 7;
 			ne = line.indexOf("originaltype") - 2;
