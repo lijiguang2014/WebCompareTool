@@ -10,8 +10,6 @@ import java.util.List;
 import java.util.Map;
 
 import com.sfit.comparetool.bean.ColumnBean;
-import com.sfit.comparetool.bean.EntityBean;
-import com.sfit.comparetool.bean.ExcelTableBean;
 import com.sfit.comparetool.bean.AlterTableElement;
 import com.sfit.comparetool.bean.TableBean;
 import com.sfit.comparetool.utils.CompareUtils;
@@ -37,7 +35,9 @@ public class XMLCompare {
 	 * @throws Exception
 	 */
 	public void merge(String frameworkFilePath, String entityFilePath, String typeFilePath, String resultFilePath) throws Exception {
-		String shellStr = "cmd /c " + resultFilePath + " " + frameworkFilePath + " " + entityFilePath + " " + typeFilePath;
+		String basePath = this.getClass().getResource("/").getPath().substring(1) + "../../";
+		String shellStr = "cmd /c " + basePath + "script/bat/mergeXML.bat " 
+				+ resultFilePath + " " + frameworkFilePath + " " + entityFilePath + " " + typeFilePath;
 		boolean success = ConsoleUtils.callShell(shellStr);
 		if (!success) {
 			throw new Exception("xml文件合并过程中出错了！");

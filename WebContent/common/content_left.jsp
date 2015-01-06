@@ -4,31 +4,31 @@
 	<div id="menus">
 		<div class="menu">
 			<a class="task-icon-link" href="main.jsp">
-				<img style="width: 24px; height: 24px; width: 24px; height: 24px; margin: 2px;" class="icon-user icon-md" src="images/VersionManager.png">
+				<img style="width: 24px; height: 24px; margin: 0px;" class="icon-user icon-md" src="images/VersionManager.png">
 			</a>&nbsp;
 			<a class="task-link" href="main.jsp">版本管理</a>
 		</div>
 		<div class="menu">
-			<a class="task-icon-link" href="main.jsp">
-				<img style="width: 24px; height: 24px; width: 24px; height: 24px; margin: 2px;" class="icon-user icon-md" src="images/VersionManager.png">
+			<a class="task-icon-link" href="merge.jsp">
+				<img style="width: 24px; height: 24px; margin: 2px;" class="icon-user icon-md" src="images/VersionManager.png">
 			</a>&nbsp;
-			<a class="task-link" href="main.jsp"></a>
+			<a class="task-link" href="merge.jsp">XML合并</a>
 		</div>
 		<div class="menu">
 			<a class="task-icon-link" href="export.jsp">
-				<img style="width: 24px; height: 24px; width: 24px; height: 24px; margin: 2px;" class="icon-user icon-md" src="images/download.png">
+				<img style="width: 24px; height: 24px; margin: 2px;" class="icon-user icon-md" src="images/download.png">
 			</a>&nbsp;
 			<a class="task-link" href="export.jsp">模型导出</a>
 		</div>
 		<div class="menu">
 			<a class="task-icon-link" href="generate.jsp">
-				<img style="width: 24px; height: 24px; width: 24px; height: 24px; margin: 2px;" class="icon-user icon-md" src="images/download.png">
+				<img style="width: 24px; height: 24px; margin: 2px;" class="icon-user icon-md" src="images/download.png">
 			</a>&nbsp;
 			<a class="task-link" href="generate.jsp">模型生成</a>
 		</div>
 		<div class="menu">
 			<a class="task-icon-link" href="compare.jsp">
-				<img style="width: 24px; height: 24px; width: 24px; height: 24px; margin: 2px;" class="icon-user icon-md" src="images/new.png">
+				<img class="icon-user icon-md" src="images/new.png">
 			</a>&nbsp;
 			<a class="task-link" href="compare.jsp">新建比对</a>
 		</div>

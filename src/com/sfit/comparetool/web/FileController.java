@@ -28,6 +28,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.sfit.comparetool.bean.CompareBean;
 import com.sfit.comparetool.service.ExcelGenerator;
+import com.sfit.comparetool.service.XMLCompare;
 import com.sfit.comparetool.service.XMLGenerator;
 
 @Controller
@@ -38,7 +39,7 @@ public class FileController {
 	private static final String uploadDirectoryRelativePath = "dataModel/upload/";
 	
 	@RequestMapping(value="/upload.do", method=RequestMethod.POST)
-	public @ResponseBody Map<String, String> uploadFile( @RequestParam MultipartFile[] upFile,HttpServletRequest request,
+	public @ResponseBody Map<String, String> uploadFile( @RequestParam MultipartFile[] upFile, HttpServletRequest request,
 			HttpServletResponse response, BindException errors) throws Exception {
 		
 		Map<String, String> result = new HashMap<String, String>();
@@ -229,7 +230,7 @@ public class FileController {
 		String url = condition.getUrl();
 		String password = condition.getPassword();
 		String username = condition.getUsername();
-		String basePath = request.getSession().getServletContext().getRealPath("/");
+		String basePath = request.getServletContext().getRealPath("/");
 		//格式化当做版本号的日期字符串
 		SimpleDateFormat format = new SimpleDateFormat("yyyyMMddHHmmss");
 		String dateStr = format.format(new Date());
@@ -252,6 +253,48 @@ public class FileController {
 			result.put("success", "0");
 			result.put("msg", e.getMessage());
 			log.error(e);
+			return result;
+		}
+		
+		result.put("filePath", resultRelativePath);
+		result.put("success", "1");
+		
+		return result;
+	}
+	
+	@RequestMapping("/merge.do")
+	public Map<String, String> mergeXMLByPUMP(@RequestParam String frameworkFileRelativePath,
+			@RequestParam String entityFileRelativePath,
+			@RequestParam String typeFileRelativePath,
+			HttpServletRequest request) {
+		
+		Map<String, String> result = new HashMap<String, String>();
+		
+		String basePath = request.getServletContext().getRealPath("/");
+		String frameworkFilePath = basePath + frameworkFileRelativePath;
+		String entityFilePath = basePath + entityFileRelativePath;
+		String typeFilePath = basePath + typeFileRelativePath;
+		
+		//格式化当做版本号的日期字符串
+		SimpleDateFormat format = new SimpleDateFormat("yyyyMMddHHmmss");
+		String dateStr = format.format(new Date());
+		
+		String generateDirectoryPath = basePath + "generate/";
+		File generateDirectory = new File(generateDirectoryPath);
+		if (!generateDirectory.exists()) {
+			generateDirectory.mkdirs();
+		}
+		
+		String resultRelativePath = "generate/" + dateStr + ".xml";
+		String resultFilePath = basePath + resultRelativePath;  
+		
+		XMLCompare xmlCompare = new XMLCompare();
+		try {
+			xmlCompare.merge(frameworkFilePath, entityFilePath, typeFilePath, resultFilePath);
+		} catch (Exception e) {
+			e.printStackTrace();
+			result.put("success", "0");
+			result.put("msg", e.getMessage());
 			return result;
 		}
 		

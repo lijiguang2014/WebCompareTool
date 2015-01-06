@@ -210,9 +210,13 @@ function deletefile(file, type){
 					$("#source_upload_info").css("visibility", "hidden");
 				} else if (type=="target") {
 					$("#target_upload_info").css("visibility", "hidden");
+				} else if (type=="framework") {
+					$("#framework_upload_info").css("visibility", "hidden");
+				} else if (type=="entity") {
+					$("#entity_upload_info").css("visibility", "hidden");
 				} else {
 					$("#upload_info").css("visibility", "hidden");
-				}
+				} 
 			} else {
 				alert(data.msg);
 			}

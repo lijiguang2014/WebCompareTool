@@ -20,10 +20,12 @@
 
 .task-link{
 	text-decoration: none;
+	vertical-align: middle;
 }
 
 .task-icon-link{
 	text-decoration: none;
+	vertical-align: middle;
 }
 
 .row {

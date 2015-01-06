@@ -18,6 +18,7 @@ public class ConsoleUtils {
             System.out.println(line);
             int exitValue = process.waitFor();  
             if (0 != exitValue) { 
+            	 log.error(shellString);
             	 log.error("call shell failed. error code is :" + exitValue);  
             	 return false;
             }  
