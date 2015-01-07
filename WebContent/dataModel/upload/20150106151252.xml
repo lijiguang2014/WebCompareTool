@@ -1,0 +1,2344 @@
+<?xml version="1.0" encoding="gb2312"?>
+<!DOCTYPE DB SYSTEM "DB.dtd">
+<DB author="UApp" version="1" iskey="no" notnull="no" order="asc" unique="no">
+	<schemas />
+	<tableGroups>
+		<tables group="Framework">
+			<table name="A_QUERYUSER2_LOGINSTATUS" title="" description="">
+				<Columns ref="A_QUERYUSER2_LOGINSTATUS" />
+				<Index>
+				</Index>
+			</table>
+			<table name="A_TEMP_LOGINRANK" title="登陆率排序临时表" description="登陆率排序临时表">
+				<Columns ref="A_TEMP_LOGINRANK" />
+				<Index>
+				</Index>
+			</table>
+			<table name="A_TEMP_NOLOGIN" title="权益大但从未登陆临时表" description="权益大但从未登陆临时表">
+				<Columns ref="A_TEMP_NOLOGIN" />
+				<Index>
+				</Index>
+			</table>
+			<table name="B_BANK" title="" description="">
+				<Columns ref="B_BANK" />
+				<Index>
+					<defineIndex name="PK_B_BANK">
+						<key name="BANKID"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="B_BULLETIN" title="" description="">
+				<Columns ref="B_BULLETIN" />
+				<Index>
+				</Index>
+			</table>
+			<table name="B_BUSSITYPE" title="期货公司从事业务类型表" description="期货公司从事业务类型表">
+				<Columns ref="B_BUSSITYPE" />
+				<Index>
+				</Index>
+			</table>
+			<table name="B_CLEAR" title="" description="">
+				<Columns ref="B_CLEAR" />
+				<Index>
+				</Index>
+			</table>
+			<table name="B_CLIACC" title="" description="">
+				<Columns ref="B_CLIACC" />
+				<Index>
+					<defineIndex name="PK_B_CLIACC">
+						<key name="BANKID"/>
+						<key name="BANKACCOUNT"/>
+						<key name="CLIENTID"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="B_CLIENT" title="" description="">
+				<Columns ref="B_CLIENT" />
+				<Index>
+					<defineIndex name="PK_B_CLIENT">
+						<key name="CLIENTID"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="B_COMMODITYALL" title="" description="">
+				<Columns ref="B_COMMODITYALL" />
+				<Index>
+					<defineIndex name="PK_B_COMMODITY">
+						<key name="COMMODITYID"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="B_COMMODITY_FOR_DSG" title="" description="">
+				<Columns ref="B_COMMODITY_FOR_DSG" />
+				<Index>
+				</Index>
+			</table>
+			<table name="B_COMPANYALL" title="" description="">
+				<Columns ref="B_COMPANYALL" />
+				<Index>
+					<defineIndex name="PK_B_COMPANY">
+						<key name="COMPANYID"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="B_COMPBUSSITYPE" title="公司参与业务类型对应表" description="公司参与业务类型对应表">
+				<Columns ref="B_COMPBUSSITYPE" />
+				<Index>
+				</Index>
+			</table>
+			<table name="B_COMPDEPACC" title="" description="">
+				<Columns ref="B_COMPDEPACC" />
+				<Index>
+					<defineIndex name="PK_B_COMPDEPACC">
+						<key name="BANKID"/>
+						<key name="BANKACCOUNT"/>
+						<key name="COMPANYID"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="B_COMPDEPACC_LOG" title="" description="">
+				<Columns ref="B_COMPDEPACC_LOG" />
+				<Index>
+				</Index>
+			</table>
+			<table name="B_COMPSELFACC" title="" description="">
+				<Columns ref="B_COMPSELFACC" />
+				<Index>
+				</Index>
+			</table>
+			<table name="B_COMPSELFDEPACCMAP" title="" description="">
+				<Columns ref="B_COMPSELFDEPACCMAP" />
+				<Index>
+				</Index>
+			</table>
+			<table name="B_COMPUPLOADFILE" title="公司与上报文件对应表" description="公司与上报文件对应表">
+				<Columns ref="B_COMPUPLOADFILE" />
+				<Index>
+				</Index>
+			</table>
+			<table name="B_CURRENCY" title="币种配置表" description="币种配置表">
+				<Columns ref="B_CURRENCY" />
+				<Index>
+				</Index>
+			</table>
+			<table name="B_EXACC" title="" description="">
+				<Columns ref="B_EXACC" />
+				<Index>
+					<defineIndex name="PK_B_EXACC">
+						<key name="BANKID"/>
+						<key name="BANKACCOUNT"/>
+						<key name="EXCHANGEID"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="B_EXCHANGE" title="" description="">
+				<Columns ref="B_EXCHANGE" />
+				<Index>
+					<defineIndex name="PK_B_EXCHANGE">
+						<key name="EXCHANGEID"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="B_EXCHANGECLIENTINFO" title="" description="">
+				<Columns ref="B_EXCHANGECLIENTINFO" />
+				<Index>
+					<defineIndex name="INDEX_B_EXCLIENT_ID_COMP_EXCH">
+						<key name="EXCHANGEID"/>
+						<key name="COMPANYID"/>
+						<key name="EXCLIENTID"/>
+						<key name="EXCLIENTIDTYPE"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="B_EXCHANGECLIENTMAP" title="" description="">
+				<Columns ref="B_EXCHANGECLIENTMAP" />
+				<Index>
+					<defineIndex name="PK_B_EXCHANGECLIENTMAP">
+						<key name="COMPANYID"/>
+						<key name="EXCHANGEID"/>
+						<key name="EXCLIENTID"/>
+						<key name="CLIENTID"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="B_EXCHANGECOMPANYMAPALL" title="" description="">
+				<Columns ref="B_EXCHANGECOMPANYMAPALL" />
+				<Index>
+					<defineIndex name="PK_B_EXCHANGECOMPANYMAP">
+						<key name="EXCHANGEID"/>
+						<key name="COMPANYID"/>
+						<key name="EXCOMPANYID"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="B_EXCHANGE_FOR_DSG" title="" description="">
+				<Columns ref="B_EXCHANGE_FOR_DSG" />
+				<Index>
+				</Index>
+			</table>
+			<table name="B_EXMEMBER" title="" description="">
+				<Columns ref="B_EXMEMBER" />
+				<Index>
+				</Index>
+			</table>
+			<table name="B_EXMEMBERALL" title="" description="">
+				<Columns ref="B_EXMEMBERALL" />
+				<Index>
+					<defineIndex name="PK_B_EXMEMBER">
+						<key name="EXCHANGEID"/>
+						<key name="COMPANYID"/>
+						<key name="EXCOMPANYID"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="B_EXMEMBERRELATION" title="" description="">
+				<Columns ref="B_EXMEMBERRELATION" />
+				<Index>
+					<defineIndex name="PK_B_EXMEMBERRELATION">
+						<key name="EXCHANGEID"/>
+						<key name="NONSETTLECOMPID"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="B_OTHERFUND" title="" description="">
+				<Columns ref="B_OTHERFUND" />
+				<Index>
+					<defineIndex name="SYS_C0015784">
+						<key name="FUNDTYPE"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="B_REGIONBUREAU" title="" description="">
+				<Columns ref="B_REGIONBUREAU" />
+				<Index>
+					<defineIndex name="PK_B_REGIONBUREAU">
+						<key name="BUREAUID"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="B_REGIONBUREAU_FOR_DSG" title="" description="">
+				<Columns ref="B_REGIONBUREAU_FOR_DSG" />
+				<Index>
+				</Index>
+			</table>
+			<table name="B_TERM" title="" description="">
+				<Columns ref="B_TERM" />
+				<Index>
+				</Index>
+			</table>
+			<table name="B_USERNOTICE" title="" description="">
+				<Columns ref="B_USERNOTICE" />
+				<Index>
+					<defineIndex name="PK_B_USERNOTICE">
+						<key name="ID"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="B_USERNOTICELOG" title="" description="">
+				<Columns ref="B_USERNOTICELOG" />
+				<Index>
+					<defineIndex name="INDEX_B_USERNOTICELOG">
+						<key name="ID"/>
+						<key name="USERID"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="COLUMS_TYPE" title="" description="">
+				<Columns ref="COLUMS_TYPE" />
+				<Index>
+				</Index>
+			</table>
+			<table name="COMPAREHISTORY" title="" description="">
+				<Columns ref="COMPAREHISTORY" />
+				<Index>
+				</Index>
+			</table>
+			<table name="C_CHECKCLICONTINUEFUND" title="" description="">
+				<Columns ref="C_CHECKCLICONTINUEFUND" />
+				<Index>
+					<defineIndex name="PK_C_CHECKCLICONTINUEFUND">
+						<key name="TRADEDATE"/>
+						<key name="COMPANYID"/>
+						<key name="CLIENTID"/>
+						<key name="CURRENCY"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="C_CHECKCLICONTINUEFUNDLAST" title="" description="">
+				<Columns ref="C_CHECKCLICONTINUEFUNDLAST" />
+				<Index>
+				</Index>
+			</table>
+			<table name="C_CHECKCLIFUND" title="" description="">
+				<Columns ref="C_CHECKCLIFUND" />
+				<Index>
+				</Index>
+			</table>
+			<table name="C_CHECKCLIFUNDLAST" title="" description="">
+				<Columns ref="C_CHECKCLIFUNDLAST" />
+				<Index>
+					<defineIndex name="PK_C_CHECKCLIFUNDLAST">
+						<key name="TRADEDATE"/>
+						<key name="COMPANYID"/>
+						<key name="CLIENTID"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="C_CHECKCLIIOFUNDDETAIL" title="" description="">
+				<Columns ref="C_CHECKCLIIOFUNDDETAIL" />
+				<Index>
+					<defineIndex name="PK_C_CHECKCLIIOFUNDDETAIL">
+						<key name="SEQID"/>
+						<key name="TRADEDATE"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="C_CHECKCLIOPTPOSDETAIL" title="" description="">
+				<Columns ref="C_CHECKCLIOPTPOSDETAIL" />
+				<Index>
+				</Index>
+			</table>
+			<table name="C_CHECKCLIOPTTRDDETAIL" title="" description="">
+				<Columns ref="C_CHECKCLIOPTTRDDETAIL" />
+				<Index>
+				</Index>
+			</table>
+			<table name="C_CHECKCLIOTHERFUND" title="" description="">
+				<Columns ref="C_CHECKCLIOTHERFUND" />
+				<Index>
+				</Index>
+			</table>
+			<table name="C_CHECKCLIPOSDETAIL" title="" description="">
+				<Columns ref="C_CHECKCLIPOSDETAIL" />
+				<Index>
+				</Index>
+			</table>
+			<table name="C_CHECKCLIPOSSUMBYCOMP" title="" description="">
+				<Columns ref="C_CHECKCLIPOSSUMBYCOMP" />
+				<Index>
+				</Index>
+			</table>
+			<table name="C_CHECKCLIPOSSUMBYCONTRACT" title="" description="">
+				<Columns ref="C_CHECKCLIPOSSUMBYCONTRACT" />
+				<Index>
+				</Index>
+			</table>
+			<table name="C_CHECKCLITRDDETAIL" title="" description="">
+				<Columns ref="C_CHECKCLITRDDETAIL" />
+				<Index>
+					<defineIndex name="INDEX_C_CHKTRD_SEQ_COMP_EX_BS">
+						<key name="EXCHANGEID"/>
+						<key name="TRADESEQ"/>
+						<key name="COMPANYID"/>
+						<key name="BSTAG"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="C_CHECKCLITRDSUMBYCOMP" title="" description="">
+				<Columns ref="C_CHECKCLITRDSUMBYCOMP" />
+				<Index>
+				</Index>
+			</table>
+			<table name="C_CHECKCLITRDSUMBYCONTRACT" title="" description="">
+				<Columns ref="C_CHECKCLITRDSUMBYCONTRACT" />
+				<Index>
+				</Index>
+			</table>
+			<table name="C_CHECKCOMPFUND" title="" description="">
+				<Columns ref="C_CHECKCOMPFUND" />
+				<Index>
+				</Index>
+			</table>
+			<table name="C_CLIACC" title="" description="">
+				<Columns ref="C_CLIACC" />
+				<Index>
+					<defineIndex name="PK_C_CLIACC">
+						<key name="COMPANYID"/>
+						<key name="CLIENTID"/>
+						<key name="BANKID"/>
+						<key name="BANKACCOUNT"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="C_CLIENT" title="" description="">
+				<Columns ref="C_CLIENT" />
+				<Index>
+					<defineIndex name="PK_C_CLIENT">
+						<key name="COMPANYID"/>
+						<key name="CLIENTID"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="C_CLIENTLAST" title="" description="">
+				<Columns ref="C_CLIENTLAST" />
+				<Index>
+					<defineIndex name="PK_C_CLIENTLAST">
+						<key name="COMPANYID"/>
+						<key name="CLIENTID"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="C_EXCHANGECLIENTMAP" title="" description="">
+				<Columns ref="C_EXCHANGECLIENTMAP" />
+				<Index>
+					<defineIndex name="PK_C_EXCHANGECLIENTMAP">
+						<key name="COMPANYID"/>
+						<key name="CLIENTID"/>
+						<key name="EXCHANGEID"/>
+						<key name="EXCLIENTID"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="C_STANDCLIFUND" title="" description="">
+				<Columns ref="C_STANDCLIFUND" />
+				<Index>
+				</Index>
+			</table>
+			<table name="C_STANDCLIIOFUNDDETAIL" title="" description="">
+				<Columns ref="C_STANDCLIIOFUNDDETAIL" />
+				<Index>
+				</Index>
+			</table>
+			<table name="C_STANDCLIOPTPOSDETAIL" title="" description="">
+				<Columns ref="C_STANDCLIOPTPOSDETAIL" />
+				<Index>
+				</Index>
+			</table>
+			<table name="C_STANDCLIOPTTRDDETAIL" title="" description="">
+				<Columns ref="C_STANDCLIOPTTRDDETAIL" />
+				<Index>
+				</Index>
+			</table>
+			<table name="C_STANDCLIOTHERFUND" title="" description="">
+				<Columns ref="C_STANDCLIOTHERFUND" />
+				<Index>
+					<defineIndex name="PK_C_STANDCLIOTHERFUND">
+						<key name="CURRENCY"/>
+						<key name="COMPANYID"/>
+						<key name="TRADEDATE"/>
+						<key name="CLIENTID"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="C_STANDCLIPOSDETAIL" title="" description="">
+				<Columns ref="C_STANDCLIPOSDETAIL" />
+				<Index>
+				</Index>
+			</table>
+			<table name="C_STANDCLIPOSSUMBYCOMP" title="" description="">
+				<Columns ref="C_STANDCLIPOSSUMBYCOMP" />
+				<Index>
+					<defineIndex name="PK_C_STANDCLIPOSSUMBYCOMP">
+						<key name="CURRENCY"/>
+						<key name="TRADEDATE"/>
+						<key name="COMPANYID"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="C_STANDCLIPOSSUMBYCONTRACT" title="" description="">
+				<Columns ref="C_STANDCLIPOSSUMBYCONTRACT" />
+				<Index>
+					<defineIndex name="PK_C_STANDCLIPOSSUMBYCONTRACT">
+						<key name="CURRENCY"/>
+						<key name="TRADEDATE"/>
+						<key name="COMPANYID"/>
+						<key name="CONTRACTID"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="C_STANDCLITRDDETAIL" title="" description="">
+				<Columns ref="C_STANDCLITRDDETAIL" />
+				<Index>
+					<defineIndex name="INDEX_C_STDTRD_SEQ_COMP_EX_BS">
+						<key name="EXCHANGEID"/>
+						<key name="TRADESEQ"/>
+						<key name="COMPANYID"/>
+						<key name="BSTAG"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="C_STANDCLITRDSUMBYCOMP" title="" description="">
+				<Columns ref="C_STANDCLITRDSUMBYCOMP" />
+				<Index>
+					<defineIndex name="PK_C_STANDCLITRDSUMBYCOMP">
+						<key name="CURRENCY"/>
+						<key name="TRADEDATE"/>
+						<key name="COMPANYID"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="C_STANDCLITRDSUMBYCONTRACT" title="" description="">
+				<Columns ref="C_STANDCLITRDSUMBYCONTRACT" />
+				<Index>
+					<defineIndex name="PK_C_STANDCLITRDSUMBYCONTRACT">
+						<key name="CURRENCY"/>
+						<key name="TRADEDATE"/>
+						<key name="COMPANYID"/>
+						<key name="CONTRACTID"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="C_STANDCOMPFUND" title="" description="">
+				<Columns ref="C_STANDCOMPFUND" />
+				<Index>
+					<defineIndex name="PK_C_STANDCOMPFUND">
+						<key name="CURRENCY"/>
+						<key name="TRADEDATE"/>
+						<key name="COMPANYID"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="D_BANKEXCHANGEDETAILS" title="银行汇兑明细文件" description="银行汇兑明细文件">
+				<Columns ref="D_BANKEXCHANGEDETAILS" />
+				<Index>
+				</Index>
+			</table>
+			<table name="D_BANKFIRMACCOUNT" title="" description="">
+				<Columns ref="D_BANKFIRMACCOUNT" />
+				<Index>
+					<defineIndex name="INDEX_D_BANKBALAN_DATE_BANK">
+						<key name="BANKID"/>
+						<key name="TRADEDATE"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="D_BANKIOFUNDDETAIL2" title="" description="">
+				<Columns ref="D_BANKIOFUNDDETAIL2" />
+				<Index>
+					<defineIndex name="INDEX_D_BANKIOFUND2_DATE_BANK">
+						<key name="BANKID"/>
+						<key name="TRADEDATE"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="D_COMPAMACCOUNTS" title="" description="">
+				<Columns ref="D_COMPAMACCOUNTS" />
+				<Index>
+				</Index>
+			</table>
+			<table name="D_COMPAMASSETS" title="" description="">
+				<Columns ref="D_COMPAMASSETS" />
+				<Index>
+				</Index>
+			</table>
+			<table name="D_COMPAMCUSTODYACCOUNT" title="" description="">
+				<Columns ref="D_COMPAMCUSTODYACCOUNT" />
+				<Index>
+				</Index>
+			</table>
+			<table name="D_COMPCASHMORTGAGE" title="" description="">
+				<Columns ref="D_COMPCASHMORTGAGE" />
+				<Index>
+				</Index>
+			</table>
+			<table name="D_COMPCASHMORTGAGEDETAILS" title="" description="">
+				<Columns ref="D_COMPCASHMORTGAGEDETAILS" />
+				<Index>
+				</Index>
+			</table>
+			<table name="D_COMPCLIENTCODE" title="" description="">
+				<Columns ref="D_COMPCLIENTCODE" />
+				<Index>
+					<defineIndex name="IDX_D_COMPCLICODE_DATE_COMP">
+						<key name="COMPANYID"/>
+						<key name="OPENDATE"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="D_COMPCLIENTFUND" title="" description="">
+				<Columns ref="D_COMPCLIENTFUND" />
+				<Index>
+					<defineIndex name="IDX_D_COMPCLIFUND_DATE_COMP">
+						<key name="COMPANYID"/>
+						<key name="TRADEDATE"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="D_COMPCLIENTFUNDACC" title="" description="">
+				<Columns ref="D_COMPCLIENTFUNDACC" />
+				<Index>
+					<defineIndex name="IDX_D_COMPCLIACC_DATE_COMP">
+						<key name="COMPANYID"/>
+						<key name="OPENDATE"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="D_COMPCLIENTFUNDDETAIL" title="" description="">
+				<Columns ref="D_COMPCLIENTFUNDDETAIL" />
+				<Index>
+					<defineIndex name="IDX_D_COMPFUNDDETAIL_DATE_COMP">
+						<key name="COMPANYID"/>
+						<key name="TRADEDATE"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="D_COMPCLIENTINFO" title="" description="">
+				<Columns ref="D_COMPCLIENTINFO" />
+				<Index>
+					<defineIndex name="IDX_D_COMP_CLNTIF_DATE_COMP">
+						<key name="COMPANYID"/>
+						<key name="OPENDATE"/>
+					</defineIndex>
+					<defineIndex name="INDEX_CLIENTID">
+						<key name="CLIENTID"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="D_COMPCLIENTLIQUID" title="" description="">
+				<Columns ref="D_COMPCLIENTLIQUID" />
+				<Index>
+					<defineIndex name="IDX_D_COMPLIQUID_DATE_COMPID">
+						<key name="TRADEDATE"/>
+						<key name="COMPANYID"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="D_COMPCLIENTOPTEXERCISE" title="" description="">
+				<Columns ref="D_COMPCLIENTOPTEXERCISE" />
+				<Index>
+				</Index>
+			</table>
+			<table name="D_COMPCLIENTOPTLIQUID" title="" description="">
+				<Columns ref="D_COMPCLIENTOPTLIQUID" />
+				<Index>
+				</Index>
+			</table>
+			<table name="D_COMPCLIENTOPTPOS" title="" description="">
+				<Columns ref="D_COMPCLIENTOPTPOS" />
+				<Index>
+				</Index>
+			</table>
+			<table name="D_COMPCLIENTOPTPOSDETAIL" title="" description="">
+				<Columns ref="D_COMPCLIENTOPTPOSDETAIL" />
+				<Index>
+				</Index>
+			</table>
+			<table name="D_COMPCLIENTOPTTRADE" title="" description="">
+				<Columns ref="D_COMPCLIENTOPTTRADE" />
+				<Index>
+				</Index>
+			</table>
+			<table name="D_COMPCLIENTOTHERFUND" title="" description="">
+				<Columns ref="D_COMPCLIENTOTHERFUND" />
+				<Index>
+					<defineIndex name="IDX_D_OTHERFUND_DATE_COMPID">
+						<key name="COMPANYID"/>
+						<key name="TRADEDATE"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="D_COMPCLIENTPOS" title="" description="">
+				<Columns ref="D_COMPCLIENTPOS" />
+				<Index>
+					<defineIndex name="IDX_D_COMPPOS_DATE_COMPID">
+						<key name="COMPANYID"/>
+						<key name="TRADEDATE"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="D_COMPCLIENTPOSDETAIL" title="" description="">
+				<Columns ref="D_COMPCLIENTPOSDETAIL" />
+				<Index>
+					<defineIndex name="INDEX_D_POSDETAIL_DATE_COMP">
+						<key name="COMPANYID"/>
+						<key name="TRADEDATE"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="D_COMPCLIENTTRADE" title="" description="">
+				<Columns ref="D_COMPCLIENTTRADE" />
+				<Index>
+					<defineIndex name="IDX_D_COMPTRADE_DATE_COMPANYID">
+						<key name="COMPANYID"/>
+						<key name="TRADEDATE"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="D_COMPDELIVCONTRACTDATA" title="" description="">
+				<Columns ref="D_COMPDELIVCONTRACTDATA" />
+				<Index>
+				</Index>
+			</table>
+			<table name="D_COMPDELIVDETAILS" title="" description="">
+				<Columns ref="D_COMPDELIVDETAILS" />
+				<Index>
+				</Index>
+			</table>
+			<table name="D_COMPEXCHANGEDETAILS" title="" description="">
+				<Columns ref="D_COMPEXCHANGEDETAILS" />
+				<Index>
+				</Index>
+			</table>
+			<table name="D_COMPMORTGAGEDETAILS" title="" description="">
+				<Columns ref="D_COMPMORTGAGEDETAILS" />
+				<Index>
+				</Index>
+			</table>
+			<table name="D_COMPOTHERINFO" title="" description="">
+				<Columns ref="D_COMPOTHERINFO" />
+				<Index>
+				</Index>
+			</table>
+			<table name="D_EXCASHMORTGAGE" title="" description="">
+				<Columns ref="D_EXCASHMORTGAGE" />
+				<Index>
+				</Index>
+			</table>
+			<table name="D_EXCASHMORTGAGEDETAILS" title="" description="">
+				<Columns ref="D_EXCASHMORTGAGEDETAILS" />
+				<Index>
+				</Index>
+			</table>
+			<table name="D_EXCLIENT" title="" description="">
+				<Columns ref="D_EXCLIENT" />
+				<Index>
+					<defineIndex name="INDEX_D_EXCLIENT_DATE_EXCHID">
+						<key name="EXCHANGEID"/>
+						<key name="OPENDATE"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="D_EXCLIENTCONTROL" title="" description="">
+				<Columns ref="D_EXCLIENTCONTROL" />
+				<Index>
+				</Index>
+			</table>
+			<table name="D_EXCLIPOSDETAIL" title="" description="">
+				<Columns ref="D_EXCLIPOSDETAIL" />
+				<Index>
+					<defineIndex name="IDX_D_EXCLIPOS_DATE_EXID">
+						<key name="TRADEDATE"/>
+						<key name="EXCHANGEID"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="D_EXCLITRDDETAIL" title="" description="">
+				<Columns ref="D_EXCLITRDDETAIL" />
+				<Index>
+					<defineIndex name="INDEX_D_EXTRD_DATE_EXCH">
+						<key name="EXCHANGEID"/>
+						<key name="TRADEDATE"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="D_EXCOMPFUND" title="" description="">
+				<Columns ref="D_EXCOMPFUND" />
+				<Index>
+				</Index>
+			</table>
+			<table name="D_EXCOMPOTHERFUND" title="" description="">
+				<Columns ref="D_EXCOMPOTHERFUND" />
+				<Index>
+				</Index>
+			</table>
+			<table name="D_EXCONTRACT" title="" description="">
+				<Columns ref="D_EXCONTRACT" />
+				<Index>
+				</Index>
+			</table>
+			<table name="D_EXDELIVCONTRACTDATA" title="" description="">
+				<Columns ref="D_EXDELIVCONTRACTDATA" />
+				<Index>
+				</Index>
+			</table>
+			<table name="D_EXDELIVDATA" title="" description="">
+				<Columns ref="D_EXDELIVDATA" />
+				<Index>
+				</Index>
+			</table>
+			<table name="D_EXEXCHANGEDETAILS" title="" description="">
+				<Columns ref="D_EXEXCHANGEDETAILS" />
+				<Index>
+				</Index>
+			</table>
+			<table name="D_EXEXIOFUND" title="" description="">
+				<Columns ref="D_EXEXIOFUND" />
+				<Index>
+				</Index>
+			</table>
+			<table name="D_EXMEMBER" title="" description="">
+				<Columns ref="D_EXMEMBER" />
+				<Index>
+				</Index>
+			</table>
+			<table name="D_EXMEMBERRELATION" title="" description="">
+				<Columns ref="D_EXMEMBERRELATION" />
+				<Index>
+				</Index>
+			</table>
+			<table name="D_EXMORTGAGERATE" title="" description="">
+				<Columns ref="D_EXMORTGAGERATE" />
+				<Index>
+				</Index>
+			</table>
+			<table name="D_EXOPTIONEXERCISE" title="" description="">
+				<Columns ref="D_EXOPTIONEXERCISE" />
+				<Index>
+				</Index>
+			</table>
+			<table name="D_EXOPTIONPOSITION" title="" description="">
+				<Columns ref="D_EXOPTIONPOSITION" />
+				<Index>
+				</Index>
+			</table>
+			<table name="D_EXOPTIONTRADE" title="" description="">
+				<Columns ref="D_EXOPTIONTRADE" />
+				<Index>
+				</Index>
+			</table>
+			<table name="D_EXOTHERINFO" title="" description="">
+				<Columns ref="D_EXOTHERINFO" />
+				<Index>
+				</Index>
+			</table>
+			<table name="D_EXPROGRAMTRADING" title="" description="">
+				<Columns ref="D_EXPROGRAMTRADING" />
+				<Index>
+				</Index>
+			</table>
+			<table name="D_EXSPOTPRICE" title="" description="">
+				<Columns ref="D_EXSPOTPRICE" />
+				<Index>
+				</Index>
+			</table>
+			<table name="D_EXWAREHOUSE" title="" description="">
+				<Columns ref="D_EXWAREHOUSE" />
+				<Index>
+				</Index>
+			</table>
+			<table name="D_EXWARRANT" title="" description="">
+				<Columns ref="D_EXWARRANT" />
+				<Index>
+				</Index>
+			</table>
+			<table name="D_SECBYALLINVESTOR" title="" description="">
+				<Columns ref="D_SECBYALLINVESTOR" />
+				<Index>
+				</Index>
+			</table>
+			<table name="D_SECBYARBITRAGEHEDGE" title="" description="">
+				<Columns ref="D_SECBYARBITRAGEHEDGE" />
+				<Index>
+				</Index>
+			</table>
+			<table name="D_SECBYCURRENCYVALUE" title="" description="">
+				<Columns ref="D_SECBYCURRENCYVALUE" />
+				<Index>
+				</Index>
+			</table>
+			<table name="D_SECBYINVESTORTYPE" title="" description="">
+				<Columns ref="D_SECBYINVESTORTYPE" />
+				<Index>
+				</Index>
+			</table>
+			<table name="D_SECBYOPENDATE" title="" description="">
+				<Columns ref="D_SECBYOPENDATE" />
+				<Index>
+				</Index>
+			</table>
+			<table name="D_SECBYSPECIALCORPTYPE" title="" description="">
+				<Columns ref="D_SECBYSPECIALCORPTYPE" />
+				<Index>
+				</Index>
+			</table>
+			<table name="H_BANKEXCHANGEDETAILS" title="" description="">
+				<Columns ref="H_BANKEXCHANGEDETAILS" />
+				<Index>
+				</Index>
+			</table>
+			<table name="H_BANKFIRMACCOUNT" title="" description="">
+				<Columns ref="H_BANKFIRMACCOUNT" />
+				<Index>
+					<defineIndex name="PK_H_BANKFIRMACCOUNT">
+						<key name="BANKID"/>
+						<key name="TRADEDATE"/>
+						<key name="BANKACCOUNT"/>
+					</defineIndex>
+					<defineIndex name="IX_H_BANKACC_DATE_BANKID">
+						<key name="BANKID"/>
+						<key name="TRADEDATE"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="H_BANKIOFUNDDETAIL2" title="" description="">
+				<Columns ref="H_BANKIOFUNDDETAIL2" />
+				<Index>
+					<defineIndex name="IX_H_BANKIOFUND_DATE_BANKID">
+						<key name="BANKID"/>
+						<key name="TRADEDATE"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="H_BANKMISSINGACCOUNT" title="" description="">
+				<Columns ref="H_BANKMISSINGACCOUNT" />
+				<Index>
+					<defineIndex name="IX_H_BANKMISSACC_DATE_BANKID">
+						<key name="BANKID"/>
+						<key name="TRADEDATE"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="H_BUREAUREPORT" title="" description="">
+				<Columns ref="H_BUREAUREPORT" />
+				<Index>
+				</Index>
+			</table>
+			<table name="H_CHECKCLIFUND" title="" description="">
+				<Columns ref="H_CHECKCLIFUND" />
+				<Index>
+				</Index>
+			</table>
+			<table name="H_CHECKCLIIOFUNDDETAIL" title="" description="">
+				<Columns ref="H_CHECKCLIIOFUNDDETAIL" />
+				<Index>
+					<defineIndex name="IX_H_CHKIOFUNDDTL_DATE_COMPID">
+						<key name="TRADEDATE"/>
+						<key name="COMPANYID"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="H_CHECKCLIOPTPOSDETAIL" title="期权被核查持仓明细表" description="期权被核查持仓明细表">
+				<Columns ref="H_CHECKCLIOPTPOSDETAIL" />
+				<Index>
+				</Index>
+			</table>
+			<table name="H_CHECKCLIOPTTRDDETAIL" title="期权被核查数据成交明细表" description="期权被核查数据成交明细表">
+				<Columns ref="H_CHECKCLIOPTTRDDETAIL" />
+				<Index>
+				</Index>
+			</table>
+			<table name="H_CHECKCLIOTHERFUND" title="" description="">
+				<Columns ref="H_CHECKCLIOTHERFUND" />
+				<Index>
+					<defineIndex name="INDEX_CHKOTHERFUND">
+						<key name="COMPANYID"/>
+						<key name="TRADEDATE"/>
+						<key name="CLIENTID"/>
+						<key name="FUNDTYPE"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="H_CHECKCLIPOSDETAIL" title="" description="">
+				<Columns ref="H_CHECKCLIPOSDETAIL" />
+				<Index>
+					<defineIndex name="IX_H_CHKCLIPOSDTL_DATE_COMPID">
+						<key name="TRADEDATE"/>
+						<key name="COMPANYID"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="H_CHECKCLIPOSSUMBYCOMP" title="" description="">
+				<Columns ref="H_CHECKCLIPOSSUMBYCOMP" />
+				<Index>
+					<defineIndex name="PK_H_CHECKCLIPOSSUMBYCOMP">
+						<key name="CURRENCY"/>
+						<key name="TRADEDATE"/>
+						<key name="COMPANYID"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="H_CHECKCLIPOSSUMBYCONTRACT" title="" description="">
+				<Columns ref="H_CHECKCLIPOSSUMBYCONTRACT" />
+				<Index>
+					<defineIndex name="PK_H_CHECKCLIPOSSUMBYCONTRACT">
+						<key name="CURRENCY"/>
+						<key name="TRADEDATE"/>
+						<key name="COMPANYID"/>
+						<key name="CONTRACTID"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="H_CHECKCLITRDDETAIL" title="" description="">
+				<Columns ref="H_CHECKCLITRDDETAIL" />
+				<Index>
+					<defineIndex name="IDX_H_CHKCLITRDDTL_CLIENTID">
+						<key name="CLIENTID"/>
+					</defineIndex>
+					<defineIndex name="IDX_H_CHKCLITRDDTL_DATE_COMPID">
+						<key name="TRADEDATE"/>
+						<key name="COMPANYID"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="H_CHECKCLITRDSUMBYCOMP" title="" description="">
+				<Columns ref="H_CHECKCLITRDSUMBYCOMP" />
+				<Index>
+					<defineIndex name="PK_H_CHECKCLITRDSUMBYCOMP">
+						<key name="CURRENCY"/>
+						<key name="TRADEDATE"/>
+						<key name="COMPANYID"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="H_CHECKCLITRDSUMBYCONTRACT" title="" description="">
+				<Columns ref="H_CHECKCLITRDSUMBYCONTRACT" />
+				<Index>
+					<defineIndex name="PK_H_CHECKCLITRDSUMBYCONTRACT">
+						<key name="CURRENCY"/>
+						<key name="TRADEDATE"/>
+						<key name="COMPANYID"/>
+						<key name="CONTRACTID"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="H_CHECKCOMPFUND" title="" description="">
+				<Columns ref="H_CHECKCOMPFUND" />
+				<Index>
+				</Index>
+			</table>
+			<table name="H_COMPAMACCOUNTS" title="综合类资产管理业务投资账户文件" description="综合类资产管理业务投资账户文件">
+				<Columns ref="H_COMPAMACCOUNTS" />
+				<Index>
+				</Index>
+			</table>
+			<table name="H_COMPAMASSETS" title="资产管理非期货类资金数据文件" description="资产管理非期货类资金数据文件">
+				<Columns ref="H_COMPAMASSETS" />
+				<Index>
+				</Index>
+			</table>
+			<table name="H_COMPCASHMORTGAGE" title="货币充抵资金文件" description="货币充抵资金文件">
+				<Columns ref="H_COMPCASHMORTGAGE" />
+				<Index>
+				</Index>
+			</table>
+			<table name="H_COMPCASHMORTGAGEDETAILS" title="" description="">
+				<Columns ref="H_COMPCASHMORTGAGEDETAILS" />
+				<Index>
+				</Index>
+			</table>
+			<table name="H_COMPCLIENTCODE" title="客户编码文件" description="客户编码文件">
+				<Columns ref="H_COMPCLIENTCODE" />
+				<Index>
+					<defineIndex name="IX_H_COMPCLTCODE_DATE_COMPID">
+						<key name="COMPANYID"/>
+						<key name="OPENDATE"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="H_COMPCLIENTFUND" title="客户基本资金数据文件" description="客户基本资金数据文件">
+				<Columns ref="H_COMPCLIENTFUND" />
+				<Index>
+					<defineIndex name="IX_H_COMPCLFUND_CLID_DATE">
+						<key name="TRADEDATE"/>
+						<key name="CLIENTID"/>
+					</defineIndex>
+					<defineIndex name="PK_H_COMPCLIENTFUND">
+						<key name="COMPANYID"/>
+						<key name="TRADEDATE"/>
+						<key name="CLIENTID"/>
+					</defineIndex>
+					<defineIndex name="IX_H_COMPCLFUND_TRADEDATE">
+						<key name="TRADEDATE"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="H_COMPCLIENTFUNDACC" title="客户期货结算账户文件" description="客户期货结算账户文件">
+				<Columns ref="H_COMPCLIENTFUNDACC" />
+				<Index>
+					<defineIndex name="PK_H_COMPCLIENTFUNDACC">
+						<key name="COMPANYID"/>
+						<key name="OPENDATE"/>
+						<key name="CLIENTID"/>
+						<key name="BANKID"/>
+						<key name="BANKACCOUNT"/>
+					</defineIndex>
+					<defineIndex name="IX_H_COMCLTFUNACC_DATE_COMPID">
+						<key name="COMPANYID"/>
+						<key name="OPENDATE"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="H_COMPCLIENTFUNDDETAIL" title="客户出入金记录文件" description="客户出入金记录文件">
+				<Columns ref="H_COMPCLIENTFUNDDETAIL" />
+				<Index>
+					<defineIndex name="IX_H_COMCLFUNDTL_COMPID_DATE">
+						<key name="COMPANYID"/>
+						<key name="TRADEDATE"/>
+					</defineIndex>
+					<defineIndex name="IX_H_COMCLFUNDTL_CLTID_DATE">
+						<key name="CLIENTID"/>
+						<key name="TRADEDATE"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="H_COMPCLIENTINFO" title="核对系统-公司上报客户基本资料" description="核对系统-公司上报客户基本资料">
+				<Columns ref="H_COMPCLIENTINFO" />
+				<Index>
+					<defineIndex name="IX_H_COMPCLTINFO_DATE_COMPID">
+						<key name="COMPANYID"/>
+						<key name="OPENDATE"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="H_COMPCLIENTLIQUID" title="期货平仓明细文件" description="期货平仓明细文件">
+				<Columns ref="H_COMPCLIENTLIQUID" />
+				<Index>
+					<defineIndex name="IX_H_COMPLIQUID_DATE_COMPID">
+						<key name="TRADEDATE"/>
+						<key name="COMPANYID"/>
+					</defineIndex>
+					<defineIndex name="IX_H_COMPLIQUID_CLIENTID_DATE">
+						<key name="TRADEDATE"/>
+						<key name="CLIENTID"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="H_COMPCLIENTOPTLIQUID" title="期权平仓明细文件" description="期权平仓明细文件">
+				<Columns ref="H_COMPCLIENTOPTLIQUID" />
+				<Index>
+				</Index>
+			</table>
+			<table name="H_COMPCLIENTOPTPOS" title="期权持仓数据文件" description="期权持仓数据文件">
+				<Columns ref="H_COMPCLIENTOPTPOS" />
+				<Index>
+				</Index>
+			</table>
+			<table name="H_COMPCLIENTOPTPOSDETAIL" title="期权持仓明细文件" description="期权持仓明细文件">
+				<Columns ref="H_COMPCLIENTOPTPOSDETAIL" />
+				<Index>
+				</Index>
+			</table>
+			<table name="H_COMPCLIENTOPTTRADE" title="期权成交明细文件" description="期权成交明细文件">
+				<Columns ref="H_COMPCLIENTOPTTRADE" />
+				<Index>
+				</Index>
+			</table>
+			<table name="H_COMPCLIENTOTHERFUND" title="客户其它分项资金数据文件" description="客户其它分项资金数据文件">
+				<Columns ref="H_COMPCLIENTOTHERFUND" />
+				<Index>
+					<defineIndex name="IX_H_OTHERFUND_DATE_COMPID">
+						<key name="COMPANYID"/>
+						<key name="TRADEDATE"/>
+					</defineIndex>
+					<defineIndex name="IX_H_OTHERFUND_CLTID_DATE">
+						<key name="TRADEDATE"/>
+						<key name="CLIENTID"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="H_COMPCLIENTPOS" title="期货持仓数据文件" description="期货持仓数据文件">
+				<Columns ref="H_COMPCLIENTPOS" />
+				<Index>
+					<defineIndex name="IX_H_COMPOS_DATE_COMPID">
+						<key name="COMPANYID"/>
+						<key name="TRADEDATE"/>
+					</defineIndex>
+					<defineIndex name="IX_H_COMPOS_CLID_DATE">
+						<key name="TRADEDATE"/>
+						<key name="CLIENTID"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="H_COMPCLIENTPOSDETAIL" title="期货持仓明细文件" description="期货持仓明细文件">
+				<Columns ref="H_COMPCLIENTPOSDETAIL" />
+				<Index>
+					<defineIndex name="IX_H_POSDETAIL_DATE_COMPID">
+						<key name="COMPANYID"/>
+						<key name="TRADEDATE"/>
+					</defineIndex>
+					<defineIndex name="IX_H_POSDETAIL_ID_DATE">
+						<key name="TRADEDATE"/>
+						<key name="CLIENTID"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="H_COMPCLIENTTRADE" title="期货成交明细文件" description="期货成交明细文件">
+				<Columns ref="H_COMPCLIENTTRADE" />
+				<Index>
+					<defineIndex name="IX_H_COMPTRADE_CLIENTID_DATE">
+						<key name="TRADEDATE"/>
+						<key name="CLIENTID"/>
+					</defineIndex>
+					<defineIndex name="IX_H_COMPTRADE_DATE_COMPID">
+						<key name="COMPANYID"/>
+						<key name="TRADEDATE"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="H_COMPDELIVCONTRACTDATA" title=")期货待交割结算合约文件" description=")期货待交割结算合约文件">
+				<Columns ref="H_COMPDELIVCONTRACTDATA" />
+				<Index>
+				</Index>
+			</table>
+			<table name="H_COMPDELIVDETAILS" title="期货交割明细文件" description="期货交割明细文件">
+				<Columns ref="H_COMPDELIVDETAILS" />
+				<Index>
+					<defineIndex name="IX_COMPDELIVDTLS_DATE_COMPID">
+						<key name="COMPANYID"/>
+						<key name="TRADEDATE"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="H_COMPEXCHANGEDETAILS" title="汇兑明细文件" description="汇兑明细文件">
+				<Columns ref="H_COMPEXCHANGEDETAILS" />
+				<Index>
+				</Index>
+			</table>
+			<table name="H_COMPMORTGAGEDETAILS" title="非货币充抵明细文件" description="非货币充抵明细文件">
+				<Columns ref="H_COMPMORTGAGEDETAILS" />
+				<Index>
+					<defineIndex name="IX_COMPMORTDTLS_DATE_COMPID">
+						<key name="COMPANYID"/>
+						<key name="TRADEDATE"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="H_COMPOTHERINFO" title="其它需要说明的信息或数据文件" description="其它需要说明的信息或数据文件">
+				<Columns ref="H_COMPOTHERINFO" />
+				<Index>
+				</Index>
+			</table>
+			<table name="H_EXCASHMORTGAGE" title="货币充抵资金文件" description="货币充抵资金文件">
+				<Columns ref="H_EXCASHMORTGAGE" />
+				<Index>
+				</Index>
+			</table>
+			<table name="H_EXCASHMORTGAGEDETAILS" title="" description="">
+				<Columns ref="H_EXCASHMORTGAGEDETAILS" />
+				<Index>
+				</Index>
+			</table>
+			<table name="H_EXCLIENT" title="客户基本资料文件" description="客户基本资料文件">
+				<Columns ref="H_EXCLIENT" />
+				<Index>
+					<defineIndex name="IX_H_EXCLIENT_DATE_EXCHID">
+						<key name="EXCHANGEID"/>
+						<key name="OPENDATE"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="H_EXCLIENTCONTROL" title="" description="">
+				<Columns ref="H_EXCLIENTCONTROL" />
+				<Index>
+				</Index>
+			</table>
+			<table name="H_EXCLIPOSDETAIL" title="期货持仓明细文件" description="期货持仓明细文件">
+				<Columns ref="H_EXCLIPOSDETAIL" />
+				<Index>
+					<defineIndex name="IDX_H_EXPOSDL_DATE_COMPID">
+						<key name="TRADEDATE"/>
+						<key name="COMPANYID"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="H_EXCLITRDDETAIL" title="期货成交明细文件" description="期货成交明细文件">
+				<Columns ref="H_EXCLITRDDETAIL" />
+				<Index>
+					<defineIndex name="IDX_H_EXTRD_DATE_COMPID_EXCHID">
+						<key name="EXCHANGEID"/>
+						<key name="TRADEDATE"/>
+						<key name="COMPANYID"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="H_EXCOMPFUND" title="会员资金文件" description="会员资金文件">
+				<Columns ref="H_EXCOMPFUND" />
+				<Index>
+					<defineIndex name="PK_H_EXCOMPFUND">
+						<key name="TRADEDATE"/>
+						<key name="EXCHANGEID"/>
+						<key name="COMPANYID"/>
+						<key name="EXCOMPANYID"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="H_EXCOMPOTHERFUND" title="客户分项资金文件" description="客户分项资金文件">
+				<Columns ref="H_EXCOMPOTHERFUND" />
+				<Index>
+					<defineIndex name="IDX_H_EXOTHFD_DATE_COMID_EXID">
+						<key name="TRADEDATE"/>
+						<key name="EXCHANGEID"/>
+						<key name="COMPANYID"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="H_EXCONTRACT" title="品种合约文件" description="品种合约文件">
+				<Columns ref="H_EXCONTRACT" />
+				<Index>
+					<defineIndex name="PK_H_EXCONTRACT">
+						<key name="TRADEDATE"/>
+						<key name="EXCHANGEID"/>
+						<key name="CONTRACTID"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="H_EXDELIVCONTRACTDATA" title="期货待交割结算合约文件" description="期货待交割结算合约文件">
+				<Columns ref="H_EXDELIVCONTRACTDATA" />
+				<Index>
+				</Index>
+			</table>
+			<table name="H_EXDELIVDATA" title="期货交割明细文件" description="期货交割明细文件">
+				<Columns ref="H_EXDELIVDATA" />
+				<Index>
+				</Index>
+			</table>
+			<table name="H_EXEXCHANGEDETAILS" title="汇兑明细文件" description="汇兑明细文件">
+				<Columns ref="H_EXEXCHANGEDETAILS" />
+				<Index>
+				</Index>
+			</table>
+			<table name="H_EXEXIOFUND" title="会员出入金文件" description="会员出入金文件">
+				<Columns ref="H_EXEXIOFUND" />
+				<Index>
+				</Index>
+			</table>
+			<table name="H_EXMEMBER" title="会员资料文件" description="会员资料文件">
+				<Columns ref="H_EXMEMBER" />
+				<Index>
+					<defineIndex name="PK_H_EXMEMBER">
+						<key name="TRADEDATE"/>
+						<key name="EXCHANGEID"/>
+						<key name="COMPANYID"/>
+						<key name="EXCOMPANYID"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="H_EXMEMBERRELATION" title="代理结算对应关系文件" description="代理结算对应关系文件">
+				<Columns ref="H_EXMEMBERRELATION" />
+				<Index>
+					<defineIndex name="PK_H_EXMEMBERRELATION">
+						<key name="TRADEDATE"/>
+						<key name="EXCHANGEID"/>
+						<key name="NONSETTLECOMPID"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="H_EXMORTGAGERATE" title="" description="">
+				<Columns ref="H_EXMORTGAGERATE" />
+				<Index>
+				</Index>
+			</table>
+			<table name="H_EXOPTIONEXERCISE" title="期权行权明细文件" description="期权行权明细文件">
+				<Columns ref="H_EXOPTIONEXERCISE" />
+				<Index>
+				</Index>
+			</table>
+			<table name="H_EXOPTIONPOSITION" title="期权持仓明细文件" description="期权持仓明细文件">
+				<Columns ref="H_EXOPTIONPOSITION" />
+				<Index>
+				</Index>
+			</table>
+			<table name="H_EXOPTIONTRADE" title="期权成交明细文件" description="期权成交明细文件">
+				<Columns ref="H_EXOPTIONTRADE" />
+				<Index>
+				</Index>
+			</table>
+			<table name="H_EXOTHERINFO" title="其它需要说明的信息文件" description="其它需要说明的信息文件">
+				<Columns ref="H_EXOTHERINFO" />
+				<Index>
+				</Index>
+			</table>
+			<table name="H_EXPROGRAMTRADING" title="" description="">
+				<Columns ref="H_EXPROGRAMTRADING" />
+				<Index>
+				</Index>
+			</table>
+			<table name="H_EXSPOTPRICE" title="现货价格文件" description="现货价格文件">
+				<Columns ref="H_EXSPOTPRICE" />
+				<Index>
+					<defineIndex name="PK_H_EXSPOTPRICE">
+						<key name="TRADEDATE"/>
+						<key name="EXCHANGEID"/>
+						<key name="COMMODITYID"/>
+						<key name="SOURCEID"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="H_EXTOTALCOMPFUND" title="" description="">
+				<Columns ref="H_EXTOTALCOMPFUND" />
+				<Index>
+					<defineIndex name="IX_TOTALEX_COMPFUND">
+						<key name="TRADEDATE"/>
+						<key name="EXCHANGEID"/>
+						<key name="COMPANYID"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="H_EXWAREHOUSE" title="仓库文件" description="仓库文件">
+				<Columns ref="H_EXWAREHOUSE" />
+				<Index>
+					<defineIndex name="PK_H_EXWAREHOUSE">
+						<key name="TRADEDATE"/>
+						<key name="EXCHANGEID"/>
+						<key name="WAREHOUSEID"/>
+						<key name="COMMODITYID"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="H_EXWARRANT" title="仓单文件" description="仓单文件">
+				<Columns ref="H_EXWARRANT" />
+				<Index>
+				</Index>
+			</table>
+			<table name="H_SECBYALLINVESTOR" title="" description="">
+				<Columns ref="H_SECBYALLINVESTOR" />
+				<Index>
+				</Index>
+			</table>
+			<table name="H_SECBYARBITRAGEHEDGE" title="" description="">
+				<Columns ref="H_SECBYARBITRAGEHEDGE" />
+				<Index>
+				</Index>
+			</table>
+			<table name="H_SECBYCURRENCYVALUE" title="" description="">
+				<Columns ref="H_SECBYCURRENCYVALUE" />
+				<Index>
+				</Index>
+			</table>
+			<table name="H_SECBYINVESTORTYPE" title="" description="">
+				<Columns ref="H_SECBYINVESTORTYPE" />
+				<Index>
+				</Index>
+			</table>
+			<table name="H_SECBYOPENDATE" title="" description="">
+				<Columns ref="H_SECBYOPENDATE" />
+				<Index>
+				</Index>
+			</table>
+			<table name="H_SECBYSPECIALCORPTYPE" title="" description="">
+				<Columns ref="H_SECBYSPECIALCORPTYPE" />
+				<Index>
+				</Index>
+			</table>
+			<table name="H_STANDCLIFUND" title="" description="">
+				<Columns ref="H_STANDCLIFUND" />
+				<Index>
+					<defineIndex name="PK_H_STANDCLIFUND">
+						<key name="CURRENCY"/>
+						<key name="TRADEDATE"/>
+						<key name="COMPANYID"/>
+						<key name="CLIENTID"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="H_STANDCLIIOFUNDDETAIL" title="" description="">
+				<Columns ref="H_STANDCLIIOFUNDDETAIL" />
+				<Index>
+				</Index>
+			</table>
+			<table name="H_STANDCLIOPTPOSDETAIL" title="期权持仓明细基准表" description="期权持仓明细基准表">
+				<Columns ref="H_STANDCLIOPTPOSDETAIL" />
+				<Index>
+				</Index>
+			</table>
+			<table name="H_STANDCLIOPTTRDDETAIL" title="期权成交基准数据" description="期权成交基准数据">
+				<Columns ref="H_STANDCLIOPTTRDDETAIL" />
+				<Index>
+				</Index>
+			</table>
+			<table name="H_STANDCLIOTHERFUND" title="" description="">
+				<Columns ref="H_STANDCLIOTHERFUND" />
+				<Index>
+					<defineIndex name="INDEX_STDTOTHERFUND">
+						<key name="COMPANYID"/>
+						<key name="TRADEDATE"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="H_STANDCLIOTHERFUND_TEST" title="" description="">
+				<Columns ref="H_STANDCLIOTHERFUND_TEST" />
+				<Index>
+				</Index>
+			</table>
+			<table name="H_STANDCLIPOSDETAIL" title="" description="">
+				<Columns ref="H_STANDCLIPOSDETAIL" />
+				<Index>
+					<defineIndex name="IX_H_STDCLIPOSDTL_DATE_COMPID">
+						<key name="TRADEDATE"/>
+						<key name="COMPANYID"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="H_STANDCLIPOSDETAIL_TEST" title="" description="">
+				<Columns ref="H_STANDCLIPOSDETAIL_TEST" />
+				<Index>
+				</Index>
+			</table>
+			<table name="H_STANDCLIPOSSUMBYCOMP" title="" description="">
+				<Columns ref="H_STANDCLIPOSSUMBYCOMP" />
+				<Index>
+				</Index>
+			</table>
+			<table name="H_STANDCLIPOSSUMBYCONTRACT" title="" description="">
+				<Columns ref="H_STANDCLIPOSSUMBYCONTRACT" />
+				<Index>
+				</Index>
+			</table>
+			<table name="H_STANDCLITRDDETAIL" title="" description="">
+				<Columns ref="H_STANDCLITRDDETAIL" />
+				<Index>
+					<defineIndex name="IX_H_STDCLITRDDTL_DATE_COMPID">
+						<key name="TRADEDATE"/>
+						<key name="COMPANYID"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="H_STANDCLITRDDETAIL_TEST" title="" description="">
+				<Columns ref="H_STANDCLITRDDETAIL_TEST" />
+				<Index>
+				</Index>
+			</table>
+			<table name="H_STANDCLITRDSUMBYCOMP" title="" description="">
+				<Columns ref="H_STANDCLITRDSUMBYCOMP" />
+				<Index>
+					<defineIndex name="PK_H_STANDCLITRDSUMBYCOMP">
+						<key name="TRADEDATE"/>
+						<key name="COMPANYID"/>
+						<key name="CURRENCY"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="H_STANDCLITRDSUMBYCONTRACT" title="" description="">
+				<Columns ref="H_STANDCLITRDSUMBYCONTRACT" />
+				<Index>
+					<defineIndex name="PK_H_STANDCLITRDSUMBYCONTRACT">
+						<key name="TRADEDATE"/>
+						<key name="COMPANYID"/>
+						<key name="CONTRACTID"/>
+						<key name="CURRENCY"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="H_STANDCOMPFUND" title="" description="">
+				<Columns ref="H_STANDCOMPFUND" />
+				<Index>
+					<defineIndex name="PK_H_STANDCOMPFUND">
+						<key name="CURRENCY"/>
+						<key name="TRADEDATE"/>
+						<key name="COMPANYID"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="H_STANDCOMPFUNDBALANCE" title="" description="">
+				<Columns ref="H_STANDCOMPFUNDBALANCE" />
+				<Index>
+				</Index>
+			</table>
+			<table name="H_STDFUNDTRANSFER" title="" description="">
+				<Columns ref="H_STDFUNDTRANSFER" />
+				<Index>
+					<defineIndex name="PK_H_STDFUNDTRANSFER">
+						<key name="SEQID"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="P_COMPSECUREKEY" title="" description="">
+				<Columns ref="P_COMPSECUREKEY" />
+				<Index>
+					<defineIndex name="PK_P_COMPSECUREKEY">
+						<key name="KEYID"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="P_COMPSECUREKEYLOG" title="" description="">
+				<Columns ref="P_COMPSECUREKEYLOG" />
+				<Index>
+					<defineIndex name="PK_P_COMPSECUREKEYLOG">
+						<key name="LOGID"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="P_COMPSECUREKEYLOG_OLD" title="" description="">
+				<Columns ref="P_COMPSECUREKEYLOG_OLD" />
+				<Index>
+				</Index>
+			</table>
+			<table name="P_COMPSECUREKEY_OLD" title="" description="">
+				<Columns ref="P_COMPSECUREKEY_OLD" />
+				<Index>
+				</Index>
+			</table>
+			<table name="P_COMPTOKENLOG" title="" description="">
+				<Columns ref="P_COMPTOKENLOG" />
+				<Index>
+					<defineIndex name="PRIMAR_COMPANYID_KEY">
+						<key name="COMPANYID"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="P_KEYOPTION" title="" description="">
+				<Columns ref="P_KEYOPTION" />
+				<Index>
+					<defineIndex name="PK_P_KEYOPTION">
+						<key name="COMPANYID"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="P_USERAUTH" title="" description="">
+				<Columns ref="P_USERAUTH" />
+				<Index>
+				</Index>
+			</table>
+			<table name="P_USERAUTHEX" title="" description="">
+				<Columns ref="P_USERAUTHEX" />
+				<Index>
+				</Index>
+			</table>
+			<table name="P_USERAUTHEX_OLD" title="" description="">
+				<Columns ref="P_USERAUTHEX_OLD" />
+				<Index>
+				</Index>
+			</table>
+			<table name="P_USERAUTHEX_ORI" title="" description="">
+				<Columns ref="P_USERAUTHEX_ORI" />
+				<Index>
+				</Index>
+			</table>
+			<table name="P_USERAUTHORI" title="取密钥登录认证" description="取密钥登录认证">
+				<Columns ref="P_USERAUTHORI" />
+				<Index>
+					<defineIndex name="PRIMARY_COMPUSER_KEY_ORI">
+						<key name="USERID"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="P_USERAUTH_OLD" title="" description="">
+				<Columns ref="P_USERAUTH_OLD" />
+				<Index>
+				</Index>
+			</table>
+			<table name="P_USERAUTH_ORI" title="取密钥登录认证" description="取密钥登录认证">
+				<Columns ref="P_USERAUTH_ORI" />
+				<Index>
+					<defineIndex name="PRIMARY_COMPUSER1_KEY">
+						<key name="COMPANYID"/>
+						<key name="USERID"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="P_USERTOKEN" title="" description="">
+				<Columns ref="P_USERTOKEN" />
+				<Index>
+					<defineIndex name="PRIMARY_COMPCLIENT_KEY">
+						<key name="COMPANYID"/>
+						<key name="USERID"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="R_CLIENTINFOCHANGE" title="" description="">
+				<Columns ref="R_CLIENTINFOCHANGE" />
+				<Index>
+				</Index>
+			</table>
+			<table name="R_CLIENTOPTIONPOSITIONREMAIN" title="" description="">
+				<Columns ref="R_CLIENTOPTIONPOSITIONREMAIN" />
+				<Index>
+				</Index>
+			</table>
+			<table name="R_CLIENTOPTIONTRADEREMAIN" title="" description="">
+				<Columns ref="R_CLIENTOPTIONTRADEREMAIN" />
+				<Index>
+				</Index>
+			</table>
+			<table name="R_CLIENTOTHERFUNDREMAIN" title="" description="">
+				<Columns ref="R_CLIENTOTHERFUNDREMAIN" />
+				<Index>
+				</Index>
+			</table>
+			<table name="R_CLIFUNDCONTINUEREMAIN" title="" description="">
+				<Columns ref="R_CLIFUNDCONTINUEREMAIN" />
+				<Index>
+				</Index>
+			</table>
+			<table name="R_CLIFUNDREMAIN" title="" description="">
+				<Columns ref="R_CLIFUNDREMAIN" />
+				<Index>
+				</Index>
+			</table>
+			<table name="R_CLIIOFUNDDETAILREMAIN" title="" description="">
+				<Columns ref="R_CLIIOFUNDDETAILREMAIN" />
+				<Index>
+					<defineIndex name="PK_R_CLIIOFUNDDETAILREMAIN">
+						<key name="ALARMID"/>
+					</defineIndex>
+					<defineIndex name="INDEX_R_CLIFUNDREMAIN_DATE">
+						<key name="TRADEDATESTD"/>
+						<key name="TRADEDATECHK"/>
+						<key name="COMPANYID"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="R_CLIIOFUNDDETAILREMAIN_OLD" title="" description="">
+				<Columns ref="R_CLIIOFUNDDETAILREMAIN_OLD" />
+				<Index>
+					<defineIndex name="PK_R_CLIIOFUNDDETAILREMAIN_OLD">
+						<key name="ALARMID"/>
+					</defineIndex>
+					<defineIndex name="INDEX_R_CLIFUNDREMAIN_DATE_OLD">
+						<key name="TRADEDATESTD"/>
+						<key name="TRADEDATECHK"/>
+						<key name="COMPANYID"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="R_CLIPOSDETAILREMAIN" title="" description="">
+				<Columns ref="R_CLIPOSDETAILREMAIN" />
+				<Index>
+				</Index>
+			</table>
+			<table name="R_CLIPOSREMAINSUMBYCOMP" title="" description="">
+				<Columns ref="R_CLIPOSREMAINSUMBYCOMP" />
+				<Index>
+				</Index>
+			</table>
+			<table name="R_CLIPOSREMAINSUMBYCONTRACT" title="" description="">
+				<Columns ref="R_CLIPOSREMAINSUMBYCONTRACT" />
+				<Index>
+				</Index>
+			</table>
+			<table name="R_CLIPROFITDETAILREMAIN" title="" description="">
+				<Columns ref="R_CLIPROFITDETAILREMAIN" />
+				<Index>
+				</Index>
+			</table>
+			<table name="R_CLIPROFITFUNDREMAIN" title="" description="">
+				<Columns ref="R_CLIPROFITFUNDREMAIN" />
+				<Index>
+				</Index>
+			</table>
+			<table name="R_CLITRDDETAILREMAIN" title="" description="">
+				<Columns ref="R_CLITRDDETAILREMAIN" />
+				<Index>
+				</Index>
+			</table>
+			<table name="R_CLITRDREMAINSUMBYCOMP" title="" description="">
+				<Columns ref="R_CLITRDREMAINSUMBYCOMP" />
+				<Index>
+				</Index>
+			</table>
+			<table name="R_CLITRDREMAINSUMBYCONTRACT" title="" description="">
+				<Columns ref="R_CLITRDREMAINSUMBYCONTRACT" />
+				<Index>
+				</Index>
+			</table>
+			<table name="R_COMPFUNDCONTINUEREMAIN" title="" description="">
+				<Columns ref="R_COMPFUNDCONTINUEREMAIN" />
+				<Index>
+				</Index>
+			</table>
+			<table name="R_COMPFUNDREMAIN" title="" description="">
+				<Columns ref="R_COMPFUNDREMAIN" />
+				<Index>
+				</Index>
+			</table>
+			<table name="R_FUNDTRANSFERREMAIN" title="" description="">
+				<Columns ref="R_FUNDTRANSFERREMAIN" />
+				<Index>
+				</Index>
+			</table>
+			<table name="R_ID_BANKACCNM_COMPACCNMDIFF" title="" description="">
+				<Columns ref="R_ID_BANKACCNM_COMPACCNMDIFF" />
+				<Index>
+				</Index>
+			</table>
+			<table name="R_ID_BANKACC_COMPACCDIFF" title="" description="">
+				<Columns ref="R_ID_BANKACC_COMPACCDIFF" />
+				<Index>
+				</Index>
+			</table>
+			<table name="R_ID_CLINM_CLIACCNMDIFF" title="" description="">
+				<Columns ref="R_ID_CLINM_CLIACCNMDIFF" />
+				<Index>
+				</Index>
+			</table>
+			<table name="R_ID_COMPACC_DUPLICATE" title="" description="">
+				<Columns ref="R_ID_COMPACC_DUPLICATE" />
+				<Index>
+				</Index>
+			</table>
+			<table name="R_ID_COMPCLIENTCODE_DIFF" title="" description="">
+				<Columns ref="R_ID_COMPCLIENTCODE_DIFF" />
+				<Index>
+				</Index>
+			</table>
+			<table name="R_ID_COMPCLIID_DUPLICATE" title="" description="">
+				<Columns ref="R_ID_COMPCLIID_DUPLICATE" />
+				<Index>
+				</Index>
+			</table>
+			<table name="R_ID_COMPCLINM_COMPACCNMDIFF" title="" description="">
+				<Columns ref="R_ID_COMPCLINM_COMPACCNMDIFF" />
+				<Index>
+				</Index>
+			</table>
+			<table name="R_ID_EXCLIID_DUPLICATE" title="" description="">
+				<Columns ref="R_ID_EXCLIID_DUPLICATE" />
+				<Index>
+				</Index>
+			</table>
+			<table name="R_ID_EXCLIINFO_COMPCLIINFODIFF" title="" description="">
+				<Columns ref="R_ID_EXCLIINFO_COMPCLIINFODIFF" />
+				<Index>
+				</Index>
+			</table>
+			<table name="R_ID_EXCLINM_COMPACCNMDIFF" title="" description="">
+				<Columns ref="R_ID_EXCLINM_COMPACCNMDIFF" />
+				<Index>
+				</Index>
+			</table>
+			<table name="S_ALARM" title="" description="">
+				<Columns ref="S_ALARM" />
+				<Index>
+				</Index>
+			</table>
+			<table name="S_BASICINFOUPDATELOG" title="" description="">
+				<Columns ref="S_BASICINFOUPDATELOG" />
+				<Index>
+					<defineIndex name="PK_S_BASICINFOUPDATELOG">
+						<key name="TRADEDATE"/>
+						<key name="COMPANYID"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="S_BIZDICT" title="" description="">
+				<Columns ref="S_BIZDICT" />
+				<Index>
+				</Index>
+			</table>
+			<table name="S_BLOG" title="" description="">
+				<Columns ref="S_BLOG" />
+				<Index>
+				</Index>
+			</table>
+			<table name="S_BUSINESSPROJECT" title="" description="">
+				<Columns ref="S_BUSINESSPROJECT" />
+				<Index>
+					<defineIndex name="PK_S_BUSINESSPROJECT">
+						<key name="TRADEDATE"/>
+						<key name="COMPANYID"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="S_BUSINESSSTATUS" title="" description="">
+				<Columns ref="S_BUSINESSSTATUS" />
+				<Index>
+					<defineIndex name="PK_S_BUSINESSSTATUS">
+						<key name="TRADEDATE"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="S_CHKBUSINESSLOG" title="" description="">
+				<Columns ref="S_CHKBUSINESSLOG" />
+				<Index>
+					<defineIndex name="PK_S_CHKBUSINESSLOG">
+						<key name="COMPANYID"/>
+						<key name="TRADEDATE"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="S_CLIENTCHECKRESULT" title="" description="">
+				<Columns ref="S_CLIENTCHECKRESULT" />
+				<Index>
+					<defineIndex name="S_CLIENTCHKRST_CLIENT_DATE">
+						<key name="TRADEDATE"/>
+						<key name="CLIENTID"/>
+					</defineIndex>
+					<defineIndex name="INDEX_S_CLICHK_DATE_COMP">
+						<key name="TRADEDATE"/>
+						<key name="COMPANYID"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="S_COMPAREPROJECT" title="" description="">
+				<Columns ref="S_COMPAREPROJECT" />
+				<Index>
+					<defineIndex name="PK_S_COMPAREPROJECT">
+						<key name="TRADEDATE"/>
+						<key name="COMPANYID"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="S_COMPCHECKRESULT" title="" description="">
+				<Columns ref="S_COMPCHECKRESULT" />
+				<Index>
+					<defineIndex name="PK_S_COMPCHECKRESULT">
+						<key name="TRADEDATE"/>
+						<key name="COMPANYID"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="S_DEALLOG" title="" description="">
+				<Columns ref="S_DEALLOG" />
+				<Index>
+				</Index>
+			</table>
+			<table name="S_EMAILSUBSCRIPTION" title="" description="">
+				<Columns ref="S_EMAILSUBSCRIPTION" />
+				<Index>
+					<defineIndex name="PK_S_EMAILSUBSCRIPTION">
+						<key name="USERID"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="S_ERRORINFO" title="" description="">
+				<Columns ref="S_ERRORINFO" />
+				<Index>
+					<defineIndex name="IDX_S_ERROR_DATE_ORG_FILE">
+						<key name="ERRORDATE"/>
+						<key name="ORGANID"/>
+						<key name="FILEID"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="S_GENERATEPROJECT" title="" description="">
+				<Columns ref="S_GENERATEPROJECT" />
+				<Index>
+					<defineIndex name="PK_S_GENERATEPROJECT">
+						<key name="TRADEDATE"/>
+						<key name="GENTYPE"/>
+						<key name="COMPANYID"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="S_INNERLOG" title="" description="">
+				<Columns ref="S_INNERLOG" />
+				<Index>
+				</Index>
+			</table>
+			<table name="S_ORGTYPE" title="" description="">
+				<Columns ref="S_ORGTYPE" />
+				<Index>
+					<defineIndex name="PK_S_ORGTYPE">
+						<key name="ORGTYPEID"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="S_QUERYAUTHCOMPANY" title="" description="">
+				<Columns ref="S_QUERYAUTHCOMPANY" />
+				<Index>
+					<defineIndex name="SYS_C0016615">
+						<key name="COMPANYID"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="S_QUERYLOG2" title="" description="">
+				<Columns ref="S_QUERYLOG2" />
+				<Index>
+					<defineIndex name="IX_S_QUERYLOG2_DATE_USERID">
+						<key name="USERID"/>
+						<key name="LOGDATE"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="S_QUERYLOGINFAIL" title="投资者查询用户登录失败记录" description="投资者查询用户登录失败记录">
+				<Columns ref="S_QUERYLOGINFAIL" />
+				<Index>
+				</Index>
+			</table>
+			<table name="S_QUERYLOGINFAIL_BK" title="" description="">
+				<Columns ref="S_QUERYLOGINFAIL_BK" />
+				<Index>
+				</Index>
+			</table>
+			<table name="S_QUERYUSER2" title="" description="">
+				<Columns ref="S_QUERYUSER2" />
+				<Index>
+					<defineIndex name="PK_S_QUERYUSER2">
+						<key name="USERID"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="S_QUERYUSER2_20111224" title="" description="">
+				<Columns ref="S_QUERYUSER2_20111224" />
+				<Index>
+				</Index>
+			</table>
+			<table name="S_QUERYUSER2_BK20120904" title="" description="">
+				<Columns ref="S_QUERYUSER2_BK20120904" />
+				<Index>
+				</Index>
+			</table>
+			<table name="S_QUERYUSER2_TEST" title="" description="">
+				<Columns ref="S_QUERYUSER2_TEST" />
+				<Index>
+					<defineIndex name="PK_S_QUERYUSER2_TEST">
+						<key name="USERID"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="S_QUERYUSERIPKEYID" title="" description="">
+				<Columns ref="S_QUERYUSERIPKEYID" />
+				<Index>
+					<defineIndex name="PK_S_QUERYUSERIPKEYID">
+						<key name="USERID"/>
+						<key name="KEYID"/>
+						<key name="IPADDR"/>
+					</defineIndex>
+					<defineIndex name="IX_S_S_QUERYUSERIPKEYID_UK">
+						<key name="USERID"/>
+						<key name="KEYID"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="S_QUERYUSERPREREG" title="" description="">
+				<Columns ref="S_QUERYUSERPREREG" />
+				<Index>
+					<defineIndex name="SYS_C0016656">
+						<key name="USERID"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="S_QUERYUSERTYPE" title="用户类型表" description="用户类型表">
+				<Columns ref="S_QUERYUSERTYPE" />
+				<Index>
+				</Index>
+			</table>
+			<table name="S_QUERYUSER_DELETED" title="" description="">
+				<Columns ref="S_QUERYUSER_DELETED" />
+				<Index>
+				</Index>
+			</table>
+			<table name="S_QUERYUSER_DELETED_BK" title="" description="">
+				<Columns ref="S_QUERYUSER_DELETED_BK" />
+				<Index>
+				</Index>
+			</table>
+			<table name="S_QUERY_BULLETIN" title="查询系统公告" description="查询系统公告">
+				<Columns ref="S_QUERY_BULLETIN" />
+				<Index>
+				</Index>
+			</table>
+			<table name="S_QUERY_BULLETIN_ATTACHMENT" title="查询系统公告附件" description="查询系统公告附件">
+				<Columns ref="S_QUERY_BULLETIN_ATTACHMENT" />
+				<Index>
+				</Index>
+			</table>
+			<table name="S_QUERY_BULLETIN_TO" title="查询系统公告发布对象" description="查询系统公告发布对象">
+				<Columns ref="S_QUERY_BULLETIN_TO" />
+				<Index>
+				</Index>
+			</table>
+			<table name="S_QUERY_BULLETIN_TYPE" title="公告类型代码表" description="公告类型代码表">
+				<Columns ref="S_QUERY_BULLETIN_TYPE" />
+				<Index>
+				</Index>
+			</table>
+			<table name="S_QUERY_POPWINDOWS" title="查询系统弹窗" description="查询系统弹窗">
+				<Columns ref="S_QUERY_POPWINDOWS" />
+				<Index>
+				</Index>
+			</table>
+			<table name="S_RESENDEXCEPTION" title="" description="">
+				<Columns ref="S_RESENDEXCEPTION" />
+				<Index>
+					<defineIndex name="PK_S_RESENDEXCEPTION">
+						<key name="RULEID"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="S_RESENDLOG" title="" description="">
+				<Columns ref="S_RESENDLOG" />
+				<Index>
+					<defineIndex name="PK_S_RESENDLOG">
+						<key name="LOGID"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="S_STDBUSINESSLOG" title="" description="">
+				<Columns ref="S_STDBUSINESSLOG" />
+				<Index>
+					<defineIndex name="PK_S_STDBUSINESSLOG">
+						<key name="COMPANYID"/>
+						<key name="TRADEDATE"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="S_SYSCHECKRULE" title="" description="">
+				<Columns ref="S_SYSCHECKRULE" />
+				<Index>
+					<defineIndex name="PK_S_SYSCHECKRULE">
+						<key name="RULEID"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="S_SYSCHECKRULEMATCHING" title="" description="">
+				<Columns ref="S_SYSCHECKRULEMATCHING" />
+				<Index>
+					<defineIndex name="PK_S_SYSCHECKRULEMATCHING">
+						<key name="RULEID"/>
+						<key name="BASEMATCHFIELD"/>
+						<key name="CHKMATCHFIELD"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="S_SYSCHECKRULESQL" title="" description="">
+				<Columns ref="S_SYSCHECKRULESQL" />
+				<Index>
+					<defineIndex name="PK_S_SYSCHECKRULESQL">
+						<key name="RULEID"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="S_SYSCHECKSUBENTRY" title="" description="">
+				<Columns ref="S_SYSCHECKSUBENTRY" />
+				<Index>
+					<defineIndex name="PK_S_SYSCHECKSUBENTRY">
+						<key name="SUBENTRYID"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="S_SYSFUNCTION" title="" description="">
+				<Columns ref="S_SYSFUNCTION" />
+				<Index>
+					<defineIndex name="PK_S_SYSFUNCTION">
+						<key name="UTLCODE"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="S_SYSLOG" title="" description="">
+				<Columns ref="S_SYSLOG" />
+				<Index>
+					<defineIndex name="PK_S_SYSLOG">
+						<key name="LOGINDATE"/>
+						<key name="LOGINTIME"/>
+						<key name="USERID"/>
+						<key name="UTLCODE"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="S_SYSROLE" title="" description="">
+				<Columns ref="S_SYSROLE" />
+				<Index>
+					<defineIndex name="PK_S_SYSROLE">
+						<key name="ROLEID"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="S_SYSSTATUSINFO" title="" description="">
+				<Columns ref="S_SYSSTATUSINFO" />
+				<Index>
+					<defineIndex name="PK_S_SYSSTATUSINFO">
+						<key name="DBNAME"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="S_SYSUSER" title="" description="">
+				<Columns ref="S_SYSUSER" />
+				<Index>
+					<defineIndex name="PK_S_SYSUSER">
+						<key name="USERID"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="S_SYSUSERFUNCTION" title="" description="">
+				<Columns ref="S_SYSUSERFUNCTION" />
+				<Index>
+					<defineIndex name="PK_S_SYSUSERFUNCTION">
+						<key name="ROLEID"/>
+						<key name="UTLCODE"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="S_TRADEDATE" title="" description="">
+				<Columns ref="S_TRADEDATE" />
+				<Index>
+				</Index>
+			</table>
+			<table name="S_UPLOADFILE" title="" description="">
+				<Columns ref="S_UPLOADFILE" />
+				<Index>
+					<defineIndex name="IX_S_UPLOADFILE_ORGANID">
+						<key name="ORGANID"/>
+					</defineIndex>
+					<defineIndex name="PK_S_UPLOADFILE">
+						<key name="FILEDATE"/>
+						<key name="ORGANID"/>
+						<key name="FILEID"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="S_UPLOADFILEDEF" title="" description="">
+				<Columns ref="S_UPLOADFILEDEF" />
+				<Index>
+					<defineIndex name="PK_S_UPLOADFILEDEF">
+						<key name="FILEID"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="S_UPLOADFILEDEFBYMEMTYPE" title="" description="">
+				<Columns ref="S_UPLOADFILEDEFBYMEMTYPE" />
+				<Index>
+				</Index>
+			</table>
+			<table name="S_UPLOADFILE_FIELDDEF" title="" description="">
+				<Columns ref="S_UPLOADFILE_FIELDDEF" />
+				<Index>
+				</Index>
+			</table>
+			<table name="S_UPLOADFILE_FIELDDEF1" title="" description="">
+				<Columns ref="S_UPLOADFILE_FIELDDEF1" />
+				<Index>
+				</Index>
+			</table>
+			<table name="S_USERDEALLOG" title="" description="">
+				<Columns ref="S_USERDEALLOG" />
+				<Index>
+				</Index>
+			</table>
+			<table name="TEMPCHECK" title="" description="">
+				<Columns ref="TEMPCHECK" />
+				<Index>
+				</Index>
+			</table>
+			<table name="TMP_COMPCLIENTCODE_C" title="" description="">
+				<Columns ref="TMP_COMPCLIENTCODE_C" />
+				<Index>
+				</Index>
+			</table>
+			<table name="TMP_COMPCLIENTCODE_S" title="" description="">
+				<Columns ref="TMP_COMPCLIENTCODE_S" />
+				<Index>
+				</Index>
+			</table>
+			<table name="TT" title="" description="">
+				<Columns ref="TT" />
+				<Index>
+				</Index>
+			</table>
+			<table name="T_B_CLIACC_YC" title="" description="">
+				<Columns ref="T_B_CLIACC_YC" />
+				<Index>
+				</Index>
+			</table>
+			<table name="T_B_CLIENT_YC" title="" description="">
+				<Columns ref="T_B_CLIENT_YC" />
+				<Index>
+				</Index>
+			</table>
+			<table name="T_H_COMPAMACCOUNTS_YC" title="" description="">
+				<Columns ref="T_H_COMPAMACCOUNTS_YC" />
+				<Index>
+				</Index>
+			</table>
+			<table name="T_H_COMPAMASSETS_YC" title="" description="">
+				<Columns ref="T_H_COMPAMASSETS_YC" />
+				<Index>
+				</Index>
+			</table>
+			<table name="T_H_COMPCASHMORTGAGEDETAILS_YC" title="" description="">
+				<Columns ref="T_H_COMPCASHMORTGAGEDETAILS_YC" />
+				<Index>
+				</Index>
+			</table>
+			<table name="T_H_COMPCLIENTCODE_YC" title="" description="">
+				<Columns ref="T_H_COMPCLIENTCODE_YC" />
+				<Index>
+				</Index>
+			</table>
+			<table name="T_H_COMPCLIENTFUNDACC_YC" title="" description="">
+				<Columns ref="T_H_COMPCLIENTFUNDACC_YC" />
+				<Index>
+				</Index>
+			</table>
+			<table name="T_H_COMPCLIENTFUNDDETAIL_YC" title="" description="">
+				<Columns ref="T_H_COMPCLIENTFUNDDETAIL_YC" />
+				<Index>
+				</Index>
+			</table>
+			<table name="T_H_COMPCLIENTFUND_YC" title="" description="">
+				<Columns ref="T_H_COMPCLIENTFUND_YC" />
+				<Index>
+				</Index>
+			</table>
+			<table name="T_H_COMPCLIENTINFO_YC" title="" description="">
+				<Columns ref="T_H_COMPCLIENTINFO_YC" />
+				<Index>
+				</Index>
+			</table>
+			<table name="T_H_COMPCLIENTLIQUID_YC" title="" description="">
+				<Columns ref="T_H_COMPCLIENTLIQUID_YC" />
+				<Index>
+				</Index>
+			</table>
+			<table name="T_H_COMPCLIENTOTHERFUND_YC" title="" description="">
+				<Columns ref="T_H_COMPCLIENTOTHERFUND_YC" />
+				<Index>
+				</Index>
+			</table>
+			<table name="T_H_COMPCLIENTPOSDETAIL_YC" title="" description="">
+				<Columns ref="T_H_COMPCLIENTPOSDETAIL_YC" />
+				<Index>
+				</Index>
+			</table>
+			<table name="T_H_COMPCLIENTPOS_YC" title="" description="">
+				<Columns ref="T_H_COMPCLIENTPOS_YC" />
+				<Index>
+				</Index>
+			</table>
+			<table name="T_H_COMPCLIENTTRADE_YC" title="" description="">
+				<Columns ref="T_H_COMPCLIENTTRADE_YC" />
+				<Index>
+				</Index>
+			</table>
+			<table name="T_H_COMPDELIVCONTRACTDATA_YC" title="" description="">
+				<Columns ref="T_H_COMPDELIVCONTRACTDATA_YC" />
+				<Index>
+				</Index>
+			</table>
+			<table name="T_H_COMPDELIVDETAILS_YC" title="" description="">
+				<Columns ref="T_H_COMPDELIVDETAILS_YC" />
+				<Index>
+				</Index>
+			</table>
+			<table name="T_H_COMPEXCHANGEDETAILS_YC" title="" description="">
+				<Columns ref="T_H_COMPEXCHANGEDETAILS_YC" />
+				<Index>
+				</Index>
+			</table>
+			<table name="T_H_COMPMORTGAGEDETAILS_YC" title="" description="">
+				<Columns ref="T_H_COMPMORTGAGEDETAILS_YC" />
+				<Index>
+				</Index>
+			</table>
+			<table name="T_H_COMPOTHERINFO_YC" title="" description="">
+				<Columns ref="T_H_COMPOTHERINFO_YC" />
+				<Index>
+				</Index>
+			</table>
+			<table name="T_H_EXCLIPOSDETAIL_YC" title="" description="">
+				<Columns ref="T_H_EXCLIPOSDETAIL_YC" />
+				<Index>
+				</Index>
+			</table>
+			<table name="T_H_EXCOMPFUND" title="" description="">
+				<Columns ref="T_H_EXCOMPFUND" />
+				<Index>
+				</Index>
+			</table>
+			<table name="T_H_EXCOMPFUND_YC" title="" description="">
+				<Columns ref="T_H_EXCOMPFUND_YC" />
+				<Index>
+				</Index>
+			</table>
+			<table name="T_S_QUERYUSER2_YC" title="" description="">
+				<Columns ref="T_S_QUERYUSER2_YC" />
+				<Index>
+				</Index>
+			</table>
+			<table name="T_YC_ZJCLIENT" title="" description="">
+				<Columns ref="T_YC_ZJCLIENT" />
+				<Index>
+				</Index>
+			</table>
+			<table name="YC_DATACHECK_RESULT" title="" description="">
+				<Columns ref="YC_DATACHECK_RESULT" />
+				<Index>
+				</Index>
+			</table>
+			<table name="YC_STATUS" title="" description="">
+				<Columns ref="YC_STATUS" />
+				<Index>
+					<defineIndex name="YC_STATUS_NAME_PK">
+						<key name="NAME"/>
+					</defineIndex>
+				</Index>
+			</table>
+			<table name="YC_USERS" title="" description="">
+				<Columns ref="YC_USERS" />
+				<Index>
+				</Index>
+			</table>
+		</tables>
+	</tableGroups>
+	<entities />
+</DB>
