@@ -214,6 +214,8 @@ function deletefile(file, type){
 					$("#framework_upload_info").css("visibility", "hidden");
 				} else if (type=="entity") {
 					$("#entity_upload_info").css("visibility", "hidden");
+				} else if (type="type") {
+					$("#type_upload_info").css("visibility", "hidden");
 				} else {
 					$("#upload_info").css("visibility", "hidden");
 				} 

@@ -263,7 +263,7 @@ public class FileController {
 	}
 	
 	@RequestMapping("/merge.do")
-	public Map<String, String> mergeXMLByPUMP(@RequestParam String frameworkFileRelativePath,
+	public @ResponseBody Map<String, String> mergeXMLByPUMP(@RequestParam String frameworkFileRelativePath,
 			@RequestParam String entityFileRelativePath,
 			@RequestParam String typeFileRelativePath,
 			HttpServletRequest request) {

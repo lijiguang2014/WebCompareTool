@@ -29,7 +29,8 @@ public class GenerateUtils {
 			+ " from user_tab_columns u"
 			+ " where u.DATA_TYPE = 'NUMBER' and u.DATA_PRECISION is null) cc"
 			+ " where cc.datatype = c.DATA_TYPE || '(' || c.DATA_LENGTH || ')' and c.DATA_TYPE = 'NUMBER'"
-			+ " group by cc.datatype";
+			+ " group by cc.datatype"
+			+ " union select 'TY_FLOAT', 'NUMBER' from dual";
 	
 	public Map<String, String> generateTypeMap(String url, String username, String password) throws Exception {
 		Map<String, String> resultMap = new HashMap<String, String>();
@@ -42,6 +43,9 @@ public class GenerateUtils {
 			while (rs.next()) {
 				String alias = rs.getString("TYPE_NAME");
 				String type = rs.getString("TYPE");
+				if (resultMap.containsKey(alias)) {
+					alias = getDifferentAlias(resultMap, alias, 0);
+				}
 				resultMap.put(alias, type);
 			}
 		} catch (Exception e) {
@@ -50,6 +54,14 @@ public class GenerateUtils {
 		}
 		
 		return resultMap;
-		
+	}
+
+	private String getDifferentAlias(Map<String, String> resultMap,
+			String alias, int i) {
+		if (!resultMap.containsKey(alias+i)) {
+			return alias+i;
+		} else {
+			return getDifferentAlias(resultMap, alias, i+1);
+		}
 	}
 }

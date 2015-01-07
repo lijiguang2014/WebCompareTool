@@ -12,6 +12,7 @@ public class ConsoleUtils {
     	Process process = null;
         try {  
             process = Runtime.getRuntime().exec(shellString);  
+            System.out.println("shellString: " + shellString);
             BufferedReader br = new BufferedReader(new InputStreamReader(process.getInputStream()), 4096);
             String line = null;
             while ( (line = br.readLine()) != null)

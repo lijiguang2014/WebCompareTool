@@ -56,8 +56,6 @@ public class CompareController {
 		String url = null;
 		String username = null;
 		String password = null;
-		InputStream sourceInputStream = null;
-		InputStream targetInputStream = null;
 		String sourceFilePath = null;
 		
 		URL resource = this.getClass().getClassLoader().getResource("/");

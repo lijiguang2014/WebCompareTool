@@ -70,7 +70,7 @@ public class XMLGenerator implements Generator {
 	
 	
 	public static void main(String[] args) throws Exception {
-//		new XMLGenerator().generateEntity(url, username, password, "D:\\fumarginEntity.xml");
+		new XMLGenerator().generateEntity(url, username, password, "D:\\fumarginEntity.xml");
 		new XMLGenerator().generateXMLType(url, username, password, "D:\\fumarginType.xml");
 	}
 	
@@ -95,9 +95,11 @@ public class XMLGenerator implements Generator {
 				} else if (type.toUpperCase().startsWith("NUMBER") && type.contains(",")) {
 					sb.append("\t<Float typename=\"" + alias + "\" length=\"" + type.substring(type.indexOf("(")+1, type.indexOf(","))
 							+ "\" precision=\"" + type.substring(type.indexOf(",")+1, type.indexOf(")")) + "\" label=\"\" />\r\n");
-				} else {
+				} else if (type.toUpperCase().startsWith("NUMBER(") && !type.contains(",")) {
 					sb.append("\t<Int typename=\"" + alias + "\" length=\"" + type.substring(type.indexOf("(")+1, type.indexOf(")"))
 							+ "\" label=\"\" />\r\n");
+				} else {
+					
 				}
 			}
 			sb.append("</UFDataTypes>");
@@ -131,9 +133,9 @@ public class XMLGenerator implements Generator {
 			String notnull = null;
 			String tableName = null;
 			String dataType = null;
-			int dataScale = 0;
+			String dataScale = null;
 			int dataLength = 0;
-			int dataPrecision = 0;
+			String dataPrecision = null;
 			
 			PreparedStatement prepareStatement = conn.prepareStatement(SQL_COLUMNINFO);
 			PreparedStatement getTableComment = conn.prepareStatement(GET_TABLECOMMENT);
@@ -146,6 +148,10 @@ public class XMLGenerator implements Generator {
 			if (f.exists()) {
 				f.delete();
 			}
+			
+			GenerateUtils generateUtils = new GenerateUtils();
+			Map<String, String> typeMap = generateUtils.generateTypeMap(url, username, password);
+			
 			FileOutputStream fos = new FileOutputStream(f, true);
 			OutputStreamWriter osw = new OutputStreamWriter(fos, "GBK");
 			StringBuilder sb = new StringBuilder();
@@ -164,14 +170,18 @@ public class XMLGenerator implements Generator {
 					columnName = columnInfo.getString("COLUMN_NAME");
 					dataType = columnInfo.getString("DATA_TYPE");
 					dataLength = columnInfo.getInt("DATA_LENGTH");
-					dataScale = columnInfo.getInt("DATA_SCALE");
-					dataPrecision = columnInfo.getInt("DATA_PRECISION");
+					dataScale = columnInfo.getString("DATA_SCALE");
+					dataPrecision = columnInfo.getString("DATA_PRECISION");
 					if (dataType.equals("CHAR") || dataType.equals("VARCHAR2")) {
 						fieldType = dataType + "(" + dataLength + ")";
-					} else {
+					} else if (dataType.equals("NUMBER")&&dataPrecision!=null&&dataScale!=null) {
 						fieldType = dataType + "(" + dataPrecision + "," + dataScale + ")";
+					} else if (dataType.equals("NUMBER")&&dataPrecision==null&&dataScale==null){
+						fieldType = dataType + "(38)" ;
+					} else {
+						fieldType = dataType;
 					}
-					typeName = getTypeName(getTypeName, fieldType);
+					typeName = getTypeName(typeMap, fieldType);
 					fieldDescription = getFieldDescription(getFieldDescription, tableName, columnName);
 					
 					isKeyJudgement.setString(1, tableName);
@@ -259,25 +269,18 @@ public class XMLGenerator implements Generator {
 		return fieldDescription == null ? "" : fieldDescription;
 	}
 	
-	/**
-	 * 从表colums_type获取数据类型对应的别名
-	 * 
-	 * @param getTypeName
-	 * @param fieldType
-	 * @return
-	 * @throws SQLException
-	 */
-	private String getTypeName(PreparedStatement getTypeName, String fieldType) throws SQLException {
+	
+	private String getTypeName(Map<String, String> typeMap, String fieldType) throws SQLException {
 		
-		getTypeName.setString(1, fieldType);
-		ResultSet rs = getTypeName.executeQuery();
-		String typeName = " ";
-		while (rs.next()) {
-			typeName = rs.getString("TYPE_NAME");
+		String type = null;
+		for (String typeName : typeMap.keySet()) {
+			type = typeMap.get(typeName);
+			if (type.toUpperCase().equals(fieldType.toUpperCase())) {
+				return typeName;
+			}
 		}
-		rs.close();
 		
-		return typeName == null ? "" : typeName;
+		return "";
 	}
 	
 	/**

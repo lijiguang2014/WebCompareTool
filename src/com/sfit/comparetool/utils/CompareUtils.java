@@ -106,7 +106,7 @@ public class CompareUtils {
 						for (ColumnBean add : adds) {
 							String typeName = add.getAlias();
 							String realTypeName = add.getType();
-							resultSb.append("\t\t\t<Add columnName=\"" + add.getColumnName() +"\" typeName=\"" + realTypeName + 
+							resultSb.append("\t\t\t<Add columnName=\"" + add.getColumnName() +"\" columnType=\"" + realTypeName + 
 									"\" originalTypeName=\"" + typeName + "\" label=\"" + add.getColumnDescription() + "\" iskey=\"" + add.getIsKey() 
 									+ "\" notnull=\"" + add.getNotNull() + "\"></Add>\r\n");
 							reportSb.append("增加列" + add.getColumnName() + "\r\n");

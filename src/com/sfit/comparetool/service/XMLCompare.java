@@ -35,8 +35,8 @@ public class XMLCompare {
 	 * @throws Exception
 	 */
 	public void merge(String frameworkFilePath, String entityFilePath, String typeFilePath, String resultFilePath) throws Exception {
-		String basePath = this.getClass().getResource("/").getPath().substring(1) + "../../";
-		String shellStr = "cmd /c " + basePath + "script/bat/mergeXML.bat " 
+		String basePath = this.getClass().getResource("/").getPath().substring(1) + "..\\..\\";
+		String shellStr = "cmd /c " + basePath + "script\\bat\\mergeXML.bat " 
 				+ resultFilePath + " " + frameworkFilePath + " " + entityFilePath + " " + typeFilePath;
 		boolean success = ConsoleUtils.callShell(shellStr);
 		if (!success) {
