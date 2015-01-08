@@ -1,0 +1,24 @@
+<Tables>
+	<Table name="A_QUERYUSER2_LOGINSTATUS" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+		</Drops>
+		<Adds>
+			<Add columnName="LOGINCNT1" columnType="number(10,0)" originalTypeName="TY_CLIENTFUNDALARM" label="" iskey="no" notnull="no"></Add>
+		</Adds>
+		<Alters>
+		</Alters>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="A_TEMP_LOGINRANK" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+		</Drops>
+		<Adds>
+		</Adds>
+		<Alters>
+			<Alter type="columnType" columnName="AVGLONGINPER"  changedTypeName="number(4001)" originalChangedTypeName="="TY_ATTACHMENT"></Alter>
+		</Alters>
+		<Index>
+		</Index>
+	</Table>
+</Tables>

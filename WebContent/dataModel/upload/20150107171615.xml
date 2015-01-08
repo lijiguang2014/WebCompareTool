@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="GB2312"?>
+<!DOCTYPE UFEntityModel SYSTEM "UFEntity.dtd">
+<UFEntityModel>
+		<Entity name="A_QUERYUSER2_LOGINSTATUS" title="" description="">
+			<Field name="TRADEDATE" type="TY_ACCOUNT" label="" description="" iskey="no" notnull="no" />
+			<Field name="LOGINTYPE" type="TY_ACCOUNT" label="" description="" iskey="no" notnull="no" />
+			<Field name="LOGINCNT" type="TY_CLIENTFUNDALARM" label="" description="" iskey="no" notnull="no" />
+			<Field name="LOGINCNT1" type="TY_CLIENTFUNDALARM" label="" description="" iskey="no" notnull="no" />
+			<Field name="TRADECNT" type="TY_CLIENTFUNDALARM" label="" description="" iskey="no" notnull="no" />
+		</Entity>
+		<Entity name="A_TEMP_LOGINRANK" title="登陆率排序临时表" description="登陆率排序临时表">
+			<Field name="TRADEMONTH" type="TY_ACCOUNT" label="" description="" iskey="no" notnull="no" />
+			<Field name="COMPANYID" type="TY_AMTYPE" label="" description="" iskey="no" notnull="no" />
+			<Field name="SHORTNAME" type="TY_BINDEDIP" label="" description="" iskey="no" notnull="no" />
+			<Field name="AVGLONGINPER" type="TY_ATTACHMENT" label="" description="" iskey="no" notnull="no" />
+		</Entity>
+</UFEntityModel>

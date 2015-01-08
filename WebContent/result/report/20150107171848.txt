@@ -1,0 +1,2 @@
+增加列LOGINCNT1
+列AVGLONGINPER数据类型变更为number(4001)

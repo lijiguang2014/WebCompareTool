@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="gb2312"?>
+<!DOCTYPE DB SYSTEM "DB.dtd">
+<DB author="UApp" version="1" iskey="no" notnull="no" order="asc" unique="no">
+	<schemas/>
+	<tableGroups>
+		<tables group="Framework">
+			<table name="A_QUERYUSER2_LOGINSTATUS" title="" description="">
+				<Columns>
+					<Column name="TRADEDATE" type="varchar2(10)" label="" description="" notnull="no" iskey="no" originaltype="TY_ACCOUNT" basetype="VString" length="10" precision="0"/>
+					<Column name="LOGINTYPE" type="varchar2(10)" label="" description="" notnull="no" iskey="no" originaltype="TY_ACCOUNT" basetype="VString" length="10" precision="0"/>
+					<Column name="LOGINCNT" type="number(10,0)" label="" description="" notnull="no" iskey="no" originaltype="TY_CLIENTFUNDALARM" basetype="Float" length="10" precision="0"/>
+					<Column name="TRADECNT" type="number(10,0)" label="" description="" notnull="no" iskey="no" originaltype="TY_CLIENTFUNDALARM" basetype="Float" length="10" precision="0"/>
+				</Columns>
+				<Index/>
+			</table>
+			<table name="A_TEMP_LOGINRANK" title="登陆率排序临时表" description="登陆率排序临时表">
+				<Columns>
+					<Column name="TRADEMONTH" type="varchar2(10)" label="" description="" notnull="no" iskey="no" originaltype="TY_ACCOUNT" basetype="VString" length="10" precision="0"/>
+					<Column name="COMPANYID" type="varchar2(4)" label="" description="" notnull="no" iskey="no" originaltype="TY_AMTYPE" basetype="VString" length="4" precision="0"/>
+					<Column name="SHORTNAME" type="varchar2(20)" label="" description="" notnull="no" iskey="no" originaltype="TY_BINDEDIP" basetype="VString" length="20" precision="0"/>
+					<Column name="AVGLONGINPER" type="number(4000)" label="" description="" notnull="no" iskey="no" originaltype="TY_ATTACHMENT" basetype="Int" length="4000" precision="0"/>
+				</Columns>
+				<Index/>
+			</table>
+		</tables>
+	</tableGroups>
+	<entities/>
+</DB>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="gb2312"?>
+<!DOCTYPE DB SYSTEM "DB.dtd">
+<DB author="UApp" version="1" iskey="no" notnull="no" order="asc" unique="no">
+	<schemas />
+	<tableGroups>
+		<tables group="Framework">
+			<table name="A_QUERYUSER2_LOGINSTATUS" title="" description="">
+				<Columns ref="A_QUERYUSER2_LOGINSTATUS" />
+				<Index>
+				</Index>
+			</table>
+			<table name="A_TEMP_LOGINRANK" title="登陆率排序临时表" description="登陆率排序临时表">
+				<Columns ref="A_TEMP_LOGINRANK" />
+				<Index>
+				</Index>
+			</table>
+		</tables>
+	</tableGroups>
+	<entities />
+</DB>

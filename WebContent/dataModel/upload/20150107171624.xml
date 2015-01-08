@@ -1,0 +1,79 @@
+<UFDataTypes>
+	<VString typename="TY_ALARMLEVEL" length="8" label="" />
+	<Int typename="TY_ATTACHMENT" length="4001" label="" />
+	<VString typename="TY_INTERPRETION" length="513" label="" />
+	<VString typename="TY_DATAPROVIDERNAME" length="16" label="" />
+	<Float typename="TY_ALARMID" length="15" precision="0" label="" />
+	<VString typename="TY_COMPANY_DESC" length="1000" label="" />
+	<Float typename="TY_ACCOUNTMORTGAGE" length="18" precision="3" label="" />
+	<VString typename="TY_BUSINESSCODE" length="60" label="" />
+	<VString typename="TY_COMPCLIENTID" length="18" label="" />
+	<VString typename="TY_BANKNAME" length="128" label="" />
+	<String typename="TY_BANKID" length="2" label="" />
+	<Float typename="TY_RISKRATE" length="14" precision="3" label="" />
+	<Int typename="TY_CONTENT" length="4000" label="" />
+	<VString typename="TY_DECL_CONTROLLED_RELATION" length="1024" label="" />
+	<VString typename="TY_BIZTYPE" length="50" label="" />
+	<Float typename="TY_CAPACITY" length="16" precision="3" label="" />
+	<VString typename="TY_TRADEMODE" length="7" label="" />
+	<VString typename="TY_COMMODITYID" length="5" label="" />
+	<String typename="TY_CHECKTYPE" length="64" label="" />
+	<Float typename="TY_BULLETINID" length="20" precision="0" label="" />
+	<Int typename="TY_LOGTIME" length="7" label="" />
+	<String typename="TY_CHECKTAG" length="4" label="" />
+	<VString typename="TY_NOTE" length="150" label="" />
+	<String typename="TY_BUREAUID" length="6" label="" />
+	<VString typename="TY_DECL_BUSINESS" length="300" label="" />
+	<VString typename="TY_BANKACCOUNT" length="32" label="" />
+	<VString typename="TY_BASECONTRACTID" length="30" label="" />
+	<String typename="TY_ACTIVEDATE" length="10" label="" />
+	<VString typename="TY_BANKNAME0" length="72" label="" />
+	<VString typename="TY_ALTERSQLFILE" length="255" label="" />
+	<VString typename="TY_BINDEDIP" length="20" label="" />
+	<Float typename="TY_DECLAREDPRICE" length="12" precision="3" label="" />
+	<VString typename="TY_NAME" length="120" label="" />
+	<Float typename="TY_CLIENTFUNDALARM" length="10" precision="0" label="" />
+	<Float typename="TY_AMOUNT" length="15" precision="3" label="" />
+	<Float typename="TY_MAXKEYPERIOD" length="10" precision="5" label="" />
+	<String typename="TY_CURRENCY" length="3" label="" />
+	<VString typename="TY_CONTRACTID" length="6" label="" />
+	<VString typename="TY_CONTENT1" length="4000" label="" />
+	<Float typename="TY_TRANSUNIT" length="5" precision="0" label="" />
+	<VString typename="TY_DECL_CONTROLLED_EXCLIENTID" length="12" label="" />
+	<Float typename="TY_COUNTLOGINTIMES" length="18" precision="0" label="" />
+	<VString typename="TY_CONTENT0" length="2048" label="" />
+	<String typename="TY_OPENTRADESEQ" length="16" label="" />
+	<Float typename="TY_AMOUNT0" length="18" precision="2" label="" />
+	<Float typename="TY_AMOUNT1" length="19" precision="3" label="" />
+	<VString typename="TY_BANKACCOUNTNO" length="40" label="" />
+	<VString typename="TY_DIFFERENCETYPE" length="64" label="" />
+	<VString typename="TY_NOTES" length="70" label="" />
+	<Int typename="TY_ACCOUNTMORTGAGE0" length="22" label="" />
+	<String typename="TY_ACCOUNTTYPE" length="1" label="" />
+	<VString typename="TY_CLIENTACCOUNT" length="22" label="" />
+	<VString typename="TY_TYPE" length="148" label="" />
+	<Float typename="TY_DISCOUNT" length="16" precision="8" label="" />
+	<VString typename="TY_CLIENTNAME0" length="80" label="" />
+	<VString typename="TY_VERSION" length="14" label="" />
+	<Float typename="TY_FEERATE" length="10" precision="8" label="" />
+	<VString typename="TY_AMORGAN" length="400" label="" />
+	<VString typename="TY_ALARMID0" length="15" label="" />
+	<Float typename="TY_FLAG" length="1" precision="0" label="" />
+	<VString typename="TY_CHECKITEM" length="512" label="" />
+	<VString typename="TY_ADDRESS0" length="200" label="" />
+	<VString typename="TY_AMTYPE" length="4" label="" />
+	<Float typename="TY_LOWDIFF" length="14" precision="2" label="" />
+	<Float typename="TY_ACCOUNTNUM" length="38" precision="0" label="" />
+	<Float typename="TY_COUNTINITLOGINTIMES" length="2" precision="0" label="" />
+	<VString typename="TY_NOTE0" length="1500" label="" />
+	<VString typename="TY_CURRECYCHK" length="3" label="" />
+	<String typename="TY_ACTIVATIONTIME" length="8" label="" />
+	<VString typename="TY_ACCOUNTTYPE0" length="1" label="" />
+	<Float typename="TY_AMOUNT2" length="19" precision="4" label="" />
+	<VString typename="TY_ACCOUNT" length="10" label="" />
+	<VString typename="TY_CLIENTNAME" length="78" label="" />
+	<String typename="TY_FIELDID" length="30" label="" />
+	<VString typename="TY_ADDRESS" length="100" label="" />
+	<VString typename="TY_TABLENAME" length="25" label="" />
+	<VString typename="TY_BANKID0" length="2" label="" />
+</UFDataTypes>
