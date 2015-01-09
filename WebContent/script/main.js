@@ -243,6 +243,8 @@ function clearCmpCondition() {
 	$("#password").val("");
 	$("#sourceFileRelativePath").val("");
 	$("#targetFileRelativePath").val("");
+	$("#originalSourceFileName").val("");
+	$("#originalTargetFileName").val("");
 }
 
 function changeTargetFile() {

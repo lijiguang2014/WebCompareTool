@@ -121,7 +121,7 @@ public class CompareController {
 			
 			String typeMappingFilePath = basePath + PropertiesUtils.getTypeMappingPath(projectName);
 			
-			String middleResultDirectoryPath = basePath + "xmlMiddleReuslt/";
+			String middleResultDirectoryPath = basePath + "result/xmlMiddleReuslt/";
 			File middleResultDirectory = new File(middleResultDirectoryPath);
 			if (!middleResultDirectory.exists()) {
 				middleResultDirectory.mkdirs();
@@ -163,9 +163,9 @@ public class CompareController {
 			}
 			
 			//调用Pump解析xml中间结果生成alter脚本
-			String finalResultRelativePath = "result/temp/alterScript/" + dateStr + ".sql";
+			String finalResultRelativePath = "result/alterScript/" + dateStr + ".sql";
 			String alterTemplatePath = PropertiesUtils.getTemplatePath(projectName);
-			String middleResultRelativePath = "xmlMiddleReuslt/" + dateStr + ".xml";
+			String middleResultRelativePath = "result/xmlMiddleReuslt/" + dateStr + ".xml";
 			String shellString = "cmd /c " + basePath + "script/bat/createAlterScript.bat " 
 						+ finalResultRelativePath + " " + alterTemplatePath + " " + middleResultRelativePath;
 			boolean isSuccess = ConsoleUtils.callShell(shellString);
