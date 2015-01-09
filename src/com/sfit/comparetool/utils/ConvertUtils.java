@@ -24,7 +24,7 @@ public class ConvertUtils {
 			convertUtils.generateEntityXMLFromExcel(tableBeanMap, "D:/Entity.xml");
 			convertUtils.generateFrameworkXML(tableBeanMap, "D:/framework.xml");
 			convertUtils.generateTypeMappingXMLFromExcel(typeMapping, "D:/type.xml");
-		} catch (IOException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}

@@ -70,7 +70,6 @@ public class CompareUtils {
 					resultSb.append("\t\t</Columns>\r\n");
 					Map<String, DefineIndex> indexes = tableElement.getIndexes();
 					generateIndexesElement(resultSb, reportSb, indexes);
-					resultSb.append("\t\t</Index>\r\n");
 					resultSb.append("\t</Table>\r\n");
 				} else {
 					List<String> dropColumns = tableElement.getDropColumns();
@@ -116,7 +115,7 @@ public class CompareUtils {
 							}
 							resultSb.append("\t\t\t<Add columnName=\"" + add.getColumnName() +"\" typeName=\"" + realTypeName + 
 									"\" originalTypeName=\"" + typeName + "\" label=\"" + add.getColumnDescription() + "\" iskey=\"" + add.getIsKey() 
-									+ "\" notnull=\"" + add.getNotNull() + "\"></Add>\r\n");
+									+ "\" notnull=\"" + add.getNotNull() + "\" description=\"" + add.getColumnDescription() + "\"></Add>\r\n");
 							reportSb.append("增加列" + add.getColumnName() + "\r\n");
 						}
 						resultSb.append("\t\t</Adds>\r\n");
@@ -393,6 +392,7 @@ public class CompareUtils {
 				}
 			} else {
 				TableElement e = new TableElement();
+				e.setDescription(newTableBean.getDomainDescription());
 				e.setTableName(tableName);
 				e.setCreate(true);
 				e.setColumns(newTableBean.getColumnMap());

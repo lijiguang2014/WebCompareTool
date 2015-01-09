@@ -31,9 +31,9 @@ public class ExcelUtils {
 	 * 
 	 * @param newFilePath
 	 * @return
-	 * @throws IOException
+	 * @throws Exception 
 	 */
-	public Map<String, TableBean> getTableBeanMap(String newFilePath) throws IOException {
+	public Map<String, TableBean> getTableBeanMap(String newFilePath) throws Exception {
 		String[] ss = newFilePath.split("\\\\");
 		String fileName = ss[ss.length-1];
 		String extension = fileName.lastIndexOf(".") == -1 ? "" : fileName
@@ -63,7 +63,7 @@ public class ExcelUtils {
 		return tableBeanMap;
 	}
 
-	private Map<String, TableBean> readTableBeanMapFrom2003Excel(File file) {
+	private Map<String, TableBean> readTableBeanMapFrom2003Excel(File file) throws Exception {
 		
 		Map<String, TableBean> tableBeanMap = new LinkedHashMap<String, TableBean>();
 		
@@ -73,11 +73,12 @@ public class ExcelUtils {
 			readTableBeanMap(sheet, tableBeanMap);
 		} catch (Exception e) {
 			e.printStackTrace();
+			throw e;
 		} 
 		return tableBeanMap;
 	}
 
-	private void readTableBeanMap(Sheet sheet, Map<String, TableBean> tableBeanMap) {
+	private void readTableBeanMap(Sheet sheet, Map<String, TableBean> tableBeanMap) throws Exception {
 		Row row = null;
 		Cell cell = null;
 		int counter = 0;
@@ -108,6 +109,7 @@ public class ExcelUtils {
 					startIndex = false;
 					tableBean = new TableBean();
 				} else if (firstValue.equals("域名称")) {
+					System.out.println("表名： " + cellValueList.get(1));
 					tableBean.setDomainName(cellValueList.get(1));
 					tableBeanMap.put(cellValueList.get(1), tableBean);
 				} else if (firstValue.equals("域说明")) {
@@ -154,16 +156,26 @@ public class ExcelUtils {
 							indexes.put(cellValueList.get(0), index);
 						}
 					} else {
-						ColumnBean column = new ColumnBean();
-						column.setColumnName(cellValueList.get(0));
-						column.setTypeName(cellValueList.get(1));
-						column.setColumnDescription(cellValueList.get(2));
-						column.setIsKey(cellValueList.get(3));
-						column.setNotNull(cellValueList.get(4));
-						if(cellValueList.size() == 6) {
-							column.setMarkup(cellValueList.get(5));
+						
+						try {
+							for (String s : cellValueList) {
+								System.out.print(s + ",");
+							}
+							System.out.println();
+							ColumnBean column = new ColumnBean();
+							column.setColumnName(cellValueList.get(0));
+							column.setTypeName(cellValueList.get(1));
+							column.setColumnDescription(cellValueList.get(2));
+							column.setIsKey(cellValueList.get(3));
+							column.setNotNull(cellValueList.get(4));
+							if(cellValueList.size() == 6) {
+								column.setMarkup(cellValueList.get(5));
+							}
+							tableBean.getColumnMap().put(column.getColumnName(), column);
+						} catch (Exception e) {
+							e.printStackTrace();
+							throw e;
 						}
-						tableBean.getColumnMap().put(column.getColumnName(), column);
 					}
 				}
 				cellValueList.clear();

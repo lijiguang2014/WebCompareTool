@@ -9,6 +9,7 @@ public class ConsoleUtils {
 	private static Logger log = Logger.getLogger(ConsoleUtils.class);
 	
     public static boolean callShell(String shellString) { 
+    	System.out.println(shellString);
     	Process process = null;
         try {  
             process = Runtime.getRuntime().exec(shellString);  
@@ -37,4 +38,9 @@ public class ConsoleUtils {
             } 
         }
     }  
+    
+    public static void main(String[] args) {
+    	String s = "cmd /c D:/code/WebCompareTool_V3.0/WebContent/WEB-INF/classes/../../script/bat/createAlterScript.bat result/temp/alterScript/20150108143231.sql template/fumargin/alter.sql.tpl xmlMiddleReuslt/20150108143231.xml";
+		new ConsoleUtils().callShell(s);
+	}
 }

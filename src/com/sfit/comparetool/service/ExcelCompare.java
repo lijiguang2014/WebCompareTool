@@ -11,19 +11,19 @@ import com.sfit.comparetool.utils.ExcelUtils;
 public class ExcelCompare {
 	
 	public static void main(String[] args) throws Exception {
-		String newFilePath = "D:\\Working\\CompareTestData\\fumarginEntity.xls";
-		String oldFilePath = "D:\\Working\\CompareTestData\\fumarginEntityold.xls";
-		String resultFilePath = "D:\\result.xml";
+		String newFilePath = "D:\\Working\\CompareTestData\\fumarginEntity_modify.xls";
+		String oldFilePath = "D:\\Working\\CompareTestData\\fumarginEntity_prod.xls";
+		String resultFilePath = "D:\\test.xml";
 		String reportFilePath = "D:\\report.xml";
 		new ExcelCompare().compare(newFilePath, oldFilePath, resultFilePath, reportFilePath);
 	}
 	
 	public void compare(String newFilePath, String oldFilePath, String resultFilePath,
 			String reportFilePath) throws Exception {
-		ExcelUtils xmlUtils = new ExcelUtils();
-		Map<String, String> typeMapping = xmlUtils.getTypeMapping(newFilePath);
-		Map<String, TableBean> newTableBeanMap = xmlUtils.getTableBeanMap(newFilePath);
-		Map<String, TableBean> oldTableBeanMap = xmlUtils.getTableBeanMap(oldFilePath);
+		ExcelUtils excelUtils = new ExcelUtils();
+		Map<String, String> typeMapping = excelUtils.getTypeMapping(newFilePath);
+		Map<String, TableBean> newTableBeanMap = excelUtils.getTableBeanMap(newFilePath);
+		Map<String, TableBean> oldTableBeanMap = excelUtils.getTableBeanMap(oldFilePath);
 		CompareUtils compareUtils = new CompareUtils();
 		List<TableElement> diffResult = compareUtils.diff(newTableBeanMap, oldTableBeanMap);
 		compareUtils.recordAndReport(diffResult, resultFilePath, reportFilePath, typeMapping);

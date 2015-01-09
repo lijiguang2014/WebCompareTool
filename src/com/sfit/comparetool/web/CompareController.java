@@ -164,10 +164,10 @@ public class CompareController {
 			
 			//调用Pump解析xml中间结果生成alter脚本
 			String finalResultRelativePath = "result/temp/alterScript/" + dateStr + ".sql";
-			String finalResultPath = basePath + finalResultRelativePath;
-			String alterTemplatePath = basePath + PropertiesUtils.getTemplatePath(projectName);
+			String alterTemplatePath = PropertiesUtils.getTemplatePath(projectName);
+			String middleResultRelativePath = "xmlMiddleReuslt/" + dateStr + ".xml";
 			String shellString = "cmd /c " + basePath + "script/bat/createAlterScript.bat " 
-						+ finalResultPath + " " + alterTemplatePath + " " + middleResultPath;
+						+ finalResultRelativePath + " " + alterTemplatePath + " " + middleResultRelativePath;
 			boolean isSuccess = ConsoleUtils.callShell(shellString);
 			if(!isSuccess) {
 				result.put("success", "0");
@@ -196,7 +196,7 @@ public class CompareController {
 	}
 
 	@RequestMapping("/generate.do")
-	public @ResponseBody Map<String, String> generate(@RequestParam String designRelativeFilePath) {
+	public @ResponseBody Map<String, String> generate(@RequestParam String designRelativeFilePath) throws Exception {
 		Map<String, String> returnMap = new HashMap<String, String>();
 		
 		String errorMsg = "";
