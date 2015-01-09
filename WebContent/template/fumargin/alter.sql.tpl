@@ -12,7 +12,7 @@ drop table !!@tableName!!;
 create table !!@tableName!! (
 	!!let keyList=" "!!
 	!!travel Columns!!
-		!!if @pumpid!=0!!,!!endif!!!!@columnName!! !!@columnType!! !!if !strcmp(@notnull, "true")!! not null !!endif!! 
+		!!if @pumpid!=0!!,!!endif!!!!@columnName!! !!@columnType!! !!if !strcmp(@notnull, "yes")!! not null !!endif!! 
 		!!if !strcmp(@iskey,"yes")!!
 			!!if !strcmp(@keyList," ")!!
 				!!let keyList=@columnName!!
@@ -51,7 +51,8 @@ drop index !!@indexName!!;
 		!!endif!!
 		!!next!!
 		!!travel Adds!!
-alter table !!@tableName!! add column !!@columnName!! !!@typeName!! !!if !strcmp(@notnull, "true")!! not null !!endif!! !!if !strcmp(@iskey, "true")!! primary key!!endif!!;
+alter table !!@tableName!! add column !!@columnName!! !!@typeName!! !!if !strcmp(@notnull, "yes")!! not null !!endif!! !!if !strcmp(@iskey, "yes")!! primary key!!endif!!;
+comment on column !!@tableName!!.!!@columnName!! is '!!@label!!';
 		!!next!!
 		!!travel Alters!!
 			!!if !strcmp(@type, "columnType")!!

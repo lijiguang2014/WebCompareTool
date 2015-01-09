@@ -115,7 +115,7 @@ public class CompareUtils {
 							}
 							resultSb.append("\t\t\t<Add columnName=\"" + add.getColumnName() +"\" typeName=\"" + realTypeName + 
 									"\" originalTypeName=\"" + typeName + "\" label=\"" + add.getColumnDescription() + "\" iskey=\"" + add.getIsKey() 
-									+ "\" notnull=\"" + add.getNotNull() + "\" description=\"" + add.getColumnDescription() + "\"></Add>\r\n");
+									+ "\" notnull=\"" + add.getNotNull() + "\"></Add>\r\n");
 							reportSb.append("增加列" + add.getColumnName() + "\r\n");
 						}
 						resultSb.append("\t\t</Adds>\r\n");
