@@ -1,0 +1,359 @@
+<Tables>
+	<Table name="T_TEMP_COMPCLIENTPOSDETAIL" isCreate="false" isDrop="true" ></Table>
+	<Table name="T_TEMP_COMPCLIENTTRADE" isCreate="false" isDrop="true" ></Table>
+	<Table name="T_TEMP_COMPDELIVDETAILS" isCreate="false" isDrop="true" ></Table>
+	<Table name="T_TRADE" isCreate="false" isDrop="true" ></Table>
+	<Table name="T_UNQCLIENTLIST" isCreate="false" isDrop="true" ></Table>
+	<Table name="T_USERROLE" isCreate="false" isDrop="true" ></Table>
+	<Table name="T_YC_SQUERYUSER0039" isCreate="false" isDrop="true" ></Table>
+	<Table name="T_YC_SQUERYUSER0131" isCreate="false" isDrop="true" ></Table>
+	<Table name="T_YC_SQUERYUSER0131ZJ" isCreate="false" isDrop="true" ></Table>
+	<Table name="T_YC_SQUERYUSER0211" isCreate="false" isDrop="true" ></Table>
+	<Table name="T_YC_SQUERYUSER2" isCreate="false" isDrop="true" ></Table>
+	<Table name="T_YC_SQUERYUSER20121221" isCreate="false" isDrop="true" ></Table>
+	<Table name="T_YC_SQUERYUSER2_0019" isCreate="false" isDrop="true" ></Table>
+	<Table name="T_YC_SQUERYUSER2_0035CHONGFU" isCreate="false" isDrop="true" ></Table>
+	<Table name="T_YC_SQUERYUSER2_0071" isCreate="false" isDrop="true" ></Table>
+	<Table name="T_YC_SQUERYUSER2_0079" isCreate="false" isDrop="true" ></Table>
+	<Table name="T_YC_SQUERYUSER2_0085" isCreate="false" isDrop="true" ></Table>
+	<Table name="T_YC_SQUERYUSER2_0188" isCreate="false" isDrop="true" ></Table>
+	<Table name="T_YC_ZJCLIENT" isCreate="false" isDrop="true" ></Table>
+	<Table name="T_ZIPFILEDOWNLOAD" isCreate="false" isDrop="true" ></Table>
+	<Table name="T_ZIPFILEDOWNLOAD2" isCreate="false" isDrop="true" ></Table>
+	<Table name="UPDATE_CLIENTCODE_STATUS" isCreate="false" isDrop="true" ></Table>
+	<Table name="UPDATE_CLIENTCODE_STATUS_1" isCreate="false" isDrop="true" ></Table>
+	<Table name="XM_1" isCreate="false" isDrop="true" ></Table>
+	<Table name="XM_2" isCreate="false" isDrop="true" ></Table>
+	<Table name="H_COMPAMCUSTODYACCOUNT" isCreate="false" isDrop="true" ></Table>
+	<Table name="H_COMPCLIENTOPTEXERCISE" isCreate="false" isDrop="true" ></Table>
+	<Table name="D_COMPCLIENTOPTEXERCISE" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+		</Drops>
+		<Adds>
+			<Add columnName="EXECMARGIN" typeName="NUMBER(15,3)" originalTypeName="TY_AMOUNT1" label="行权锁定保证金" iskey="no" notnull="yes"></Add>
+			<Add columnName="FREEZFUNDS" typeName="NUMBER(20,3)" originalTypeName="TY_NUMBER_1" label="冻结资金" iskey="no" notnull="yes"></Add>
+		</Adds>
+		<Alters>
+		</Alters>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="D_COMPCLIENTOPTLIQUID" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+		</Drops>
+		<Adds>
+			<Add columnName="CUFLAG" typeName="CHAR(1)" originalTypeName="TY_ACCOUNTTYPE1" label="备兑标志" iskey="no" notnull="no"></Add>
+		</Adds>
+		<Alters>
+		</Alters>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="D_COMPCLIENTOPTPOS" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+		</Drops>
+		<Adds>
+			<Add columnName="CUFLAG" typeName="CHAR(1)" originalTypeName="TY_ACCOUNTTYPE1" label="备兑标志" iskey="no" notnull="no"></Add>
+		</Adds>
+		<Alters>
+		</Alters>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="D_COMPCLIENTOPTPOSDETAIL" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+		</Drops>
+		<Adds>
+			<Add columnName="CUFLAG" typeName="CHAR(1)" originalTypeName="TY_ACCOUNTTYPE1" label="备兑标志" iskey="no" notnull="no"></Add>
+		</Adds>
+		<Alters>
+		</Alters>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="D_COMPCLIENTOPTTRADE" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+		</Drops>
+		<Adds>
+			<Add columnName="CUFLAG" typeName="CHAR(1)" originalTypeName="TY_ACCOUNTTYPE1" label="备兑标志" iskey="no" notnull="no"></Add>
+		</Adds>
+		<Alters>
+		</Alters>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="H_COMPCASHMORTGAGE" isCreate="false" isDrop="false" keyList="" changedDescription="货币充抵资金文件">
+		<Drops>
+		</Drops>
+		<Adds>
+		</Adds>
+		<Alters>
+			<Alter type="columnComment" columnName="COMPCLIENTID"  changedComment="客户内部资金账户" ></Alter>
+			<Alter type="columnComment" columnName="AMOUNT_IN"  changedComment="充抵金额" ></Alter>
+			<Alter type="columnComment" columnName="EXCHANGERATE"  changedComment="充抵汇率" ></Alter>
+			<Alter type="columnComment" columnName="CURRENCY_IN"  changedComment="充抵目标币种" ></Alter>
+			<Alter type="columnComment" columnName="CURRENCY_OUT"  changedComment="原币种" ></Alter>
+			<Alter type="columnComment" columnName="AMOUNT_OUT"  changedComment="原币种余额" ></Alter>
+			<Alter type="columnComment" columnName="DISCOUNT"  changedComment="充抵折扣率" ></Alter>
+			<Alter type="columnComment" columnName="NOTES"  changedComment="备注" ></Alter>
+			<Alter type="columnComment" columnName="TRADEDATE"  changedComment="日期" ></Alter>
+		</Alters>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="H_COMPCLIENTFUND" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+		</Drops>
+		<Adds>
+			<Add columnName="FREEZFUNDS" typeName="NUMBER(20,3)" originalTypeName="TY_NUMBER_1" label="冻结资金" iskey="no" notnull="yes"></Add>
+		</Adds>
+		<Alters>
+			<Alter type="columnComment" columnName="LASTRIGHTBYDATE"  changedComment="上日结存（逐笔对冲）" ></Alter>
+			<Alter type="columnComment" columnName="TODAYRIGHTBYTRADE"  changedComment="当日结存（逐笔对冲）" ></Alter>
+		</Alters>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="H_COMPCLIENTINFO" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+		</Drops>
+		<Adds>
+			<Add columnName="SECUROPENDATE" typeName="VARCHAR2(10)" originalTypeName="TY_ACCOUNT" label="客户证券现货内部资金账户开户日期" iskey="no" notnull="no"></Add>
+			<Add columnName="SECURACCOUNT" typeName="VARCHAR2(18)" originalTypeName="TY_COMPCLIENTID" label="客户证券现货内部资金账户" iskey="no" notnull="no"></Add>
+			<Add columnName="ISSUBASSET" typeName="CHAR(1)" originalTypeName="TY_ACCOUNTTYPE1" label="是否为期货公司子公司经营的资产管理业务" iskey="no" notnull="no"></Add>
+		</Adds>
+		<Alters>
+		</Alters>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="H_COMPCLIENTOPTLIQUID" isCreate="false" isDrop="false" keyList="" changedDescription="期权平仓明细文件">
+		<Drops>
+		</Drops>
+		<Adds>
+			<Add columnName="CUFLAG" typeName="CHAR(1)" originalTypeName="TY_ACCOUNTTYPE1" label="备兑标志" iskey="no" notnull="no"></Add>
+		</Adds>
+		<Alters>
+			<Alter type="columnComment" columnName="COMPCLIENTID"  changedComment="客户内部资金账户" ></Alter>
+			<Alter type="columnComment" columnName="LASTSETTLEPRICE"  changedComment="昨结算价" ></Alter>
+			<Alter type="columnComment" columnName="OPENPRICE"  changedComment="开仓价" ></Alter>
+			<Alter type="columnComment" columnName="LIQUIDOPTPAYMENT"  changedComment="权利金" ></Alter>
+			<Alter type="columnComment" columnName="TRANSDATE"  changedComment="成交日期" ></Alter>
+			<Alter type="columnComment" columnName="CONTRACTID"  changedComment="品种合约" ></Alter>
+			<Alter type="columnComment" columnName="TRADESEQ"  changedComment="成交流水号" ></Alter>
+			<Alter type="columnComment" columnName="OPENTRADESEQ"  changedComment="原成交流水号" ></Alter>
+			<Alter type="columnComment" columnName="CURRENCY"  changedComment="币种" ></Alter>
+			<Alter type="columnComment" columnName="BSTAG"  changedComment="买卖标志" ></Alter>
+			<Alter type="columnComment" columnName="VOLUMN"  changedComment="成交量" ></Alter>
+			<Alter type="columnComment" columnName="SETTLEMENTPRICE"  changedComment="今结算价" ></Alter>
+			<Alter type="columnComment" columnName="OPENOPTPAYMENT"  changedComment="开仓权利金" ></Alter>
+			<Alter type="columnComment" columnName="EXCLIENTID"  changedComment="交易编码" ></Alter>
+			<Alter type="columnComment" columnName="TRADEDATE"  changedComment="日期" ></Alter>
+			<Alter type="columnComment" columnName="LIQUIDPRICE"  changedComment="成交价" ></Alter>
+		</Alters>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="H_COMPCLIENTOPTPOS" isCreate="false" isDrop="false" keyList="" changedDescription="期权持仓数据文件">
+		<Drops>
+		</Drops>
+		<Adds>
+			<Add columnName="CUFLAG" typeName="CHAR(1)" originalTypeName="TY_ACCOUNTTYPE1" label="备兑标志" iskey="no" notnull="no"></Add>
+		</Adds>
+		<Alters>
+			<Alter type="columnComment" columnName="COMPCLIENTID"  changedComment="客户内部资金账户" ></Alter>
+			<Alter type="columnComment" columnName="LASTSETTLEPRICE"  changedComment="今结算价" ></Alter>
+			<Alter type="columnComment" columnName="POSITIONPROFITBYDATE"  changedComment="持仓盈亏(逐日盯市)" ></Alter>
+			<Alter type="columnComment" columnName="VHFLAG"  changedComment="投机套保标志" ></Alter>
+			<Alter type="columnComment" columnName="BSTAG"  changedComment="买卖标志" ></Alter>
+			<Alter type="columnComment" columnName="EXCHANGEID"  changedComment="交易所统一标识" ></Alter>
+			<Alter type="columnComment" columnName="EXCLIENTID"  changedComment="交易编码" ></Alter>
+			<Alter type="columnComment" columnName="POSITION"  changedComment="持仓量" ></Alter>
+			<Alter type="columnComment" columnName="TRADEDATE"  changedComment="日期" ></Alter>
+			<Alter type="columnComment" columnName="AVERAGEPRICE"  changedComment="持仓均价" ></Alter>
+			<Alter type="columnComment" columnName="POSITIONPROFITBYTRADE"  changedComment="持仓盈亏(逐笔对冲)" ></Alter>
+			<Alter type="columnComment" columnName="MARGIN"  changedComment="交易保证金" ></Alter>
+			<Alter type="columnComment" columnName="CONTRACTID"  changedComment="品种合约" ></Alter>
+			<Alter type="columnComment" columnName="OPTTYPE"  changedComment="期权类型" ></Alter>
+			<Alter type="columnComment" columnName="NONSETTLEMEMDATA"  changedComment="是否为交易会员" ></Alter>
+			<Alter type="columnComment" columnName="STRIKEPRICE"  changedComment="执行价" ></Alter>
+			<Alter type="columnComment" columnName="CURRENCY"  changedComment="币种" ></Alter>
+			<Alter type="columnComment" columnName="SETTLEMENTPRICE"  changedComment="昨结算价" ></Alter>
+			<Alter type="columnComment" columnName="BASEPRODUCTID"  changedComment="标的品种" ></Alter>
+			<Alter type="columnComment" columnName="BASECONTRACTID"  changedComment="标的合约" ></Alter>
+		</Alters>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="H_COMPCLIENTOPTPOSDETAIL" isCreate="false" isDrop="false" keyList="" changedDescription="期权持仓明细文件">
+		<Drops>
+		</Drops>
+		<Adds>
+			<Add columnName="CUFLAG" typeName="CHAR(1)" originalTypeName="TY_ACCOUNTTYPE1" label="备兑标志" iskey="no" notnull="no"></Add>
+		</Adds>
+		<Alters>
+			<Alter type="columnComment" columnName="COMPCLIENTID"  changedComment="客户内部资金账户" ></Alter>
+			<Alter type="columnComment" columnName="LASTSETTLEPRICE"  changedComment="昨结算价" ></Alter>
+			<Alter type="columnComment" columnName="OPENPRICE"  changedComment="开仓价" ></Alter>
+			<Alter type="columnComment" columnName="TRANSDATE"  changedComment="成交日期" ></Alter>
+			<Alter type="columnComment" columnName="POSITIONPROFITBYTRADE"  changedComment="持仓盈亏(逐笔对冲)" ></Alter>
+			<Alter type="columnComment" columnName="MARGIN"  changedComment="交易保证金" ></Alter>
+			<Alter type="columnComment" columnName="CONTRACTID"  changedComment="品种合约" ></Alter>
+			<Alter type="columnComment" columnName="POSITIONPROFITBYDATE"  changedComment="持仓盈亏(逐日盯市)" ></Alter>
+			<Alter type="columnComment" columnName="TRADESEQ"  changedComment="成交流水号" ></Alter>
+			<Alter type="columnComment" columnName="VHFLAG"  changedComment="投机套保标志" ></Alter>
+			<Alter type="columnComment" columnName="CURRENCY"  changedComment="币种" ></Alter>
+			<Alter type="columnComment" columnName="BSTAG"  changedComment="买卖标志" ></Alter>
+			<Alter type="columnComment" columnName="SETTLEMENTPRICE"  changedComment="今结算价" ></Alter>
+			<Alter type="columnComment" columnName="EXCHANGEID"  changedComment="交易所id" ></Alter>
+			<Alter type="columnComment" columnName="EXCLIENTID"  changedComment="交易编码" ></Alter>
+			<Alter type="columnComment" columnName="POSITION"  changedComment="持仓量" ></Alter>
+			<Alter type="columnComment" columnName="TRADEDATE"  changedComment="日期" ></Alter>
+		</Alters>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="H_COMPCLIENTOPTTRADE" isCreate="false" isDrop="false" keyList="" changedDescription="期权成交明细文件">
+		<Drops>
+		</Drops>
+		<Adds>
+			<Add columnName="CUFLAG" typeName="CHAR(1)" originalTypeName="TY_ACCOUNTTYPE1" label="备兑标志" iskey="no" notnull="no"></Add>
+		</Adds>
+		<Alters>
+			<Alter type="columnComment" columnName="COMPCLIENTID"  changedComment="客户内部资金账户" ></Alter>
+			<Alter type="columnComment" columnName="PRICE"  changedComment="权利金单价" ></Alter>
+			<Alter type="columnComment" columnName="TRANSDATE"  changedComment="成交日期" ></Alter>
+			<Alter type="columnComment" columnName="TRADESEQ"  changedComment="成交流水号" ></Alter>
+			<Alter type="columnComment" columnName="VHFLAG"  changedComment="投机套保标志" ></Alter>
+			<Alter type="columnComment" columnName="ORDERID"  changedComment="报单号" ></Alter>
+			<Alter type="columnComment" columnName="BSTAG"  changedComment="买卖标志" ></Alter>
+			<Alter type="columnComment" columnName="VOLUMN"  changedComment="成交量" ></Alter>
+			<Alter type="columnComment" columnName="TRADETIME"  changedComment="成交时间" ></Alter>
+			<Alter type="columnComment" columnName="EXCHANGEID"  changedComment="交易所统一标识" ></Alter>
+			<Alter type="columnComment" columnName="SEATNO"  changedComment="席位号" ></Alter>
+			<Alter type="columnComment" columnName="EXCLIENTID"  changedComment="交易编码" ></Alter>
+			<Alter type="columnComment" columnName="TRADEDATE"  changedComment="日期" ></Alter>
+			<Alter type="columnComment" columnName="TRADEFEE"  changedComment="手续费" ></Alter>
+			<Alter type="columnComment" columnName="CONTRACTID"  changedComment="品种合约" ></Alter>
+			<Alter type="columnComment" columnName="AMOUNT"  changedComment="权利金" ></Alter>
+			<Alter type="columnComment" columnName="OPTTYPE"  changedComment="期权类型" ></Alter>
+			<Alter type="columnComment" columnName="NONSETTLEMEMDATA"  changedComment="是否为交易会员" ></Alter>
+			<Alter type="columnComment" columnName="STRIKEPRICE"  changedComment="执行价" ></Alter>
+			<Alter type="columnComment" columnName="CURRENCY"  changedComment="币种" ></Alter>
+			<Alter type="columnComment" columnName="OCTAG"  changedComment="开平仓标志" ></Alter>
+			<Alter type="columnComment" columnName="BASEPRODUCTID"  changedComment="标的品种" ></Alter>
+			<Alter type="columnComment" columnName="BASECONTRACTID"  changedComment="标的合约" ></Alter>
+		</Alters>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="H_COMPCLIENTPOS" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+		</Drops>
+		<Adds>
+		</Adds>
+		<Alters>
+			<Alter type="columnComment" columnName="COMPCLIENTID"  changedComment="客户内部资金账户" ></Alter>
+			<Alter type="columnComment" columnName="LASTSETTLEPRICE"  changedComment="昨结算价" ></Alter>
+			<Alter type="columnComment" columnName="AVERAGEPRICE"  changedComment="持仓均价" ></Alter>
+			<Alter type="columnComment" columnName="POSITIONPROFITBYTRADE"  changedComment="持仓盈亏(逐笔对冲)" ></Alter>
+			<Alter type="columnComment" columnName="CONTRACTID"  changedComment="品种合约" ></Alter>
+			<Alter type="columnComment" columnName="TRADEMARGIN"  changedComment="交易保证金" ></Alter>
+			<Alter type="columnComment" columnName="POSITIONPROFIT"  changedComment="持仓盈亏(逐日盯市)" ></Alter>
+			<Alter type="columnComment" columnName="NONSETTLEMEMDATA"  changedComment="是否为交易会员" ></Alter>
+			<Alter type="columnComment" columnName="SETTLEPRICE"  changedComment="今结算价" ></Alter>
+			<Alter type="columnComment" columnName="VHFLAG"  changedComment="投机套保标志" ></Alter>
+			<Alter type="columnComment" columnName="CURRENCY"  changedComment="币种" ></Alter>
+			<Alter type="columnComment" columnName="BSTAG"  changedComment="买卖标志" ></Alter>
+			<Alter type="columnComment" columnName="EXCHANGEID"  changedComment="交易所统一标识" ></Alter>
+			<Alter type="columnComment" columnName="EXCLIENTID"  changedComment="交易编码" ></Alter>
+			<Alter type="columnComment" columnName="POSITION"  changedComment="持仓量" ></Alter>
+			<Alter type="columnComment" columnName="TRADEDATE"  changedComment="日期" ></Alter>
+		</Alters>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="H_COMPDELIVCONTRACTDATA" isCreate="false" isDrop="false" keyList="" changedDescription="期货待交割结算合约文件">
+		<Drops>
+		</Drops>
+		<Adds>
+		</Adds>
+		<Alters>
+			<Alter type="columnComment" columnName="COMPCLIENTID"  changedComment="客户内部资金账户" ></Alter>
+			<Alter type="columnComment" columnName="OPENPRICE"  changedComment="开仓价" ></Alter>
+			<Alter type="columnComment" columnName="DELIVSETTLEPRICE"  changedComment="交割结算价" ></Alter>
+			<Alter type="columnComment" columnName="CONTRACTID"  changedComment="品种合约" ></Alter>
+			<Alter type="columnComment" columnName="DELIVMARGIN"  changedComment="交割保证金" ></Alter>
+			<Alter type="columnComment" columnName="NONSETTLEMEMDATA"  changedComment="是否为交易会员" ></Alter>
+			<Alter type="columnComment" columnName="TRADESEQ"  changedComment="成交流水号" ></Alter>
+			<Alter type="columnComment" columnName="CURRENCY"  changedComment="币种" ></Alter>
+			<Alter type="columnComment" columnName="BSTAG"  changedComment="买卖标志" ></Alter>
+			<Alter type="columnComment" columnName="EXCHANGEID"  changedComment="交易所统一标识" ></Alter>
+			<Alter type="columnComment" columnName="EXCLIENTID"  changedComment="交易编码" ></Alter>
+			<Alter type="columnComment" columnName="POSITION"  changedComment="待交割持仓量" ></Alter>
+			<Alter type="columnComment" columnName="TRADEDATE"  changedComment="日期" ></Alter>
+		</Alters>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="H_COMPEXCHANGEDETAILS" isCreate="false" isDrop="false" keyList="" changedDescription="汇兑明细文件">
+		<Drops>
+		</Drops>
+		<Adds>
+		</Adds>
+		<Alters>
+			<Alter type="columnComment" columnName="DIRECTION"  changedComment="记账流水号" ></Alter>
+			<Alter type="columnComment" columnName="COMPCLIENTID"  changedComment="客户内部资金账户" ></Alter>
+			<Alter type="columnComment" columnName="DMSAMOUNT"  changedComment="本币金额" ></Alter>
+			<Alter type="columnComment" columnName="BUSINESSTYPE"  changedComment="换汇业务种类" ></Alter>
+			<Alter type="columnComment" columnName="DMSACCOUNTNO"  changedComment="本币账号" ></Alter>
+			<Alter type="columnComment" columnName="TRANSDATE"  changedComment="汇兑日期" ></Alter>
+			<Alter type="columnComment" columnName="EXCHANGERATE"  changedComment="当笔兑换汇率" ></Alter>
+			<Alter type="columnComment" columnName="FGNAMOUNT"  changedComment="外币金额" ></Alter>
+			<Alter type="columnComment" columnName="DMSCURRENCY"  changedComment="本币币种" ></Alter>
+			<Alter type="columnComment" columnName="TRADESEQ"  changedComment="换汇方向" ></Alter>
+			<Alter type="columnComment" columnName="DMSACCOUNTNAME"  changedComment="本币账户名称" ></Alter>
+			<Alter type="columnComment" columnName="FGNACCOUNTNAME"  changedComment="外币账户名称" ></Alter>
+			<Alter type="columnComment" columnName="FGNCURRENCY"  changedComment="外币币种" ></Alter>
+			<Alter type="columnComment" columnName="FGNACCOUNTNO"  changedComment="外币账号" ></Alter>
+			<Alter type="columnComment" columnName="TRANSTIME"  changedComment="交易时间" ></Alter>
+			<Alter type="columnComment" columnName="NOTES"  changedComment="备注" ></Alter>
+			<Alter type="columnComment" columnName="TRADEDATE"  changedComment="日期" ></Alter>
+		</Alters>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="H_COMPMORTGAGEDETAILS" isCreate="false" isDrop="false" keyList="" changedDescription="非货币充抵明细文件">
+		<Drops>
+		</Drops>
+		<Adds>
+		</Adds>
+		<Alters>
+			<Alter type="columnComment" columnName="COMPCLIENTID"  changedComment="客户内部资金账户" ></Alter>
+			<Alter type="columnComment" columnName="PRICE"  changedComment="充抵价格" ></Alter>
+			<Alter type="columnComment" columnName="CURRENCY"  changedComment="币种" ></Alter>
+			<Alter type="columnComment" columnName="VOLUMN"  changedComment="充抵手数" ></Alter>
+			<Alter type="columnComment" columnName="COMMODITYID"  changedComment="充抵品名称" ></Alter>
+			<Alter type="columnComment" columnName="EXCHANGEID"  changedComment="交易所id" ></Alter>
+			<Alter type="columnComment" columnName="AMOUNT"  changedComment="充抵金额" ></Alter>
+			<Alter type="columnComment" columnName="TRADEDATE"  changedComment="日期" ></Alter>
+		</Alters>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="H_COMPOTHERINFO" isCreate="false" isDrop="false" keyList="" changedDescription="其它需要说明的信息或数据文件">
+		<Drops>
+		</Drops>
+		<Adds>
+		</Adds>
+		<Alters>
+			<Alter type="columnComment" columnName="COMPCLIENTID"  changedComment="客户内部资金账户" ></Alter>
+			<Alter type="columnComment" columnName="CONTENT"  changedComment="描述" ></Alter>
+			<Alter type="columnComment" columnName="TYPE"  changedComment="事由" ></Alter>
+			<Alter type="columnComment" columnName="TRADEDATE"  changedComment="日期" ></Alter>
+			<Alter type="columnComment" columnName="NONSETTLEMEMDATA"  changedComment="是否为交易会员" ></Alter>
+		</Alters>
+		<Index>
+		</Index>
+	</Table>
+</Tables>

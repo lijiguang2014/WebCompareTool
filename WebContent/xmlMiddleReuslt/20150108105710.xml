@@ -1,0 +1,9 @@
+<Tables>
+	<Table name="D_EXSEPOSDATA" isCreate="true" isDrop="false" description="现货持仓明细文件" >
+		<Columns>
+			<Column columnName="SECURICODE" columnType="VARCHAR2(6)" originalColumnType="TY_VARCHAR2_2" label="证券代码" iskey="no" notnull="yes"></Column>
+		</Columns>
+		<Index>
+		</Index>
+	</Table>
+</Tables>

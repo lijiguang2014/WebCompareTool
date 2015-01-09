@@ -1,0 +1,1157 @@
+<Tables>
+	<Table name="D_COMPCLIENTOPTEXERCISE" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+		</Drops>
+		<Adds>
+			<Add columnName="EXECMARGIN" typeName="NUMBER(15,3)" originalTypeName="TY_AMOUNT1" label="行权锁定保证金" iskey="no" notnull="yes"></Add>
+			<Add columnName="FREEZFUNDS" typeName="NUMBER(20,3)" originalTypeName="TY_NUMBER_1" label="冻结资金" iskey="no" notnull="yes"></Add>
+		</Adds>
+		<Alters>
+		</Alters>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="D_COMPCLIENTOPTLIQUID" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+		</Drops>
+		<Adds>
+			<Add columnName="CUFLAG" typeName="CHAR(1)" originalTypeName="TY_ACCOUNTTYPE1" label="备兑标志" iskey="no" notnull="no"></Add>
+		</Adds>
+		<Alters>
+		</Alters>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="D_COMPCLIENTOPTPOS" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+		</Drops>
+		<Adds>
+			<Add columnName="CUFLAG" typeName="CHAR(1)" originalTypeName="TY_ACCOUNTTYPE1" label="备兑标志" iskey="no" notnull="no"></Add>
+		</Adds>
+		<Alters>
+		</Alters>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="D_COMPCLIENTOPTPOSDETAIL" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+		</Drops>
+		<Adds>
+			<Add columnName="CUFLAG" typeName="CHAR(1)" originalTypeName="TY_ACCOUNTTYPE1" label="备兑标志" iskey="no" notnull="no"></Add>
+		</Adds>
+		<Alters>
+		</Alters>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="D_COMPCLIENTOPTTRADE" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+		</Drops>
+		<Adds>
+			<Add columnName="CUFLAG" typeName="CHAR(1)" originalTypeName="TY_ACCOUNTTYPE1" label="备兑标志" iskey="no" notnull="no"></Add>
+		</Adds>
+		<Alters>
+		</Alters>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="H_COMPCASHMORTGAGE" isCreate="false" isDrop="false" keyList="" changedDescription="货币充抵资金文件">
+		<Drops>
+		</Drops>
+		<Adds>
+		</Adds>
+		<Alters>
+			<Alter type="columnComment" columnName="COMPCLIENTID"  changedComment="客户内部资金账户" ></Alter>
+			<Alter type="columnComment" columnName="AMOUNT_IN"  changedComment="充抵金额" ></Alter>
+			<Alter type="columnComment" columnName="EXCHANGERATE"  changedComment="充抵汇率" ></Alter>
+			<Alter type="columnComment" columnName="CURRENCY_IN"  changedComment="充抵目标币种" ></Alter>
+			<Alter type="columnComment" columnName="CURRENCY_OUT"  changedComment="原币种" ></Alter>
+			<Alter type="columnComment" columnName="AMOUNT_OUT"  changedComment="原币种余额" ></Alter>
+			<Alter type="columnComment" columnName="DISCOUNT"  changedComment="充抵折扣率" ></Alter>
+			<Alter type="columnComment" columnName="NOTES"  changedComment="备注" ></Alter>
+			<Alter type="columnComment" columnName="TRADEDATE"  changedComment="日期" ></Alter>
+		</Alters>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="H_COMPCLIENTFUND" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+		</Drops>
+		<Adds>
+			<Add columnName="FREEZFUNDS" typeName="NUMBER(20,3)" originalTypeName="TY_NUMBER_1" label="冻结资金" iskey="no" notnull="yes"></Add>
+		</Adds>
+		<Alters>
+			<Alter type="columnComment" columnName="LASTRIGHTBYDATE"  changedComment="上日结存（逐笔对冲）" ></Alter>
+			<Alter type="columnComment" columnName="TODAYRIGHTBYTRADE"  changedComment="当日结存（逐笔对冲）" ></Alter>
+		</Alters>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="H_COMPCLIENTINFO" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+		</Drops>
+		<Adds>
+			<Add columnName="SECUROPENDATE" typeName="VARCHAR2(10)" originalTypeName="TY_ACCOUNT" label="客户证券现货内部资金账户开户日期" iskey="no" notnull="no"></Add>
+			<Add columnName="SECURACCOUNT" typeName="VARCHAR2(18)" originalTypeName="TY_COMPCLIENTID" label="客户证券现货内部资金账户" iskey="no" notnull="no"></Add>
+			<Add columnName="ISSUBASSET" typeName="CHAR(1)" originalTypeName="TY_ACCOUNTTYPE1" label="是否为期货公司子公司经营的资产管理业务" iskey="no" notnull="no"></Add>
+		</Adds>
+		<Alters>
+		</Alters>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="H_COMPCLIENTOPTLIQUID" isCreate="false" isDrop="false" keyList="" changedDescription="期权平仓明细文件">
+		<Drops>
+		</Drops>
+		<Adds>
+			<Add columnName="CUFLAG" typeName="CHAR(1)" originalTypeName="TY_ACCOUNTTYPE1" label="备兑标志" iskey="no" notnull="no"></Add>
+		</Adds>
+		<Alters>
+			<Alter type="columnComment" columnName="COMPCLIENTID"  changedComment="客户内部资金账户" ></Alter>
+			<Alter type="columnComment" columnName="LASTSETTLEPRICE"  changedComment="昨结算价" ></Alter>
+			<Alter type="columnComment" columnName="OPENPRICE"  changedComment="开仓价" ></Alter>
+			<Alter type="columnComment" columnName="LIQUIDOPTPAYMENT"  changedComment="权利金" ></Alter>
+			<Alter type="columnComment" columnName="TRANSDATE"  changedComment="成交日期" ></Alter>
+			<Alter type="columnComment" columnName="CONTRACTID"  changedComment="品种合约" ></Alter>
+			<Alter type="columnComment" columnName="TRADESEQ"  changedComment="成交流水号" ></Alter>
+			<Alter type="columnComment" columnName="OPENTRADESEQ"  changedComment="原成交流水号" ></Alter>
+			<Alter type="columnComment" columnName="CURRENCY"  changedComment="币种" ></Alter>
+			<Alter type="columnComment" columnName="BSTAG"  changedComment="买卖标志" ></Alter>
+			<Alter type="columnComment" columnName="VOLUMN"  changedComment="成交量" ></Alter>
+			<Alter type="columnComment" columnName="SETTLEMENTPRICE"  changedComment="今结算价" ></Alter>
+			<Alter type="columnComment" columnName="OPENOPTPAYMENT"  changedComment="开仓权利金" ></Alter>
+			<Alter type="columnComment" columnName="EXCLIENTID"  changedComment="交易编码" ></Alter>
+			<Alter type="columnComment" columnName="TRADEDATE"  changedComment="日期" ></Alter>
+			<Alter type="columnComment" columnName="LIQUIDPRICE"  changedComment="成交价" ></Alter>
+		</Alters>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="H_COMPCLIENTOPTPOS" isCreate="false" isDrop="false" keyList="" changedDescription="期权持仓数据文件">
+		<Drops>
+		</Drops>
+		<Adds>
+			<Add columnName="CUFLAG" typeName="CHAR(1)" originalTypeName="TY_ACCOUNTTYPE1" label="备兑标志" iskey="no" notnull="no"></Add>
+		</Adds>
+		<Alters>
+			<Alter type="columnComment" columnName="COMPCLIENTID"  changedComment="客户内部资金账户" ></Alter>
+			<Alter type="columnComment" columnName="LASTSETTLEPRICE"  changedComment="今结算价" ></Alter>
+			<Alter type="columnComment" columnName="POSITIONPROFITBYDATE"  changedComment="持仓盈亏(逐日盯市)" ></Alter>
+			<Alter type="columnComment" columnName="VHFLAG"  changedComment="投机套保标志" ></Alter>
+			<Alter type="columnComment" columnName="BSTAG"  changedComment="买卖标志" ></Alter>
+			<Alter type="columnComment" columnName="EXCHANGEID"  changedComment="交易所统一标识" ></Alter>
+			<Alter type="columnComment" columnName="EXCLIENTID"  changedComment="交易编码" ></Alter>
+			<Alter type="columnComment" columnName="POSITION"  changedComment="持仓量" ></Alter>
+			<Alter type="columnComment" columnName="TRADEDATE"  changedComment="日期" ></Alter>
+			<Alter type="columnComment" columnName="AVERAGEPRICE"  changedComment="持仓均价" ></Alter>
+			<Alter type="columnComment" columnName="POSITIONPROFITBYTRADE"  changedComment="持仓盈亏(逐笔对冲)" ></Alter>
+			<Alter type="columnComment" columnName="MARGIN"  changedComment="交易保证金" ></Alter>
+			<Alter type="columnComment" columnName="CONTRACTID"  changedComment="品种合约" ></Alter>
+			<Alter type="columnComment" columnName="OPTTYPE"  changedComment="期权类型" ></Alter>
+			<Alter type="columnComment" columnName="NONSETTLEMEMDATA"  changedComment="是否为交易会员" ></Alter>
+			<Alter type="columnComment" columnName="STRIKEPRICE"  changedComment="执行价" ></Alter>
+			<Alter type="columnComment" columnName="CURRENCY"  changedComment="币种" ></Alter>
+			<Alter type="columnComment" columnName="SETTLEMENTPRICE"  changedComment="昨结算价" ></Alter>
+			<Alter type="columnType" columnName="BASEPRODUCTID"  changedTypeName="VARCHAR2(6)" originalChangedTypeName="TY_VARCHAR2_2"></Alter>
+			<Alter type="columnComment" columnName="BASEPRODUCTID"  changedComment="标的品种" ></Alter>
+			<Alter type="columnComment" columnName="BASECONTRACTID"  changedComment="标的合约" ></Alter>
+		</Alters>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="H_COMPCLIENTOPTPOSDETAIL" isCreate="false" isDrop="false" keyList="" changedDescription="期权持仓明细文件">
+		<Drops>
+		</Drops>
+		<Adds>
+			<Add columnName="CUFLAG" typeName="CHAR(1)" originalTypeName="TY_ACCOUNTTYPE1" label="备兑标志" iskey="no" notnull="no"></Add>
+		</Adds>
+		<Alters>
+			<Alter type="columnComment" columnName="COMPCLIENTID"  changedComment="客户内部资金账户" ></Alter>
+			<Alter type="columnComment" columnName="LASTSETTLEPRICE"  changedComment="昨结算价" ></Alter>
+			<Alter type="columnComment" columnName="OPENPRICE"  changedComment="开仓价" ></Alter>
+			<Alter type="columnComment" columnName="TRANSDATE"  changedComment="成交日期" ></Alter>
+			<Alter type="columnComment" columnName="POSITIONPROFITBYTRADE"  changedComment="持仓盈亏(逐笔对冲)" ></Alter>
+			<Alter type="columnComment" columnName="MARGIN"  changedComment="交易保证金" ></Alter>
+			<Alter type="columnComment" columnName="CONTRACTID"  changedComment="品种合约" ></Alter>
+			<Alter type="columnComment" columnName="POSITIONPROFITBYDATE"  changedComment="持仓盈亏(逐日盯市)" ></Alter>
+			<Alter type="columnComment" columnName="TRADESEQ"  changedComment="成交流水号" ></Alter>
+			<Alter type="columnComment" columnName="VHFLAG"  changedComment="投机套保标志" ></Alter>
+			<Alter type="columnComment" columnName="CURRENCY"  changedComment="币种" ></Alter>
+			<Alter type="columnComment" columnName="BSTAG"  changedComment="买卖标志" ></Alter>
+			<Alter type="columnComment" columnName="SETTLEMENTPRICE"  changedComment="今结算价" ></Alter>
+			<Alter type="columnComment" columnName="EXCHANGEID"  changedComment="交易所id" ></Alter>
+			<Alter type="columnComment" columnName="EXCLIENTID"  changedComment="交易编码" ></Alter>
+			<Alter type="columnComment" columnName="POSITION"  changedComment="持仓量" ></Alter>
+			<Alter type="columnComment" columnName="TRADEDATE"  changedComment="日期" ></Alter>
+		</Alters>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="H_COMPCLIENTOPTTRADE" isCreate="false" isDrop="false" keyList="" changedDescription="期权成交明细文件">
+		<Drops>
+		</Drops>
+		<Adds>
+			<Add columnName="CUFLAG" typeName="CHAR(1)" originalTypeName="TY_ACCOUNTTYPE1" label="备兑标志" iskey="no" notnull="no"></Add>
+		</Adds>
+		<Alters>
+			<Alter type="columnComment" columnName="COMPCLIENTID"  changedComment="客户内部资金账户" ></Alter>
+			<Alter type="columnComment" columnName="PRICE"  changedComment="权利金单价" ></Alter>
+			<Alter type="columnComment" columnName="TRANSDATE"  changedComment="成交日期" ></Alter>
+			<Alter type="columnComment" columnName="TRADESEQ"  changedComment="成交流水号" ></Alter>
+			<Alter type="columnComment" columnName="VHFLAG"  changedComment="投机套保标志" ></Alter>
+			<Alter type="columnComment" columnName="ORDERID"  changedComment="报单号" ></Alter>
+			<Alter type="columnComment" columnName="BSTAG"  changedComment="买卖标志" ></Alter>
+			<Alter type="columnComment" columnName="VOLUMN"  changedComment="成交量" ></Alter>
+			<Alter type="columnComment" columnName="TRADETIME"  changedComment="成交时间" ></Alter>
+			<Alter type="columnComment" columnName="EXCHANGEID"  changedComment="交易所统一标识" ></Alter>
+			<Alter type="columnComment" columnName="SEATNO"  changedComment="席位号" ></Alter>
+			<Alter type="columnComment" columnName="EXCLIENTID"  changedComment="交易编码" ></Alter>
+			<Alter type="columnComment" columnName="TRADEDATE"  changedComment="日期" ></Alter>
+			<Alter type="columnComment" columnName="TRADEFEE"  changedComment="手续费" ></Alter>
+			<Alter type="columnComment" columnName="CONTRACTID"  changedComment="品种合约" ></Alter>
+			<Alter type="columnComment" columnName="AMOUNT"  changedComment="权利金" ></Alter>
+			<Alter type="columnComment" columnName="OPTTYPE"  changedComment="期权类型" ></Alter>
+			<Alter type="columnComment" columnName="NONSETTLEMEMDATA"  changedComment="是否为交易会员" ></Alter>
+			<Alter type="columnComment" columnName="STRIKEPRICE"  changedComment="执行价" ></Alter>
+			<Alter type="columnComment" columnName="CURRENCY"  changedComment="币种" ></Alter>
+			<Alter type="columnComment" columnName="OCTAG"  changedComment="开平仓标志" ></Alter>
+			<Alter type="columnType" columnName="BASEPRODUCTID"  changedTypeName="VARCHAR2(6)" originalChangedTypeName="TY_VARCHAR2_2"></Alter>
+			<Alter type="columnComment" columnName="BASEPRODUCTID"  changedComment="标的品种" ></Alter>
+			<Alter type="columnComment" columnName="BASECONTRACTID"  changedComment="标的合约" ></Alter>
+		</Alters>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="H_COMPCLIENTPOS" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+		</Drops>
+		<Adds>
+		</Adds>
+		<Alters>
+			<Alter type="columnComment" columnName="COMPCLIENTID"  changedComment="客户内部资金账户" ></Alter>
+			<Alter type="columnComment" columnName="LASTSETTLEPRICE"  changedComment="昨结算价" ></Alter>
+			<Alter type="columnComment" columnName="AVERAGEPRICE"  changedComment="持仓均价" ></Alter>
+			<Alter type="columnComment" columnName="POSITIONPROFITBYTRADE"  changedComment="持仓盈亏(逐笔对冲)" ></Alter>
+			<Alter type="columnComment" columnName="CONTRACTID"  changedComment="品种合约" ></Alter>
+			<Alter type="columnComment" columnName="TRADEMARGIN"  changedComment="交易保证金" ></Alter>
+			<Alter type="columnComment" columnName="POSITIONPROFIT"  changedComment="持仓盈亏(逐日盯市)" ></Alter>
+			<Alter type="columnComment" columnName="NONSETTLEMEMDATA"  changedComment="是否为交易会员" ></Alter>
+			<Alter type="columnComment" columnName="SETTLEPRICE"  changedComment="今结算价" ></Alter>
+			<Alter type="columnComment" columnName="VHFLAG"  changedComment="投机套保标志" ></Alter>
+			<Alter type="columnComment" columnName="CURRENCY"  changedComment="币种" ></Alter>
+			<Alter type="columnComment" columnName="BSTAG"  changedComment="买卖标志" ></Alter>
+			<Alter type="columnComment" columnName="EXCHANGEID"  changedComment="交易所统一标识" ></Alter>
+			<Alter type="columnComment" columnName="EXCLIENTID"  changedComment="交易编码" ></Alter>
+			<Alter type="columnComment" columnName="POSITION"  changedComment="持仓量" ></Alter>
+			<Alter type="columnComment" columnName="TRADEDATE"  changedComment="日期" ></Alter>
+		</Alters>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="H_COMPCLIENTTRADE" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+		</Drops>
+		<Adds>
+		</Adds>
+		<Alters>
+			<Alter type="columnComment" columnName="COMPCLIENTID"  changedComment="客户内部资金账户" ></Alter>
+			<Alter type="columnComment" columnName="PRICE"  changedComment="成交价" ></Alter>
+			<Alter type="columnComment" columnName="TRADESEQ"  changedComment="成交流水号" ></Alter>
+			<Alter type="columnComment" columnName="VHFLAG"  changedComment="投机套保标志" ></Alter>
+			<Alter type="columnComment" columnName="ORDERID"  changedComment="报单号" ></Alter>
+			<Alter type="columnComment" columnName="BSTAG"  changedComment="买卖标志" ></Alter>
+			<Alter type="columnComment" columnName="VOLUMN"  changedComment="成交量" ></Alter>
+			<Alter type="columnComment" columnName="TRADETIME"  changedComment="成交时间" ></Alter>
+			<Alter type="columnComment" columnName="SEATNO"  changedComment="席位号" ></Alter>
+			<Alter type="columnComment" columnName="CLOSEPROFIT"  changedComment="平仓盈亏(逐日盯市)" ></Alter>
+			<Alter type="columnComment" columnName="TRADEDATE"  changedComment="日期" ></Alter>
+			<Alter type="columnComment" columnName="TRADEFEE"  changedComment="交易所统一标识" ></Alter>
+			<Alter type="columnComment" columnName="CONTRACTID"  changedComment="品种合约" ></Alter>
+			<Alter type="columnComment" columnName="AMOUNT"  changedComment="成交额" ></Alter>
+			<Alter type="columnComment" columnName="UPLOADDATE"  changedComment="平仓盈亏(逐笔对冲)" ></Alter>
+			<Alter type="columnComment" columnName="NONSETTLEMEMDATA"  changedComment="是否为交易会员" ></Alter>
+			<Alter type="columnComment" columnName="CLOSEPROFITBYTRADE"  changedComment="交易编码" ></Alter>
+			<Alter type="columnComment" columnName="CHECKTAG"  changedComment="手续费" ></Alter>
+			<Alter type="columnComment" columnName="TRADINGCOMPID"  changedComment="成交日期" ></Alter>
+			<Alter type="columnComment" columnName="OCTAG"  changedComment="开平仓标志" ></Alter>
+		</Alters>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="H_COMPDELIVCONTRACTDATA" isCreate="false" isDrop="false" keyList="" changedDescription="期货待交割结算合约文件">
+		<Drops>
+		</Drops>
+		<Adds>
+		</Adds>
+		<Alters>
+			<Alter type="columnComment" columnName="COMPCLIENTID"  changedComment="客户内部资金账户" ></Alter>
+			<Alter type="columnComment" columnName="OPENPRICE"  changedComment="开仓价" ></Alter>
+			<Alter type="columnComment" columnName="DELIVSETTLEPRICE"  changedComment="交割结算价" ></Alter>
+			<Alter type="columnComment" columnName="CONTRACTID"  changedComment="品种合约" ></Alter>
+			<Alter type="columnComment" columnName="DELIVMARGIN"  changedComment="交割保证金" ></Alter>
+			<Alter type="columnComment" columnName="NONSETTLEMEMDATA"  changedComment="是否为交易会员" ></Alter>
+			<Alter type="columnComment" columnName="TRADESEQ"  changedComment="成交流水号" ></Alter>
+			<Alter type="columnComment" columnName="CURRENCY"  changedComment="币种" ></Alter>
+			<Alter type="columnComment" columnName="BSTAG"  changedComment="买卖标志" ></Alter>
+			<Alter type="columnComment" columnName="EXCHANGEID"  changedComment="交易所统一标识" ></Alter>
+			<Alter type="columnComment" columnName="EXCLIENTID"  changedComment="交易编码" ></Alter>
+			<Alter type="columnComment" columnName="POSITION"  changedComment="待交割持仓量" ></Alter>
+			<Alter type="columnComment" columnName="TRADEDATE"  changedComment="日期" ></Alter>
+		</Alters>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="H_COMPEXCHANGEDETAILS" isCreate="false" isDrop="false" keyList="" changedDescription="汇兑明细文件">
+		<Drops>
+		</Drops>
+		<Adds>
+		</Adds>
+		<Alters>
+			<Alter type="columnComment" columnName="DIRECTION"  changedComment="记账流水号" ></Alter>
+			<Alter type="columnComment" columnName="COMPCLIENTID"  changedComment="客户内部资金账户" ></Alter>
+			<Alter type="columnComment" columnName="DMSAMOUNT"  changedComment="本币金额" ></Alter>
+			<Alter type="columnComment" columnName="BUSINESSTYPE"  changedComment="换汇业务种类" ></Alter>
+			<Alter type="columnComment" columnName="DMSACCOUNTNO"  changedComment="本币账号" ></Alter>
+			<Alter type="columnComment" columnName="TRANSDATE"  changedComment="汇兑日期" ></Alter>
+			<Alter type="columnComment" columnName="EXCHANGERATE"  changedComment="当笔兑换汇率" ></Alter>
+			<Alter type="columnComment" columnName="FGNAMOUNT"  changedComment="外币金额" ></Alter>
+			<Alter type="columnComment" columnName="DMSCURRENCY"  changedComment="本币币种" ></Alter>
+			<Alter type="columnComment" columnName="TRADESEQ"  changedComment="换汇方向" ></Alter>
+			<Alter type="columnComment" columnName="DMSACCOUNTNAME"  changedComment="本币账户名称" ></Alter>
+			<Alter type="columnComment" columnName="FGNACCOUNTNAME"  changedComment="外币账户名称" ></Alter>
+			<Alter type="columnComment" columnName="FGNCURRENCY"  changedComment="外币币种" ></Alter>
+			<Alter type="columnComment" columnName="FGNACCOUNTNO"  changedComment="外币账号" ></Alter>
+			<Alter type="columnComment" columnName="TRANSTIME"  changedComment="交易时间" ></Alter>
+			<Alter type="columnComment" columnName="NOTES"  changedComment="备注" ></Alter>
+			<Alter type="columnComment" columnName="TRADEDATE"  changedComment="日期" ></Alter>
+		</Alters>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="H_COMPMORTGAGEDETAILS" isCreate="false" isDrop="false" keyList="" changedDescription="非货币充抵明细文件">
+		<Drops>
+		</Drops>
+		<Adds>
+		</Adds>
+		<Alters>
+			<Alter type="columnComment" columnName="COMPCLIENTID"  changedComment="客户内部资金账户" ></Alter>
+			<Alter type="columnComment" columnName="PRICE"  changedComment="充抵价格" ></Alter>
+			<Alter type="columnComment" columnName="CURRENCY"  changedComment="币种" ></Alter>
+			<Alter type="columnComment" columnName="VOLUMN"  changedComment="充抵手数" ></Alter>
+			<Alter type="columnComment" columnName="COMMODITYID"  changedComment="充抵品名称" ></Alter>
+			<Alter type="columnComment" columnName="EXCHANGEID"  changedComment="交易所id" ></Alter>
+			<Alter type="columnComment" columnName="AMOUNT"  changedComment="充抵金额" ></Alter>
+			<Alter type="columnComment" columnName="TRADEDATE"  changedComment="日期" ></Alter>
+		</Alters>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="H_COMPOTHERINFO" isCreate="false" isDrop="false" keyList="" changedDescription="其它需要说明的信息或数据文件">
+		<Drops>
+		</Drops>
+		<Adds>
+		</Adds>
+		<Alters>
+			<Alter type="columnComment" columnName="COMPCLIENTID"  changedComment="客户内部资金账户" ></Alter>
+			<Alter type="columnComment" columnName="CONTENT"  changedComment="描述" ></Alter>
+			<Alter type="columnComment" columnName="TYPE"  changedComment="事由" ></Alter>
+			<Alter type="columnComment" columnName="TRADEDATE"  changedComment="日期" ></Alter>
+			<Alter type="columnComment" columnName="NONSETTLEMEMDATA"  changedComment="是否为交易会员" ></Alter>
+		</Alters>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="H_STANDCLIOPTTRDDETAIL" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+		</Drops>
+		<Adds>
+		</Adds>
+		<Alters>
+			<Alter type="columnType" columnName="BASEPRODUCTID"  changedTypeName="VARCHAR2(6)" originalChangedTypeName="TY_VARCHAR2_2"></Alter>
+		</Alters>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="H_CLRMEMBER" isCreate="true" isDrop="false" description="会员基本资料文件" >
+		<Columns>
+			<Column columnName="CHECKTAG" columnType="CHAR(4)" originalColumnType="TY_CHECKTAG" label="检查标识" iskey="no" notnull="no"></Column>
+			<Column columnName="MENBERNAME" columnType="VARCHAR2(40)" originalColumnType="TY_BANKACCOUNTNO" label="会员名称" iskey="no" notnull="yes"></Column>
+			<Column columnName="TRADETYPE" columnType="CHAR(1)" originalColumnType="TY_ACCOUNTTYPE1" label="会员交易类型" iskey="no" notnull="yes"></Column>
+			<Column columnName="SHORTNAME" columnType="VARCHAR2(10)" originalColumnType="TY_ACCOUNT" label="会员简称" iskey="no" notnull="yes"></Column>
+			<Column columnName="SETTLETYPE" columnType="CHAR(1)" originalColumnType="TY_ACCOUNTTYPE1" label="会员结算类型" iskey="no" notnull="yes"></Column>
+			<Column columnName="MEMBERNUM" columnType="VARCHAR2(5)" originalColumnType="TY_COMMODITYID1" label="会员号" iskey="no" notnull="yes"></Column>
+			<Column columnName="UPLOADDATE" columnType="CHAR(10)" originalColumnType="TY_ENDDATE" label="上报日期" iskey="no" notnull="no"></Column>
+			<Column columnName="TRADEDATE" columnType="VARCHAR2(10)" originalColumnType="TY_ACCOUNT" label="日期" iskey="no" notnull="yes"></Column>
+		</Columns>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="H_CLRCUSTOMER" isCreate="true" isDrop="false" description="客户基本资料文件" >
+		<Columns>
+			<Column columnName="ORGNUMBER" columnType="VARCHAR2(40)" originalColumnType="TY_BANKACCOUNTNO" label="组织机构代码证号" iskey="no" notnull="no"></Column>
+			<Column columnName="SUBNUMBER" columnType="VARCHAR2(10)" originalColumnType="TY_ACCOUNT" label="二级代理商编号" iskey="no" notnull="no"></Column>
+			<Column columnName="TRADETYPE" columnType="CHAR(1)" originalColumnType="TY_ACCOUNTTYPE1" label="交易编码类型" iskey="no" notnull="yes"></Column>
+			<Column columnName="CONTACTS" columnType="VARCHAR2(40)" originalColumnType="TY_BANKACCOUNTNO" label="联系人" iskey="no" notnull="no"></Column>
+			<Column columnName="AUTHORTYPE" columnType="CHAR(1)" originalColumnType="TY_ACCOUNTTYPE1" label="有效身份证明文件类别" iskey="no" notnull="no"></Column>
+			<Column columnName="OPENDATE" columnType="VARCHAR2(10)" originalColumnType="TY_ACCOUNT" label="客户开户日期" iskey="no" notnull="yes"></Column>
+			<Column columnName="ORGDEADLINE" columnType="VARCHAR2(10)" originalColumnType="TY_ACCOUNT" label="组织机构代码证有效期截止日期" iskey="no" notnull="no"></Column>
+			<Column columnName="SECURITIESID" columnType="VARCHAR2(10)" originalColumnType="TY_ACCOUNT" label="客户证券账户" iskey="no" notnull="yes"></Column>
+			<Column columnName="PHONE" columnType="VARCHAR2(40)" originalColumnType="TY_BANKACCOUNTNO" label="联系电话" iskey="no" notnull="yes"></Column>
+			<Column columnName="BUSINESSNUM" columnType="VARCHAR2(40)" originalColumnType="TY_BANKACCOUNTNO" label="商业登记证号" iskey="no" notnull="no"></Column>
+			<Column columnName="CONTACTCOUNTRY" columnType="CHAR(3)" originalColumnType="TY_DMSCURRENCY" label="经办人国籍/地区" iskey="no" notnull="no"></Column>
+			<Column columnName="POSTALCODE" columnType="VARCHAR2(6)" originalColumnType="TY_VARCHAR2_2" label="邮政编码" iskey="no" notnull="yes"></Column>
+			<Column columnName="READDRESS" columnType="VARCHAR2(200)" originalColumnType="TY_ADDRESS2" label="注册地址" iskey="no" notnull="no"></Column>
+			<Column columnName="VALIDIDENTITY" columnType="VARCHAR2(40)" originalColumnType="TY_BANKACCOUNTNO" label="有效身份证明文件号码" iskey="no" notnull="no"></Column>
+			<Column columnName="MENBERNUM" columnType="VARCHAR2(5)" originalColumnType="TY_COMMODITYID1" label="所属会员号" iskey="no" notnull="yes"></Column>
+			<Column columnName="OCFLAG" columnType="CHAR(1)" originalColumnType="TY_ACCOUNTTYPE1" label="开户和销户标志" iskey="no" notnull="yes"></Column>
+			<Column columnName="POSTALADDRESS" columnType="VARCHAR2(200)" originalColumnType="TY_ADDRESS2" label="通讯地址" iskey="no" notnull="yes"></Column>
+			<Column columnName="AUTHORNAME" columnType="VARCHAR2(40)" originalColumnType="TY_BANKACCOUNTNO" label="开户授权人名称" iskey="no" notnull="no"></Column>
+			<Column columnName="TRADEDATE" columnType="VARCHAR2(10)" originalColumnType="TY_ACCOUNT" label="日期" iskey="no" notnull="yes"></Column>
+			<Column columnName="LEGALPERSON" columnType="VARCHAR2(40)" originalColumnType="TY_BANKACCOUNTNO" label="法定代表人、执行事务合伙人或负责人" iskey="no" notnull="no"></Column>
+			<Column columnName="IDENTITYNUM" columnType="VARCHAR2(40)" originalColumnType="TY_BANKACCOUNTNO" label="身份证" iskey="no" notnull="no"></Column>
+			<Column columnName="COUNTRY" columnType="CHAR(3)" originalColumnType="TY_DMSCURRENCY" label="国籍/地区 " iskey="no" notnull="no"></Column>
+			<Column columnName="ADDRESS" columnType="VARCHAR2(40)" originalColumnType="TY_BANKACCOUNTNO" label="所在地" iskey="no" notnull="yes"></Column>
+			<Column columnName="CUSTOMERTYPE" columnType="CHAR(1)" originalColumnType="TY_ACCOUNTTYPE1" label="客户类型" iskey="no" notnull="yes"></Column>
+			<Column columnName="UPLOADDATE" columnType="CHAR(10)" originalColumnType="TY_ENDDATE" label="上报日期" iskey="no" notnull="no"></Column>
+			<Column columnName="IDDEADLINE" columnType="VARCHAR2(10)" originalColumnType="TY_ACCOUNT" label="身份证明文件有效期截止日期" iskey="no" notnull="yes"></Column>
+			<Column columnName="OVERSEASFLAG" columnType="CHAR(1)" originalColumnType="TY_ACCOUNTTYPE1" label="境外客户标识" iskey="no" notnull="yes"></Column>
+			<Column columnName="CUSTOMERNAME" columnType="VARCHAR2(200)" originalColumnType="TY_ADDRESS2" label="名称" iskey="no" notnull="yes"></Column>
+			<Column columnName="PASSPORT" columnType="VARCHAR2(50)" originalColumnType="TY_IDENTITY_NO" label="护照号码，港澳台通行证号码, 或外国永久居留证号码" iskey="no" notnull="no"></Column>
+			<Column columnName="DERIVATIVENUM" columnType="VARCHAR2(13)" originalColumnType="TY_VARCHAR2_1" label="客户衍生品合约账户" iskey="no" notnull="yes"></Column>
+			<Column columnName="CHECKTAG" columnType="CHAR(4)" originalColumnType="TY_CHECKTAG" label="检查标识" iskey="no" notnull="no"></Column>
+			<Column columnName="CONTACTADDR" columnType="VARCHAR2(200)" originalColumnType="TY_ADDRESS2" label="经办人联系地址" iskey="no" notnull="no"></Column>
+			<Column columnName="ACCOUNTSTATE" columnType="CHAR(1)" originalColumnType="TY_ACCOUNTTYPE1" label="账户休眠状态" iskey="no" notnull="yes"></Column>
+			<Column columnName="MAILADDRESS" columnType="VARCHAR2(100)" originalColumnType="TY_ADDRESS1" label="电子邮件地址及网址" iskey="no" notnull="yes"></Column>
+			<Column columnName="AUTHORIDENTITY" columnType="VARCHAR2(40)" originalColumnType="TY_BANKACCOUNTNO" label="开户授权人有效身份证明文件号码" iskey="no" notnull="no"></Column>
+		</Columns>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="H_CLRFIRMFUND" isCreate="true" isDrop="false" description="衍生品资金文件" >
+		<Columns>
+			<Column columnName="FREEZFUNDS" columnType="NUMBER(20,3)" originalColumnType="TY_NUMBER_1" label="冻结资金" iskey="no" notnull="yes"></Column>
+			<Column columnName="DELIVERYMARGIN" columnType="NUMBER(20,3)" originalColumnType="TY_NUMBER_1" label="交割保证金" iskey="no" notnull="yes"></Column>
+			<Column columnName="OFFSETCHANGEAMOUNT" columnType="NUMBER(15,3)" originalColumnType="TY_AMOUNT1" label="货币充抵变动额" iskey="no" notnull="yes"></Column>
+			<Column columnName="TOTALFEE" columnType="NUMBER(20,3)" originalColumnType="TY_NUMBER_1" label="各类手续费清算值合计" iskey="no" notnull="yes"></Column>
+			<Column columnName="ACCOUNTNUM" columnType="VARCHAR2(25)" originalColumnType="TY_VARCHAR2_3" label="资金账户号码" iskey="no" notnull="yes"></Column>
+			<Column columnName="TODAYPROFIT" columnType="NUMBER(15,3)" originalColumnType="TY_AMOUNT1" label="当日总盈亏" iskey="no" notnull="yes"></Column>
+			<Column columnName="LOWSETTLEMENTS" columnType="NUMBER(20,3)" originalColumnType="TY_NUMBER_1" label="最低结算准备金" iskey="no" notnull="yes"></Column>
+			<Column columnName="TOTALRIGHTS" columnType="NUMBER(20,3)" originalColumnType="TY_NUMBER_1" label="会员权益总额" iskey="no" notnull="yes"></Column>
+			<Column columnName="TODAYFUNDS" columnType="NUMBER(20,3)" originalColumnType="TY_NUMBER_1" label="当日资金交收合计" iskey="no" notnull="yes"></Column>
+			<Column columnName="MENBERNUM" columnType="VARCHAR2(5)" originalColumnType="TY_COMMODITYID1" label="会员号" iskey="no" notnull="yes"></Column>
+			<Column columnName="MONERYOUT" columnType="NUMBER(20,3)" originalColumnType="TY_NUMBER_1" label="出金" iskey="no" notnull="yes"></Column>
+			<Column columnName="NONCHANGEAMOUNT" columnType="NUMBER(20,3)" originalColumnType="TY_NUMBER_1" label="非货币充抵变动额" iskey="no" notnull="yes"></Column>
+			<Column columnName="SETTLEMENT" columnType="NUMBER(20,3)" originalColumnType="TY_NUMBER_1" label="结算准备金" iskey="no" notnull="yes"></Column>
+			<Column columnName="TRADEDATE" columnType="VARCHAR2(10)" originalColumnType="TY_ACCOUNT" label="日期 " iskey="no" notnull="yes"></Column>
+			<Column columnName="CURRENCYFUND" columnType="NUMBER(20,3)" originalColumnType="TY_NUMBER_1" label="实有货币资金" iskey="no" notnull="yes"></Column>
+			<Column columnName="CONVERAMOUNT" columnType="NUMBER(15,3)" originalColumnType="TY_AMOUNT1" label="货币折抵金额" iskey="no" notnull="yes"></Column>
+			<Column columnName="OTHERSETTLEFUNDS" columnType="NUMBER(20,3)" originalColumnType="TY_NUMBER_1" label="其它交收资金清算值合计" iskey="no" notnull="yes"></Column>
+			<Column columnName="TODAYTOTALRIGHTS" columnType="NUMBER(20,3)" originalColumnType="TY_NUMBER_1" label="当日总权利金" iskey="no" notnull="yes"></Column>
+			<Column columnName="UPLOADDATE" columnType="CHAR(10)" originalColumnType="TY_ENDDATE" label="上报日期" iskey="no" notnull="no"></Column>
+			<Column columnName="TRADEMARGIN" columnType="NUMBER(20,3)" originalColumnType="TY_NUMBER_1" label="交易保证金" iskey="no" notnull="yes"></Column>
+			<Column columnName="EXSETTLEFUNDS" columnType="NUMBER(20,3)" originalColumnType="TY_NUMBER_1" label="行权交收资金清算值合计" iskey="no" notnull="yes"></Column>
+			<Column columnName="CHECKTAG" columnType="CHAR(4)" originalColumnType="TY_CHECKTAG" label="检查标识" iskey="no" notnull="no"></Column>
+			<Column columnName="CURRENCY" columnType="CHAR(3)" originalColumnType="TY_DMSCURRENCY" label="币种" iskey="no" notnull="yes"></Column>
+			<Column columnName="ACCOUNTTYPE" columnType="CHAR(1)" originalColumnType="TY_ACCOUNTTYPE1" label="资金账户类型" iskey="no" notnull="yes"></Column>
+			<Column columnName="MONERYIN" columnType="NUMBER(20,3)" originalColumnType="TY_NUMBER_1" label="入金" iskey="no" notnull="yes"></Column>
+			<Column columnName="OFFSETAMOUNT" columnType="NUMBER(15,3)" originalColumnType="TY_AMOUNT1" label="货币充抵金额" iskey="no" notnull="yes"></Column>
+			<Column columnName="YESTERDAYRIGHTS" columnType="NUMBER(20,3)" originalColumnType="TY_NUMBER_1" label="上日会员权益总额" iskey="no" notnull="yes"></Column>
+			<Column columnName="NONAMOUNT" columnType="NUMBER(20,3)" originalColumnType="TY_NUMBER_1" label="非货币充抵金额" iskey="no" notnull="yes"></Column>
+		</Columns>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="H_CLRFUNDCHG" isCreate="true" isDrop="false" description="期货公司出入金文件" >
+		<Columns>
+			<Column columnName="INOUTDATE" columnType="VARCHAR2(10)" originalColumnType="TY_ACCOUNT" label="出入金发生日期" iskey="no" notnull="yes"></Column>
+			<Column columnName="CHECKTAG" columnType="CHAR(4)" originalColumnType="TY_CHECKTAG" label="检查标识" iskey="no" notnull="no"></Column>
+			<Column columnName="ACCOUNTNUM" columnType="VARCHAR2(25)" originalColumnType="TY_VARCHAR2_3" label="资金账户号码" iskey="no" notnull="yes"></Column>
+			<Column columnName="CURRENCY" columnType="CHAR(3)" originalColumnType="TY_DMSCURRENCY" label="币种" iskey="no" notnull="yes"></Column>
+			<Column columnName="INOUTACCOUNTTYPE" columnType="CHAR(1)" originalColumnType="TY_ACCOUNTTYPE1" label="出入金账户类型" iskey="no" notnull="yes"></Column>
+			<Column columnName="BANKID" columnType="CHAR(2)" originalColumnType="TY_BANKID1" label="银行统一标识" iskey="no" notnull="yes"></Column>
+			<Column columnName="INOUTTYPE" columnType="CHAR(1)" originalColumnType="TY_ACCOUNTTYPE1" label="出入金类型" iskey="no" notnull="yes"></Column>
+			<Column columnName="ACCOUNTTYPE" columnType="CHAR(1)" originalColumnType="TY_ACCOUNTTYPE1" label="资金账户类型" iskey="no" notnull="yes"></Column>
+			<Column columnName="FUNDCHGAMOUNT" columnType="NUMBER(20,3)" originalColumnType="TY_NUMBER_1" label="资金变动额" iskey="no" notnull="yes"></Column>
+			<Column columnName="MEMBERNUM" columnType="VARCHAR2(5)" originalColumnType="TY_COMMODITYID1" label="会员号" iskey="no" notnull="yes"></Column>
+			<Column columnName="UPLOADDATE" columnType="CHAR(10)" originalColumnType="TY_ENDDATE" label="上报日期" iskey="no" notnull="no"></Column>
+			<Column columnName="TRADEDATE" columnType="VARCHAR2(10)" originalColumnType="TY_ACCOUNT" label="日期" iskey="no" notnull="yes"></Column>
+		</Columns>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="H_CLRCUSFUND" isCreate="true" isDrop="false" description="衍生品分项资金文件" >
+		<Columns>
+			<Column columnName="FUNDAMOUNT" columnType="NUMBER(20,3)" originalColumnType="TY_NUMBER_1" label="资金金额" iskey="no" notnull="yes"></Column>
+			<Column columnName="DERIVATIVENUM" columnType="VARCHAR2(13)" originalColumnType="TY_VARCHAR2_1" label="客户衍生品合约账户" iskey="no" notnull="no"></Column>
+			<Column columnName="CHECKTAG" columnType="CHAR(4)" originalColumnType="TY_CHECKTAG" label="检查标识" iskey="no" notnull="no"></Column>
+			<Column columnName="ACCOUNTNUM" columnType="VARCHAR2(25)" originalColumnType="TY_VARCHAR2_3" label="资金账户号码" iskey="no" notnull="yes"></Column>
+			<Column columnName="CURRENCY" columnType="CHAR(3)" originalColumnType="TY_DMSCURRENCY" label="币种" iskey="no" notnull="yes"></Column>
+			<Column columnName="FUNDNUM" columnType="VARCHAR2(4)" originalColumnType="TY_AMTYPE" label="资金项目编号" iskey="no" notnull="yes"></Column>
+			<Column columnName="MEMBERNUM" columnType="VARCHAR2(5)" originalColumnType="TY_COMMODITYID1" label="会员号" iskey="no" notnull="yes"></Column>
+			<Column columnName="UPLOADDATE" columnType="CHAR(10)" originalColumnType="TY_ENDDATE" label="上报日期" iskey="no" notnull="no"></Column>
+			<Column columnName="TRADEDATE" columnType="VARCHAR2(10)" originalColumnType="TY_ACCOUNT" label="日期" iskey="no" notnull="yes"></Column>
+		</Columns>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="H_CLROPTTRDDATA" isCreate="true" isDrop="false" description="衍生品分项资金文件" >
+		<Columns>
+			<Column columnName="BSFLAG" columnType="CHAR(1)" originalColumnType="TY_ACCOUNTTYPE1" label="买卖标志" iskey="no" notnull="yes"></Column>
+			<Column columnName="OPTIONMONEY" columnType="NUMBER(20,3)" originalColumnType="TY_NUMBER_1" label="权利金" iskey="no" notnull="yes"></Column>
+			<Column columnName="CUFLAG" columnType="CHAR(1)" originalColumnType="TY_ACCOUNTTYPE1" label="备兑标志" iskey="no" notnull="yes"></Column>
+			<Column columnName="TRANSDATE" columnType="VARCHAR2(10)" originalColumnType="TY_ACCOUNT" label="成交日期" iskey="no" notnull="yes"></Column>
+			<Column columnName="CPTYPE" columnType="CHAR(1)" originalColumnType="TY_ACCOUNTTYPE1" label="期权类型" iskey="no" notnull="yes"></Column>
+			<Column columnName="CLOSETIME" columnType="VARCHAR2(10)" originalColumnType="TY_ACCOUNT" label="成交时间" iskey="no" notnull="yes"></Column>
+			<Column columnName="OLFLAG" columnType="CHAR(1)" originalColumnType="TY_ACCOUNTTYPE1" label="开平仓标志" iskey="no" notnull="yes"></Column>
+			<Column columnName="UPLOADDATE" columnType="CHAR(10)" originalColumnType="TY_ENDDATE" label="上报日期" iskey="no" notnull="no"></Column>
+			<Column columnName="DERIVATIVENUM" columnType="VARCHAR2(13)" originalColumnType="TY_VARCHAR2_1" label="客户衍生品合约账户" iskey="no" notnull="yes"></Column>
+			<Column columnName="CHECKTAG" columnType="CHAR(4)" originalColumnType="TY_CHECKTAG" label="检查标识" iskey="no" notnull="no"></Column>
+			<Column columnName="VHFLAG" columnType="CHAR(1)" originalColumnType="TY_ACCOUNTTYPE1" label="投机套保标志" iskey="no" notnull="yes"></Column>
+			<Column columnName="CURRENCY" columnType="CHAR(3)" originalColumnType="TY_DMSCURRENCY" label="币种" iskey="no" notnull="yes"></Column>
+			<Column columnName="VOLUMN" columnType="NUMBER(16)" originalColumnType="TY_NUMBER_2" label="成交量" iskey="no" notnull="yes"></Column>
+			<Column columnName="OPTIONPRICE" columnType="NUMBER(17,9)" originalColumnType="TY_NUMBER_3" label="权利金单价" iskey="no" notnull="yes"></Column>
+			<Column columnName="INSTRUMENTID" columnType="VARCHAR2(30)" originalColumnType="TY_BASECONTRACTID" label="品种合约" iskey="no" notnull="yes"></Column>
+			<Column columnName="STRICKPRICE" columnType="NUMBER(20,9)" originalColumnType="TY_NUMBER_4" label="执行价" iskey="no" notnull="yes"></Column>
+			<Column columnName="TRANSNUM" columnType="VARCHAR2(16)" originalColumnType="TY_DATAPROVIDERNAME" label="成交流水号" iskey="no" notnull="yes"></Column>
+			<Column columnName="MEMBERNUM" columnType="VARCHAR2(5)" originalColumnType="TY_COMMODITYID1" label="会员号" iskey="no" notnull="yes"></Column>
+			<Column columnName="BASEPRODUCTID" columnType="VARCHAR2(6)" originalColumnType="TY_VARCHAR2_2" label="标的品种" iskey="no" notnull="yes"></Column>
+			<Column columnName="BASECONTRACTID" columnType="VARCHAR2(30)" originalColumnType="TY_BASECONTRACTID" label="标的合约" iskey="no" notnull="yes"></Column>
+			<Column columnName="TRADEDATE" columnType="VARCHAR2(10)" originalColumnType="TY_ACCOUNT" label="日期" iskey="no" notnull="yes"></Column>
+		</Columns>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="H_CLROPTHOLDDATA" isCreate="true" isDrop="false" description="衍生品持仓明细文件" >
+		<Columns>
+			<Column columnName="BSFLAG" columnType="CHAR(1)" originalColumnType="TY_ACCOUNTTYPE1" label="买卖标志" iskey="no" notnull="yes"></Column>
+			<Column columnName="TODSETTLEPRICE" columnType="NUMBER(20,3)" originalColumnType="TY_NUMBER_1" label="今结算价" iskey="no" notnull="yes"></Column>
+			<Column columnName="CUFLAG" columnType="CHAR(1)" originalColumnType="TY_ACCOUNTTYPE1" label="备兑标志" iskey="no" notnull="yes"></Column>
+			<Column columnName="CPTYPE" columnType="CHAR(1)" originalColumnType="TY_ACCOUNTTYPE1" label="期权类型" iskey="no" notnull="yes"></Column>
+			<Column columnName="POSPROFIT" columnType="NUMBER(15,3)" originalColumnType="TY_AMOUNT1" label="持仓盈亏" iskey="no" notnull="no"></Column>
+			<Column columnName="UPLOADDATE" columnType="CHAR(10)" originalColumnType="TY_ENDDATE" label="上报日期" iskey="no" notnull="no"></Column>
+			<Column columnName="TRADEMARGIN" columnType="NUMBER(20,3)" originalColumnType="TY_NUMBER_1" label="交易保证金" iskey="no" notnull="yes"></Column>
+			<Column columnName="DERIVATIVENUM" columnType="VARCHAR2(13)" originalColumnType="TY_VARCHAR2_1" label="客户衍生品合约账户" iskey="no" notnull="yes"></Column>
+			<Column columnName="CHECKTAG" columnType="CHAR(4)" originalColumnType="TY_CHECKTAG" label="检查标识" iskey="no" notnull="no"></Column>
+			<Column columnName="VHFLAG" columnType="CHAR(1)" originalColumnType="TY_ACCOUNTTYPE1" label="投机套保标志" iskey="no" notnull="yes"></Column>
+			<Column columnName="CURRENCY" columnType="CHAR(3)" originalColumnType="TY_DMSCURRENCY" label="币种" iskey="no" notnull="yes"></Column>
+			<Column columnName="INSTRUMENTID" columnType="VARCHAR2(30)" originalColumnType="TY_BASECONTRACTID" label="品种合约" iskey="no" notnull="yes"></Column>
+			<Column columnName="STRICKPRICE" columnType="NUMBER(20,9)" originalColumnType="TY_NUMBER_4" label="执行价" iskey="no" notnull="yes"></Column>
+			<Column columnName="MEMBERNUM" columnType="VARCHAR2(5)" originalColumnType="TY_COMMODITYID1" label="会员号" iskey="no" notnull="yes"></Column>
+			<Column columnName="BASEPRODUCTID" columnType="VARCHAR2(6)" originalColumnType="TY_VARCHAR2_2" label="标的品种" iskey="no" notnull="yes"></Column>
+			<Column columnName="POSITION" columnType="NUMBER(16)" originalColumnType="TY_NUMBER_2" label="持仓量" iskey="no" notnull="yes"></Column>
+			<Column columnName="BASECONTRACTID" columnType="VARCHAR2(30)" originalColumnType="TY_BASECONTRACTID" label="标的合约" iskey="no" notnull="yes"></Column>
+			<Column columnName="TRADEDATE" columnType="VARCHAR2(10)" originalColumnType="TY_ACCOUNT" label="日期" iskey="no" notnull="yes"></Column>
+			<Column columnName="YESSETTLEPRICE" columnType="NUMBER(20,3)" originalColumnType="TY_NUMBER_1" label="昨结算价" iskey="no" notnull="yes"></Column>
+		</Columns>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="H_CLROPTEXERDATA" isCreate="true" isDrop="false" description="衍生品行权明细文件" >
+		<Columns>
+			<Column columnName="BSFLAG" columnType="CHAR(1)" originalColumnType="TY_ACCOUNTTYPE1" label="买卖标志" iskey="no" notnull="yes"></Column>
+			<Column columnName="EXECDATE" columnType="VARCHAR2(10)" originalColumnType="TY_ACCOUNT" label="执行日期" iskey="no" notnull="yes"></Column>
+			<Column columnName="FREEZFUNDS" columnType="NUMBER(20,3)" originalColumnType="TY_NUMBER_1" label="冻结资金" iskey="no" notnull="yes"></Column>
+			<Column columnName="CPTYPE" columnType="CHAR(1)" originalColumnType="TY_ACCOUNTTYPE1" label="期权类型" iskey="no" notnull="yes"></Column>
+			<Column columnName="UPLOADDATE" columnType="CHAR(10)" originalColumnType="TY_ENDDATE" label="上报日期" iskey="no" notnull="no"></Column>
+			<Column columnName="EXECTIME" columnType="VARCHAR2(10)" originalColumnType="TY_ACCOUNT" label="执行时间" iskey="no" notnull="yes"></Column>
+			<Column columnName="DERIVATIVENUM" columnType="VARCHAR2(13)" originalColumnType="TY_VARCHAR2_1" label="客户衍生品合约账户" iskey="no" notnull="yes"></Column>
+			<Column columnName="CHECKTAG" columnType="CHAR(4)" originalColumnType="TY_CHECKTAG" label="检查标识" iskey="no" notnull="no"></Column>
+			<Column columnName="EXECFIXFUND" columnType="NUMBER(20,3)" originalColumnType="TY_NUMBER_1" label="行权锁定保证金" iskey="no" notnull="yes"></Column>
+			<Column columnName="VHFLAG" columnType="CHAR(1)" originalColumnType="TY_ACCOUNTTYPE1" label="投机套保标志" iskey="no" notnull="yes"></Column>
+			<Column columnName="EXECPRICE" columnType="NUMBER(20,9)" originalColumnType="TY_NUMBER_4" label="执行价" iskey="no" notnull="yes"></Column>
+			<Column columnName="CURRENCY" columnType="CHAR(3)" originalColumnType="TY_DMSCURRENCY" label="币种" iskey="no" notnull="yes"></Column>
+			<Column columnName="EXECFEE" columnType="NUMBER(20,3)" originalColumnType="TY_NUMBER_1" label="行权结算费（手续费）" iskey="no" notnull="yes"></Column>
+			<Column columnName="EXECNUM" columnType="NUMBER(16)" originalColumnType="TY_NUMBER_2" label="执行手数" iskey="no" notnull="yes"></Column>
+			<Column columnName="INSTRUMENTID" columnType="VARCHAR2(30)" originalColumnType="TY_BASECONTRACTID" label="品种合约" iskey="no" notnull="yes"></Column>
+			<Column columnName="TRANSNUM" columnType="VARCHAR2(16)" originalColumnType="TY_DATAPROVIDERNAME" label="流水号" iskey="no" notnull="yes"></Column>
+			<Column columnName="MEMBERNUM" columnType="VARCHAR2(5)" originalColumnType="TY_COMMODITYID1" label="会员号" iskey="no" notnull="yes"></Column>
+			<Column columnName="EXECPROFIT" columnType="NUMBER(15,3)" originalColumnType="TY_AMOUNT1" label="行权盈亏" iskey="no" notnull="yes"></Column>
+			<Column columnName="BASEPRODUCTID" columnType="VARCHAR2(6)" originalColumnType="TY_VARCHAR2_2" label="标的品种" iskey="no" notnull="yes"></Column>
+			<Column columnName="BASECONTRACTID" columnType="VARCHAR2(30)" originalColumnType="TY_BASECONTRACTID" label="标的合约" iskey="no" notnull="yes"></Column>
+			<Column columnName="TRADEDATE" columnType="VARCHAR2(10)" originalColumnType="TY_ACCOUNT" label="日期" iskey="no" notnull="yes"></Column>
+		</Columns>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="H_CLRSEFUND" isCreate="true" isDrop="false" description="现货资金文件" >
+		<Columns>
+			<Column columnName="SETTLEDATE" columnType="VARCHAR2(10)" originalColumnType="TY_ACCOUNT" label="交收日期" iskey="no" notnull="yes"></Column>
+			<Column columnName="SELLAMOUNT" columnType="NUMBER(20,3)" originalColumnType="TY_NUMBER_1" label="净卖金额" iskey="no" notnull="yes"></Column>
+			<Column columnName="HANDFEE" columnType="NUMBER(18,3)" originalColumnType="TY_ACCOUNTMORTGAGE" label="经手费" iskey="no" notnull="yes"></Column>
+			<Column columnName="MEMBERDATE" columnType="VARCHAR2(8)" originalColumnType="TY_COMMODITYID2" label="会员号" iskey="no" notnull="yes"></Column>
+			<Column columnName="SECFEE" columnType="NUMBER(18,3)" originalColumnType="TY_ACCOUNTMORTGAGE" label="证管费" iskey="no" notnull="yes"></Column>
+			<Column columnName="NOTE" columnType="VARCHAR2(40)" originalColumnType="TY_BANKACCOUNTNO" label="备注" iskey="no" notnull="no"></Column>
+			<Column columnName="UPLOADDATE" columnType="CHAR(10)" originalColumnType="TY_ENDDATE" label="上报日期" iskey="no" notnull="no"></Column>
+			<Column columnName="CLEARDATE" columnType="VARCHAR2(10)" originalColumnType="TY_ACCOUNT" label="清算日期" iskey="no" notnull="yes"></Column>
+			<Column columnName="CLEARAMOUNT" columnType="NUMBER(20,3)" originalColumnType="TY_NUMBER_1" label="清算金额" iskey="no" notnull="yes"></Column>
+			<Column columnName="TRANSFERFEE" columnType="NUMBER(18,3)" originalColumnType="TY_ACCOUNTMORTGAGE" label="过户费" iskey="no" notnull="yes"></Column>
+			<Column columnName="STAMPTAX" columnType="NUMBER(18,3)" originalColumnType="TY_ACCOUNTMORTGAGE" label="印花税" iskey="no" notnull="yes"></Column>
+			<Column columnName="CHECKTAG" columnType="CHAR(4)" originalColumnType="TY_CHECKTAG" label="检查标识" iskey="no" notnull="no"></Column>
+			<Column columnName="ACCOUNTNUM" columnType="VARCHAR2(25)" originalColumnType="TY_VARCHAR2_3" label="资金账户" iskey="no" notnull="yes"></Column>
+			<Column columnName="CURRENCY" columnType="CHAR(3)" originalColumnType="TY_DMSCURRENCY" label="币种" iskey="no" notnull="yes"></Column>
+			<Column columnName="BUYAMOUNT" columnType="NUMBER(20,3)" originalColumnType="TY_NUMBER_1" label="净买金额" iskey="no" notnull="yes"></Column>
+			<Column columnName="TODAYFUNDS" columnType="NUMBER(20,3)" originalColumnType="TY_NUMBER_1" label="当日资金余额" iskey="no" notnull="yes"></Column>
+			<Column columnName="ACTUALPAY" columnType="NUMBER(20,3)" originalColumnType="TY_NUMBER_1" label="实际收付" iskey="no" notnull="yes"></Column>
+			<Column columnName="LOWSETTLEMENT" columnType="NUMBER(20,3)" originalColumnType="TY_NUMBER_1" label="最低结算备付金" iskey="no" notnull="yes"></Column>
+			<Column columnName="OTHERFEES" columnType="NUMBER(18,3)" originalColumnType="TY_ACCOUNTMORTGAGE" label="其他费用" iskey="no" notnull="yes"></Column>
+			<Column columnName="TRADEDATE" columnType="VARCHAR2(10)" originalColumnType="TY_ACCOUNT" label="日期" iskey="no" notnull="yes"></Column>
+			<Column columnName="FEE" columnType="NUMBER(18,3)" originalColumnType="TY_ACCOUNTMORTGAGE" label="手续费" iskey="no" notnull="yes"></Column>
+		</Columns>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="H_CLRSETRDDATA" isCreate="true" isDrop="false" description="现货资金文件" >
+		<Columns>
+			<Column columnName="CHANGETYPE" columnType="VARCHAR2(3)" originalColumnType="TY_CURRENCY" label="变动类型" iskey="no" notnull="yes"></Column>
+			<Column columnName="PRICE" columnType="NUMBER(17,9)" originalColumnType="TY_NUMBER_3" label="成交价格" iskey="no" notnull="yes"></Column>
+			<Column columnName="SECURIACCOUNTID" columnType="VARCHAR2(10)" originalColumnType="TY_ACCOUNT" label="客户证券账户" iskey="no" notnull="yes"></Column>
+			<Column columnName="TRANSDATE" columnType="VARCHAR2(10)" originalColumnType="TY_ACCOUNT" label="成交日期" iskey="no" notnull="yes"></Column>
+			<Column columnName="ACCOUNTNUM" columnType="VARCHAR2(25)" originalColumnType="TY_VARCHAR2_3" label="资金账户号码" iskey="no" notnull="yes"></Column>
+			<Column columnName="VOLUMN" columnType="NUMBER(16)" originalColumnType="TY_NUMBER_2" label="成交数量" iskey="no" notnull="yes"></Column>
+			<Column columnName="RIGHTTYPE" columnType="CHAR(2)" originalColumnType="TY_BANKID1" label="权益类别" iskey="no" notnull="yes"></Column>
+			<Column columnName="EXCHANGEID" columnType="CHAR(2)" originalColumnType="TY_BANKID1" label="交易所统一标识" iskey="no" notnull="yes"></Column>
+			<Column columnName="TRADEDATE" columnType="VARCHAR2(10)" originalColumnType="TY_ACCOUNT" label="日期" iskey="no" notnull="yes"></Column>
+			<Column columnName="CIRCUTYPE" columnType="CHAR(1)" originalColumnType="TY_ACCOUNTTYPE1" label="流通类型" iskey="no" notnull="yes"></Column>
+			<Column columnName="FEE" columnType="NUMBER(18,3)" originalColumnType="TY_ACCOUNTMORTGAGE" label="手续费" iskey="no" notnull="yes"></Column>
+			<Column columnName="BSFLAG" columnType="CHAR(1)" originalColumnType="TY_ACCOUNTTYPE1" label="买卖标志" iskey="no" notnull="yes"></Column>
+			<Column columnName="HANDFEE" columnType="NUMBER(18,3)" originalColumnType="TY_ACCOUNTMORTGAGE" label="经手费" iskey="no" notnull="yes"></Column>
+			<Column columnName="MEMBERDATE" columnType="VARCHAR2(8)" originalColumnType="TY_COMMODITYID2" label="会员号" iskey="no" notnull="yes"></Column>
+			<Column columnName="SETTLEVOLUMN" columnType="NUMBER(16)" originalColumnType="TY_NUMBER_2" label="交收数量" iskey="no" notnull="yes"></Column>
+			<Column columnName="SECFEE" columnType="NUMBER(18,3)" originalColumnType="TY_ACCOUNTMORTGAGE" label="证管费" iskey="no" notnull="yes"></Column>
+			<Column columnName="TRADETRANSNUM" columnType="VARCHAR2(16)" originalColumnType="TY_DATAPROVIDERNAME" label="成交流水号" iskey="no" notnull="no"></Column>
+			<Column columnName="SECURICODE" columnType="VARCHAR2(6)" originalColumnType="TY_VARCHAR2_2" label="证券代码" iskey="no" notnull="yes"></Column>
+			<Column columnName="SECURITYPE" columnType="CHAR(2)" originalColumnType="TY_BANKID1" label="证券类别" iskey="no" notnull="yes"></Column>
+			<Column columnName="UPLOADDATE" columnType="CHAR(10)" originalColumnType="TY_ENDDATE" label="上报日期" iskey="no" notnull="no"></Column>
+			<Column columnName="CLEARAMOUNT" columnType="NUMBER(20,3)" originalColumnType="TY_NUMBER_1" label="清算金额" iskey="no" notnull="yes"></Column>
+			<Column columnName="TRANSFERFEE" columnType="NUMBER(18,3)" originalColumnType="TY_ACCOUNTMORTGAGE" label="过户费" iskey="no" notnull="yes"></Column>
+			<Column columnName="SECURINAME" columnType="VARCHAR2(30)" originalColumnType="TY_BASECONTRACTID" label="证券的中文简称" iskey="no" notnull="yes"></Column>
+			<Column columnName="STAMPTAX" columnType="NUMBER(18,3)" originalColumnType="TY_ACCOUNTMORTGAGE" label="印花税" iskey="no" notnull="yes"></Column>
+			<Column columnName="CHECKTAG" columnType="CHAR(4)" originalColumnType="TY_CHECKTAG" label="检查标识" iskey="no" notnull="no"></Column>
+			<Column columnName="CURRENCY" columnType="CHAR(3)" originalColumnType="TY_DMSCURRENCY" label="币种" iskey="no" notnull="yes"></Column>
+			<Column columnName="TRANSTIME" columnType="VARCHAR2(10)" originalColumnType="TY_ACCOUNT" label="成交时间" iskey="no" notnull="yes"></Column>
+			<Column columnName="OTHERFEES" columnType="NUMBER(18,3)" originalColumnType="TY_ACCOUNTMORTGAGE" label="其他费用" iskey="no" notnull="yes"></Column>
+			<Column columnName="HANGYEAR" columnType="VARCHAR2(4)" originalColumnType="TY_AMTYPE" label="挂牌年份" iskey="no" notnull="yes"></Column>
+		</Columns>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="H_CLRSEPOSDATA" isCreate="true" isDrop="false" description="现货持仓明细文件" >
+		<Columns>
+			<Column columnName="SECURIACCOUNTID" columnType="VARCHAR2(10)" originalColumnType="TY_ACCOUNT" label="客户证券账户" iskey="no" notnull="yes"></Column>
+			<Column columnName="SECURICODE" columnType="VARCHAR2(6)" originalColumnType="TY_VARCHAR2_2" label="证券代码" iskey="no" notnull="yes"></Column>
+			<Column columnName="SECURITYPE" columnType="CHAR(2)" originalColumnType="TY_BANKID1" label="证券类别" iskey="no" notnull="yes"></Column>
+			<Column columnName="UPLOADDATE" columnType="CHAR(10)" originalColumnType="TY_ENDDATE" label="上报日期" iskey="no" notnull="no"></Column>
+			<Column columnName="SECURINAME" columnType="VARCHAR2(30)" originalColumnType="TY_BASECONTRACTID" label="证券的中文简称" iskey="no" notnull="yes"></Column>
+			<Column columnName="CHECKTAG" columnType="CHAR(4)" originalColumnType="TY_CHECKTAG" label="检查标识" iskey="no" notnull="no"></Column>
+			<Column columnName="HPFLAG" columnType="CHAR(2)" originalColumnType="TY_BANKID1" label="交易所统一标识" iskey="no" notnull="yes"></Column>
+			<Column columnName="RIGHTTYPE" columnType="CHAR(2)" originalColumnType="TY_BANKID1" label="权益类别" iskey="no" notnull="yes"></Column>
+			<Column columnName="MEMBERNUM" columnType="VARCHAR2(8)" originalColumnType="TY_COMMODITYID2" label="会员号" iskey="no" notnull="yes"></Column>
+			<Column columnName="POSITION" columnType="NUMBER(16)" originalColumnType="TY_NUMBER_2" label="持仓量" iskey="no" notnull="yes"></Column>
+			<Column columnName="TRADEDATE" columnType="VARCHAR2(10)" originalColumnType="TY_ACCOUNT" label="日期" iskey="no" notnull="yes"></Column>
+			<Column columnName="CIRCUTYPE" columnType="CHAR(1)" originalColumnType="TY_ACCOUNTTYPE1" label="流通类型" iskey="no" notnull="yes"></Column>
+			<Column columnName="HANGYEAR" columnType="VARCHAR2(4)" originalColumnType="TY_AMTYPE" label="挂牌年份" iskey="no" notnull="yes"></Column>
+		</Columns>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="H_COMPCLIENTOPTEXERCISE" isCreate="false" isDrop="false" keyList="" changedDescription="">
+		<Drops>
+		</Drops>
+		<Adds>
+			<Add columnName="EXECMARGIN" typeName="NUMBER(15,3)" originalTypeName="TY_AMOUNT1" label="行权锁定保证金" iskey="no" notnull="yes"></Add>
+			<Add columnName="FREEZFUNDS" typeName="NUMBER(20,3)" originalTypeName="TY_NUMBER_1" label="冻结资金" iskey="no" notnull="yes"></Add>
+		</Adds>
+		<Alters>
+			<Alter type="columnNotnull" columnName="TRADESEQ"  changedNotnull="no" ></Alter>
+			<Alter type="columnType" columnName="BASEPRODUCTID"  changedTypeName="VARCHAR2(6)" originalChangedTypeName="TY_VARCHAR2_2"></Alter>
+		</Alters>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="D_CLRMEMBER" isCreate="true" isDrop="false" description="会员基本资料文件" >
+		<Columns>
+			<Column columnName="CHECKTAG" columnType="CHAR(4)" originalColumnType="TY_CHECKTAG" label="检查标识" iskey="no" notnull="no"></Column>
+			<Column columnName="MENBERNAME" columnType="VARCHAR2(40)" originalColumnType="TY_BANKACCOUNTNO" label="会员名称" iskey="no" notnull="yes"></Column>
+			<Column columnName="TRADETYPE" columnType="CHAR(1)" originalColumnType="TY_ACCOUNTTYPE1" label="会员交易类型" iskey="no" notnull="yes"></Column>
+			<Column columnName="SHORTNAME" columnType="VARCHAR2(10)" originalColumnType="TY_ACCOUNT" label="会员简称" iskey="no" notnull="yes"></Column>
+			<Column columnName="SETTLETYPE" columnType="CHAR(1)" originalColumnType="TY_ACCOUNTTYPE1" label="会员结算类型" iskey="no" notnull="yes"></Column>
+			<Column columnName="MEMBERNUM" columnType="VARCHAR2(5)" originalColumnType="TY_COMMODITYID1" label="会员号" iskey="no" notnull="yes"></Column>
+			<Column columnName="UPLOADDATE" columnType="CHAR(10)" originalColumnType="TY_ENDDATE" label="上报日期" iskey="no" notnull="no"></Column>
+			<Column columnName="TRADEDATE" columnType="VARCHAR2(10)" originalColumnType="TY_ACCOUNT" label="日期" iskey="no" notnull="yes"></Column>
+		</Columns>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="D_CLRCUSTOMER" isCreate="true" isDrop="false" description="客户基本资料文件" >
+		<Columns>
+			<Column columnName="ORGNUMBER" columnType="VARCHAR2(40)" originalColumnType="TY_BANKACCOUNTNO" label="组织机构代码证号" iskey="no" notnull="no"></Column>
+			<Column columnName="SECURIACCOUNTID" columnType="VARCHAR2(10)" originalColumnType="TY_ACCOUNT" label="客户证券账户" iskey="no" notnull="yes"></Column>
+			<Column columnName="SUBNUMBER" columnType="VARCHAR2(10)" originalColumnType="TY_ACCOUNT" label="二级代理商编号" iskey="no" notnull="no"></Column>
+			<Column columnName="TRADETYPE" columnType="CHAR(1)" originalColumnType="TY_ACCOUNTTYPE1" label="交易编码类型" iskey="no" notnull="yes"></Column>
+			<Column columnName="CONTACTS" columnType="VARCHAR2(40)" originalColumnType="TY_BANKACCOUNTNO" label="联系人" iskey="no" notnull="no"></Column>
+			<Column columnName="AUTHORTYPE" columnType="CHAR(1)" originalColumnType="TY_ACCOUNTTYPE1" label="有效身份证明文件类别" iskey="no" notnull="no"></Column>
+			<Column columnName="OPENDATE" columnType="VARCHAR2(10)" originalColumnType="TY_ACCOUNT" label="客户开户日期" iskey="no" notnull="yes"></Column>
+			<Column columnName="ORGDEADLINE" columnType="VARCHAR2(10)" originalColumnType="TY_ACCOUNT" label="组织机构代码证有效期截止日期" iskey="no" notnull="no"></Column>
+			<Column columnName="PHONE" columnType="VARCHAR2(40)" originalColumnType="TY_BANKACCOUNTNO" label="联系电话" iskey="no" notnull="yes"></Column>
+			<Column columnName="BUSINESSNUM" columnType="VARCHAR2(40)" originalColumnType="TY_BANKACCOUNTNO" label="商业登记证号" iskey="no" notnull="no"></Column>
+			<Column columnName="CONTACTCOUNTRY" columnType="CHAR(3)" originalColumnType="TY_DMSCURRENCY" label="经办人国籍/地区" iskey="no" notnull="no"></Column>
+			<Column columnName="POSTALCODE" columnType="VARCHAR2(6)" originalColumnType="TY_VARCHAR2_2" label="邮政编码" iskey="no" notnull="yes"></Column>
+			<Column columnName="READDRESS" columnType="VARCHAR2(200)" originalColumnType="TY_ADDRESS2" label="注册地址" iskey="no" notnull="no"></Column>
+			<Column columnName="VALIDIDENTITY" columnType="VARCHAR2(40)" originalColumnType="TY_BANKACCOUNTNO" label="有效身份证明文件号码" iskey="no" notnull="no"></Column>
+			<Column columnName="MENBERNUM" columnType="VARCHAR2(5)" originalColumnType="TY_COMMODITYID1" label="所属会员号" iskey="no" notnull="yes"></Column>
+			<Column columnName="OCFLAG" columnType="CHAR(1)" originalColumnType="TY_ACCOUNTTYPE1" label="开户和销户标志" iskey="no" notnull="yes"></Column>
+			<Column columnName="POSTALADDRESS" columnType="VARCHAR2(200)" originalColumnType="TY_ADDRESS2" label="通讯地址" iskey="no" notnull="yes"></Column>
+			<Column columnName="AUTHORNAME" columnType="VARCHAR2(40)" originalColumnType="TY_BANKACCOUNTNO" label="开户授权人名称" iskey="no" notnull="no"></Column>
+			<Column columnName="TRADEDATE" columnType="VARCHAR2(10)" originalColumnType="TY_ACCOUNT" label="日期" iskey="no" notnull="yes"></Column>
+			<Column columnName="LEGALPERSON" columnType="VARCHAR2(40)" originalColumnType="TY_BANKACCOUNTNO" label="法定代表人、执行事务合伙人或负责人" iskey="no" notnull="no"></Column>
+			<Column columnName="IDENTITYNUM" columnType="VARCHAR2(40)" originalColumnType="TY_BANKACCOUNTNO" label="身份证" iskey="no" notnull="no"></Column>
+			<Column columnName="COUNTRY" columnType="CHAR(3)" originalColumnType="TY_DMSCURRENCY" label="国籍/地区 " iskey="no" notnull="no"></Column>
+			<Column columnName="ADDRESS" columnType="VARCHAR2(40)" originalColumnType="TY_BANKACCOUNTNO" label="所在地" iskey="no" notnull="yes"></Column>
+			<Column columnName="CUSTOMERTYPE" columnType="CHAR(1)" originalColumnType="TY_ACCOUNTTYPE1" label="客户类型" iskey="no" notnull="yes"></Column>
+			<Column columnName="UPLOADDATE" columnType="CHAR(10)" originalColumnType="TY_ENDDATE" label="上报日期" iskey="no" notnull="no"></Column>
+			<Column columnName="IDDEADLINE" columnType="VARCHAR2(10)" originalColumnType="TY_ACCOUNT" label="身份证明文件有效期截止日期" iskey="no" notnull="yes"></Column>
+			<Column columnName="OVERSEASFLAG" columnType="CHAR(1)" originalColumnType="TY_ACCOUNTTYPE1" label="境外客户标识" iskey="no" notnull="yes"></Column>
+			<Column columnName="CUSTOMERNAME" columnType="VARCHAR2(200)" originalColumnType="TY_ADDRESS2" label="名称" iskey="no" notnull="yes"></Column>
+			<Column columnName="PASSPORT" columnType="VARCHAR2(50)" originalColumnType="TY_IDENTITY_NO" label="护照号码，港澳台通行证号码, 或外国永久居留证号码" iskey="no" notnull="no"></Column>
+			<Column columnName="DERIVATIVENUM" columnType="VARCHAR2(13)" originalColumnType="TY_VARCHAR2_1" label="客户衍生品合约账户" iskey="no" notnull="yes"></Column>
+			<Column columnName="CHECKTAG" columnType="CHAR(4)" originalColumnType="TY_CHECKTAG" label="检查标识" iskey="no" notnull="no"></Column>
+			<Column columnName="CONTACTADDR" columnType="VARCHAR2(200)" originalColumnType="TY_ADDRESS2" label="经办人联系地址" iskey="no" notnull="no"></Column>
+			<Column columnName="ACCOUNTSTATE" columnType="CHAR(1)" originalColumnType="TY_ACCOUNTTYPE1" label="账户休眠状态" iskey="no" notnull="yes"></Column>
+			<Column columnName="MAILADDRESS" columnType="VARCHAR2(100)" originalColumnType="TY_ADDRESS1" label="电子邮件地址及网址" iskey="no" notnull="yes"></Column>
+			<Column columnName="AUTHORIDENTITY" columnType="VARCHAR2(40)" originalColumnType="TY_BANKACCOUNTNO" label="开户授权人有效身份证明文件号码" iskey="no" notnull="no"></Column>
+		</Columns>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="D_CLRFIRMFUND" isCreate="true" isDrop="false" description="衍生品资金文件" >
+		<Columns>
+			<Column columnName="FREEZFUNDS" columnType="NUMBER(20,3)" originalColumnType="TY_NUMBER_1" label="冻结资金" iskey="no" notnull="yes"></Column>
+			<Column columnName="DELIVERYMARGIN" columnType="NUMBER(20,3)" originalColumnType="TY_NUMBER_1" label="交割保证金" iskey="no" notnull="yes"></Column>
+			<Column columnName="OFFSETCHANGEAMOUNT" columnType="NUMBER(15,3)" originalColumnType="TY_AMOUNT1" label="货币充抵变动额" iskey="no" notnull="yes"></Column>
+			<Column columnName="TOTALFEE" columnType="NUMBER(20,3)" originalColumnType="TY_NUMBER_1" label="各类手续费清算值合计" iskey="no" notnull="yes"></Column>
+			<Column columnName="ACCOUNTNUM" columnType="VARCHAR2(25)" originalColumnType="TY_VARCHAR2_3" label="资金账户号码" iskey="no" notnull="yes"></Column>
+			<Column columnName="TODAYPROFIT" columnType="NUMBER(15,3)" originalColumnType="TY_AMOUNT1" label="当日总盈亏" iskey="no" notnull="yes"></Column>
+			<Column columnName="LOWSETTLEMENTS" columnType="NUMBER(20,3)" originalColumnType="TY_NUMBER_1" label="最低结算准备金" iskey="no" notnull="yes"></Column>
+			<Column columnName="TOTALRIGHTS" columnType="NUMBER(20,3)" originalColumnType="TY_NUMBER_1" label="会员权益总额" iskey="no" notnull="yes"></Column>
+			<Column columnName="TODAYFUNDS" columnType="NUMBER(20,3)" originalColumnType="TY_NUMBER_1" label="当日资金交收合计" iskey="no" notnull="yes"></Column>
+			<Column columnName="MENBERNUM" columnType="VARCHAR2(5)" originalColumnType="TY_COMMODITYID1" label="会员号" iskey="no" notnull="yes"></Column>
+			<Column columnName="MONERYOUT" columnType="NUMBER(20,3)" originalColumnType="TY_NUMBER_1" label="出金" iskey="no" notnull="yes"></Column>
+			<Column columnName="NONCHANGEAMOUNT" columnType="NUMBER(20,3)" originalColumnType="TY_NUMBER_1" label="非货币充抵变动额" iskey="no" notnull="yes"></Column>
+			<Column columnName="SETTLEMENT" columnType="NUMBER(20,3)" originalColumnType="TY_NUMBER_1" label="结算准备金" iskey="no" notnull="yes"></Column>
+			<Column columnName="TRADEDATE" columnType="VARCHAR2(10)" originalColumnType="TY_ACCOUNT" label="日期 " iskey="no" notnull="yes"></Column>
+			<Column columnName="CURRENCYFUND" columnType="NUMBER(20,3)" originalColumnType="TY_NUMBER_1" label="实有货币资金" iskey="no" notnull="yes"></Column>
+			<Column columnName="CONVERAMOUNT" columnType="NUMBER(15,3)" originalColumnType="TY_AMOUNT1" label="货币折抵金额" iskey="no" notnull="yes"></Column>
+			<Column columnName="OTHERSETTLEFUNDS" columnType="NUMBER(20,3)" originalColumnType="TY_NUMBER_1" label="其它交收资金清算值合计" iskey="no" notnull="yes"></Column>
+			<Column columnName="TODAYTOTALRIGHTS" columnType="NUMBER(20,3)" originalColumnType="TY_NUMBER_1" label="当日总权利金" iskey="no" notnull="yes"></Column>
+			<Column columnName="UPLOADDATE" columnType="CHAR(10)" originalColumnType="TY_ENDDATE" label="上报日期" iskey="no" notnull="no"></Column>
+			<Column columnName="TRADEMARGIN" columnType="NUMBER(20,3)" originalColumnType="TY_NUMBER_1" label="交易保证金" iskey="no" notnull="yes"></Column>
+			<Column columnName="EXSETTLEFUNDS" columnType="NUMBER(20,3)" originalColumnType="TY_NUMBER_1" label="行权交收资金清算值合计" iskey="no" notnull="yes"></Column>
+			<Column columnName="CHECKTAG" columnType="CHAR(4)" originalColumnType="TY_CHECKTAG" label="检查标识" iskey="no" notnull="no"></Column>
+			<Column columnName="CURRENCY" columnType="CHAR(3)" originalColumnType="TY_DMSCURRENCY" label="币种" iskey="no" notnull="yes"></Column>
+			<Column columnName="ACCOUNTTYPE" columnType="CHAR(1)" originalColumnType="TY_ACCOUNTTYPE1" label="资金账户类型" iskey="no" notnull="yes"></Column>
+			<Column columnName="MONERYIN" columnType="NUMBER(20,3)" originalColumnType="TY_NUMBER_1" label="入金" iskey="no" notnull="yes"></Column>
+			<Column columnName="OFFSETAMOUNT" columnType="NUMBER(15,3)" originalColumnType="TY_AMOUNT1" label="货币充抵金额" iskey="no" notnull="yes"></Column>
+			<Column columnName="YESTERDAYRIGHTS" columnType="NUMBER(20,3)" originalColumnType="TY_NUMBER_1" label="上日会员权益总额" iskey="no" notnull="yes"></Column>
+			<Column columnName="NONAMOUNT" columnType="NUMBER(20,3)" originalColumnType="TY_NUMBER_1" label="非货币充抵金额" iskey="no" notnull="yes"></Column>
+		</Columns>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="D_CLRFUNDCHG" isCreate="true" isDrop="false" description="期货公司出入金文件" >
+		<Columns>
+			<Column columnName="INOUTDATE" columnType="VARCHAR2(10)" originalColumnType="TY_ACCOUNT" label="出入金发生日期" iskey="no" notnull="yes"></Column>
+			<Column columnName="CHECKTAG" columnType="CHAR(4)" originalColumnType="TY_CHECKTAG" label="检查标识" iskey="no" notnull="no"></Column>
+			<Column columnName="ACCOUNTNUM" columnType="VARCHAR2(25)" originalColumnType="TY_VARCHAR2_3" label="资金账户号码" iskey="no" notnull="yes"></Column>
+			<Column columnName="CURRENCY" columnType="CHAR(3)" originalColumnType="TY_DMSCURRENCY" label="币种" iskey="no" notnull="yes"></Column>
+			<Column columnName="INOUTACCOUNTTYPE" columnType="CHAR(1)" originalColumnType="TY_ACCOUNTTYPE1" label="出入金账户类型" iskey="no" notnull="yes"></Column>
+			<Column columnName="BANKID" columnType="CHAR(2)" originalColumnType="TY_BANKID1" label="银行统一标识" iskey="no" notnull="yes"></Column>
+			<Column columnName="INOUTTYPE" columnType="CHAR(1)" originalColumnType="TY_ACCOUNTTYPE1" label="出入金类型" iskey="no" notnull="yes"></Column>
+			<Column columnName="ACCOUNTTYPE" columnType="CHAR(1)" originalColumnType="TY_ACCOUNTTYPE1" label="资金账户类型" iskey="no" notnull="yes"></Column>
+			<Column columnName="FUNDCHGAMOUNT" columnType="NUMBER(20,3)" originalColumnType="TY_NUMBER_1" label="资金变动额" iskey="no" notnull="yes"></Column>
+			<Column columnName="MEMBERNUM" columnType="VARCHAR2(5)" originalColumnType="TY_COMMODITYID1" label="会员号" iskey="no" notnull="yes"></Column>
+			<Column columnName="UPLOADDATE" columnType="CHAR(10)" originalColumnType="TY_ENDDATE" label="上报日期" iskey="no" notnull="no"></Column>
+			<Column columnName="TRADEDATE" columnType="VARCHAR2(10)" originalColumnType="TY_ACCOUNT" label="日期" iskey="no" notnull="yes"></Column>
+		</Columns>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="D_CLRCUSFUND" isCreate="true" isDrop="false" description="衍生品分项资金文件" >
+		<Columns>
+			<Column columnName="FUNDAMOUNT" columnType="NUMBER(20,3)" originalColumnType="TY_NUMBER_1" label="资金金额" iskey="no" notnull="yes"></Column>
+			<Column columnName="DERIVATIVENUM" columnType="VARCHAR2(13)" originalColumnType="TY_VARCHAR2_1" label="客户衍生品合约账户" iskey="no" notnull="no"></Column>
+			<Column columnName="CHECKTAG" columnType="CHAR(4)" originalColumnType="TY_CHECKTAG" label="检查标识" iskey="no" notnull="no"></Column>
+			<Column columnName="ACCOUNTNUM" columnType="VARCHAR2(25)" originalColumnType="TY_VARCHAR2_3" label="资金账户号码" iskey="no" notnull="yes"></Column>
+			<Column columnName="CURRENCY" columnType="CHAR(3)" originalColumnType="TY_DMSCURRENCY" label="币种" iskey="no" notnull="yes"></Column>
+			<Column columnName="FUNDNUM" columnType="VARCHAR2(4)" originalColumnType="TY_AMTYPE" label="资金项目编号" iskey="no" notnull="yes"></Column>
+			<Column columnName="MEMBERNUM" columnType="VARCHAR2(5)" originalColumnType="TY_COMMODITYID1" label="会员号" iskey="no" notnull="yes"></Column>
+			<Column columnName="UPLOADDATE" columnType="CHAR(10)" originalColumnType="TY_ENDDATE" label="上报日期" iskey="no" notnull="no"></Column>
+			<Column columnName="TRADEDATE" columnType="VARCHAR2(10)" originalColumnType="TY_ACCOUNT" label="日期" iskey="no" notnull="yes"></Column>
+		</Columns>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="D_CLROPTTRDDATA" isCreate="true" isDrop="false" description="衍生品分项资金文件" >
+		<Columns>
+			<Column columnName="BSFLAG" columnType="CHAR(1)" originalColumnType="TY_ACCOUNTTYPE1" label="买卖标志" iskey="no" notnull="yes"></Column>
+			<Column columnName="OPTIONMONEY" columnType="NUMBER(20,3)" originalColumnType="TY_NUMBER_1" label="权利金" iskey="no" notnull="yes"></Column>
+			<Column columnName="CUFLAG" columnType="CHAR(1)" originalColumnType="TY_ACCOUNTTYPE1" label="备兑标志" iskey="no" notnull="yes"></Column>
+			<Column columnName="TRANSDATE" columnType="VARCHAR2(10)" originalColumnType="TY_ACCOUNT" label="成交日期" iskey="no" notnull="yes"></Column>
+			<Column columnName="CPTYPE" columnType="CHAR(1)" originalColumnType="TY_ACCOUNTTYPE1" label="期权类型" iskey="no" notnull="yes"></Column>
+			<Column columnName="CLOSETIME" columnType="VARCHAR2(10)" originalColumnType="TY_ACCOUNT" label="成交时间" iskey="no" notnull="yes"></Column>
+			<Column columnName="OLFLAG" columnType="CHAR(1)" originalColumnType="TY_ACCOUNTTYPE1" label="开平仓标志" iskey="no" notnull="yes"></Column>
+			<Column columnName="UPLOADDATE" columnType="CHAR(10)" originalColumnType="TY_ENDDATE" label="上报日期" iskey="no" notnull="no"></Column>
+			<Column columnName="DERIVATIVENUM" columnType="VARCHAR2(13)" originalColumnType="TY_VARCHAR2_1" label="客户衍生品合约账户" iskey="no" notnull="yes"></Column>
+			<Column columnName="CHECKTAG" columnType="CHAR(4)" originalColumnType="TY_CHECKTAG" label="检查标识" iskey="no" notnull="no"></Column>
+			<Column columnName="VHFLAG" columnType="CHAR(1)" originalColumnType="TY_ACCOUNTTYPE1" label="投机套保标志" iskey="no" notnull="yes"></Column>
+			<Column columnName="CURRENCY" columnType="CHAR(3)" originalColumnType="TY_DMSCURRENCY" label="币种" iskey="no" notnull="yes"></Column>
+			<Column columnName="VOLUMN" columnType="NUMBER(16)" originalColumnType="TY_NUMBER_2" label="成交量" iskey="no" notnull="yes"></Column>
+			<Column columnName="OPTIONPRICE" columnType="NUMBER(17,9)" originalColumnType="TY_NUMBER_3" label="权利金单价" iskey="no" notnull="yes"></Column>
+			<Column columnName="INSTRUMENTID" columnType="VARCHAR2(30)" originalColumnType="TY_BASECONTRACTID" label="品种合约" iskey="no" notnull="yes"></Column>
+			<Column columnName="STRICKPRICE" columnType="NUMBER(20,9)" originalColumnType="TY_NUMBER_4" label="执行价" iskey="no" notnull="yes"></Column>
+			<Column columnName="TRANSNUM" columnType="VARCHAR2(16)" originalColumnType="TY_DATAPROVIDERNAME" label="成交流水号" iskey="no" notnull="yes"></Column>
+			<Column columnName="MEMBERNUM" columnType="VARCHAR2(5)" originalColumnType="TY_COMMODITYID1" label="会员号" iskey="no" notnull="yes"></Column>
+			<Column columnName="BASEPRODUCTID" columnType="VARCHAR2(6)" originalColumnType="TY_VARCHAR2_2" label="标的品种" iskey="no" notnull="yes"></Column>
+			<Column columnName="BASECONTRACTID" columnType="VARCHAR2(30)" originalColumnType="TY_BASECONTRACTID" label="标的合约" iskey="no" notnull="yes"></Column>
+			<Column columnName="TRADEDATE" columnType="VARCHAR2(10)" originalColumnType="TY_ACCOUNT" label="日期" iskey="no" notnull="yes"></Column>
+		</Columns>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="D_CLROPTHOLDDATA" isCreate="true" isDrop="false" description="衍生品持仓明细文件" >
+		<Columns>
+			<Column columnName="BSFLAG" columnType="CHAR(1)" originalColumnType="TY_ACCOUNTTYPE1" label="买卖标志" iskey="no" notnull="yes"></Column>
+			<Column columnName="TODSETTLEPRICE" columnType="NUMBER(20,3)" originalColumnType="TY_NUMBER_1" label="今结算价" iskey="no" notnull="yes"></Column>
+			<Column columnName="CUFLAG" columnType="CHAR(1)" originalColumnType="TY_ACCOUNTTYPE1" label="备兑标志" iskey="no" notnull="yes"></Column>
+			<Column columnName="CPTYPE" columnType="CHAR(1)" originalColumnType="TY_ACCOUNTTYPE1" label="期权类型" iskey="no" notnull="yes"></Column>
+			<Column columnName="POSPROFIT" columnType="NUMBER(15,3)" originalColumnType="TY_AMOUNT1" label="持仓盈亏" iskey="no" notnull="no"></Column>
+			<Column columnName="UPLOADDATE" columnType="CHAR(10)" originalColumnType="TY_ENDDATE" label="上报日期" iskey="no" notnull="no"></Column>
+			<Column columnName="TRADEMARGIN" columnType="NUMBER(20,3)" originalColumnType="TY_NUMBER_1" label="交易保证金" iskey="no" notnull="yes"></Column>
+			<Column columnName="DERIVATIVENUM" columnType="VARCHAR2(13)" originalColumnType="TY_VARCHAR2_1" label="客户衍生品合约账户" iskey="no" notnull="yes"></Column>
+			<Column columnName="CHECKTAG" columnType="CHAR(4)" originalColumnType="TY_CHECKTAG" label="检查标识" iskey="no" notnull="no"></Column>
+			<Column columnName="VHFLAG" columnType="CHAR(1)" originalColumnType="TY_ACCOUNTTYPE1" label="投机套保标志" iskey="no" notnull="yes"></Column>
+			<Column columnName="CURRENCY" columnType="CHAR(3)" originalColumnType="TY_DMSCURRENCY" label="币种" iskey="no" notnull="yes"></Column>
+			<Column columnName="INSTRUMENTID" columnType="VARCHAR2(30)" originalColumnType="TY_BASECONTRACTID" label="品种合约" iskey="no" notnull="yes"></Column>
+			<Column columnName="STRICKPRICE" columnType="NUMBER(20,9)" originalColumnType="TY_NUMBER_4" label="执行价" iskey="no" notnull="yes"></Column>
+			<Column columnName="MEMBERNUM" columnType="VARCHAR2(5)" originalColumnType="TY_COMMODITYID1" label="会员号" iskey="no" notnull="yes"></Column>
+			<Column columnName="BASEPRODUCTID" columnType="VARCHAR2(6)" originalColumnType="TY_VARCHAR2_2" label="标的品种" iskey="no" notnull="yes"></Column>
+			<Column columnName="POSITION" columnType="NUMBER(16)" originalColumnType="TY_NUMBER_2" label="持仓量" iskey="no" notnull="yes"></Column>
+			<Column columnName="BASECONTRACTID" columnType="VARCHAR2(30)" originalColumnType="TY_BASECONTRACTID" label="标的合约" iskey="no" notnull="yes"></Column>
+			<Column columnName="TRADEDATE" columnType="VARCHAR2(10)" originalColumnType="TY_ACCOUNT" label="日期" iskey="no" notnull="yes"></Column>
+			<Column columnName="YESSETTLEPRICE" columnType="NUMBER(20,3)" originalColumnType="TY_NUMBER_1" label="昨结算价" iskey="no" notnull="yes"></Column>
+		</Columns>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="D_CLROPTEXERDATA" isCreate="true" isDrop="false" description="衍生品行权明细文件" >
+		<Columns>
+			<Column columnName="BSFLAG" columnType="CHAR(1)" originalColumnType="TY_ACCOUNTTYPE1" label="买卖标志" iskey="no" notnull="yes"></Column>
+			<Column columnName="EXECDATE" columnType="VARCHAR2(10)" originalColumnType="TY_ACCOUNT" label="执行日期" iskey="no" notnull="yes"></Column>
+			<Column columnName="FREEZFUNDS" columnType="NUMBER(20,3)" originalColumnType="TY_NUMBER_1" label="冻结资金" iskey="no" notnull="yes"></Column>
+			<Column columnName="CPTYPE" columnType="CHAR(1)" originalColumnType="TY_ACCOUNTTYPE1" label="期权类型" iskey="no" notnull="yes"></Column>
+			<Column columnName="UPLOADDATE" columnType="CHAR(10)" originalColumnType="TY_ENDDATE" label="上报日期" iskey="no" notnull="no"></Column>
+			<Column columnName="EXECTIME" columnType="VARCHAR2(10)" originalColumnType="TY_ACCOUNT" label="执行时间" iskey="no" notnull="yes"></Column>
+			<Column columnName="DERIVATIVENUM" columnType="VARCHAR2(13)" originalColumnType="TY_VARCHAR2_1" label="客户衍生品合约账户" iskey="no" notnull="yes"></Column>
+			<Column columnName="CHECKTAG" columnType="CHAR(4)" originalColumnType="TY_CHECKTAG" label="检查标识" iskey="no" notnull="no"></Column>
+			<Column columnName="EXECFIXFUND" columnType="NUMBER(20,3)" originalColumnType="TY_NUMBER_1" label="行权锁定保证金" iskey="no" notnull="yes"></Column>
+			<Column columnName="VHFLAG" columnType="CHAR(1)" originalColumnType="TY_ACCOUNTTYPE1" label="投机套保标志" iskey="no" notnull="yes"></Column>
+			<Column columnName="EXECPRICE" columnType="NUMBER(20,9)" originalColumnType="TY_NUMBER_4" label="执行价" iskey="no" notnull="yes"></Column>
+			<Column columnName="CURRENCY" columnType="CHAR(3)" originalColumnType="TY_DMSCURRENCY" label="币种" iskey="no" notnull="yes"></Column>
+			<Column columnName="EXECFEE" columnType="NUMBER(20,3)" originalColumnType="TY_NUMBER_1" label="行权结算费（手续费）" iskey="no" notnull="yes"></Column>
+			<Column columnName="EXECNUM" columnType="NUMBER(16)" originalColumnType="TY_NUMBER_2" label="执行手数" iskey="no" notnull="yes"></Column>
+			<Column columnName="INSTRUMENTID" columnType="VARCHAR2(30)" originalColumnType="TY_BASECONTRACTID" label="品种合约" iskey="no" notnull="yes"></Column>
+			<Column columnName="TRANSNUM" columnType="VARCHAR2(16)" originalColumnType="TY_DATAPROVIDERNAME" label="流水号" iskey="no" notnull="yes"></Column>
+			<Column columnName="MEMBERNUM" columnType="VARCHAR2(5)" originalColumnType="TY_COMMODITYID1" label="会员号" iskey="no" notnull="yes"></Column>
+			<Column columnName="EXECPROFIT" columnType="NUMBER(15,3)" originalColumnType="TY_AMOUNT1" label="行权盈亏" iskey="no" notnull="yes"></Column>
+			<Column columnName="BASEPRODUCTID" columnType="VARCHAR2(6)" originalColumnType="TY_VARCHAR2_2" label="标的品种" iskey="no" notnull="yes"></Column>
+			<Column columnName="BASECONTRACTID" columnType="VARCHAR2(30)" originalColumnType="TY_BASECONTRACTID" label="标的合约" iskey="no" notnull="yes"></Column>
+			<Column columnName="TRADEDATE" columnType="VARCHAR2(10)" originalColumnType="TY_ACCOUNT" label="日期" iskey="no" notnull="yes"></Column>
+		</Columns>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="D_CLRSEFUND" isCreate="true" isDrop="false" description="现货资金文件" >
+		<Columns>
+			<Column columnName="SETTLEDATE" columnType="VARCHAR2(10)" originalColumnType="TY_ACCOUNT" label="交收日期" iskey="no" notnull="yes"></Column>
+			<Column columnName="SELLAMOUNT" columnType="NUMBER(20,3)" originalColumnType="TY_NUMBER_1" label="净卖金额" iskey="no" notnull="yes"></Column>
+			<Column columnName="HANDFEE" columnType="NUMBER(18,3)" originalColumnType="TY_ACCOUNTMORTGAGE" label="经手费" iskey="no" notnull="yes"></Column>
+			<Column columnName="MEMBERDATE" columnType="VARCHAR2(8)" originalColumnType="TY_COMMODITYID2" label="会员号" iskey="no" notnull="yes"></Column>
+			<Column columnName="SECFEE" columnType="NUMBER(18,3)" originalColumnType="TY_ACCOUNTMORTGAGE" label="证管费" iskey="no" notnull="yes"></Column>
+			<Column columnName="NOTE" columnType="VARCHAR2(40)" originalColumnType="TY_BANKACCOUNTNO" label="备注" iskey="no" notnull="no"></Column>
+			<Column columnName="UPLOADDATE" columnType="CHAR(10)" originalColumnType="TY_ENDDATE" label="上报日期" iskey="no" notnull="no"></Column>
+			<Column columnName="CLEARDATE" columnType="VARCHAR2(10)" originalColumnType="TY_ACCOUNT" label="清算日期" iskey="no" notnull="yes"></Column>
+			<Column columnName="CLEARAMOUNT" columnType="NUMBER(20,3)" originalColumnType="TY_NUMBER_1" label="清算金额" iskey="no" notnull="yes"></Column>
+			<Column columnName="TRANSFERFEE" columnType="NUMBER(18,3)" originalColumnType="TY_ACCOUNTMORTGAGE" label="过户费" iskey="no" notnull="yes"></Column>
+			<Column columnName="STAMPTAX" columnType="NUMBER(18,3)" originalColumnType="TY_ACCOUNTMORTGAGE" label="印花税" iskey="no" notnull="yes"></Column>
+			<Column columnName="CHECKTAG" columnType="CHAR(4)" originalColumnType="TY_CHECKTAG" label="检查标识" iskey="no" notnull="no"></Column>
+			<Column columnName="ACCOUNTNUM" columnType="VARCHAR2(25)" originalColumnType="TY_VARCHAR2_3" label="资金账户" iskey="no" notnull="yes"></Column>
+			<Column columnName="CURRENCY" columnType="CHAR(3)" originalColumnType="TY_DMSCURRENCY" label="币种" iskey="no" notnull="yes"></Column>
+			<Column columnName="BUYAMOUNT" columnType="NUMBER(20,3)" originalColumnType="TY_NUMBER_1" label="净买金额" iskey="no" notnull="yes"></Column>
+			<Column columnName="TODAYFUNDS" columnType="NUMBER(20,3)" originalColumnType="TY_NUMBER_1" label="当日资金余额" iskey="no" notnull="yes"></Column>
+			<Column columnName="ACTUALPAY" columnType="NUMBER(20,3)" originalColumnType="TY_NUMBER_1" label="实际收付" iskey="no" notnull="yes"></Column>
+			<Column columnName="LOWSETTLEMENT" columnType="NUMBER(20,3)" originalColumnType="TY_NUMBER_1" label="最低结算备付金" iskey="no" notnull="yes"></Column>
+			<Column columnName="OTHERFEES" columnType="NUMBER(18,3)" originalColumnType="TY_ACCOUNTMORTGAGE" label="其他费用" iskey="no" notnull="yes"></Column>
+			<Column columnName="TRADEDATE" columnType="VARCHAR2(10)" originalColumnType="TY_ACCOUNT" label="日期" iskey="no" notnull="yes"></Column>
+			<Column columnName="FEE" columnType="NUMBER(18,3)" originalColumnType="TY_ACCOUNTMORTGAGE" label="手续费" iskey="no" notnull="yes"></Column>
+		</Columns>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="D_CLRSETRDDATA" isCreate="true" isDrop="false" description="现货资金文件" >
+		<Columns>
+			<Column columnName="CHANGETYPE" columnType="VARCHAR2(3)" originalColumnType="TY_CURRENCY" label="变动类型" iskey="no" notnull="yes"></Column>
+			<Column columnName="PRICE" columnType="NUMBER(17,9)" originalColumnType="TY_NUMBER_3" label="成交价格" iskey="no" notnull="yes"></Column>
+			<Column columnName="SECURIACCOUNTID" columnType="VARCHAR2(10)" originalColumnType="TY_ACCOUNT" label="客户证券账户" iskey="no" notnull="yes"></Column>
+			<Column columnName="TRANSDATE" columnType="VARCHAR2(10)" originalColumnType="TY_ACCOUNT" label="成交日期" iskey="no" notnull="yes"></Column>
+			<Column columnName="ACCOUNTNUM" columnType="VARCHAR2(25)" originalColumnType="TY_VARCHAR2_3" label="资金账户号码" iskey="no" notnull="yes"></Column>
+			<Column columnName="VOLUMN" columnType="NUMBER(16)" originalColumnType="TY_NUMBER_2" label="成交数量" iskey="no" notnull="yes"></Column>
+			<Column columnName="RIGHTTYPE" columnType="CHAR(2)" originalColumnType="TY_BANKID1" label="权益类别" iskey="no" notnull="yes"></Column>
+			<Column columnName="EXCHANGEID" columnType="CHAR(2)" originalColumnType="TY_BANKID1" label="交易所统一标识" iskey="no" notnull="yes"></Column>
+			<Column columnName="TRADEDATE" columnType="VARCHAR2(10)" originalColumnType="TY_ACCOUNT" label="日期" iskey="no" notnull="yes"></Column>
+			<Column columnName="CIRCUTYPE" columnType="CHAR(1)" originalColumnType="TY_ACCOUNTTYPE1" label="流通类型" iskey="no" notnull="yes"></Column>
+			<Column columnName="FEE" columnType="NUMBER(18,3)" originalColumnType="TY_ACCOUNTMORTGAGE" label="手续费" iskey="no" notnull="yes"></Column>
+			<Column columnName="BSFLAG" columnType="CHAR(1)" originalColumnType="TY_ACCOUNTTYPE1" label="买卖标志" iskey="no" notnull="yes"></Column>
+			<Column columnName="HANDFEE" columnType="NUMBER(18,3)" originalColumnType="TY_ACCOUNTMORTGAGE" label="经手费" iskey="no" notnull="yes"></Column>
+			<Column columnName="MEMBERDATE" columnType="VARCHAR2(8)" originalColumnType="TY_COMMODITYID2" label="会员号" iskey="no" notnull="yes"></Column>
+			<Column columnName="SETTLEVOLUMN" columnType="NUMBER(16)" originalColumnType="TY_NUMBER_2" label="交收数量" iskey="no" notnull="yes"></Column>
+			<Column columnName="SECFEE" columnType="NUMBER(18,3)" originalColumnType="TY_ACCOUNTMORTGAGE" label="证管费" iskey="no" notnull="yes"></Column>
+			<Column columnName="TRADETRANSNUM" columnType="VARCHAR2(16)" originalColumnType="TY_DATAPROVIDERNAME" label="成交流水号" iskey="no" notnull="no"></Column>
+			<Column columnName="SECURICODE" columnType="VARCHAR2(6)" originalColumnType="TY_VARCHAR2_2" label="证券代码" iskey="no" notnull="yes"></Column>
+			<Column columnName="SECURITYPE" columnType="CHAR(2)" originalColumnType="TY_BANKID1" label="证券类别" iskey="no" notnull="yes"></Column>
+			<Column columnName="UPLOADDATE" columnType="CHAR(10)" originalColumnType="TY_ENDDATE" label="上报日期" iskey="no" notnull="no"></Column>
+			<Column columnName="CLEARAMOUNT" columnType="NUMBER(20,3)" originalColumnType="TY_NUMBER_1" label="清算金额" iskey="no" notnull="yes"></Column>
+			<Column columnName="TRANSFERFEE" columnType="NUMBER(18,3)" originalColumnType="TY_ACCOUNTMORTGAGE" label="过户费" iskey="no" notnull="yes"></Column>
+			<Column columnName="SECURINAME" columnType="VARCHAR2(30)" originalColumnType="TY_BASECONTRACTID" label="证券的中文简称" iskey="no" notnull="yes"></Column>
+			<Column columnName="STAMPTAX" columnType="NUMBER(18,3)" originalColumnType="TY_ACCOUNTMORTGAGE" label="印花税" iskey="no" notnull="yes"></Column>
+			<Column columnName="CHECKTAG" columnType="CHAR(4)" originalColumnType="TY_CHECKTAG" label="检查标识" iskey="no" notnull="no"></Column>
+			<Column columnName="CURRENCY" columnType="CHAR(3)" originalColumnType="TY_DMSCURRENCY" label="币种" iskey="no" notnull="yes"></Column>
+			<Column columnName="TRANSTIME" columnType="VARCHAR2(10)" originalColumnType="TY_ACCOUNT" label="成交时间" iskey="no" notnull="yes"></Column>
+			<Column columnName="OTHERFEES" columnType="NUMBER(18,3)" originalColumnType="TY_ACCOUNTMORTGAGE" label="其他费用" iskey="no" notnull="yes"></Column>
+			<Column columnName="HANGYEAR" columnType="VARCHAR2(4)" originalColumnType="TY_AMTYPE" label="挂牌年份" iskey="no" notnull="yes"></Column>
+		</Columns>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="D_CLRSEPOSDATA" isCreate="true" isDrop="false" description="现货持仓明细文件" >
+		<Columns>
+			<Column columnName="SECURIACCOUNTID" columnType="VARCHAR2(10)" originalColumnType="TY_ACCOUNT" label="客户证券账户" iskey="no" notnull="yes"></Column>
+			<Column columnName="SECURICODE" columnType="VARCHAR2(6)" originalColumnType="TY_VARCHAR2_2" label="证券代码" iskey="no" notnull="yes"></Column>
+			<Column columnName="SECURITYPE" columnType="CHAR(2)" originalColumnType="TY_BANKID1" label="证券类别" iskey="no" notnull="yes"></Column>
+			<Column columnName="UPLOADDATE" columnType="CHAR(10)" originalColumnType="TY_ENDDATE" label="上报日期" iskey="no" notnull="no"></Column>
+			<Column columnName="SECURINAME" columnType="VARCHAR2(30)" originalColumnType="TY_BASECONTRACTID" label="证券的中文简称" iskey="no" notnull="yes"></Column>
+			<Column columnName="CHECKTAG" columnType="CHAR(4)" originalColumnType="TY_CHECKTAG" label="检查标识" iskey="no" notnull="no"></Column>
+			<Column columnName="HPFLAG" columnType="CHAR(2)" originalColumnType="TY_BANKID1" label="交易所统一标识" iskey="no" notnull="yes"></Column>
+			<Column columnName="RIGHTTYPE" columnType="CHAR(2)" originalColumnType="TY_BANKID1" label="权益类别" iskey="no" notnull="yes"></Column>
+			<Column columnName="MEMBERNUM" columnType="VARCHAR2(8)" originalColumnType="TY_COMMODITYID2" label="会员号" iskey="no" notnull="yes"></Column>
+			<Column columnName="POSITION" columnType="NUMBER(16)" originalColumnType="TY_NUMBER_2" label="持仓量" iskey="no" notnull="yes"></Column>
+			<Column columnName="TRADEDATE" columnType="VARCHAR2(10)" originalColumnType="TY_ACCOUNT" label="日期" iskey="no" notnull="yes"></Column>
+			<Column columnName="CIRCUTYPE" columnType="CHAR(1)" originalColumnType="TY_ACCOUNTTYPE1" label="流通类型" iskey="no" notnull="yes"></Column>
+			<Column columnName="HANGYEAR" columnType="VARCHAR2(4)" originalColumnType="TY_AMTYPE" label="挂牌年份" iskey="no" notnull="yes"></Column>
+		</Columns>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="H_COMPAMASSETSDETAILS" isCreate="true" isDrop="false" description="资产管理非本公司经纪业务资金明细文件" >
+		<Columns>
+			<Column columnName="COMPCLIENTID" columnType="VARCHAR2(18)" originalColumnType="TY_COMPCLIENTID" label="客户内部资金账户" iskey="no" notnull="yes"></Column>
+			<Column columnName="CHECKTAG" columnType="CHAR(4)" originalColumnType="TY_CHECKTAG" label="检查标识" iskey="no" notnull="no"></Column>
+			<Column columnName="TODAYPROFIT" columnType="NUMBER(15,3)" originalColumnType="TY_AMOUNT1" label="当日盈亏" iskey="no" notnull="yes"></Column>
+			<Column columnName="CURRENCY" columnType="CHAR(3)" originalColumnType="TY_DMSCURRENCY" label="币种" iskey="no" notnull="yes"></Column>
+			<Column columnName="TODAYNETVALUE" columnType="NUMBER(15,3)" originalColumnType="TY_AMOUNT1" label="当日净值" iskey="no" notnull="yes"></Column>
+			<Column columnName="INVESTYPE" columnType="CHAR(4)" originalColumnType="TY_CHECKTAG" label="投资标的类型" iskey="no" notnull="yes"></Column>
+			<Column columnName="MORETYPE" columnType="CHAR(1)" originalColumnType="TY_ACCOUNTTYPE1" label="是否为特定多个客户资产管理计划" iskey="no" notnull="yes"></Column>
+			<Column columnName="UPLOADDATE" columnType="CHAR(10)" originalColumnType="TY_ENDDATE" label="上报日期" iskey="no" notnull="no"></Column>
+			<Column columnName="NOTES" columnType="VARCHAR2(40)" originalColumnType="TY_BANKACCOUNTNO" label="备注" iskey="no" notnull="no"></Column>
+			<Column columnName="TRADEDATE" columnType="VARCHAR2(10)" originalColumnType="TY_ACCOUNT" label="日期" iskey="no" notnull="yes"></Column>
+		</Columns>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="H_COMPSEFUND" isCreate="true" isDrop="false" description="客户证券现货资金文件" >
+		<Columns>
+			<Column columnName="HANDFEE" columnType="NUMBER(15,3)" originalColumnType="TY_AMOUNT1" label="经手费" iskey="no" notnull="yes"></Column>
+			<Column columnName="COMPSTOCKSPOTID" columnType="VARCHAR2(18)" originalColumnType="TY_COMPCLIENTID" label="客户证券现货内部资金账号" iskey="no" notnull="yes"></Column>
+			<Column columnName="SECFEE" columnType="NUMBER(15,3)" originalColumnType="TY_AMOUNT1" label="证管费" iskey="no" notnull="yes"></Column>
+			<Column columnName="MONEYIN" columnType="NUMBER(15,3)" originalColumnType="TY_AMOUNT1" label="入金合计" iskey="no" notnull="yes"></Column>
+			<Column columnName="TRANSFERFEE" columnType="NUMBER(15,3)" originalColumnType="TY_AMOUNT1" label="过户费" iskey="no" notnull="yes"></Column>
+			<Column columnName="UPLOADDATE" columnType="CHAR(10)" originalColumnType="TY_ENDDATE" label="上报日期" iskey="no" notnull="no"></Column>
+			<Column columnName="INTEREST" columnType="NUMBER(15,3)" originalColumnType="TY_AMOUNT1" label="利息" iskey="no" notnull="yes"></Column>
+			<Column columnName="STAMPTAX" columnType="NUMBER(15,3)" originalColumnType="TY_AMOUNT1" label="印花税" iskey="no" notnull="yes"></Column>
+			<Column columnName="SSTOCKTOTAL" columnType="NUMBER(15,3)" originalColumnType="TY_AMOUNT1" label="卖券金额合计" iskey="no" notnull="yes"></Column>
+			<Column columnName="CHECKTAG" columnType="CHAR(4)" originalColumnType="TY_CHECKTAG" label="检查标识" iskey="no" notnull="no"></Column>
+			<Column columnName="CURRENCY" columnType="CHAR(3)" originalColumnType="TY_DMSCURRENCY" label="币种" iskey="no" notnull="yes"></Column>
+			<Column columnName="MARKETVALUE" columnType="NUMBER(15,3)" originalColumnType="TY_AMOUNT1" label="股票市值" iskey="no" notnull="yes"></Column>
+			<Column columnName="TODAYFUNDS" columnType="NUMBER(15,3)" originalColumnType="TY_AMOUNT1" label="当日资金余额" iskey="no" notnull="yes"></Column>
+			<Column columnName="ACTUALPAY" columnType="NUMBER(15,3)" originalColumnType="TY_AMOUNT1" label="实际收付" iskey="no" notnull="yes"></Column>
+			<Column columnName="BSTOCKTOTAL" columnType="NUMBER(15,3)" originalColumnType="TY_AMOUNT1" label="买券金额合计" iskey="no" notnull="yes"></Column>
+			<Column columnName="YESTODAYFUNDS" columnType="NUMBER(15,3)" originalColumnType="TY_AMOUNT1" label="上日资金余额" iskey="no" notnull="yes"></Column>
+			<Column columnName="TOTALASSETS" columnType="NUMBER(15,3)" originalColumnType="TY_AMOUNT1" label="总资产" iskey="no" notnull="yes"></Column>
+			<Column columnName="OTHERFEES" columnType="NUMBER(15,3)" originalColumnType="TY_AMOUNT1" label="其他费用" iskey="no" notnull="yes"></Column>
+			<Column columnName="TODATAVALIFUNDS" columnType="NUMBER(15,3)" originalColumnType="TY_AMOUNT1" label="当日可用资金" iskey="no" notnull="yes"></Column>
+			<Column columnName="NOTES" columnType="VARCHAR2(40)" originalColumnType="TY_BANKACCOUNTNO" label="备注" iskey="no" notnull="no"></Column>
+			<Column columnName="TRADEDATE" columnType="VARCHAR2(10)" originalColumnType="TY_ACCOUNT" label="日期" iskey="no" notnull="yes"></Column>
+			<Column columnName="FEE" columnType="NUMBER(15,3)" originalColumnType="TY_AMOUNT1" label="手续费" iskey="no" notnull="yes"></Column>
+			<Column columnName="MONEYOUT" columnType="NUMBER(15,3)" originalColumnType="TY_AMOUNT1" label="出金合计" iskey="no" notnull="yes"></Column>
+		</Columns>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="H_COMPSETRDDATA" isCreate="true" isDrop="false" description="客户证券现货成交明细文件" >
+		<Columns>
+			<Column columnName="COMPSTOCKSPOTID" columnType="VARCHAR2(18)" originalColumnType="TY_COMPCLIENTID" label="客户证券现货内部资金账户" iskey="no" notnull="yes"></Column>
+			<Column columnName="CHANGETYPE" columnType="CHAR(3)" originalColumnType="TY_DMSCURRENCY" label="变动类型" iskey="no" notnull="yes"></Column>
+			<Column columnName="PRICE" columnType="NUMBER(17,9)" originalColumnType="TY_NUMBER_3" label="成交价格" iskey="no" notnull="yes"></Column>
+			<Column columnName="SECURIACCOUNTID" columnType="VARCHAR2(13)" originalColumnType="TY_VARCHAR2_1" label="客户证券账户" iskey="no" notnull="yes"></Column>
+			<Column columnName="TRANSDATE" columnType="CHAR(10)" originalColumnType="TY_ENDDATE" label="成交日期" iskey="no" notnull="yes"></Column>
+			<Column columnName="VOLUMN" columnType="NUMBER(16)" originalColumnType="TY_NUMBER_2" label="成交数量" iskey="no" notnull="yes"></Column>
+			<Column columnName="HPFLAG" columnType="CHAR(2)" originalColumnType="TY_BANKID1" label="交易所统一标识" iskey="no" notnull="yes"></Column>
+			<Column columnName="RIGHTTYPE" columnType="CHAR(2)" originalColumnType="TY_BANKID1" label="权益类别" iskey="no" notnull="yes"></Column>
+			<Column columnName="TRADEDATE" columnType="CHAR(10)" originalColumnType="TY_ENDDATE" label="日期" iskey="no" notnull="yes"></Column>
+			<Column columnName="CIRCUTYPE" columnType="CHAR(1)" originalColumnType="TY_ACCOUNTTYPE1" label="流通类型" iskey="no" notnull="yes"></Column>
+			<Column columnName="FEE" columnType="NUMBER(18,3)" originalColumnType="TY_ACCOUNTMORTGAGE" label="手续费" iskey="no" notnull="yes"></Column>
+			<Column columnName="BSFLAG" columnType="CHAR(1)" originalColumnType="TY_ACCOUNTTYPE1" label="买卖标志" iskey="no" notnull="yes"></Column>
+			<Column columnName="HANDFEE" columnType="NUMBER(18,3)" originalColumnType="TY_ACCOUNTMORTGAGE" label="经手费" iskey="no" notnull="yes"></Column>
+			<Column columnName="SECFEE" columnType="NUMBER(18,3)" originalColumnType="TY_ACCOUNTMORTGAGE" label="证管费" iskey="no" notnull="yes"></Column>
+			<Column columnName="SECURICODE" columnType="VARCHAR2(6)" originalColumnType="TY_VARCHAR2_2" label="证券代码" iskey="no" notnull="yes"></Column>
+			<Column columnName="SECURITYPE" columnType="CHAR(2)" originalColumnType="TY_BANKID1" label="证券类别" iskey="no" notnull="yes"></Column>
+			<Column columnName="AMOUNT" columnType="NUMBER(20,3)" originalColumnType="TY_NUMBER_1" label="成交金额" iskey="no" notnull="yes"></Column>
+			<Column columnName="UPLOADDATE" columnType="CHAR(10)" originalColumnType="TY_ENDDATE" label="上报日期" iskey="no" notnull="no"></Column>
+			<Column columnName="TRANSFERFEE" columnType="NUMBER(18,3)" originalColumnType="TY_ACCOUNTMORTGAGE" label="过户费" iskey="no" notnull="yes"></Column>
+			<Column columnName="STAMPTAX" columnType="NUMBER(18,3)" originalColumnType="TY_ACCOUNTMORTGAGE" label="印花税" iskey="no" notnull="yes"></Column>
+			<Column columnName="CHECKTAG" columnType="CHAR(4)" originalColumnType="TY_CHECKTAG" label="检查标识" iskey="no" notnull="no"></Column>
+			<Column columnName="CURRENCY" columnType="CHAR(3)" originalColumnType="TY_DMSCURRENCY" label="币种" iskey="no" notnull="yes"></Column>
+			<Column columnName="SECUTINAME" columnType="VARCHAR2(30)" originalColumnType="TY_BASECONTRACTID" label="证券的中文简称" iskey="no" notnull="yes"></Column>
+			<Column columnName="TRANSNUM" columnType="VARCHAR2(16)" originalColumnType="TY_DATAPROVIDERNAME" label="成交流水号" iskey="no" notnull="no"></Column>
+			<Column columnName="TRANSTIME" columnType="CHAR(10)" originalColumnType="TY_ENDDATE" label="成交时间" iskey="no" notnull="yes"></Column>
+			<Column columnName="OTHERFEES" columnType="NUMBER(20,3)" originalColumnType="TY_NUMBER_1" label="其他费用" iskey="no" notnull="yes"></Column>
+			<Column columnName="HANGYEAR" columnType="CHAR(4)" originalColumnType="TY_CHECKTAG" label="挂牌年份" iskey="no" notnull="yes"></Column>
+		</Columns>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="H_COMPSEPOSDATA" isCreate="true" isDrop="false" description="客户现货持仓明细文件" >
+		<Columns>
+			<Column columnName="POSPRICE" columnType="NUMBER(20,3)" originalColumnType="TY_NUMBER_1" label="持仓成本价" iskey="no" notnull="yes"></Column>
+			<Column columnName="COMPSTOCKSPOTID" columnType="VARCHAR2(18)" originalColumnType="TY_COMPCLIENTID" label="客户内部资金账号（证券现货账户）" iskey="no" notnull="yes"></Column>
+			<Column columnName="SECURIACCOUNTID" columnType="VARCHAR2(13)" originalColumnType="TY_VARCHAR2_1" label="客户证券账户" iskey="no" notnull="yes"></Column>
+			<Column columnName="SECURICODE" columnType="VARCHAR2(6)" originalColumnType="TY_VARCHAR2_2" label="证券代码" iskey="no" notnull="yes"></Column>
+			<Column columnName="POSPROFIT" columnType="NUMBER(20,3)" originalColumnType="TY_NUMBER_1" label="持仓浮动盈亏" iskey="no" notnull="yes"></Column>
+			<Column columnName="SECURITYPE" columnType="CHAR(2)" originalColumnType="TY_BANKID1" label="证券类别" iskey="no" notnull="yes"></Column>
+			<Column columnName="UPLOADDATE" columnType="CHAR(10)" originalColumnType="TY_ENDDATE" label="上报日期" iskey="no" notnull="no"></Column>
+			<Column columnName="AVAILABLEPOS" columnType="NUMBER(16)" originalColumnType="TY_NUMBER_2" label="持仓可用量" iskey="no" notnull="yes"></Column>
+			<Column columnName="CHECKTAG" columnType="CHAR(4)" originalColumnType="TY_CHECKTAG" label="检查标识" iskey="no" notnull="no"></Column>
+			<Column columnName="MARKETVALUE" columnType="NUMBER(20,3)" originalColumnType="TY_NUMBER_1" label="市值" iskey="no" notnull="yes"></Column>
+			<Column columnName="SECUTINAME" columnType="VARCHAR2(30)" originalColumnType="TY_BASECONTRACTID" label="证券的中文简称" iskey="no" notnull="yes"></Column>
+			<Column columnName="HPFLAG" columnType="CHAR(2)" originalColumnType="TY_BANKID1" label="交易所统一标识" iskey="no" notnull="yes"></Column>
+			<Column columnName="RIGHTTYPE" columnType="CHAR(2)" originalColumnType="TY_BANKID1" label="权益类别" iskey="no" notnull="yes"></Column>
+			<Column columnName="POSITION" columnType="NUMBER(16)" originalColumnType="TY_NUMBER_2" label="当日持仓量" iskey="no" notnull="yes"></Column>
+			<Column columnName="TRADEDATE" columnType="CHAR(10)" originalColumnType="TY_ENDDATE" label="日期" iskey="no" notnull="yes"></Column>
+			<Column columnName="POSNEWPIRCE" columnType="NUMBER(20,3)" originalColumnType="TY_NUMBER_1" label="持仓最新价" iskey="no" notnull="yes"></Column>
+			<Column columnName="CIRCUTYPE" columnType="CHAR(1)" originalColumnType="TY_ACCOUNTTYPE1" label="流通类型" iskey="no" notnull="yes"></Column>
+			<Column columnName="HANGYEAR" columnType="CHAR(4)" originalColumnType="TY_CHECKTAG" label="挂牌年份" iskey="no" notnull="yes"></Column>
+		</Columns>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="D_COMPAMASSETSDETAILS" isCreate="true" isDrop="false" description="资产管理非本公司经纪业务资金明细文件" >
+		<Columns>
+			<Column columnName="COMPCLIENTID" columnType="VARCHAR2(18)" originalColumnType="TY_COMPCLIENTID" label="客户内部资金账户" iskey="no" notnull="yes"></Column>
+			<Column columnName="CHECKTAG" columnType="CHAR(4)" originalColumnType="TY_CHECKTAG" label="检查标识" iskey="no" notnull="no"></Column>
+			<Column columnName="TODAYPROFIT" columnType="NUMBER(15,3)" originalColumnType="TY_AMOUNT1" label="当日盈亏" iskey="no" notnull="yes"></Column>
+			<Column columnName="CURRENCY" columnType="CHAR(3)" originalColumnType="TY_DMSCURRENCY" label="币种" iskey="no" notnull="yes"></Column>
+			<Column columnName="TODAYNETVALUE" columnType="NUMBER(15,3)" originalColumnType="TY_AMOUNT1" label="当日净值" iskey="no" notnull="yes"></Column>
+			<Column columnName="INVESTYPE" columnType="CHAR(4)" originalColumnType="TY_CHECKTAG" label="投资标的类型" iskey="no" notnull="yes"></Column>
+			<Column columnName="MORETYPE" columnType="CHAR(1)" originalColumnType="TY_ACCOUNTTYPE1" label="是否为特定多个客户资产管理计划" iskey="no" notnull="yes"></Column>
+			<Column columnName="UPLOADDATE" columnType="CHAR(10)" originalColumnType="TY_ENDDATE" label="上报日期" iskey="no" notnull="no"></Column>
+			<Column columnName="NOTES" columnType="VARCHAR2(40)" originalColumnType="TY_BANKACCOUNTNO" label="备注" iskey="no" notnull="no"></Column>
+			<Column columnName="TRADEDATE" columnType="VARCHAR2(10)" originalColumnType="TY_ACCOUNT" label="日期" iskey="no" notnull="yes"></Column>
+		</Columns>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="D_COMPSEFUND" isCreate="true" isDrop="false" description="客户证券现货资金文件" >
+		<Columns>
+			<Column columnName="HANDFEE" columnType="NUMBER(15,3)" originalColumnType="TY_AMOUNT1" label="经手费" iskey="no" notnull="yes"></Column>
+			<Column columnName="COMPSTOCKSPOTID" columnType="VARCHAR2(18)" originalColumnType="TY_COMPCLIENTID" label="客户证券现货内部资金账号" iskey="no" notnull="yes"></Column>
+			<Column columnName="SECFEE" columnType="NUMBER(15,3)" originalColumnType="TY_AMOUNT1" label="证管费" iskey="no" notnull="yes"></Column>
+			<Column columnName="MONEYIN" columnType="NUMBER(15,3)" originalColumnType="TY_AMOUNT1" label="入金合计" iskey="no" notnull="yes"></Column>
+			<Column columnName="TRANSFERFEE" columnType="NUMBER(15,3)" originalColumnType="TY_AMOUNT1" label="过户费" iskey="no" notnull="yes"></Column>
+			<Column columnName="UPLOADDATE" columnType="CHAR(10)" originalColumnType="TY_ENDDATE" label="上报日期" iskey="no" notnull="no"></Column>
+			<Column columnName="INTEREST" columnType="NUMBER(15,3)" originalColumnType="TY_AMOUNT1" label="利息" iskey="no" notnull="yes"></Column>
+			<Column columnName="STAMPTAX" columnType="NUMBER(15,3)" originalColumnType="TY_AMOUNT1" label="印花税" iskey="no" notnull="yes"></Column>
+			<Column columnName="SSTOCKTOTAL" columnType="NUMBER(15,3)" originalColumnType="TY_AMOUNT1" label="卖券金额合计" iskey="no" notnull="yes"></Column>
+			<Column columnName="CHECKTAG" columnType="CHAR(4)" originalColumnType="TY_CHECKTAG" label="检查标识" iskey="no" notnull="no"></Column>
+			<Column columnName="CURRENCY" columnType="CHAR(3)" originalColumnType="TY_DMSCURRENCY" label="币种" iskey="no" notnull="yes"></Column>
+			<Column columnName="MARKETVALUE" columnType="NUMBER(15,3)" originalColumnType="TY_AMOUNT1" label="股票市值" iskey="no" notnull="yes"></Column>
+			<Column columnName="TODAYFUNDS" columnType="NUMBER(15,3)" originalColumnType="TY_AMOUNT1" label="当日资金余额" iskey="no" notnull="yes"></Column>
+			<Column columnName="ACTUALPAY" columnType="NUMBER(15,3)" originalColumnType="TY_AMOUNT1" label="实际收付" iskey="no" notnull="yes"></Column>
+			<Column columnName="BSTOCKTOTAL" columnType="NUMBER(15,3)" originalColumnType="TY_AMOUNT1" label="买券金额合计" iskey="no" notnull="yes"></Column>
+			<Column columnName="YESTODAYFUNDS" columnType="NUMBER(15,3)" originalColumnType="TY_AMOUNT1" label="上日资金余额" iskey="no" notnull="yes"></Column>
+			<Column columnName="TOTALASSETS" columnType="NUMBER(15,3)" originalColumnType="TY_AMOUNT1" label="总资产" iskey="no" notnull="yes"></Column>
+			<Column columnName="OTHERFEES" columnType="NUMBER(15,3)" originalColumnType="TY_AMOUNT1" label="其他费用" iskey="no" notnull="yes"></Column>
+			<Column columnName="TODATAVALIFUNDS" columnType="NUMBER(15,3)" originalColumnType="TY_AMOUNT1" label="当日可用资金" iskey="no" notnull="yes"></Column>
+			<Column columnName="NOTES" columnType="VARCHAR2(40)" originalColumnType="TY_BANKACCOUNTNO" label="备注" iskey="no" notnull="no"></Column>
+			<Column columnName="TRADEDATE" columnType="VARCHAR2(10)" originalColumnType="TY_ACCOUNT" label="日期" iskey="no" notnull="yes"></Column>
+			<Column columnName="FEE" columnType="NUMBER(15,3)" originalColumnType="TY_AMOUNT1" label="手续费" iskey="no" notnull="yes"></Column>
+			<Column columnName="MONEYOUT" columnType="NUMBER(15,3)" originalColumnType="TY_AMOUNT1" label="出金合计" iskey="no" notnull="yes"></Column>
+		</Columns>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="D_COMPSETRDDATA" isCreate="true" isDrop="false" description="客户证券现货成交明细文件" >
+		<Columns>
+			<Column columnName="COMPSTOCKSPOTID" columnType="VARCHAR2(18)" originalColumnType="TY_COMPCLIENTID" label="客户证券现货内部资金账户" iskey="no" notnull="yes"></Column>
+			<Column columnName="CHANGETYPE" columnType="CHAR(3)" originalColumnType="TY_DMSCURRENCY" label="变动类型" iskey="no" notnull="yes"></Column>
+			<Column columnName="PRICE" columnType="NUMBER(17,9)" originalColumnType="TY_NUMBER_3" label="成交价格" iskey="no" notnull="yes"></Column>
+			<Column columnName="SECURIACCOUNTID" columnType="VARCHAR2(13)" originalColumnType="TY_VARCHAR2_1" label="客户证券账户" iskey="no" notnull="yes"></Column>
+			<Column columnName="TRANSDATE" columnType="CHAR(10)" originalColumnType="TY_ENDDATE" label="成交日期" iskey="no" notnull="yes"></Column>
+			<Column columnName="VOLUMN" columnType="NUMBER(16)" originalColumnType="TY_NUMBER_2" label="成交数量" iskey="no" notnull="yes"></Column>
+			<Column columnName="HPFLAG" columnType="CHAR(2)" originalColumnType="TY_BANKID1" label="交易所统一标识" iskey="no" notnull="yes"></Column>
+			<Column columnName="RIGHTTYPE" columnType="CHAR(2)" originalColumnType="TY_BANKID1" label="权益类别" iskey="no" notnull="yes"></Column>
+			<Column columnName="TRADEDATE" columnType="CHAR(10)" originalColumnType="TY_ENDDATE" label="日期" iskey="no" notnull="yes"></Column>
+			<Column columnName="CIRCUTYPE" columnType="CHAR(1)" originalColumnType="TY_ACCOUNTTYPE1" label="流通类型" iskey="no" notnull="yes"></Column>
+			<Column columnName="FEE" columnType="NUMBER(18,3)" originalColumnType="TY_ACCOUNTMORTGAGE" label="手续费" iskey="no" notnull="yes"></Column>
+			<Column columnName="BSFLAG" columnType="CHAR(1)" originalColumnType="TY_ACCOUNTTYPE1" label="买卖标志" iskey="no" notnull="yes"></Column>
+			<Column columnName="HANDFEE" columnType="NUMBER(18,3)" originalColumnType="TY_ACCOUNTMORTGAGE" label="经手费" iskey="no" notnull="yes"></Column>
+			<Column columnName="SECFEE" columnType="NUMBER(18,3)" originalColumnType="TY_ACCOUNTMORTGAGE" label="证管费" iskey="no" notnull="yes"></Column>
+			<Column columnName="SECURICODE" columnType="VARCHAR2(6)" originalColumnType="TY_VARCHAR2_2" label="证券代码" iskey="no" notnull="yes"></Column>
+			<Column columnName="SECURITYPE" columnType="CHAR(2)" originalColumnType="TY_BANKID1" label="证券类别" iskey="no" notnull="yes"></Column>
+			<Column columnName="AMOUNT" columnType="NUMBER(20,3)" originalColumnType="TY_NUMBER_1" label="成交金额" iskey="no" notnull="yes"></Column>
+			<Column columnName="UPLOADDATE" columnType="CHAR(10)" originalColumnType="TY_ENDDATE" label="上报日期" iskey="no" notnull="no"></Column>
+			<Column columnName="TRANSFERFEE" columnType="NUMBER(18,3)" originalColumnType="TY_ACCOUNTMORTGAGE" label="过户费" iskey="no" notnull="yes"></Column>
+			<Column columnName="STAMPTAX" columnType="NUMBER(18,3)" originalColumnType="TY_ACCOUNTMORTGAGE" label="印花税" iskey="no" notnull="yes"></Column>
+			<Column columnName="CHECKTAG" columnType="CHAR(4)" originalColumnType="TY_CHECKTAG" label="检查标识" iskey="no" notnull="no"></Column>
+			<Column columnName="CURRENCY" columnType="CHAR(3)" originalColumnType="TY_DMSCURRENCY" label="币种" iskey="no" notnull="yes"></Column>
+			<Column columnName="SECUTINAME" columnType="VARCHAR2(30)" originalColumnType="TY_BASECONTRACTID" label="证券的中文简称" iskey="no" notnull="yes"></Column>
+			<Column columnName="TRANSNUM" columnType="VARCHAR2(16)" originalColumnType="TY_DATAPROVIDERNAME" label="成交流水号" iskey="no" notnull="no"></Column>
+			<Column columnName="TRANSTIME" columnType="CHAR(10)" originalColumnType="TY_ENDDATE" label="成交时间" iskey="no" notnull="yes"></Column>
+			<Column columnName="OTHERFEES" columnType="NUMBER(20,3)" originalColumnType="TY_NUMBER_1" label="其他费用" iskey="no" notnull="yes"></Column>
+			<Column columnName="HANGYEAR" columnType="CHAR(4)" originalColumnType="TY_CHECKTAG" label="挂牌年份" iskey="no" notnull="yes"></Column>
+		</Columns>
+		<Index>
+		</Index>
+	</Table>
+	<Table name="D_COMPSEPOSDATA" isCreate="true" isDrop="false" description="客户现货持仓明细文件" >
+		<Columns>
+			<Column columnName="POSPRICE" columnType="NUMBER(20,3)" originalColumnType="TY_NUMBER_1" label="持仓成本价" iskey="no" notnull="yes"></Column>
+			<Column columnName="COMPSTOCKSPOTID" columnType="VARCHAR2(18)" originalColumnType="TY_COMPCLIENTID" label="客户内部资金账号（证券现货账户）" iskey="no" notnull="yes"></Column>
+			<Column columnName="SECURIACCOUNTID" columnType="VARCHAR2(13)" originalColumnType="TY_VARCHAR2_1" label="客户证券账户" iskey="no" notnull="yes"></Column>
+			<Column columnName="SECURICODE" columnType="VARCHAR2(6)" originalColumnType="TY_VARCHAR2_2" label="证券代码" iskey="no" notnull="yes"></Column>
+			<Column columnName="POSPROFIT" columnType="NUMBER(20,3)" originalColumnType="TY_NUMBER_1" label="持仓浮动盈亏" iskey="no" notnull="yes"></Column>
+			<Column columnName="SECURITYPE" columnType="CHAR(2)" originalColumnType="TY_BANKID1" label="证券类别" iskey="no" notnull="yes"></Column>
+			<Column columnName="UPLOADDATE" columnType="CHAR(10)" originalColumnType="TY_ENDDATE" label="上报日期" iskey="no" notnull="no"></Column>
+			<Column columnName="AVAILABLEPOS" columnType="NUMBER(16)" originalColumnType="TY_NUMBER_2" label="持仓可用量" iskey="no" notnull="yes"></Column>
+			<Column columnName="CHECKTAG" columnType="CHAR(4)" originalColumnType="TY_CHECKTAG" label="检查标识" iskey="no" notnull="no"></Column>
+			<Column columnName="MARKETVALUE" columnType="NUMBER(20,3)" originalColumnType="TY_NUMBER_1" label="市值" iskey="no" notnull="yes"></Column>
+			<Column columnName="SECUTINAME" columnType="VARCHAR2(30)" originalColumnType="TY_BASECONTRACTID" label="证券的中文简称" iskey="no" notnull="yes"></Column>
+			<Column columnName="HPFLAG" columnType="CHAR(2)" originalColumnType="TY_BANKID1" label="交易所统一标识" iskey="no" notnull="yes"></Column>
+			<Column columnName="RIGHTTYPE" columnType="CHAR(2)" originalColumnType="TY_BANKID1" label="权益类别" iskey="no" notnull="yes"></Column>
+			<Column columnName="POSITION" columnType="NUMBER(16)" originalColumnType="TY_NUMBER_2" label="当日持仓量" iskey="no" notnull="yes"></Column>
+			<Column columnName="TRADEDATE" columnType="CHAR(10)" originalColumnType="TY_ENDDATE" label="日期" iskey="no" notnull="yes"></Column>
+			<Column columnName="POSNEWPIRCE" columnType="NUMBER(20,3)" originalColumnType="TY_NUMBER_1" label="持仓最新价" iskey="no" notnull="yes"></Column>
+			<Column columnName="CIRCUTYPE" columnType="CHAR(1)" originalColumnType="TY_ACCOUNTTYPE1" label="流通类型" iskey="no" notnull="yes"></Column>
+			<Column columnName="HANGYEAR" columnType="CHAR(4)" originalColumnType="TY_CHECKTAG" label="挂牌年份" iskey="no" notnull="yes"></Column>
+		</Columns>
+		<Index>
+		</Index>
+	</Table>
+</Tables>
