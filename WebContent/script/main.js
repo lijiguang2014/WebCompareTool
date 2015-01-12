@@ -105,7 +105,7 @@ function fillHistoryList(data, status) {
 	var totalPages = data.totalPages;
 	var histories = data.recordList;
 	$("#historyDetailList").empty();
-	$("#historyDetailList").append("<tr><th class=\"versionTitle\">版本号</th><th class=\"compareDateTitle\">比对日期</th><th class=\"templateTitle\">模板</th><th class=\"scriptTitle\">alter脚本</th><th class=\"reportTitle\">比对报告</th></tr>");
+	$("#historyDetailList").append("<tr><th class=\"versionTitle\">版本号</th><th class=\"compareDateTitle\">比对日期</th><th class=\"templateTitle\">模板</th><th class=\"middleResultTitle\">中间结果</th><th class=\"scriptTitle\">alter脚本</th><th class=\"reportTitle\">比对报告</th></tr>");
 	var historyContent = "";
 	$.each(histories, function(i, history) {
 		historyContent += "<tr><td class=\"version\">" + history.version + "</td>"
