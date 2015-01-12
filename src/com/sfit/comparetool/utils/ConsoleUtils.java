@@ -15,15 +15,20 @@ public class ConsoleUtils {
             System.out.println("shellString: " + shellString);
             BufferedReader br = new BufferedReader(new InputStreamReader(process.getInputStream()), 4096);
             String line = null;
-            while ( (line = br.readLine()) != null)
-            System.out.println(line);
+            boolean isSuccess = true;
+            while ( (line = br.readLine()) != null) {
+            	if (line.contains("failed")) {
+            		isSuccess = false;
+            	}
+            	System.out.println(line);
+            }
             int exitValue = process.waitFor();  
             if (0 != exitValue) { 
             	 log.error(shellString);
             	 log.error("call shell failed. error code is :" + exitValue);  
             	 return false;
             }  
-            return true;
+            return true&&isSuccess;
         } catch (Throwable e) {  
         	log.error("call shell failed. " + e);
         	return false;

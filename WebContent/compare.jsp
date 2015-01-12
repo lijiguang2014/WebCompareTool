@@ -198,9 +198,9 @@
 					if (data.success == "1") {
 						var latestHistory = data.latestHistory;
 						var content = "";
-						content += "<tr><td>比对日期</td><td>模板</td><td>alter脚本</td><td>比对报告</td><td>操作</td></tr>";
+						content += "<tr><td>比对日期</td><td>模板</td><td>中间结果</td><td>alter脚本</td><td>比对报告</td><td>操作</td></tr>";
 						content += "<tr><td>" + latestHistory.compareDate + "</td><td>" + getFileNameFromFilePath(latestHistory.templateFilePath)
-						+ "</td><td>" + "<a href=\"${pageContext.request.contextPath}/downloadFile.do?filePath=" + latestHistory.alterSqlFilePath + "\">" 
+						+ "</td><td>" + "<a href=\"downloadFile.do?filePath=" + latestHistory.alterSqlFilePath + "\">" 
 						+ getFileNameFromFilePath(latestHistory.alterSqlFilePath) + "</a>" + "</td><td>" 
 						+ "<a href=\"javascript:void(0)\" onclick=\"displayReport(\'" + latestHistory.reportFilePath + "\')\">" 
 						+getFileNameFromFilePath(latestHistory.reportFilePath) + "</a></td>";
@@ -215,6 +215,7 @@
 						$("#srcFilePath").val(latestHistory.srcFilePath);
 						$("#targetFilePath").val(latestHistory.targetFilePath);
 						$("#templateFilePath").val(latestHistory.templateFilePath);
+						$("#middleResultFilePath").val(latestHistory.middleResultFilePath);
 						$("#alterSqlFilePath").val(latestHistory.alterSqlFilePath);
 						$("#reportFilePath").val(latestHistory.reportFilePath);
 						$("#status").val(latestHistory.status);

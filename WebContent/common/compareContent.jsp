@@ -75,6 +75,7 @@
 					<input id="srcFilePath" name="srcFilePath" type="hidden"/>
 					<input id="targetFilePath" name="targetFilePath" type="hidden"/>
 					<input id="templateFilePath" name="templateFilePath" type="hidden"/>
+					<input id="middleResultFilePath" name="middleResultFilePath" type="hidden"/>
 					<input id="alterSqlFilePath" name="alterSqlFilePath" type="hidden"/>
 					<input id="reportFilePath" name="reportFilePath" type="hidden"/>
 					<input id="status" name="status" type="hidden"/>

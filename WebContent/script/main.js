@@ -65,9 +65,11 @@ function updateLatestHistoryForStable(latestHistory) {
 	var latestHistoryContent = "";
 	latestHistoryContent += "<tr><td class=\"versionTitle\">版本号</td><td class=\"compareDateTitle\">比对日期</td><td class=\"templateTitle\">模板</td><td class=\"scriptTitle\">alter脚本</td><td class=\"reportTitle\">比对报告</td></tr>";
 	latestHistoryContent += "<tr><td class=\"version\">" + latestHistory.version + "</td>" 
-							+"<td class=\"compareDate\">" + latestHistory.compareDate + "</td>" 
-							+"<td class=\"template\">" + getFileNameFromFilePath(latestHistory.templateFilePath) + "</td>"
-							+"<td class=\"script\">" + "<a href=\"${pageContext.request.contextPath}/downloadFile.do?filePath=" + latestHistory.alterSqlFilePath + "\">" 
+							+ "<td class=\"compareDate\">" + latestHistory.compareDate + "</td>" 
+							+ "<td class=\"template\">" + getFileNameFromFilePath(latestHistory.templateFilePath) + "</td>"
+							+ "<td class=\"middleResult\">" + "<a href=\"downloadFile.do?filePath=" + latestHistory.middleResultFilePath + "\">"
+							+ getFileNameFromFilePath(latestHistory.middleResultFilePath) + "</a></td>"
+							+ "<td class=\"script\">" + "<a href=\"downloadFile.do?filePath=" + latestHistory.alterSqlFilePath + "\">" 
 							+ getFileNameFromFilePath(latestHistory.alterSqlFilePath) + "</a></td>" +
 							"<td class=\"report\">" + "<a href=\"javascript:void(0)\" onclick=\"displayReport(\'"+latestHistory.reportFilePath+"\')\">"+getFileNameFromFilePath(latestHistory.reportFilePath)+ "</a></td></tr>";
 	$("#latestHistoryForStable").empty();
@@ -108,8 +110,10 @@ function fillHistoryList(data, status) {
 	$.each(histories, function(i, history) {
 		historyContent += "<tr><td class=\"version\">" + history.version + "</td>"
 		+ "<td class=\"compareDate\">" + history.compareDate + "</td>" 
-		+ "<td class=\"template\">" + getFileNameFromFilePath(history.templateFilePath)
-		+ "</td><td class=\"script\">" + "<a href=\"downloadFile.do?filePath=" + history.alterSqlFilePath + "\">" 
+		+ "<td class=\"template\">" + getFileNameFromFilePath(history.templateFilePath)+ "</td>" 
+		+ "<td class=\"middleResult\">" + "<a href=\"downloadFile.do?filePath=" + history.middleResultFilePath + "\">"
+		+ getFilenameFromFilePath(history.middleResultFilePath) +"</a></td>"
+		+ "<td class=\"script\">" + "<a href=\"downloadFile.do?filePath=" + history.alterSqlFilePath + "\">" 
 		+ getFileNameFromFilePath(history.alterSqlFilePath) + "</a></td><td class=\"report\">" 
 		+ "<a href=\"showReport.do?reportPath="+history.reportFilePath+"\">"
 		+"<img src='images/terminal.gif'>" + "</a></td></tr>";

@@ -110,12 +110,15 @@ public class CompareController {
 			
 			String uploadTargetFilePath = basePath + targetFileRelativePath;
 			
-			String middleResultDirectoryPath = basePath + "xmlMiddleReuslt/";
+			String middleResultDirectoryPath = basePath + "result/xmlMiddleReuslt/";
 			File middleResultDirectory = new File(middleResultDirectoryPath);
 			if (!middleResultDirectory.exists()) {
 				middleResultDirectory.mkdirs();
 			}
-			String middleResultPath = middleResultDirectoryPath + dateStr + ".xml";
+			
+			String middleResultRelativePath = "result/xmlMiddleResult/" + dateStr + ".xml";
+			String middleResultPath = basePath + middleResultRelativePath;
+			
 			
 			String reportFileRelativePath = "result/report/" + dateStr + ".txt";
 			String reportFilePath = basePath + reportFileRelativePath;
@@ -149,11 +152,10 @@ public class CompareController {
 			}
 			
 			//调用Pump解析xml中间结果生成alter脚本
-			String finalResultRelativePath = "result/temp/alterScript/" + dateStr + ".sql";
-			String finalResultPath = basePath + finalResultRelativePath;
-			String alterTemplatePath = basePath + PropertiesUtils.getTemplatePath(projectName);
+			String finalResultRelativePath = "result/alterScript/" + dateStr + ".sql";
+			String alterTemplateRelativePath = PropertiesUtils.getTemplatePath(projectName);
 			String shellString = "cmd /c " + basePath + "script/bat/createAlterScript.bat " 
-						+ finalResultPath + " " + alterTemplatePath + " " + middleResultPath;
+						+ finalResultRelativePath + " " + alterTemplateRelativePath + " " + middleResultRelativePath;
 			boolean isSuccess = ConsoleUtils.callShell(shellString);
 			if(!isSuccess) {
 				result.put("success", "0");
@@ -168,6 +170,7 @@ public class CompareController {
 			history.setSrcFilePath(sourceFileRelativePath);
 			history.setTargetFilePath(targetFileRelativePath);
 			history.setTemplateFilePath(PropertiesUtils.getTemplatePath(projectName));
+			history.setMiddleResultFilePath(middleResultRelativePath);
 			history.setAlterSqlFilePath(finalResultRelativePath);
 			history.setReportFilePath(reportFileRelativePath);
 			history.setStatus("0");

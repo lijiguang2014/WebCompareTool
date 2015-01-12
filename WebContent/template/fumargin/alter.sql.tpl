@@ -25,7 +25,7 @@ alter table !!@tableName!! drop index !!@indexName!!;
 		!!endif!!
 		!!next!!
 		!!travel Adds!!
-alter table !!@tableName!! add column !!@columnName!! !!@typeName!! !!if !strcmp(@notnull, "true")!! not null !!endif!! !!if !strcmp(@iskey, "true")!! primary key!!endif!!;
+alter table !!@tableName!! add(!!@columnName!! !!@typeName!! !!if !strcmp(@notnull, "true")!! not null !!endif!! !!if !strcmp(@iskey, "true")!! primary key!!endif!!);
 		!!next!!
 		!!travel Alters!!
 			!!if !strcmp(@type, "cloumnType")!!

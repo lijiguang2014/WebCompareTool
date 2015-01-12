@@ -7,5 +7,5 @@
     <updateXml>true</updateXml>
     <warLocation></warLocation>
     <extraInfo></extraInfo>
-    <webPath>comparetool</webPath>
+    <webPath>comparetool1</webPath>
 </tomcatProjectProperties>
