@@ -164,6 +164,11 @@ public class CompareController {
 			
 			//调用Pump解析xml中间结果生成alter脚本
 			String finalResultRelativePath = "result/alterScript/" + dateStr + ".sql";
+			File finalResultDirectory = new File(basePath + "result/alterScript/");
+			if (!finalResultDirectory.exists()) {
+				finalResultDirectory.mkdirs();
+			}
+			
 			String alterTemplatePath = PropertiesUtils.getTemplatePath(projectName);
 			String middleResultRelativePath = "result/xmlMiddleReuslt/" + dateStr + ".xml";
 			String shellString = "cmd /c " + basePath + "script/bat/createAlterScript.bat " 
